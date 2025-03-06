@@ -1,0 +1,35 @@
+{
+    "kind": "collectionType",
+    "collectionName": "programs",
+    "info": {
+        "singularName": "program",
+        "pluralName": "programs",
+        "displayName": "Program"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text",
+            "maxLength": 300
+        },
+        "about": {
+            "type": "blocks"
+        },
+        "banner_image": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "title"
+        }
+    }
+}

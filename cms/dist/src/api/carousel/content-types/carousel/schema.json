@@ -1,0 +1,28 @@
+{
+    "kind": "collectionType",
+    "collectionName": "carousels",
+    "info": {
+        "singularName": "carousel",
+        "pluralName": "carousels",
+        "displayName": "Carousel"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text",
+            "maxLength": 300
+        },
+        "image": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}
