@@ -160,8 +160,7 @@
 .page-header {
   padding-top: 12rem;
   padding-bottom: 6rem;
-  background: linear-gradient(rgba(0, 29, 35, 0.8), rgba(0, 29, 35, 0.8)),
-    url(../img/carousel-1.jpg) center center no-repeat;
+  background: linear-gradient(rgba(0, 29, 35, 0.8), rgba(0, 29, 35, 0.8));
   background-size: cover;
 }
 
