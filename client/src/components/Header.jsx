@@ -58,7 +58,7 @@ function Header() {
         className="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn"
         data-wow-delay="0.1s"
       >
-        <a href="/" className="navbar-brand ms-4 ms-lg-0">
+        <Link to="/" className="navbar-brand ms-4 ms-lg-0">
           <img
             src="/src/assets/logo/logo.png"
             className="d-none d-lg-block"
@@ -74,7 +74,7 @@ function Header() {
             width="180"
             alt=""
           />
-        </a>
+        </Link>
         <button
           type="button"
           className="navbar-toggler me-4"
@@ -85,9 +85,9 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <div className="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" className="nav-item nav-link active">
+            <Link to="/" className="nav-item nav-link active">
               Home
-            </a>
+            </Link>
             <Link to="/about-us" className="nav-item nav-link">
               About Us
             </Link>
@@ -100,41 +100,38 @@ function Header() {
                 Programs
               </a>
               <div className="dropdown-menu m-0">
-              <a href="/what-we-do" className="dropdown-item">
-                What We Do
-                </a>
-                <a href="/technology-and-innovation" className="dropdown-item">
-                Technology & Innovation
-                </a>
-                <a href="/creatives-and-arts" className="dropdown-item">
-                Creative & Arts 
-                </a>
-                {/* <a href="#" className="dropdown-item">
-                Heritage                </a>
-                <a href="#" className="dropdown-item">
-                Entrepreneurship Support 
-                </a><a href="#" className="dropdown-item">
-                Swahilipot FM 
-                </a><a href="#" className="dropdown-item">
-                Opportunity Youth 
-                </a>
-                <a href="#" className="dropdown-item">
-                  404 Page
-                </a> */}
+                <Link to="/what-we-do" className="dropdown-item">
+                  What We Do
+                </Link>
+                <Link to="/technology-and-innovation" className="dropdown-item">
+                  Technology & Innovation
+                </Link>
+                <Link to="/creatives-and-arts" className="dropdown-item">
+                  Creative & Arts 
+                </Link>
+                <Link to="/heritage" className="dropdown-item">
+                  Heritage
+                </Link>
+                <Link to="/entrepreneurship" className="dropdown-item">
+                  Entrepreneurship Support 
+                </Link>
+                <Link to="/swahilipot-fm" className="dropdown-item">
+                  Swahilipot FM 
+                </Link>
+                <Link to="/opportunity-youth" className="dropdown-item">
+                  Opportunity Youth 
+                </Link>
               </div>
             </div>
-            <a href="#" className="nav-item nav-link">
+            <Link to="/impact" className="nav-item nav-link">
               Impact
-            </a>
-            <a href="/get-involved" className="nav-item nav-link">
+            </Link>
+            <Link to="/get-involved" className="nav-item nav-link">
               Get Involved
-            </a>
-            <a href="#" className="nav-item nav-link">
-              Blog
-            </a>
-            <a href="/Contact" className="nav-item nav-link">
+            </Link>
+            <Link to="/contact" className="nav-item nav-link">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
