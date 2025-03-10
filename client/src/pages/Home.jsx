@@ -131,9 +131,9 @@ function Home() {
             data-wow-delay='0.1s'
             style={{ maxWidth: '500px' }}
           >
-            <span className='d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3'>
+            <div className="d-inline-block" style={{ backgroundColor: "#0d4e8f", color: "white", padding: "0.25rem 1rem", marginBottom: "1rem", borderRadius: "50rem" }}>
               Key Highlights
-            </span>
+            </div>
             <h1 className='display-6'>
               Some of the numbers gained over time
             </h1>
@@ -189,9 +189,9 @@ function Home() {
               data-wow-delay='0.5s'
             >
               <div className='h-100'>
-                <span className='d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3'>
+                <div className="d-inline-block" style={{ backgroundColor: "#0d4e8f", color: "white", padding: "0.25rem 1rem", marginBottom: "1rem", borderRadius: "50rem" }}>
                   About Us
-                </span>
+                </div>
                 <h1 className='display-6 mb-5'>
                   We help Youths reach their goals
                 </h1>
@@ -234,9 +234,9 @@ function Home() {
             data-wow-delay='0.1s'
             style={{ maxWidth: '500px' }}
           >
-            <span className='d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3'>
+            <div className="d-inline-block" style={{ backgroundColor: "#0d4e8f", color: "white", padding: "0.25rem 1rem", marginBottom: "1rem", borderRadius: "50rem" }}>
               Our Programs
-            </span>
+            </div>
             <h1 className='display-6'>
               Every Youth Deserves The Opportunity To Grow
             </h1>
@@ -297,9 +297,9 @@ function Home() {
               className='col-lg-6 wow fadeIn'
               data-wow-delay='0.1s'
             >
-              <span className='d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3'>
+              <div className="d-inline-block" style={{ backgroundColor: "#e6f0ff", color: "#0d4e8f", padding: "0.25rem 1rem", marginBottom: "1rem", borderRadius: "50rem" }}>
                 Donate Now
-              </span>
+              </div>
               <h1 className='display-6 text-white mb-5'>
                 Thanks For The Results Achieved With You
               </h1>
