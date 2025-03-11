@@ -20,9 +20,8 @@ function Header() {
 
   return (
     <div
-      className={`container-fluid fixed-top px-0 wow fadeIn ${
-        isScrolled ? "scrolled" : ""
-      }`}
+      className={`container-fluid fixed-top px-0 wow fadeIn ${isScrolled ? "scrolled" : ""
+        }`}
       data-wow-delay="0.1s"
     >
       {/* Top Bar */}
@@ -110,12 +109,9 @@ function Header() {
         {/* Nav Links */}
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <div className="navbar-nav ms-auto p-4 p-lg-0">
-            {/* Home */}
             <Link to="/" className="nav-item nav-link active">
               Home
             </Link>
-
-            {/* About Us Dropdown */}
             <div className="nav-item dropdown">
               <a
                 href="#"
@@ -137,7 +133,6 @@ function Header() {
               </div>
             </div>
 
-            {/* Programs Dropdown */}
             <div className="nav-item dropdown">
               <a
                 href="#"
@@ -167,14 +162,13 @@ function Header() {
                 </Link>
                 <Link to="/opportunity-youth" className="dropdown-item">
                   Opportunity Youth
-                </Link> 
+                </Link>
                 <Link to="/case-management" className="dropdown-item">
                   Case Management
                 </Link>
               </div>
             </div>
 
-            {/* Impact Dropdown */}
             <div className="nav-item dropdown">
               <a
                 href="#"
@@ -193,15 +187,19 @@ function Header() {
               </div>
             </div>
 
-            {/* Get Involved */}
             <Link to="/get-involved" className="nav-item nav-link">
               Get Involved
             </Link>
-
-            {/* Contact */}
             <Link to="/contact" className="nav-item nav-link">
               Contact
             </Link>
+
+            {/* Donate Now Button */}
+            <Link to="/donate" className="btn btn-primary ms-3 donate-btn">
+              <i className="fas fa-heart me-2"></i>
+              Donate Now
+            </Link>
+
           </div>
         </div>
       </nav>
