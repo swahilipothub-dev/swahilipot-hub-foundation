@@ -1,0 +1,49 @@
+:root {
+    --swahiliblue: #0d4e8f;
+  }
+  
+  .partners-and-sponsors-container {
+    padding: 2rem;
+    background-color: white;
+    color: var(--swahiliblue);
+  }
+  
+  .banner {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--swahiliblue);
+    color: white;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+  }
+  
+  .partners-section {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .partners-section h2 {
+    margin-bottom: 1rem;
+    color: var(--swahiliblue);
+  }
+  
+  .logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .logo-grid img {
+    max-width: 150px;
+    height: auto;
+    margin: 1rem;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+  
+  .logo-grid img:hover {
+    transform: scale(1.1);
+  }
+  

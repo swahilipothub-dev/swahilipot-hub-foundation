@@ -4,22 +4,27 @@ const GetInvolved = () => {
   return (
     <>
       {/* Banner Section */}
-      <div className="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div className="container text-center">
-          <h1 className="display-4 text-white animated slideInDown mb-4">Get Involved</h1>
-          <nav aria-label="breadcrumb animated slideInDown">
-            <ol className="breadcrumb justify-content-center mb-0">
-              <li className="breadcrumb-item">
-                <a className="text-white" href="/">Home</a>
-              </li>
-              <li className="breadcrumb-item">
-                <a className="text-white" href="/What-we-do">What We Do</a>
-              </li>
-              <li className="breadcrumb-item text-primary active" aria-current="page">Get Involved</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
+      <div
+  className="container-fluid page-header mb-5 wow fadeIn"
+  data-wow-delay="0.1s"
+  style={{ backgroundColor: "#0d4e8f" }}
+>
+  <div className="container text-center">
+    <h1 className="display-4 text-white animated slideInDown mb-4">Get Involved</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol className="breadcrumb justify-content-center mb-0">
+        <li className="breadcrumb-item">
+          <a className="text-white" href="/">Home</a>
+        </li>
+        <li className="breadcrumb-item">
+          <a className="text-white" href="/What-we-do">What We Do</a>
+        </li>
+        <li className="breadcrumb-item text-primary active" aria-current="page">Get Involved</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
 
       {/* Main Content */}
       <div className="container mt-5 py-5 bg-light">
