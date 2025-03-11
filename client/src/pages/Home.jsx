@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import './Home.css'
 
 function Home() {
@@ -58,9 +58,8 @@ function Home() {
           <div className='carousel-inner'>
             {carouselItems.map((item, index) => (
               <div
-                className={`carousel-item ${
-                  index === 0 ? 'active' : ''
-                }`}
+                className={`carousel-item ${index === 0 ? 'active' : ''
+                  }`}
                 key={index}
               >
                 <img
@@ -83,9 +82,23 @@ function Home() {
                           href='#'
                         >
                           Learn More
-                          <span className='d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2'>
-                            <i className='fa fa-arrow-right'></i>
+                          <span
+                            className="d-inline-flex bg-white text-primary rounded-circle"
+                            style={{
+                              width: "32px",
+                              height: "32px",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              lineHeight: "1",
+                              padding: "0",
+                            }}
+                          >
+                            <i
+                              className="fa fa-arrow-right"
+                              style={{ fontSize: "16px", margin: "0" }}
+                            ></i>
                           </span>
+
                         </a>
                       </div>
                     </div>
@@ -216,9 +229,24 @@ function Home() {
                   href='/about-us'
                 >
                   Learn more about us
-                  <span className='d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2'>
-                    <i className='fa fa-arrow-right'></i>
+                  <span
+                    className="d-inline-flex bg-white text-primary rounded-circle"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      lineHeight: "1",
+                      padding: "0",
+                      marginLeft: "8px"
+                    }}
+                  >
+                    <i
+                      className="fa fa-arrow-right"
+                      style={{ fontSize: "16px", margin: "0" }}
+                    ></i>
                   </span>
+
                 </a>
               </div>
             </div>
@@ -355,9 +383,8 @@ function Home() {
                               />
                               <label
                                 className='btn btn-light py-3'
-                                htmlFor={`btnradio${
-                                  index + 1
-                                }`}
+                                htmlFor={`btnradio${index + 1
+                                  }`}
                               >
                                 {amount}
                               </label>
@@ -372,9 +399,24 @@ function Home() {
                         style={{ height: '60px' }}
                       >
                         Donate Now
-                        <span className='d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2'>
-                          <i className='fa fa-arrow-right'></i>
+                        <span
+                          className="d-inline-flex bg-white text-primary rounded-circle"
+                          style={{
+                            width: "32px",
+                            height: "32px",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            lineHeight: "1",
+                            padding: "0",
+                            marginLeft: "8px"
+                          }}
+                        >
+                          <i
+                            className="fa fa-arrow-right"
+                            style={{ fontSize: "16px", margin: "0" }}
+                          ></i>
                         </span>
+
                       </button>
                     </div>
                   </div>
