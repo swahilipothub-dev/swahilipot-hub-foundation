@@ -299,9 +299,24 @@ function Home() {
                         href='#'
                       >
                         Read More
-                        <span className='d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2'>
-                          <i className='fa fa-arrow-right'></i>
+                        <span
+                          className="d-inline-flex bg-primary text-white rounded-circle"
+                          style={{
+                            width: "32px",
+                            height: "32px",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            lineHeight: "1",
+                            padding: "0",
+                            marginLeft: "8px"
+                          }}
+                        >
+                          <i
+                            className="fa fa-arrow-right"
+                            style={{ fontSize: "16px", margin: "0" }}
+                          ></i>
                         </span>
+
                       </a>
                     </div>
                   </div>
