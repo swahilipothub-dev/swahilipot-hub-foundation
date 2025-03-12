@@ -77,9 +77,10 @@ const programs = [
 const WhatWeDo = () => {
   return (
     <>
-      <div
-        className="container-fluid page-header mb-5 wow fadeIn"
-        data-wow-delay="0.1s"
+       <div 
+      className="container-fluid page-header mb-5 wow fadeIn" 
+      data-wow-delay="0.1s"    
+      style={{ backgroundColor: "#0d4e8f" }}
       >
         <div className="container text-center">
           <h1 className="display-4 text-white animated slideInDown mb-4">

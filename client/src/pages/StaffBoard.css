@@ -1,0 +1,16 @@
+.staff-board-container .banner {
+  background-color: #0d4e8f;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+  margin-bottom: 20px;
+}
+
+.staff-board-container .banner h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.staff-board-container .banner p {
+  font-size: 1.2rem;
+}

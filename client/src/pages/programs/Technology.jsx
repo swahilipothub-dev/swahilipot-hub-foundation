@@ -4,7 +4,10 @@ const TechnologyAndInnovation = () => {
   return (
     <div>
       {/* Page Header Start */}
-      <div className="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+      <div
+        className="container-fluid page-header mb-5 wow fadeIn"
+        data-wow-delay="0.1s"
+        style={{ backgroundColor: "#0d4e8f" }}>
         <div className="container text-center">
           <h1 className="display-4 text-white animated slideInDown mb-4">Technology Department</h1>
           <nav aria-label="breadcrumb animated slideInDown">
@@ -33,7 +36,7 @@ const TechnologyAndInnovation = () => {
             </div>
             <h1 className="display-6 mb-5" style={{ color: "#0d4e8f" }}>Kuwezesha Ustadi wa Teknolojia, Kukuza Vipaji</h1>
           </div>
-          <div className="row g-5 justify-content-start align-items-stretch"> 
+          <div className="row g-5 justify-content-start align-items-stretch">
             {/* Data and Research Section */}
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div className="causes-item d-flex flex-column bg-light border-top border-5" style={{ borderColor: "#0d4e8f", height: "450px" }}>
