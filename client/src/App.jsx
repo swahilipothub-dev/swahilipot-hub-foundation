@@ -9,11 +9,7 @@ import CreativesDepartment from './pages/programs/Creatives';
 import GetInvolved from './pages/GetInvolved';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
-import Heritage from './pages/programs/Heritage';
-import Entrepreneurship from './pages/programs/Entrepreneurship';
-import SwahilipotFM from './pages/programs/SwahilipotFM';
-import OpportunityYouth from './pages/programs/OpportunityYouth';
-import Impact from './pages/Impact';
+import StaffAndBoard from './pages/StaffAndBoard';
 
 const App = () => {
   return (
@@ -33,6 +29,7 @@ const App = () => {
           <Route path="get-involved" element={<GetInvolved />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/staff-and-board" element={<StaffAndBoard />} />
         </Route>
       </Routes>
     </Router>

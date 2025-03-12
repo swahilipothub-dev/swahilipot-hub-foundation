@@ -186,7 +186,8 @@ function AboutUs() {
         </div>
       </div>
       {/* Team Section */}
-      <div className="container-xxl py-5">
+      
+    {/* <div className="container-xxl py-5">
         <div className="container">
             <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '500px'}}>
                 <div className="d-inline-block" style={{ backgroundColor: "#0d4e8f", color: "white", padding: "0.25rem 1rem", marginBottom: "1rem", borderRadius: "50rem" }}>Our Members</div>
@@ -201,11 +202,7 @@ function AboutUs() {
                         <div className="team-text bg-light text-center p-4">
                             <h5>Mr. Mahmood Noor</h5>
                             <p className="text-primary">Founder & Chief Mentor</p>
-                            {/* <div className="team-social text-center">
-                                <a className="btn btn-square" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-instagram"></i></a>
-                            </div> */}
+                           
                         </div>
                     </div>
                 </div>
@@ -217,11 +214,7 @@ function AboutUs() {
                         <div className="team-text bg-light text-center p-4">
                             <h5>Mr. Atrash Ali</h5>
                             <p className="text-primary">Chief Operations Officer</p>
-                            {/* <div className="team-social text-center">
-                                <a className="btn btn-square" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-instagram"></i></a>
-                            </div> */}
+                          
                         </div>
                     </div>
                 </div>
@@ -233,11 +226,7 @@ function AboutUs() {
                         <div className="team-text bg-light text-center p-4">
                             <h5>Zuhra Shariff</h5>
                             <p className="text-primary">Head Of HR & Admin</p>
-                            {/* <div className="team-social text-center">
-                                <a className="btn btn-square" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-instagram"></i></a>
-                            </div> */}
+                           
                         </div>
                     </div>
                 </div>
@@ -249,17 +238,14 @@ function AboutUs() {
                         <div className="team-text bg-light text-center p-4">
                             <h5>Jacqueline Jepkoech</h5>
                             <p className="text-primary">Global Opportunity Youth Network (GOYN) Mombasa</p>
-                            {/* <div className="team-social text-center">
-                                <a className="btn btn-square" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square" href=""><i className="fab fa-instagram"></i></a>
-                            </div> */}
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
+    </div> */}
+
     </>
   );
 }

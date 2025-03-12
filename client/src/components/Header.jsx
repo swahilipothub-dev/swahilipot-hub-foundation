@@ -107,29 +107,23 @@ function Header() {
                   Technology & Innovation
                 </Link>
                 <Link to="/creatives-and-arts" className="dropdown-item">
-                  Creative & Arts 
-                </Link>
-                <Link to="/heritage" className="dropdown-item">
-                  Heritage
-                </Link>
-                <Link to="/entrepreneurship" className="dropdown-item">
-                  Entrepreneurship Support 
-                </Link>
-                <Link to="/swahilipot-fm" className="dropdown-item">
-                  Swahilipot FM 
-                </Link>
-                <Link to="/opportunity-youth" className="dropdown-item">
-                  Opportunity Youth 
+                  Creatives & Arts
                 </Link>
               </div>
             </div>
-            <Link to="/impact" className="nav-item nav-link">
-              Impact
-            </Link>
             <Link to="/get-involved" className="nav-item nav-link">
               Get Involved
             </Link>
+            <Link to="/staff-and-board" className="nav-item nav-link">
+              Staff & Board
+            </Link>
             <Link to="/contact" className="nav-item nav-link">
+              Contact
+            </Link>
+            <a href="#" className="nav-item nav-link">
+              Blog
+            </a>
+            <a href="/Contact" className="nav-item nav-link">
               Contact
             </Link>
           </div>
