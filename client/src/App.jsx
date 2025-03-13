@@ -8,9 +8,13 @@ import TechnologyAndInnovation from './pages/programs/Technology';
 import CreativesDepartment from './pages/programs/Creatives';
 import GetInvolved from './pages/GetInvolved';
 import AboutUs from './pages/AboutUs';
-import StaffBoard from './pages/StaffBoard'; // Import StaffBoard component
+import StaffBoard from './pages/StaffAndBoard'; // Import StaffBoard component
 import Contact from './pages/Contact';
-import StaffAndBoard from './pages/StaffAndBoard';
+import Heritage from './pages/programs/Heritage';
+import Entrepreneurship from './pages/programs/Entrepreneurship';
+import SwahilipotFM from './pages/programs/SwahilipotFM';
+import OpportunityYouth from './pages/programs/OpportunityYouth';
+import Impact from './pages/Impact';
 import PartnersAndSponsors from './pages/PartnersAndSponsors';
 
 const App = () => {
@@ -30,10 +34,9 @@ const App = () => {
           <Route path="/impact" element={<Impact />} />
           <Route path="get-involved" element={<GetInvolved />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/about-us/staff-board" element={<StaffBoard />} /> {/* New Route */}
+          <Route path="/staff-board" element={<StaffBoard />} /> {/* New Route */}
           <Route path="/about-us/partners-and-sponsors" element={<PartnersAndSponsors />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/staff-and-board" element={<StaffAndBoard />} />
         </Route>
       </Routes>
     </Router>

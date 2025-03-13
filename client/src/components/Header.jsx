@@ -190,7 +190,7 @@ function Header() {
             <Link to="/get-involved" className="nav-item nav-link">
               Get Involved
             </Link>
-            <Link to="/staff-and-board" className="nav-item nav-link">
+            <Link to="/staff-board" className="nav-item nav-link">
               Staff & Board
             </Link>
             <Link to="/contact" className="nav-item nav-link">
