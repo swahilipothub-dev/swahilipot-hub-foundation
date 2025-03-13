@@ -196,6 +196,13 @@ function Header() {
             <Link to="/contact" className="nav-item nav-link">
               Contact
             </Link>
+
+            {/* Donate Now Button */}
+            <Link to="/donate" className="btn btn-primary ms-3 donate-btn">
+              <i className="fas fa-heart me-2"></i>
+              Donate Now
+            </Link>
+
           </div>
         </div>
       </nav>
