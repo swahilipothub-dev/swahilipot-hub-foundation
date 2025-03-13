@@ -7,3 +7,36 @@
 .container-fluid.fixed-top.scrolled {
     background-color: #000;
 }
+.btn-primary {
+    background-color: #0d4e8f;
+    border-color: #0d4e8f;
+  }
+  
+  .btn-primary:hover {
+    background-color: #083a68;
+    border-color: #083a68;
+  }
+  
+  .btn-primary .fa-heart {
+    color: white;
+  }
+  /* Donate Button Styling */
+.donate-btn {
+    background-color: #0d6efd;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.donate-btn:hover {
+    background-color: #084298;
+    color: white;
+}
+
+.donate-btn .fas.fa-heart {
+    color: #fff;
+}
