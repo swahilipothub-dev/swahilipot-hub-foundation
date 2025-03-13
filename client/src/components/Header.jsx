@@ -124,7 +124,7 @@ function Header() {
                 <Link to="/about-us" className="dropdown-item">
                   Who We Are
                 </Link>
-                <Link to="/about-us/staff-board" className="dropdown-item">
+                <Link to="/staff-board" className="dropdown-item">
                   Staff &amp; Board
                 </Link>
                 <Link to="/about-us/partners-and-sponsors" className="dropdown-item">
@@ -190,9 +190,9 @@ function Header() {
             <Link to="/get-involved" className="nav-item nav-link">
               Get Involved
             </Link>
-            <Link to="/staff-board" className="nav-item nav-link">
+            {/* <Link to="/staff-board" className="nav-item nav-link">
               Staff & Board
-            </Link>
+            </Link> */}
             <Link to="/contact" className="nav-item nav-link">
               Contact
             </Link>
