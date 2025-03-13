@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,10 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (path) => {
+    return location.pathname === path ? "active" : "";
+  };
 
   return (
     <div
@@ -109,25 +114,25 @@ function Header() {
         {/* Nav Links */}
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <div className="navbar-nav ms-auto p-4 p-lg-0">
-            <Link to="/" className="nav-item nav-link active">
+            <Link to="/" className={`nav-item nav-link ${isActive("/")}`}>
               Home
             </Link>
             <div className="nav-item dropdown">
               <a
                 href="#"
-                className="nav-link dropdown-toggle"
+                className={`nav-link dropdown-toggle ${location.pathname.includes("/about-us") ? "active" : ""}`}
                 data-bs-toggle="dropdown"
               >
                 About Us
               </a>
               <div className="dropdown-menu m-0">
-                <Link to="/about-us" className="dropdown-item">
+                <Link to="/about-us" className={`dropdown-item ${isActive("/about-us")}`}>
                   Who We Are
                 </Link>
-                <Link to="/staff-board" className="dropdown-item">
+                <Link to="/staff-board" className={`dropdown-item ${isActive("/staff-board")}`}>
                   Staff &amp; Board
                 </Link>
-                <Link to="/about-us/partners-and-sponsors" className="dropdown-item">
+                <Link to="/about-us/partners-and-sponsors" className={`dropdown-item ${isActive("/about-us/partners-and-sponsors")}`}>
                   Partners &amp; Sponsors
                 </Link>
               </div>
@@ -136,19 +141,19 @@ function Header() {
             <div className="nav-item dropdown">
               <a
                 href="#"
-                className="nav-link dropdown-toggle"
+                className={`nav-link dropdown-toggle ${location.pathname.includes("/what-we-do") || location.pathname.includes("/technology-and-innovation") ? "active" : ""}`}
                 data-bs-toggle="dropdown"
               >
                 Programs
               </a>
               <div className="dropdown-menu m-0">
-                <Link to="/what-we-do" className="dropdown-item">
+                <Link to="/what-we-do" className={`dropdown-item ${isActive("/what-we-do")}`}>
                   What We Do
                 </Link>
-                <Link to="/technology-and-innovation" className="dropdown-item">
+                <Link to="/technology-and-innovation" className={`dropdown-item ${isActive("/technology-and-innovation")}`}>
                   Technology &amp; Innovation
                 </Link>
-                <Link to="/creatives-and-arts" className="dropdown-item">
+                <Link to="/creatives-and-arts" className={`dropdown-item ${isActive("/creatives-and-arts")}`}>
                   Creative &amp; Arts
                 </Link>
                 <Link to="/heritage" className="dropdown-item">
@@ -172,28 +177,28 @@ function Header() {
             <div className="nav-item dropdown">
               <a
                 href="#"
-                className="nav-link dropdown-toggle"
+                className={`nav-link dropdown-toggle ${location.pathname.includes("/events") ? "active" : ""}`}
                 data-bs-toggle="dropdown"
               >
-                Impact
+                Events
               </a>
               <div className="dropdown-menu m-0">
-                <Link to="/impact" className="dropdown-item">
-                  Our Impact
+                <Link to="/events" className={`dropdown-item ${isActive("/events")}`}>
+                  All Events
                 </Link>
-                <Link to="/impact/our-reports" className="dropdown-item">
-                  Our Reports
+                <Link to="/events/upcoming" className={`dropdown-item ${isActive("/events/upcoming")}`}>
+                  Upcoming Events
+                </Link>
+                <Link to="/events/past" className={`dropdown-item ${isActive("/events/past")}`}>
+                  Past Events
                 </Link>
               </div>
             </div>
 
-            <Link to="/get-involved" className="nav-item nav-link">
-              Get Involved
+            <Link to="/blog" className={`nav-item nav-link ${isActive("/blog")}`}>
+              Blog
             </Link>
-            {/* <Link to="/staff-board" className="nav-item nav-link">
-              Staff & Board
-            </Link> */}
-            <Link to="/contact" className="nav-item nav-link">
+            <Link to="/contact" className={`nav-item nav-link ${isActive("/contact")}`}>
               Contact
             </Link>
 
@@ -202,7 +207,6 @@ function Header() {
               <i className="fas fa-heart me-2"></i>
               Donate Now
             </Link>
-
           </div>
         </div>
       </nav>
