@@ -32,26 +32,23 @@ function PartnersAndSponsors() {
             <div className="container py-5">
                 <h2 className="text-center mb-4">Funders</h2>
                 <div className="row g-4 justify-content-center">
-                    <div className="col-md-2"><img src="/path/to/logo1.png" alt="Funder 1" className="img-fluid" /></div>
-                    <div className="col-md-2"><img src="/path/to/logo2.png" alt="Funder 2" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/mastercard-foundation.png" alt="Mastercard Foundation" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/conradhiltonfoundation.png" alt="Conrad Hilton Foundation" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/absa-logo-red.png" alt="Absa Bank" className="img-fluid" /></div>
                 </div>
 
-                <h2 className="text-center mb-4">In-Kind Partners</h2>
+                <h2 className="text-center mb-4 mt-5">Strategic Partners</h2>
                 <div className="row g-4 justify-content-center">
-                    <div className="col-md-2"><img src="/path/to/logo3.png" alt="Partner 1" className="img-fluid" /></div>
-                    <div className="col-md-2"><img src="/path/to/logo4.png" alt="Partner 2" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/Konza.png" alt="Konza Technopolis" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/KNCCI-removebg-preview.png" alt="KNCCI" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/GDI.png" alt="GDI" className="img-fluid" /></div>
                 </div>
 
-                <h2 className="text-center mb-4">Program Partners</h2>
+                <h2 className="text-center mb-4 mt-5">Program Partners</h2>
                 <div className="row g-4 justify-content-center">
-                    <div className="col-md-2"><img src="/path/to/logo5.png" alt="Program Partner 1" className="img-fluid" /></div>
-                    <div className="col-md-2"><img src="/path/to/logo6.png" alt="Program Partner 2" className="img-fluid" /></div>
-                </div>
-
-                <h2 className="text-center mb-4">Strategic Partners</h2>
-                <div className="row g-4 justify-content-center">
-                    <div className="col-md-2"><img src="/path/to/logo7.png" alt="Strategic Partner 1" className="img-fluid" /></div>
-                    <div className="col-md-2"><img src="/path/to/logo8.png" alt="Strategic Partner 2" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/ajira.jpg" alt="Ajira Digital" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/Casik-logo.png" alt="Casik" className="img-fluid" /></div>
+                    <div className="col-md-3"><img src="/images/logos/ngosource.png" alt="NGO Source" className="img-fluid" /></div>
                 </div>
             </div>
         </>
