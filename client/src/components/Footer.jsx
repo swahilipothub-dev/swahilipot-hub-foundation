@@ -6,7 +6,7 @@ function Footer() {
                 <div className="container py-5">
                     <div className="row g-5">
                         <div className="col-lg-3 col-md-6">
-                            <img src="/src/assets/logo/logo-white.png" height="30" width="200" className="mb-3" alt="" />
+                            <img src="/logo/logo-white.png" height="30" width="200" className="mb-3" alt="" />
                             <div className="d-flex pt-2">
                                 <a className="btn btn-square me-1" href="https://x.com/swahilipothub"><i className="fab fa-twitter"></i></a>
                                 <a className="btn btn-square me-1" href="https://www.facebook.com/Swahilipothub"><i className="fab fa-facebook-f"></i></a>
