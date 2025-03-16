@@ -81,7 +81,7 @@ function Home() {
                         <a className="btn btn-primary py-2 px-3 animated slideInDown" href="#">
                           Learn More
                           <span
-                            className="d-inline-flex bg-white text-primary rounded-circle"
+                            className="d-inline-flex bg-white text-primary rounded-circle ms-3"
                             style={{
                               width: '32px',
                               height: '32px',

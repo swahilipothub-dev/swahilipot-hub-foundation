@@ -84,7 +84,7 @@ function Header() {
         {/* Logo */}
         <Link to="/" className="navbar-brand ms-4 ms-lg-0">
           <img
-            src="/src/assets/logo/logo.png"
+            src="/logo/logo.png"
             className="d-none d-lg-block"
             height="40"
             width="250"
@@ -92,7 +92,7 @@ function Header() {
           />
           {/* For mobile view */}
           <img
-            src="/src/assets/logo/logo.png"
+            src="/logo/logo.png"
             className="d-block d-lg-none"
             height="30"
             width="180"
