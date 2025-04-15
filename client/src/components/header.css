@@ -1,9 +1,0 @@
-/* Default header styles */
-.container-fluid.fixed-top {
-    transition: background-color 0.3s ease;
-}
-  
-/* Dark background on scroll */
-.container-fluid.fixed-top.scrolled {
-    background-color: #000;
-}
