@@ -66,7 +66,7 @@ const CaseManagement = () => {
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80"
+                    src="/img/case-management/img00.jpg"
                     alt="Case management session"
                     className="w-full h-full object-cover"
                   />

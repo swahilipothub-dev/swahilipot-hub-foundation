@@ -42,7 +42,7 @@ const About = () => {
           <div className="relative">
             <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80"
+                src="\img\communityspace.jpg"
                 alt="Youth collaboration at Swahilipot Hub"
                 className="w-full h-full object-cover"
               />
