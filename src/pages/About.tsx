@@ -123,7 +123,7 @@ const About = () => {
                 Swahilipot Hub Foundation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="https://www.swahilipothub.co.ke/youth/JoinYouth">
+                <Link to="https://docs.google.com/forms/d/e/1FAIpQLSe8xVQEK2VP89CYE4166i6Vr6iriaA1x1D5ecVBCVY5MuqP3g/viewform?usp=dialog" target="_blank">
                   <Button className="btn-primary">Join the Youth Database</Button>
                 </Link>
               </div>
