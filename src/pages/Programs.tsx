@@ -193,7 +193,7 @@ const Programs = () => {
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80"
+                    src="/img/programs/image4.jpg"
                     alt="Training session at Swahilipot Hub"
                     className="w-full h-full object-cover"
                   />

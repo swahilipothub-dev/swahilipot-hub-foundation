@@ -4,27 +4,28 @@ import { Card, CardContent } from "@/components/ui/card";
 const teamMembers = [
   {
     id: 1,
-    name: "Alex Kimani",
+    name: "Mahmoud Noor",
     role: "Executive Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80"
+    image: "/img/team/kpr.jpg"
   },
   {
     id: 2,
-    name: "Amina Hassan",
-    role: "Program Manager",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80"
+    name: "Chris Achinga",
+    role: "Tech Lead",
+    image: "/img/team/Chris.jpg"
   },
   {
     id: 3,
-    name: "Daniel Ochieng",
-    role: "Tech Lead",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80"
+    name: "Kiplangat",
+    role: "Program Manager",
+    image: "/img/team/kiplangat.jpg"
   },
+  
   {
     id: 4,
-    name: "Sarah Mwangi",
+    name: "Zuhra Shariff",
     role: "Community Outreach",
-    image: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?q=80"
+    image: "/img/team/zuhra.jpg"
   }
 ];
 
