@@ -13,45 +13,45 @@ const programCategories = [
     icon: Code,
     programs: [
       {
-        title: "Coding Bootcamp",
-        description: "Intensive training in web and mobile app development for beginners and intermediate coders.",
-        duration: "12 weeks",
-        frequency: "Quarterly"
+        title: "Industrial Attachment",
+        description: "A structured program offering hands-on experience in software development, IT infrastructure, and digital innovation. Students work on real projects while receiving mentorship from industry professionals.",
+        duration: "3 months",
+        frequency: "Intake"
       },
       {
-        title: "Tech Startup Incubation",
-        description: "Resources, mentorship, and workspace for early-stage tech startups.",
+        title: "DataCamp Scholarship Program",
+        description: "In partnership with DataCamp, Swahilipot Hub offers comprehensive data science and analytics learning scholarships. Selected participants receive full access to DataCamp's premium courses, projects, and certifications to build their data skills.",
         duration: "6 months",
-        frequency: "Ongoing"
+        frequency: "Quarterly intake"
       },
       {
         title: "Digital Skills Workshop",
         description: "Training in essential digital literacy and professional tools.",
-        duration: "2 weeks",
-        frequency: "Monthly"
+        duration: "7 weeks",
+        frequency: "Ongoing"
       }
     ]
   },
   {
     id: "arts",
-    label: "Arts & Culture",
+    label: "Creative & Arts",
     icon: Palette,
     programs: [
       {
-        title: "Music Production",
-        description: "Training in digital music production, recording, and audio engineering.",
+        title: "Talent to Income",
+        description: "A comprehensive program that helps individuals transform their creative talents into sustainable income streams through market exposure.",
         duration: "8 weeks",
         frequency: "Quarterly"
       },
       {
-        title: "Film & Video Workshop",
-        description: "Hands-on training in cinematography, editing, and storytelling.",
+        title: "SCEP",
+        description: "Swahilipothub Creatives Empowerment Program - A comprehensive initiative empowering artists through skill development, networking, and professional growth opportunities.",
         duration: "4 weeks",
         frequency: "Bi-monthly"
       },
       {
-        title: "Visual Arts Program",
-        description: "Studio space and training for painters, sculptors, and digital artists.",
+        title: "Partnership & Collaboration",
+        description: "Connecting artists with opportunities through partnerships with galleries, art organizations, and cultural institutions. Includes collaborative projects, exhibitions, and networking events.",
         duration: "Ongoing",
         frequency: "Weekly sessions"
       }
@@ -160,7 +160,7 @@ const Programs = () => {
                               <span className="text-sm text-gray-600">{program.frequency}</span>
                             </div>
                           </div>
-                          <Button className="w-full">Apply Now</Button>
+                          {/* <Button className="w-full">Apply Now</Button> */}
                         </CardContent>
                       </Card>
                     ))}

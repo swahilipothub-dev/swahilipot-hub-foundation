@@ -47,23 +47,23 @@ const Navbar = () => {
                       <div className="font-medium">All Programs</div>
                       <div className="text-sm text-gray-600">Overview of all our programs</div>
                     </Link>
-                    <Link to="/case-management" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/programs/case-management" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Case Management</div>
                       <div className="text-sm text-gray-600">Personalized youth support</div>
                     </Link>
-                    <Link to="/tourism-innovation-lab" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/programs/tourism-innovation-lab" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Tourism Innovation Lab</div>
                       <div className="text-sm text-gray-600">Transforming tourism through tech</div>
                     </Link>
-                    <Link to="/events" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    {/* <Link to="/events" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Events</div>
                       <div className="text-sm text-gray-600">Community events and workshops</div>
-                    </Link>
-                    <Link to="/campus-ambassador" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    </Link> */}
+                    <Link to="/programs/campus-ambassador" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Campus Ambassador</div>
                       <div className="text-sm text-gray-600">University outreach program</div>
                     </Link>
-                    <Link to="/swahili-tech-women" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/programs/swahili-tech-women" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Swahili Tech Women</div>
                       <div className="text-sm text-gray-600">Women in technology initiative</div>
                     </Link>
@@ -79,19 +79,19 @@ const Navbar = () => {
                 <NavigationMenuTrigger className="bg-transparent h-auto px-2 py-1 hover:bg-transparent hover:text-swahilipot-600 data-[state=open]:bg-transparent">Departments</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid grid-cols-2 w-[500px] gap-3 p-4">
-                    <Link to="/communication" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/department/communication" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Communication</div>
                       <div className="text-sm text-gray-600">Strategic messaging and media</div>
                     </Link>
-                    <Link to="/tech-engineering" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/department/tech-engineering" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Tech & Engineering</div>
                       <div className="text-sm text-gray-600">Innovative tech solutions</div>
                     </Link>
-                    <Link to="/creatives" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/department/creatives" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Creatives</div>
                       <div className="text-sm text-gray-600">Arts and creative expression</div>
                     </Link>
-                    <Link to="/community-entrepreneurship" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                    <Link to="/department/community-entrepreneurship" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Community & Entrepreneurship</div>
                       <div className="text-sm text-gray-600">Business development and community support</div>
                     </Link>
@@ -108,8 +108,8 @@ const Navbar = () => {
             Contact
           </Link>
           <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white flex items-center gap-2 ml-2" asChild>
-            <Link to="/donate">
-              <Heart size={16} /> Donate
+            <Link to="/events">
+              <Heart size={16} /> Events
             </Link>
           </Button>
         </div>
@@ -170,13 +170,13 @@ const Navbar = () => {
                 >
                   Tourism Innovation Lab
                 </Link>
-                <Link 
+                {/* <Link 
                   to="/events" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Events
-                </Link>
+                </Link> */}
                 <Link 
                   to="/campus-ambassador" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
@@ -245,8 +245,8 @@ const Navbar = () => {
               Contact
             </Link>
             <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white w-full flex items-center justify-center gap-2 mt-2" asChild>
-              <Link to="/donate" onClick={toggleMenu}>
-                <Heart size={16} /> Donate
+              <Link to="/events" onClick={toggleMenu}>
+                <Heart size={16} /> Events
               </Link>
             </Button>
           </div>

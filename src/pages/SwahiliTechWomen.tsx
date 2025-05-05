@@ -21,11 +21,11 @@ const initiativesList = [
     description: "Hands-on workshops covering various technical and professional skills.",
     icon: BookOpen
   },
-  {
-    title: "Startup Incubation",
-    description: "Resources, funding, and support for women-led tech startups.",
-    icon: Rocket
-  },
+  // {
+  //   title: "Startup Incubation",
+  //   description: "Resources, funding, and support for women-led tech startups.",
+  //   icon: Rocket
+  // },
   {
     title: "Hackathons & Competitions",
     description: "Events that challenge participants to solve real-world problems using technology.",
@@ -197,11 +197,11 @@ const SwahiliTechWomen = () => {
               ))}
             </div>
             
-            <div className="mt-12 text-center">
+            {/* <div className="mt-12 text-center">
               <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
                 Join Swahili Tech Women
               </Button>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>

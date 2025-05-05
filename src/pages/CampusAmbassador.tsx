@@ -72,9 +72,9 @@ const CampusAmbassador = () => {
                     </div>
                   </div>
                 </div>
-                <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
+                {/* <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
                   Apply to Become an Ambassador
-                </Button>
+                </Button> */}
               </div>
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">

@@ -12,19 +12,19 @@ const contactInfo = [
     id: 1,
     icon: MapPin,
     title: "Visit Us",
-    content: "123 Innovation Street, Mombasa, Kenya"
+    content: "Opp. Governor's Office, Butterfly House, Mombasa, Kenya"
   },
   {
     id: 2,
     icon: Mail,
     title: "Email Us",
-    content: "info@swahilipothub.org"
+    content: "info@swahilipothub.co.ke"
   },
   {
     id: 3,
     icon: Phone,
     title: "Call Us",
-    content: "+254 700 123 456"
+    content: "+254 11 4635505"
   }
 ];
 
@@ -87,7 +87,7 @@ const Contact = () => {
           ))}
         </div>
         
-        <Card className="border-0 shadow-md max-w-2xl mx-auto">
+        {/* <Card className="border-0 shadow-md max-w-2xl mx-auto">
           <CardContent className="p-6">
             <form onSubmit={handleSubmit}>
               <div className="grid gap-6">
@@ -145,7 +145,7 @@ const Contact = () => {
               </div>
             </form>
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
     </section>
   );
