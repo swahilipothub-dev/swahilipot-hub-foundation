@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 bg-swahilipot-900/10 -z-10"></div>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?q=80')] bg-cover bg-center opacity-10 -z-20"></div>
+      <div className="absolute inset-0 bg-[url('/images/hero/hero1.jpg')] bg-cover bg-center opacity-10 -z-20"></div>
       
       <div className="container-custom section-padding">
         <div className="max-w-3xl mx-auto md:mx-0">

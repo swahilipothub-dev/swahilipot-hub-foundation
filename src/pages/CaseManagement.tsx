@@ -59,9 +59,9 @@ const CaseManagement = () => {
                     </CardContent>
                   </Card>
                 </div>
-                <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
+                {/* <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
                   Request a Case Manager
-                </Button>
+                </Button> */}
               </div>
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">

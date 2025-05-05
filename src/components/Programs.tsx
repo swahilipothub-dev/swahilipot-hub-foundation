@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const programs = [
   {
     id: 1,
-    title: "Tech Incubation",
+    title: "Tech Programs",
     description: "Providing resources, mentorship, and workspace for tech startups and innovators.",
     icon: Code,
     color: "bg-blue-500/10",
@@ -16,7 +16,7 @@ const programs = [
   },
   {
     id: 2,
-    title: "Arts & Culture",
+    title: "Creative & Arts",
     description: "Promoting creative expression through music, film, dance, and visual arts programs.",
     icon: Palette,
     color: "bg-indigo-500/10",
@@ -42,7 +42,7 @@ const specializedPrograms = [
     icon: Briefcase,
     color: "bg-green-500/10",
     iconColor: "text-green-500",
-    link: "/case-management"
+    link: "/programs/case-management"
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const specializedPrograms = [
     icon: Lightbulb,
     color: "bg-amber-500/10",
     iconColor: "text-amber-500",
-    link: "/tourism-innovation-lab"
+    link: "/programs/tourism-innovation-lab"
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const specializedPrograms = [
     icon: Users,
     color: "bg-pink-500/10",
     iconColor: "text-pink-500",
-    link: "/swahili-tech-women"
+    link: "/programs/swahili-tech-women"
   }
 ];
 

@@ -38,17 +38,17 @@ const App = () => (
           <Route path="/donate" element={<Donate />} />
           
           {/* Program-specific routes */}
-          <Route path="/case-management" element={<CaseManagement />} />
-          <Route path="/tourism-innovation-lab" element={<TourismInnovationLab />} />
+          <Route path="/programs/case-management" element={<CaseManagement />} />
+          <Route path="/programs/tourism-innovation-lab" element={<TourismInnovationLab />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/campus-ambassador" element={<CampusAmbassador />} />
-          <Route path="/swahili-tech-women" element={<SwahiliTechWomen />} />
+          <Route path="/programs/campus-ambassador" element={<CampusAmbassador />} />
+          <Route path="/programs/swahili-tech-women" element={<SwahiliTechWomen />} />
           
           {/* Department routes */}
-          <Route path="/communication" element={<Communication />} />
-          <Route path="/tech-engineering" element={<TechEngineering />} />
-          <Route path="/creatives" element={<Creatives />} />
-          <Route path="/community-entrepreneurship" element={<CommunityEntrepreneurship />} />
+          <Route path="/department/communication" element={<Communication />} />
+          <Route path="/department/tech-engineering" element={<TechEngineering />} />
+          <Route path="/department/creatives" element={<Creatives />} />
+          <Route path="/department/community-entrepreneurship" element={<CommunityEntrepreneurship />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

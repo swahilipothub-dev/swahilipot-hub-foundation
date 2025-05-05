@@ -5,27 +5,27 @@ const teamMembers = [
   {
     id: 1,
     name: "Mahmoud Noor",
-    role: "Executive Director",
+    role: "Chief Mentor",
     image: "/img/team/kpr.jpg"
-  },
-  {
+  },{
     id: 2,
-    name: "Chris Achinga",
-    role: "Tech Lead",
-    image: "/img/team/Chris.jpg"
+    name: "Atrash Mohammed",
+    role: "Chief Operating Officer",
+    image: "/img/team/atrash.jpg"
   },
   {
     id: 3,
-    name: "Kiplangat",
-    role: "Program Manager",
+    name: "Jacqueline Kiplangat",
+    role: "Project Associate",
     image: "/img/team/kiplangat.jpg"
   },
   
+  
   {
     id: 4,
-    name: "Zuhra Shariff",
-    role: "Community Outreach",
-    image: "/img/team/zuhra.jpg"
+    name: "Miriam Angil",
+    role: "Head of Communication",
+    image: "/img/team/miriam.jpg"
   }
 ];
 

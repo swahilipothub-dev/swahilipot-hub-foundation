@@ -64,9 +64,9 @@ const TourismInnovationLab = () => {
                     </div>
                   </div>
                 </div>
-                <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
+                {/* <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700">
                   Join the Innovation Lab
-                </Button>
+                </Button> */}
               </div>
               <div className="relative order-1 md:order-2">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">

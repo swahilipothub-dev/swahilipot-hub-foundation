@@ -63,8 +63,8 @@ const Footer = () => {
             <address className="not-italic text-white/70">
               <p className="mb-2">Opp. Governor's Office, Butterfly House</p>
               <p className="mb-2">Mombasa, Kenya</p>
-              <p className="mb-2">info@swahilipothub.org</p>
-              <p>+254 700 123 456</p>
+              <p className="mb-2">info@swahilipothub.co.ke</p>
+              <p>+254 11 4635505</p>
             </address>
           </div>
         </div>
