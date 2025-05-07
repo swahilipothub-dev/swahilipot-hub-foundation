@@ -16,7 +16,7 @@ const teamMembers = [
   {
     id: 3,
     name: "Jacqueline Kiplangat",
-    role: "Project Associate",
+    role: "Executive Associate",
     image: "/img/team/kiplangat.jpg"
   },
   
