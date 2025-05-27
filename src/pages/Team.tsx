@@ -6,40 +6,20 @@ import { useEffect, useState } from 'react';
 const TeamPage = () => {
   const teamMembers = [
     {
-      id: 1,
-      name: 'Mahmoud Noor',
+      id: 9,
+      name: 'Luka Omosh',
       role: 'CEO, Founder and Chief Mentor',
       image: '/img/team/kpr.jpg',
       note: 'Co-Founder for SwahiliPot Hub Foundation and the Chief Mentor',
     },
     {
-      id: 2,
-      name: 'Miriam',
+      id: 10,
+      name: 'Onyi Tulia',
       role: 'Communication Department Lead',
       image: '/img/team/miriam.jpg',
       note: 'In charge of communication both at the Hub and SwahiliPot Hub FM',
     },
-    {
-      id: 3,
-      name: 'Zuhra',
-      role: 'HR',
-      image: '/img/team/zuhra.jpg',
-      note: '',
-    },
-    {
-      id: 4,
-      name: 'Jacqueline Kiplangat',
-      role: 'Executive Associate',
-      image: '/img/team/kiplangat.jpg',
-      note: 'Supports Executive operations and strategic planning of all activities within the Hub',
-    },
-    {
-      id: 5,
-      name: 'Atrash Mohammed',
-      role: 'Chief Operating Officer',
-      image: '/img/team/atrash.jpg',
-      note: 'Oversees daily operations and strategic initiatives',
-    },
+    
     
   ];
 

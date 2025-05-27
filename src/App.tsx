@@ -20,7 +20,7 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
-import Team from "./pages/Team.tsx";
+import Team from "./pages/Team";
 
 const queryClient = new QueryClient();
 
