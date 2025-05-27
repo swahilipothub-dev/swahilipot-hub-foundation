@@ -6,18 +6,32 @@ const TeamPage = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'John Doe',
-      role: 'CTO',
-      image: '/img/team/avatar.png',
-      note: 'Business Analyst',
+      name: 'Mahmoud Noor',
+      role: 'CEO, Founder and Chief Mentor',
+      image: '/img/team/kpr.jpg',
+      note: 'Co-Founder for SwahiliPot Hub Foundation and the Chief Mentor',
     },
     {
       id: 2,
-      name: 'Barbra Masika',
-      role: 'Chairperson',
-      image: '/img/team/avatar2.png',
-      note: 'Lead',
+      name: 'Miriam',
+      role: 'Communication Department Lead',
+      image: '/img/team/miriam.jpg',
+      note: 'In charge of communication both at the Hub and SwahiliPot Hub FM',
     },
+    {
+      id: 3,
+      name: 'Zuhra',
+      role: 'HR',
+      image: '/img/team/zuhra.jpg',
+      note: '',
+    },
+    {
+      id: 8,
+      name: 'male',
+      role: 'Lead, Community Entrepreneurship Department',
+      image: '/img/team/male.jpg',
+      note: 'Empowering communities through entrepreneurship initiatives',
+    }
   ];
 
   // State for tracking hovered card
