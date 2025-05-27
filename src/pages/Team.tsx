@@ -1,7 +1,6 @@
 
-
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const TeamPage = () => {
   const teamMembers = [
@@ -22,6 +21,20 @@ const TeamPage = () => {
     },
     
     
+    {
+      id: 7,
+      name: 'female',
+      role: 'Lead, Creatives Department',
+      image: '/img/team/female.jpg',
+      note: 'Creative lead for all design and media projects',
+    },
+    {
+      id: 8,
+      name: 'male',
+      role: 'Lead, Community Entrepreneurship Department',
+      image: '/img/team/male.jpg',
+      note: 'Empowering communities through entrepreneurship initiatives',
+    }
   ];
 
   // State for tracking hovered card
@@ -29,10 +42,10 @@ const TeamPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      
+    
       
       <main className="flex-grow container mx-auto px-4 py-12">
-        
+      
 
         {/* Team cards grid - 3 per row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -71,6 +84,7 @@ const TeamPage = () => {
       </main>
 
       
+    
     </div>
   );
 };
