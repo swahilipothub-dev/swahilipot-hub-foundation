@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from 'react';
@@ -67,9 +68,22 @@ const TeamPage = () => {
       </main>
 
     
+=======
+import Navbar from "@/components/Navbar";
+import { useEffect, useState } from 'react';
+
+const TeamPage = () => {
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      <Navbar />
+>>>>>>> a83c23479614e2258a34f258e4e916a72d372053
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default TeamPage;
 
+=======
+export default TeamPage;
+>>>>>>> a83c23479614e2258a34f258e4e916a72d372053
