@@ -40,13 +40,7 @@ const TeamPage = () => {
       image: '/img/team/atrash.jpg',
       note: 'Oversees daily operations and strategic initiatives',
     },
-    {
-      id: 6,
-      name: 'Chris Achinga',
-      role: 'Lead, Technology Department && Software Person',
-      image: '/img/team/Chris.jpg',
-      note: 'Tech enthusiast and software architecht',
-    },
+    
   ];
 
   // State for tracking hovered card
