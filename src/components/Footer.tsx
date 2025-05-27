@@ -74,9 +74,6 @@ const Footer = () => {
             &copy; {currentYear} Swahilipot Hub Foundation. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/terms" className="text-white/70 hover:text-white transition-colors text-sm">
-              Terms of Service
-            </Link>
             <Link to="/privacy" className="text-white/70 hover:text-white transition-colors text-sm">
               Privacy Policy
             </Link>
