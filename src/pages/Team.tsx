@@ -9,14 +9,14 @@ const TeamPage = () => {
       id: 9,
       name: 'Luka Omosh',
       role: 'CEO, Founder and Chief Mentor',
-      image: '/img/team/kpr.jpg',
+      image: '/img/team/lukaomosh.jpg',
       note: 'Co-Founder for SwahiliPot Hub Foundation and the Chief Mentor',
     },
     {
       id: 10,
       name: 'Onyi Tulia',
       role: 'Communication Department Lead',
-      image: '/img/team/miriam.jpg',
+      image: '/img/team/onyitulia.jpg',
       note: 'In charge of communication both at the Hub and SwahiliPot Hub FM',
     },
     {
