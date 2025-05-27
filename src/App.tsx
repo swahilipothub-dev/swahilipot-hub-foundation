@@ -20,7 +20,7 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
-
+import Team from "./pages/Team";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -52,6 +52,7 @@ const App = () => (
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
