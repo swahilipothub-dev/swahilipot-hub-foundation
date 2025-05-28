@@ -114,7 +114,11 @@ const CampusAmbassador = () => {
               <p className="text-gray-600 mb-4">
                 Don't see your university listed? We're always expanding our network!
               </p>
-              <Button variant="outline">Nominate Your University</Button>
+              <Button
+               variant="outline"
+               onClick={() => window.open("https://forms.gle/VwqNfL8pvjyrzj418", "_blank") }
+              >
+                Nominate Your University</Button>
             </div>
           </div>
         </section>
