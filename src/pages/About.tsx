@@ -1,9 +1,6 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Users, Heart, Target, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const values = [
   {
@@ -33,6 +30,7 @@ const About = () => {
     <>
       <Navbar />
       <main>
+        {/* Hero Section */}
         <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gray-50">
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto">
@@ -45,14 +43,15 @@ const About = () => {
             </div>
           </div>
         </section>
-        
+
+        {/* Our Story */}
         <section className="py-16 md:py-24">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-6">Our Story</h2>
                 <p className="text-gray-700 mb-4">
-                  Swahilipot Hub Foundation is non-profit organization that meaningfully engages and empowers
+                  Swahilipot Hub Foundation is a non-profit organization that meaningfully engages and empowers
                   youth (18 to 35 years) to enable them to unleash their full potential. Based in the coastal city
                   of Mombasa in Kenya, it is regulated by the NGO Coordination Board of Kenya.
                 </p>
@@ -70,17 +69,17 @@ const About = () => {
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
                   <div className="relative w-full h-full">
                     <iframe
-                        src="https://www.youtube.com/embed/bscypssE8Ms?autoplay=0"
-                        className="w-full h-full object-cover rounded-lg"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title="Swahilipot Documentary YouTube video"
+                      src="https://www.youtube.com/embed/bscypssE8Ms?autoplay=0"
+                      className="w-full h-full object-cover rounded-lg"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title="Swahilipot Documentary YouTube video"
                     ></iframe>
                     <button
-                        onClick={() => window.open('https://www.youtube.com/watch?v=bscypssE8Ms', '_blank')}
-                        className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 rounded-lg"
+                      onClick={() => window.open('https://www.youtube.com/watch?v=bscypssE8Ms', '_blank')}
+                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 rounded-lg"
                     >
-                     <p className="text-white text-2xl font-bold">Play Documentary</p>
+                      <p className="text-white text-2xl font-bold">Play Documentary</p>
                     </button>
                   </div>
                 </div>
@@ -89,7 +88,8 @@ const About = () => {
             </div>
           </div>
         </section>
-        
+
+        {/* Core Values */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -98,7 +98,7 @@ const About = () => {
                 The principles that guide our work and impact at Swahilipot Hub Foundation.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
@@ -109,24 +109,6 @@ const About = () => {
                   <p className="text-gray-600">{value.description}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-        
-        <section className="py-16 md:py-24">
-          <div className="container-custom">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">Join Our Mission</h2>
-              <p className="text-gray-700 mb-8">
-                Whether you're a youth looking to develop your skills, a mentor wanting to share your expertise, 
-                or a donor interested in supporting our cause, there are many ways to get involved with 
-                Swahilipot Hub Foundation.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="https://docs.google.com/forms/d/e/1FAIpQLSe8xVQEK2VP89CYE4166i6Vr6iriaA1x1D5ecVBCVY5MuqP3g/viewform?usp=dialog" target="_blank">
-                  <Button className="btn-primary">Join the Youth Database</Button>
-                </Link>
-              </div>
             </div>
           </div>
         </section>
