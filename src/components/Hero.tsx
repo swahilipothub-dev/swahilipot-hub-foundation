@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -31,6 +30,11 @@ const Hero = () => {
             <Button className="btn-secondary flex items-center gap-2 text-base" asChild>
               <Link to="/about">
                 Learn More
+              </Link>
+            </Button>
+            <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white flex items-center gap-2 text-base animate-pulse" asChild>
+              <Link to="/we-are-hiring">
+                We're Hiring! <ArrowRight size={16} />
               </Link>
             </Button>
           </div>
