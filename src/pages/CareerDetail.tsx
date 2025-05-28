@@ -84,7 +84,7 @@ const JobDetail = () => {
               <p className="text-gray-700 mb-6"><strong>Note:</strong> {job.application.note}</p>
 
               <Button className="bg-swahilipot-600 hover:bg-swahilipot-700">
-                <a href={`mailto:${job.application.submission.split(' to ')[1]}`}>Apply Now</a>
+                <a href={job.application.application_link} target="_blank">Apply Now</a>
               </Button>
             </CardContent>
           </Card>
