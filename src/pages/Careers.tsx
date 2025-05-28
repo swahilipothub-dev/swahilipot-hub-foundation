@@ -32,6 +32,7 @@ const Careers = () => {
                     <div className="flex flex-col gap-4">
                       <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
                       <p className="text-gray-700 mb-4">{job.overview.position_summary}</p>
+                      <p className="text-gray-700 mb-4">Application Deadline: {job.application.deadline}</p>
                       <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 w-fit" asChild>
                         <Link to={`/career/${job.id}`}>View Details</Link>
                       </Button>
