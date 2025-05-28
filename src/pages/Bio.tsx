@@ -22,9 +22,9 @@ const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Hillary",
-    role: "Case Management",
+    role: "Provides guidance to team members on difficult cases.",
     image: "/img/team/Ava_2.jpg",
-    bio: "In charge of case management",
+    bio: "Organizing workshops, meetups, or mentorship sessions to foster community engagement and skill development.",
     email: "hillary@swahilipothub.co.ke",
     socials: {
       //linkedin: "https://linkedin.com/in/johndoe",
@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Hellen Mwanzia",
     role: "Creatives & Arts",
     image: "/img/team/Ava_3.jpg",
-    bio: "",
+    bio: "Promotes inclusivity and unity through cultural and creative activities within the hub. Actively encourages participation and collaboration among members.",
     email: "hailey@swahilipothub.co.ke",
     socials: {
       //linkedin: "https://linkedin.com/in/janesmith",
@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
     name: 'James Ndung’u',
     role: 'Youth Engagement',
     image: '/img/team/avatar.png',
-    bio: '',
+    bio: 'Encourages youth to take part in decision-making, community forums, and local projects. Aims to empower young people by providing them with opportunities to voice their opinions and contribute to community development.',
     email: 'james@swahilipothub.co.ke',
     socials: {
       //linkedin: 'https://linkedin.com/example'
@@ -59,7 +59,7 @@ const teamMembers: TeamMember[] = [
     name: 'Rukia Jamal',
     role: 'Partnership',
     image: '/img/team/avatar2.png',
-    bio: '',
+    bio: 'Responsible for building and managing strong relationships with external organizations, donors, sponsors, and collaborators to support the hub’s mission and growth.',
     email: 'rukiya@swahilipothub.co.ke',
     socials: {
       //linkedin: 'https://linkedin.com/example'
@@ -70,7 +70,7 @@ const teamMembers: TeamMember[] = [
     name: 'Chris Achinga',
     role: 'Technology',
     image: '/img/team/male.jpg',
-    bio: '',
+    bio: 'Brings creative tech solutions to support hub activities. Focuses on integrating technology to enhance community engagement, streamline operations, and provide innovative solutions for members.',
     email: 'chris@swahilipothub.co.ke',
     socials: {
       //linkedin: 'https://linkedin.com/example'
@@ -81,7 +81,7 @@ const teamMembers: TeamMember[] = [
     name: 'Abdulrahman Ndegwa',
     role: 'Heritage',
     image: '/img/team/female.jpg',
-    bio: '',
+    bio: 'Plays a key role in preserving, promoting, and sharing cultural identity within both community-based and tech-driven environments. Focuses on integrating cultural heritage into modern practices and fostering a sense of belonging among members.',
     email: 'abu@swahilipothub.co.ke',
     socials: {
       //linkedin: 'https://linkedin.com/example'
@@ -102,7 +102,7 @@ const TeamBio = () => {
           <h1 className="text-2xl font-bold mb-4">Team Member Not Found</h1>
           <p className="mb-6">The requested team member could not be found.</p>
           <Link to="/team">
-            <Button className="bg-blue-600 hover:bg-blue-700">
+          <Button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all">
               Back to Team
             </Button>
           </Link>

@@ -29,8 +29,8 @@ const TeamPage = () => {
       name: 'Hillary',
       role: 'Case-Management',
       image: '/img/team/Ava_2.jpg',
-      note: 'In charge of case management',
-      bio: 'Case management',
+      note: 'Provides guidance to team members on difficult cases.',
+      bio: 'Encouraging participation and collaboration within the hub.',
       email: 'hillary@swahilipothub.co.ke',
       socials: {
         linkedin: 'https://linkedin.com/example'
@@ -41,7 +41,7 @@ const TeamPage = () => {
       name: 'Hellen Mwanzia',
       role: 'Creatives & Arts',
       image: '/img/team/Ava_3.jpg',
-      note: '',
+      note: 'Promotes inclusivity and unity through cultural and creative activities.',
       bio: '',
       email: 'hailey@swahilipothub.co.ke',
       socials: {
@@ -53,7 +53,7 @@ const TeamPage = () => {
       name: 'James Ndung’u',
       role: 'Youth Engagement',
       image: '/img/team/avatar.png',
-      note: '',
+      note: 'Encourages youth to take part in decision-making, community forums, and local projects.',
       bio: '',
       email: 'james@swahilipothub.co.ke',
       socials: {
@@ -65,7 +65,7 @@ const TeamPage = () => {
       name: 'Rukia Jamal',
       role: 'Partnership',
       image: '/img/team/avatar2.png',
-      note: '',
+      note: 'Building and managing strong relationships with external organizations.',
       bio: '',
       email: 'rukiya@swahilipothub.co.ke',
       socials: {
@@ -77,7 +77,7 @@ const TeamPage = () => {
       name: 'Chris Achinga',
       role: 'Technology',
       image: '/img/team/male.jpg',
-      note: '',
+      note: 'Brings creative tech solutions to support hub activities',
       bio: '',
       email: 'chris@swahilipothub.co.ke',
       socials: {
@@ -89,7 +89,7 @@ const TeamPage = () => {
       name: 'Abdulrahman Ndegwa',
       role: 'Heritage',
       image: '/img/team/female.jpg',
-      note: '',
+      note: 'Focuses on integrating cultural heritage into modern practices and fostering a sense of belonging among members.',
       bio: '',
       email: 'abu@swahilipothub.co.ke',
       socials: {
