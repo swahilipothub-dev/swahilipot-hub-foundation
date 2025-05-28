@@ -84,14 +84,14 @@ const TourismInnovationLab = () => {
         
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            {/* <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-3xl font-bold mb-4">Innovation Projects</h2>
               <p className="text-gray-700">
                 Explore some of the groundbreaking tourism innovation projects developed through our lab.
               </p>
-            </div>
+            </div> */}
             
-            <div className="grid md:grid-cols-3 gap-8">
+            {/* <div className="grid md:grid-cols-3 gap-8">
               <Card>
                 <CardHeader>
                   <CardTitle>Virtual Tour Platform</CardTitle>
@@ -136,7 +136,7 @@ const TourismInnovationLab = () => {
                   <Button variant="outline" className="w-full">View Project</Button>
                 </CardContent>
               </Card>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>
