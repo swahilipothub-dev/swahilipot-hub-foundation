@@ -21,6 +21,8 @@ import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
 import EmployerEngagement from "./pages/EmployerEngagement";
+import Careers from "./pages/Careers";
+import CareerDetail from "./pages/CareerDetail";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +53,10 @@ const App = () => (
           <Route path="/department/tech-engineering" element={<TechEngineering />} />
           <Route path="/department/creatives" element={<Creatives />} />
           <Route path="/department/community-entrepreneurship" element={<CommunityEntrepreneurship />} />
+          
+          {/* Career routes */}
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/career/:jobId" element={<CareerDetail />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
