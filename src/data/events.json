@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Tech Innovation Summit",
+        "date": "2024-07-15",
+        "location": "Swahilipot Hub, Mombasa",
+        "description": "A summit bringing together tech enthusiasts, startups, and investors to discuss innovation in technology.",
+        "organizer": "Swahilipot Hub Foundation"
+    },
+    {
+        "id": 2,
+        "name": "Digital Skills Workshop",
+        "date": "2024-08-05",
+        "location": "Swahilipot Hub, Mombasa",
+        "description": "A hands-on workshop focused on building digital skills for youth and entrepreneurs.",
+        "organizer": "Swahilipot Hub Foundation"
+    },
+    {
+        "id": 3,
+        "name": "Art & Culture Festival",
+        "date": "2024-09-10",
+        "location": "Swahilipot Hub, Mombasa",
+        "description": "Celebrating local art and culture with exhibitions, performances, and networking.",
+        "organizer": "Swahilipot Hub Foundation"
+    }
+]
