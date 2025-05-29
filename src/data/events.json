@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Tech Innovation Summit",
+        "name": "TechInnovationSummit",
         "date": "2024-07-15",
         "location": "Swahilipot Hub, Mombasa",
         "description": "A summit bringing together tech enthusiasts, startups, and investors to discuss innovation in technology.",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "name": "Digital Skills Workshop",
+        "name": "DigitalSkillsWorkshop",
         "date": "2024-08-05",
         "location": "Swahilipot Hub, Mombasa",
         "description": "A hands-on workshop focused on building digital skills for youth and entrepreneurs.",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "name": "Art & Culture Festival",
+        "name": "ArtAndCultureFestival",
         "date": "2024-09-10",
         "location": "Swahilipot Hub, Mombasa",
         "description": "Celebrating local art and culture with exhibitions, performances, and networking.",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "name": "DIGITAL BRIDGE GRADUATION",
+        "name": "DigitalBridgeGraduation",
         "date": "2025-05-30",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "name": "MOMBASA COUNTY YOUTH LEADER ASSOCIATION",
+        "name": "MombasaCountyYouthLeaderAssociation",
         "date": "2025-05-31",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "name": "UEFA CHAMPIONS LEAGUE FINALS WATCH PARTY",
+        "name": "UefaChampionsLeagueFinalsWatchParty",
         "date": "2025-05-31",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "name": "GOVERNOR ISSA TIMAMY SESSION",
+        "name": "GovernorIssaTimamySession",
         "date": "2025-06-01",
         "location": "MAZRUI SPACE",
         "description": "Description of the event will be added here.",
@@ -57,7 +57,7 @@
     },
     {
         "id": 8,
-        "name": "DEPARTMENT SUMMIT",
+        "name": "DepartmentSummit",
         "date": "2025-06-02",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
@@ -65,7 +65,7 @@
     },
     {
         "id": 9,
-        "name": "INFO SESSION GENERATION",
+        "name": "InfoSessionGeneration",
         "date": "2025-06-03",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
@@ -73,7 +73,7 @@
     },
     {
         "id": 10,
-        "name": "PEER COUNSELLING CLUB RE LAUNCH",
+        "name": "PeerCounsellingClubReLaunch",
         "date": "2025-06-10",
         "location": "MT KENYA UNI",
         "description": "Description of the event will be added here.",
@@ -81,7 +81,7 @@
     },
     {
         "id": 11,
-        "name": "KONGA ZA UTAMADUNI",
+        "name": "KongaZaUtamaduni",
         "date": "2025-06-14",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
@@ -89,7 +89,7 @@
     },
     {
         "id": 12,
-        "name": "INTERNATIONAL DAY FOR MENSTRUAL HYGIENE",
+        "name": "InternationalDayForMenstrualHygiene",
         "date": "2025-06-14",
         "location": "MT KENYA UNI",
         "description": "Description of the event will be added here.",
@@ -97,7 +97,7 @@
     },
     {
         "id": 13,
-        "name": "MAKE MUSIC DAY",
+        "name": "MakeMusicDay",
         "date": "2025-06-21",
         "location": "AMPHITHEATER",
         "description": "Description of the event will be added here.",
