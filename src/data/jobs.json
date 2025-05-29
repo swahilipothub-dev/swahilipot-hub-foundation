@@ -1,0 +1,111 @@
+{
+  "organization": "Swahilipot Hub Foundation",
+  "jobs": [
+    {
+      "id": "merl_coordinator_001",
+      "title": "Monitoring, Evaluation, Research & Learning (MERL) Coordinator",
+      "duration": "1 Year (with possibility of extension)",
+      "programme": "MERL",
+      "location": "Mombasa, Kenya",
+      "reporting_to": "Chief Operations Officer, with dotted line to Chief Mentor",
+      "direct_reports": "Data Administrator",
+      "overview": {
+        "about_sph": "Swahilipot Hub Foundation is a non-profit organization founded in 2016 by Mahmoud Noor, nurturing youth talents in technology and creatives/arts through youth-led programs and community spaces for co-working, meeting, networking, and learning.",
+        "website": "www.swahilipothub.co.ke",
+        "position_summary": "The MERL Coordinator oversees the implementation of Monitoring, Evaluation, Research, and Learning activities for SPH’s Kenya programme, covering pathways like Case Management, Creative, Data Science, Health, Manufacturing, Entrepreneurship, Hospitality & Tourism, and Youth Hub Network."
+      },
+      "scope": "Design, implement, and improve M&E systems to track progress, outputs, and outcomes, ensuring alignment with SPH MERL standards.",
+      "responsibilities": [
+        "Develop and implement M&E frameworks for qualitative and quantitative data tracking.",
+        "Facilitate use of M&E findings for strategic reviews and adaptive programme design.",
+        "Ensure accountability and transparency in reporting.",
+        "Collaborate with programme managers and partners for data collection and analysis.",
+        "Provide technical leadership in MERL capacity-building.",
+        "Support documentation and dissemination of lessons learned and best practices."
+      ],
+      "key_areas": [
+        "Coordinate MERL agenda for SPH programme portfolio.",
+        "Develop M&E frameworks, indicators, protocols, and tools.",
+        "Coordinate surveys, studies, and evaluations.",
+        "Produce high-quality M&E reports for donors and management.",
+        "Conduct programme quality assessments and field monitoring.",
+        "Co-lead reviews and reflections with project leads and COO.",
+        "Manage performance of Data Administrators, interns, and volunteers."
+      ],
+      "qualifications": [
+        "Bachelor’s degree in international development, economics, statistics, or social sciences.",
+        "Minimum 3 years in M&E of development programmes, with 2 years in management.",
+        "Knowledge of Results-Based Management, logic models, and SMART indicators.",
+        "Experience in survey design and qualitative studies.",
+        "Proficiency in SPSS or STATA; knowledge of Ms Access or CSPro desirable.",
+        "Strong analytical, problem-solving, and interpersonal skills."
+      ],
+      "skills": [
+        "Attention to detail",
+        "Problem-solving",
+        "Time management",
+        "Capacity building"
+      ],
+      "application": {
+        "deadline": "6th June, 2025",
+        "submission": "Cover letter, CV, and three professional referees",
+        "application_link": "https://forms.gle/F3ixJGpX515hvyCt7",
+        "note": "Only shortlisted candidates will be contacted."
+      }
+    },
+    {
+      "id": "data_administrator_001",
+      "title": "Data Administrator",
+      "duration": "1 Year (with possibility of extension)",
+      "programme": "MERL",
+      "location": "Mombasa, Kenya",
+      "reporting_to": "MERL Coordinator",
+      "direct_reports": "None",
+      "overview": {
+        "about_sph": "Swahilipot Hub Foundation is a non-profit organization founded in 2016 by Mahmoud Noor, nurturing youth talents in technology and creatives/arts through youth-led programs and community spaces for co-working, meeting, networking, and learning.",
+        "website": "www.swahilipothub.co.ke",
+        "position_summary": "The Data Administrator supports the MERL team by ensuring accurate data collection, management, analysis, and reporting for SPH’s programmes."
+      },
+      "scope": "Manage day-to-day data systems and processes within the MERL framework, supporting programmes like Case Management, Data Science, Health, Manufacturing, Entrepreneurship, Hospitality & Tourism, and Youth Hub Network.",
+      "responsibilities": [
+        "Develop and implement data management systems for accuracy and consistency.",
+        "Support data analysis for programme performance reviews.",
+        "Ensure data integrity through audits and validation checks.",
+        "Assist in capacity building for staff, interns, and volunteers in data management.",
+        "Collaborate with programme teams to align data with objectives.",
+        "Document data management processes and lessons learned.",
+        "Manage relational databases (e.g., MySQL, PostgreSQL, SQL Server).",
+        "Understand data governance, privacy, and security frameworks."
+      ],
+      "key_areas": [
+        "Develop and implement data management systems.",
+        "Support data analysis for programme performance.",
+        "Ensure data integrity through audits and validation.",
+        "Assist in capacity building for data management.",
+        "Collaborate with programme teams on data alignment.",
+        "Document data processes and lessons learned.",
+        "Manage relational databases.",
+        "Understand data governance and privacy frameworks."
+      ],
+      "qualifications": [
+        "Bachelor’s degree in Data Science, Statistics, Information Management, or related field.",
+        "At least 2 years of experience in data management, preferably in NGO/development sector.",
+        "Strong knowledge of data collection, quality assurance, and reporting.",
+        "Proficiency in Excel, SPSS, or STATA.",
+        "Excellent organizational and communication skills."
+      ],
+      "skills": [
+        "Attention to detail",
+        "Problem-solving",
+        "Time management",
+        "Capacity building"
+      ],
+      "application": {
+        "deadline": "6th June, 2025",
+        "submission": "Cover letter, CV, and three professional referees",
+        "application_link": "https://forms.gle/P2oFMJH7jD7Lu47C6",
+        "note": "Only shortlisted candidates will be contacted."
+      }
+    }
+  ]
+}

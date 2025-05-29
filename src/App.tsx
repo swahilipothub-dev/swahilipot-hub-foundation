@@ -20,6 +20,9 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
+import EmployerEngagement from "./pages/EmployerEngagement";
+import Careers from "./pages/Careers";
+import CareerDetail from "./pages/CareerDetail";
 
 const queryClient = new QueryClient();
 
@@ -43,12 +46,17 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/programs/campus-ambassador" element={<CampusAmbassador />} />
           <Route path="/programs/swahili-tech-women" element={<SwahiliTechWomen />} />
+          <Route path="/programs/employer-engagement" element={<EmployerEngagement />} />
           
           {/* Department routes */}
           <Route path="/department/communication" element={<Communication />} />
           <Route path="/department/tech-engineering" element={<TechEngineering />} />
           <Route path="/department/creatives" element={<Creatives />} />
           <Route path="/department/community-entrepreneurship" element={<CommunityEntrepreneurship />} />
+          
+          {/* Career routes */}
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/career/:jobId" element={<CareerDetail />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
