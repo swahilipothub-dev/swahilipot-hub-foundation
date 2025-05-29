@@ -47,7 +47,7 @@ const CoreObjectives = () => {
                     <div className="relative">
                         <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
                             <img
-                                src="/img/youth-engagement/youth-engagement.jpg"
+                                src="/img/youth-engagement/youth-engagement2.jpg"
                                 alt="Youth Engagement presents"
                                 className="w-full h-full object-cover"
                             />

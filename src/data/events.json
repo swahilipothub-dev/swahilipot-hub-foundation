@@ -34,7 +34,8 @@
       "date": "2025-05-30",
       "time": "8:00 AM - 12:00 PM",
       "location": "Swahilipot Amphitheatre, Mombasa",
-      "capacity": "100 attendees"
+      "capacity": "100 attendees",
+      "registrationLink": "https://forms.gle/67UsAfVYsf2Seh5p6"
     },
     {
       "id": 5,
@@ -105,8 +106,8 @@
       "description": "Educational event raising awareness about menstrual hygiene and promoting access to menstrual products for all.",
       "date": "2025-06-14",
       "time": "Full Day",
-      "location": "Mt Kenya Uni",
-      "capacity": "120 attendees"
+      "location": "Mt Kenya Uni"
+      
     },
     {
       "id": 13,
