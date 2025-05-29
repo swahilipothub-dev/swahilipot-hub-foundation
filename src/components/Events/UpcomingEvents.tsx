@@ -17,7 +17,7 @@ const UpcomingEvents = () => {
       .sort((a, b) => {
         const dateA = parseISO(a.date);
         const dateB = parseISO(b.date);
-        return dateA.getTime() - dateB.getTime(); // Sort by date ascending
+        return dateA.getTime() - dateB.getTime(); 
       })
       .map(event => ({
         ...event,

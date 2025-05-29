@@ -17,7 +17,7 @@ const PastEvents = () => {
         .sort((a, b) => {
           const dateA = parseISO(a.date);
           const dateB = parseISO(b.date);
-          return dateB.getTime() - dateA.getTime(); // Sort by date descending (most recent first)
+          return dateB.getTime() - dateA.getTime();
         })
         .map(event => ({
           ...event,
