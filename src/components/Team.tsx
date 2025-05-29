@@ -7,7 +7,7 @@ const teamMembers = [
     id: 1,
     name: "Mahmoud Noor",
     role: "Chief Mentor",
-    image: "/img/team/kpr.jpg"
+    image: "/img/team/mentori.jpg"
   },{
     id: 2,
     name: "Atrash Mohammed",
