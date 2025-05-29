@@ -7,16 +7,16 @@ import { format, parseISO, isBefore } from "date-fns";
 const UpcomingEvents = () => {
     const currentDate = new Date();
     const UpcomingEvents = eventsData
-        .filter(event => isBefore(parseISO(event.date), currentDate))
-        .map(event => ({
-            id: event.id,
-            title: event.name,
-            date: format(parseISO(event.date), "MMMM dd, yyyy"),
-            time: "Time information not available",
-            location: event.location,
-            description: event.description,
-            capacity: `Organized by: ${event.organizer}`,
-        }));
+      .filter(event => isBefore(currentDate, parseISO(event.date)))
+      .map(event => ({
+        id: event.id,
+        title: event.name,
+        date: format(parseISO(event.date), "MMMM dd, yyyy"),
+        time: "Time information not available",
+        location: event.location,
+        description: event.description,
+        capacity: `Organized by: ${event.organizer}`,
+      }));
 
     return (
        <section className="py-16 md:py-24">
@@ -76,4 +76,5 @@ const UpcomingEvents = () => {
     );
 };
 
+// Filter all upcoming events and export the component
 export default UpcomingEvents;

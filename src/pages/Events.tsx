@@ -12,6 +12,7 @@ const Events = () => {
             <Navbar />
             <HeroSection />
             <AllEvents />
+
             <UpcomingEvents />
             <PastEvents />
             <Host />
