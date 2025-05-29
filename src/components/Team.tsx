@@ -1,5 +1,6 @@
-
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
 
 const teamMembers = [
   {
@@ -19,8 +20,6 @@ const teamMembers = [
     role: "Executive Associate",
     image: "/img/team/kiplangat.jpg"
   },
-  
-  
   {
     id: 4,
     name: "Miriam Angil",
@@ -42,8 +41,7 @@ const Team = () => {
             to empower youth across East Africa.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {teamMembers.map((member) => (
             <Card key={member.id} className="border-0 overflow-hidden shadow hover:shadow-md transition-shadow">
               <div className="aspect-square overflow-hidden">
@@ -59,6 +57,13 @@ const Team = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="text-center">
+          <Link to="/team">
+            <Button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all">
+              View Team Members
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
