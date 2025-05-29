@@ -50,7 +50,7 @@ const Host = () => {
               <div className="relative">
                 <div className="aspect-video bg-white rounded-lg overflow-hidden shadow-md">
                   <img
-                    src="public\img\events\AMPHITHEATER.jpg"
+                    src="/img/events/AMPHITHEATER.jpg"
                     alt="Event space at Swahilipot Hub"
                     className="w-full h-full object-cover"
                   />
