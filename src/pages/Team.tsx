@@ -27,9 +27,9 @@ const TeamPage = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: 'Hillary',
+      name: 'Hillary Mutuma',
       role: 'Case-Management',
-      image: '/img/team/Ava_2.jpg',
+      image: '/img/team/hillary.jpg',
       note: 'Provides guidance to team members on difficult cases.',
       bio: 'Encouraging participation and collaboration within the hub.',
       email: 'hillary@swahilipothub.co.ke',
@@ -41,7 +41,7 @@ const TeamPage = () => {
       id: 2,
       name: 'Hellen Mwanzia',
       role: 'Creatives & Arts',
-      image: '/img/team/Ava_3.jpg',
+      image: '/img/team/heily.jpg',
       note: 'Promotes inclusivity and unity through cultural and creative activities.',
       bio: '',
       email: 'hailey@swahilipothub.co.ke',
@@ -53,7 +53,7 @@ const TeamPage = () => {
       id: 3,
       name: 'James Ndung’u',
       role: 'Youth Engagement',
-      image: '/img/team/avatar.png',
+      image: '/img/team/james.jpg',
       note: 'Encourages youth to take part in decision-making, community forums, and local projects.',
       bio: '',
       email: 'james@swahilipothub.co.ke',
@@ -65,7 +65,7 @@ const TeamPage = () => {
       id: 4,
       name: 'Rukia Jamal',
       role: 'Partnership',
-      image: '/img/team/avatar2.png',
+      image: '/img/team/rukia.jpg',
       note: 'Building and managing strong relationships with external organizations.',
       bio: '',
       email: 'rukiya@swahilipothub.co.ke',
@@ -77,7 +77,7 @@ const TeamPage = () => {
       id: 5,
       name: 'Chris Achinga',
       role: 'Technology',
-      image: '/img/team/male.jpg',
+      image: '/img/team/Chris.jpg',
       note: 'Brings creative tech solutions to support hub activities',
       bio: '',
       email: 'chris@swahilipothub.co.ke',
@@ -89,7 +89,7 @@ const TeamPage = () => {
       id: 6,
       name: 'Abdulrahman Ndegwa',
       role: 'Heritage',
-      image: '/img/team/female.jpg',
+      image: '/img/team/abu.jpg',
       note: 'Focuses on integrating cultural heritage into modern practices and fostering a sense of belonging among members.',
       bio: '',
       email: 'abu@swahilipothub.co.ke',
@@ -120,7 +120,7 @@ const TeamPage = () => {
                 key={member.id} 
                 className="group border-0 overflow-hidden shadow hover:shadow-md transition-all relative"
               >
-                <Link to={`/team/bio/${member.id}`}>
+                <Link to={`/team/${member.name.toLowerCase().replace(/\s+/g, '-')}`}>
                   <div className="aspect-square overflow-hidden cursor-pointer relative">
                     <img 
                       src={member.image} 
@@ -133,7 +133,7 @@ const TeamPage = () => {
                   </div>
                 </Link>
                 <CardContent className="p-4 text-center">
-                  <Link to={`/team/bio/${member.id}`}>
+                  <Link to={`/team/${member.name.toLowerCase().replace(/\s+/g, '-')}`}>
                     <h3 className="font-bold text-lg group-hover:text-blue-600 transition-colors">{member.name}</h3>
                   </Link>
                   <p className="text-gray-600">{member.role}</p>

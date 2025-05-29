@@ -63,9 +63,9 @@ const App = () => (
           <Route path="/career/:jobId" element={<CareerDetail />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/team/bio/:id" element={<Bio />} />
+          <Route path="/team/:memberName" element={<Bio />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
