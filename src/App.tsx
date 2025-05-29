@@ -23,7 +23,7 @@ import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
 import EmployerEngagement from "./pages/EmployerEngagement";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
-import YouthEngagement from "./pages/YouthEngagement/YouthEngagement";
+import YouthEngagement from "./pages/YouthEngagement";
 
 const queryClient = new QueryClient();
 
