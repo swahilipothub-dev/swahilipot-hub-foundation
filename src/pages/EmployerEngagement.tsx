@@ -61,7 +61,7 @@ const EmployerEngagement = () => {
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
                   <img
-                    src="/img/capmus-ambassadors.jpg"
+                    src="/img/employ.jpg"
                     alt="Employer engagement session"
                     className="w-full h-full object-cover"
                   />
