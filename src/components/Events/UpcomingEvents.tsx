@@ -56,7 +56,6 @@ const UpcomingEvents = () => {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-swahilipot-600 hover:bg-swahilipot-700">View Details</Button>
                   </CardFooter>
                 </Card>
               )) : (
