@@ -55,10 +55,10 @@ const Navbar = () => {
                       <div className="font-medium">Tourism Innovation Lab</div>
                       <div className="text-sm text-gray-600">Transforming tourism through tech</div>
                     </Link>
-                    {/* <Link to="/events" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Events</div>
-                      <div className="text-sm text-gray-600">Community events and workshops</div>
-                    </Link> */}
+                    <Link to="/programs/employer-engagement" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                      <div className="font-medium">Employer Engagement</div>
+                      <div className="text-sm text-gray-600">Youth employment program</div>
+                    </Link>
                     <Link to="/programs/campus-ambassador" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                       <div className="font-medium">Campus Ambassador</div>
                       <div className="text-sm text-gray-600">University outreach program</div>
@@ -157,35 +157,35 @@ const Navbar = () => {
               </div>
               <div className="pl-4 mt-2 border-l border-gray-200 space-y-2">
                 <Link 
-                  to="/case-management" 
+                  to="/programs/case-management" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Case Management
                 </Link>
                 <Link 
-                  to="/tourism-innovation-lab" 
+                  to="/programs/tourism-innovation-lab" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Tourism Innovation Lab
                 </Link>
-                {/* <Link 
-                  to="/events" 
+                <Link 
+                  to="/programs/employer-engagement" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
-                  Events
-                </Link> */}
+                  Employer Engagement
+                </Link>
                 <Link 
-                  to="/campus-ambassador" 
+                  to="/programs/campus-ambassador" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Campus Ambassador
                 </Link>
                 <Link 
-                  to="/swahili-tech-women" 
+                  to="/programs/swahili-tech-women" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
@@ -200,28 +200,28 @@ const Navbar = () => {
               </div>
               <div className="pl-4 mt-2 border-l border-gray-200 space-y-2">
                 <Link 
-                  to="/communication" 
+                  to="/department/communication" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Communication
                 </Link>
                 <Link 
-                  to="/tech-engineering" 
+                  to="/department/tech-engineering" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Tech & Engineering
                 </Link>
                 <Link 
-                  to="/creatives" 
+                  to="/department/creatives" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Creatives
                 </Link>
                 <Link 
-                  to="/community-entrepreneurship" 
+                  to="/department/community-entrepreneurship" 
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
