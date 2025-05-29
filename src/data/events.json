@@ -1,106 +1,119 @@
 [
     {
         "id": 1,
-        "name": "TechInnovationSummit",
-        "date": "2024-07-15",
+        "title": "Tech Innovation Summit",
+        "description": "A gathering of tech entrepreneurs, investors, and industry leaders to discuss innovation and growth opportunities in East Africa.",
+        "date": "May 15, 2025",
+        "time": "9:00 AM - 5:00 PM",
         "location": "Swahilipot Hub, Mombasa",
-        "description": "A summit bringing together tech enthusiasts, startups, and investors to discuss innovation in technology.",
-        "organizer": "Swahilipot Hub Foundation"
+        "capacity": "250 attendees"
     },
     {
         "id": 2,
-        "name": "DigitalSkillsWorkshop",
-        "date": "2024-08-05",
-        "location": "Swahilipot Hub, Mombasa",
+        "title": "Digital Arts Exhibition",
         "description": "A hands-on workshop focused on building digital skills for youth and entrepreneurs.",
-        "organizer": "Swahilipot Hub Foundation"
+        "date": "June 8, 2025",
+        "time": "10:00 AM - 7:00 PM",
+        "location": "Swahilipot Gallery, Mombasa",
+        "capacity": "200 attendees"
     },
     {
         "id": 3,
-        "name": "ArtAndCultureFestival",
-        "date": "2024-09-10",
+        "title": "Youth Leadership Workshop",
+        "description": "Interactive workshop focused on developing leadership skills, public speaking, and community organizing for youth leaders.",
+        "date": "July 22, 2025",
+        "time": "2:00 PM - 6:00 PM",
         "location": "Swahilipot Hub, Mombasa",
-        "description": "Celebrating local art and culture with exhibitions, performances, and networking.",
-        "organizer": "Swahilipot Hub Foundation"
+        "capacity": "50 attendees"
     },
     {
         "id": 4,
-        "name": "DigitalBridgeGraduation",
-        "date": "2025-05-30",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Digital Bridge Graduation",
+        "description": "",
+        "date": "May 30, 2025",
+        "time": "8:00 AM - 12:00 PM",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     },
     {
         "id": 5,
-        "name": "MombasaCountyYouthLeaderAssociation",
-        "date": "2025-05-31",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Mombasa County Youth Leader Association",
+        "description": "",
+        "date": "May 31, 2025",
+        "time": "8:00 AM - 3:00 PM",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     },
     {
         "id": 6,
-        "name": "UefaChampionsLeagueFinalsWatchParty",
-        "date": "2025-05-31",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Uefa Champions League Finals Watch Party",
+        "description": "",
+        "date": "May 31, 2025",
+        "time": "4:00 PM - 12:00 AM",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     },
     {
         "id": 7,
-        "name": "GovernorIssaTimamySession",
-        "date": "2025-06-01",
-        "location": "MAZRUI SPACE",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Governor Issa Timamy Session",
+        "description": "",
+        "date": "June 1, 2025",
+        "time": "Full Day",
+        "location": "Swahilipot Mazrui Space, Mombasa",
+        "capacity": ""
     },
     {
         "id": 8,
-        "name": "DepartmentSummit",
-        "date": "2025-06-02",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Department Summit",
+        "description": "",
+        "date": "June 2, 2025",
+        "time": "8:00 AM - 5:00 PM",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     },
     {
         "id": 9,
-        "name": "InfoSessionGeneration",
-        "date": "2025-06-03",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Info Session Generation",
+        "description": "",
+        "date": "June 3, 2025",
+        "time": "8:00 AM - 2:00 PM",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     },
     {
         "id": 10,
-        "name": "PeerCounsellingClubReLaunch",
-        "date": "2025-06-10",
-        "location": "MT KENYA UNI",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Peer Counselling Club ReLaunch",
+        "description": "",
+        "date": "June 10, 2025",
+        "time": "Full Day",
+        "location": "Mt Kenya Uni",
+        "capacity": ""
     },
     {
         "id": 11,
-        "name": "KongaZaUtamaduni",
-        "date": "2025-06-14",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Konga Za Utamaduni",
+        "description": "",
+        "date": "June 14, 2025",
+        "time": "",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     },
     {
         "id": 12,
-        "name": "InternationalDayForMenstrualHygiene",
-        "date": "2025-06-14",
-        "location": "MT KENYA UNI",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "International Day For Menstrual Hygiene",
+        "description": "",
+        "date": "June 14, 2025",
+        "time": "Full Day",
+        "location": "Mt Kenya Uni",
+        "capacity": ""
     },
     {
         "id": 13,
-        "name": "MakeMusicDay",
-        "date": "2025-06-21",
-        "location": "AMPHITHEATER",
-        "description": "Description of the event will be added here.",
-        "organizer": "Organizer of the event will be added here."
+        "title": "Make Music Day",
+        "description": "",
+        "date": "June 21, 2025",
+        "time": "8:00 AM - 8:00 PM",
+        "location": "Swahilipot Amphitheatre, Mombasa",
+        "capacity": ""
     }
 ]
