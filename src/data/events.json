@@ -22,5 +22,85 @@
         "location": "Swahilipot Hub, Mombasa",
         "description": "Celebrating local art and culture with exhibitions, performances, and networking.",
         "organizer": "Swahilipot Hub Foundation"
+    },
+    {
+        "id": 4,
+        "name": "DIGITAL BRIDGE GRADUATION",
+        "date": "2025-05-30",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 5,
+        "name": "MOMBASA COUNTY YOUTH LEADER ASSOCIATION",
+        "date": "2025-05-31",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 6,
+        "name": "UEFA CHAMPIONS LEAGUE FINALS WATCH PARTY",
+        "date": "2025-05-31",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 7,
+        "name": "GOVERNOR ISSA TIMAMY SESSION",
+        "date": "2025-06-01",
+        "location": "MAZRUI SPACE",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 8,
+        "name": "DEPARTMENT SUMMIT",
+        "date": "2025-06-02",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 9,
+        "name": "INFO SESSION GENERATION",
+        "date": "2025-06-03",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 10,
+        "name": "PEER COUNSELLING CLUB RE LAUNCH",
+        "date": "2025-06-10",
+        "location": "MT KENYA UNI",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 11,
+        "name": "KONGA ZA UTAMADUNI",
+        "date": "2025-06-14",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 12,
+        "name": "INTERNATIONAL DAY FOR MENSTRUAL HYGIENE",
+        "date": "2025-06-14",
+        "location": "MT KENYA UNI",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
+    },
+    {
+        "id": 13,
+        "name": "MAKE MUSIC DAY",
+        "date": "2025-06-21",
+        "location": "AMPHITHEATER",
+        "description": "Description of the event will be added here.",
+        "organizer": "Organizer of the event will be added here."
     }
 ]
