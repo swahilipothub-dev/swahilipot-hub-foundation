@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -99,66 +100,55 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-12">
-        <div className="text-center mb-20">
-          <h1 className="text-4xl font-bold mb-4">
-            <span className="text-black">Our</span> 
-            <span className="text-gradient-blue"> Team</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-          "At Swahilipot Hub, we're driven by a passionate and diverse team of innovators, creators, and visionaries.  
-          Together, we foster collaboration, mentorship, and groundbreaking solutions, ensuring Swahilipot Hub remains a catalyst for growth and opportunity in the digital space."
-          </p>
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Meet Our <span className="text-gradient-blue">Team</span>
+            </h2>
+            <p className="text-gray-700 max-w-2xl mx-auto">
+              At Swahilipot Hub, we're driven by a passionate and diverse team of innovators, creators, and visionaries.
+              Together, we foster collaboration, mentorship, and groundbreaking solutions.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {teamMembers.map((member) => (
-              <div 
-                key={member.id}
-                className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
-                onMouseEnter={() => setHoveredCard(member.id)}
-                onMouseLeave={() => setHoveredCard(null)}
+              <Card 
+                key={member.id} 
+                className="group border-0 overflow-hidden shadow hover:shadow-md transition-all relative"
               >
                 <Link to={`/team/bio/${member.id}`}>
-                  <div className="relative h-64 overflow-hidden cursor-pointer">
+                  <div className="aspect-square overflow-hidden cursor-pointer relative">
                     <img 
                       src={member.image} 
-                      alt={member.name}
-                      className={`w-full h-full object-cover transition-all duration-500 ${
-                        hoveredCard === member.id ? 'scale-110' : 'scale-100'
-                      }`}
+                      alt={member.name} 
+                      className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <p className="text-white text-sm">{member.note}</p>
+                    </div>
                   </div>
                 </Link>
-                
-                <div className="p-6">
+                <CardContent className="p-4 text-center">
                   <Link to={`/team/bio/${member.id}`}>
-                    <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors cursor-pointer">
-                      {member.name}
-                    </h3>
+                    <h3 className="font-bold text-lg group-hover:text-blue-600 transition-colors">{member.name}</h3>
                   </Link>
-                  <p className="text-blue-600 mb-3">{member.role}</p>
-                  <p className="text-sm text-gray-500 italic mb-4">{member.note}</p>
-                  
-                  <div className="mt-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <a href={`mailto:${member.email}`}>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full border-blue-600 text-blue-600 hover:bg-blue-50"
-                      >
-                        Contact {member.name.split(' ')[0]}
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </div>
+                  <p className="text-gray-600">{member.role}</p>
+                  {/* <a 
+                    href={`mailto:${member.email}`}
+                    className="mt-4 inline-block text-blue-600 hover:text-blue-700 text-sm"
+                  >
+                    Contact
+                  </a> */}
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
-      </main>
+      </section>
       <Footer />
     </div>
   );
