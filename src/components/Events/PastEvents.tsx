@@ -1,9 +1,78 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Calendar, Clock, MapPin, Users } from "lucide-react";
+import eventsData from "@/data/events.json";
+import { format, parseISO, isBefore } from "date-fns";
+
 const PastEvents = () => {
+    const currentDate = new Date();
+    const pastEvents = eventsData
+        .filter(event => isBefore(parseISO(event.date), currentDate))
+        .map(event => ({
+            id: event.id,
+            title: event.name,
+            date: format(parseISO(event.date), "MMMM dd, yyyy"),
+            time: "Time information not available",
+            location: event.location,
+            description: event.description,
+            capacity: `Organized by: ${event.organizer}`,
+        }));
+
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold mb-4">Past Events</h1>
-            <p className="text-gray-600">Here is a list of events we’ve hosted in the past. Thank you for being part of our journey!</p>
-        </div>
+       <section className="py-16 md:py-24">
+          <div className="container-custom">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold mb-4">Past Events</h2>
+              <p className="text-gray-700">
+                Browse through our previous events and see what the Swahilipot community has accomplished.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {pastEvents.length > 0 ? pastEvents.map(event => (
+                <Card key={event.id} className="shadow-md hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle>{event.title}</CardTitle>
+                    <CardDescription>{event.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-swahilipot-600" />
+                        <span className="text-sm text-gray-600">{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-swahilipot-600" />
+                        <span className="text-sm text-gray-600">{event.time}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-swahilipot-600" />
+                        <span className="text-sm text-gray-600">{event.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="h-4 w-4 text-swahilipot-600" />
+                        <span className="text-sm text-gray-600">{event.capacity}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full bg-swahilipot-600 hover:bg-swahilipot-700">View Details</Button>
+                  </CardFooter>
+                </Card>
+              )) : (
+                <div className="col-span-3 text-center py-8">
+                  <p className="text-gray-500">No past events to display.</p>
+                </div>
+              )}
+            </div>
+            
+            {pastEvents.length > 0 && (
+              <div className="mt-12 text-center">
+                <Button variant="outline" size="lg">View All Past Events</Button>
+              </div>
+            )}
+          </div>
+        </section>
     );
 };
 
