@@ -36,7 +36,7 @@ const Navbar = () => {
           <Link to="/about" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
             About
           </Link>
-          
+
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -67,12 +67,16 @@ const Navbar = () => {
                       <div className="font-medium">Swahili Tech Women</div>
                       <div className="text-sm text-gray-600">Women in technology initiative</div>
                     </Link>
+                    <Link to="/programs/youth-engagement" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                      <div className="font-medium">Youth Engagement</div>
+                      <div className="text-sm text-gray-600">Empowering youth through engagement</div>
+                    </Link>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          
+
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -100,7 +104,7 @@ const Navbar = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          
+
           <Link to="/impact" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
             Impact
           </Link>
@@ -130,25 +134,25 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white absolute top-16 w-full border-b shadow-lg">
           <div className="flex flex-col space-y-2 px-4 py-4">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
               onClick={toggleMenu}
             >
               Home
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              to="/about"
               className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
               onClick={toggleMenu}
             >
               About
             </Link>
-            
+
             <div className="py-2">
               <div className="flex items-center justify-between text-foreground">
-                <Link 
-                  to="/programs" 
+                <Link
+                  to="/programs"
                   className="hover:text-swahilipot-600 transition-colors"
                   onClick={toggleMenu}
                 >
@@ -156,36 +160,36 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="pl-4 mt-2 border-l border-gray-200 space-y-2">
-                <Link 
-                  to="/programs/case-management" 
+                <Link
+                  to="/programs/case-management"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Case Management
                 </Link>
-                <Link 
-                  to="/programs/tourism-innovation-lab" 
+                <Link
+                  to="/programs/tourism-innovation-lab"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Tourism Innovation Lab
                 </Link>
-                <Link 
-                  to="/programs/employer-engagement" 
+                <Link
+                  to="/programs/employer-engagement"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Employer Engagement
                 </Link>
-                <Link 
-                  to="/programs/campus-ambassador" 
+                <Link
+                  to="/programs/campus-ambassador"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Campus Ambassador
                 </Link>
-                <Link 
-                  to="/programs/swahili-tech-women" 
+                <Link
+                  to="/programs/swahili-tech-women"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
@@ -193,35 +197,35 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            
+
             <div className="py-2">
               <div className="flex items-center justify-between text-foreground">
                 <span className="text-foreground">Departments</span>
               </div>
               <div className="pl-4 mt-2 border-l border-gray-200 space-y-2">
-                <Link 
-                  to="/department/communication" 
+                <Link
+                  to="/department/communication"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Communication
                 </Link>
-                <Link 
-                  to="/department/tech-engineering" 
+                <Link
+                  to="/department/tech-engineering"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Tech & Engineering
                 </Link>
-                <Link 
-                  to="/department/creatives" 
+                <Link
+                  to="/department/creatives"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
                   Creatives
                 </Link>
-                <Link 
-                  to="/department/community-entrepreneurship" 
+                <Link
+                  to="/department/community-entrepreneurship"
                   className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
                   onClick={toggleMenu}
                 >
@@ -229,16 +233,16 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            
-            <Link 
-              to="/impact" 
+
+            <Link
+              to="/impact"
               className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
               onClick={toggleMenu}
             >
               Impact
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
               onClick={toggleMenu}
             >

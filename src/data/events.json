@@ -1,0 +1,122 @@
+{
+  "EventsData": [
+    {
+      "id": 1,
+      "title": "Tech Innovation Summit",
+      "description": "A gathering of tech entrepreneurs, investors, and industry leaders to discuss innovation and growth opportunities in East Africa.",
+      "date": "2025-05-15",
+      "time": "9:00 AM - 5:00 PM",
+      "location": "Swahilipot Hub, Mombasa",
+      "capacity": "250 attendees"
+    },
+    {
+      "id": 2,
+      "title": "Digital Arts Exhibition",
+      "description": "A hands-on workshop focused on building digital skills for youth and entrepreneurs.",
+      "date": "2025-06-08",
+      "time": "10:00 AM - 7:00 PM",
+      "location": "Swahilipot Gallery, Mombasa",
+      "capacity": "200 attendees"
+    },
+    {
+      "id": 3,
+      "title": "Youth Leadership Workshop",
+      "description": "Interactive workshop focused on developing leadership skills, public speaking, and community organizing for youth leaders.",
+      "date": "2025-07-22",
+      "time": "2:00 PM - 6:00 PM",
+      "location": "Swahilipot Hub, Mombasa",
+      "capacity": "50 attendees"
+    },
+    {
+      "id": 4,
+      "title": "Digital Bridge Graduation",
+      "description": "Celebration ceremony for graduates of the Digital Bridge program, recognizing their achievements in digital skills development.",
+      "date": "2025-05-30",
+      "time": "8:00 AM - 12:00 PM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "100 attendees",
+      "registrationLink": "https://forms.gle/67UsAfVYsf2Seh5p6"
+    },
+    {
+      "id": 5,
+      "title": "Mombasa County Youth Leader Association",
+      "description": "Networking event for youth leaders across Mombasa County to collaborate on community initiatives and share best practices.",
+      "date": "2025-05-31",
+      "time": "8:00 AM - 3:00 PM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "75 attendees"
+    },
+    {
+      "id": 6,
+      "title": "Uefa Champions League Finals Watch Party",
+      "description": "Community viewing of the UEFA Champions League Finals. Join fellow football enthusiasts for this exciting sporting event.",
+      "date": "2025-05-31",
+      "time": "4:00 PM - 12:00 AM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "300 attendees"
+    },
+    {
+      "id": 7,
+      "title": "Governor Issa Timamy Session",
+      "description": "Special session with Governor Issa Timamy discussing regional development initiatives and opportunities for youth engagement.",
+      "date": "2025-06-01",
+      "time": "Full Day",
+      "location": "Swahilipot Mazrui Space, Mombasa",
+      "capacity": "150 attendees"
+    },
+    {
+      "id": 8,
+      "title": "Department Summit",
+      "description": "Strategic planning summit for department heads to align on organizational goals and initiatives for the upcoming year.",
+      "date": "2025-06-02",
+      "time": "8:00 AM - 5:00 PM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "50 attendees"
+    },
+    {
+      "id": 9,
+      "title": "Info Session Generation",
+      "description": "Informational session about upcoming Generation programs and opportunities for skills development and career advancement.",
+      "date": "2025-06-03",
+      "time": "8:00 AM - 2:00 PM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "100 attendees"
+    },
+    {
+      "id": 10,
+      "title": "Peer Counselling Club ReLaunch",
+      "description": "Relaunch event for the Peer Counselling Club, introducing new initiatives and recruiting members to support mental health awareness.",
+      "date": "2025-06-10",
+      "time": "Full Day",
+      "location": "Mt Kenya Uni",
+      "capacity": "60 attendees"
+    },
+    {
+      "id": 11,
+      "title": "Konga Za Utamaduni",
+      "description": "Cultural celebration showcasing traditional music, dance, and art from the coastal region of Kenya.",
+      "date": "2025-06-14",
+      "time": "10:00 AM - 6:00 PM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "250 attendees"
+    },
+    {
+      "id": 12,
+      "title": "International Day For Menstrual Hygiene",
+      "description": "Educational event raising awareness about menstrual hygiene and promoting access to menstrual products for all.",
+      "date": "2025-06-14",
+      "time": "Full Day",
+      "location": "Mt Kenya Uni"
+      
+    },
+    {
+      "id": 13,
+      "title": "Make Music Day",
+      "description": "Community music festival celebrating the universal language of music with performances from local artists and interactive workshops.",
+      "date": "2025-06-21",
+      "time": "8:00 AM - 8:00 PM",
+      "location": "Swahilipot Amphitheatre, Mombasa",
+      "capacity": "400 attendees"
+    }
+  ]
+}
