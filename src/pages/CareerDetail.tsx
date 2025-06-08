@@ -2,102 +2,106 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useParams, Link } from "react-router-dom";
-import data from '@/data/jobs.json';
+import { Link } from "react-router-dom";
+import data from "@/data/jobs.json";
 
-const JobDetail = () => {
-  const { jobId } = useParams();
-  const job = data.jobs.find((job) => job.id === jobId);
-
-  if (!job) {
-    return (
-      <>
-        <Navbar />
-        <main className="py-16">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold text-center">Job Not Found</h2>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-  }
+const Careers = () => {
+  const today = new Date();
 
   return (
     <>
       <Navbar />
-      <main className="py-16 md:py-24">
-        <div className="container-custom">
-          <Card>
-            <CardContent className="p-6">
-              <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="space-y-2">
-                  <p><strong>Programme:</strong> {job.programme}</p>
-                  <p><strong>Location:</strong> {job.location}</p>
-                  <p><strong>Duration:</strong> {job.duration}</p>
-                  <p><strong>Reporting To:</strong> {job.reporting_to}</p>
-                  <p><strong>Direct Reports:</strong> {job.direct_reports}</p>
-                </div>
-              </div>
-
-              <h2 className="text-2xl font-semibold mb-3">About Swahilipot Hub</h2>
-              <p className="text-gray-700 mb-6">{job.overview.about_sph}</p>
-
-              <h2 className="text-2xl font-semibold mb-3">Position Overview</h2>
-              <p className="text-gray-700 mb-6">{job.overview.position_summary}</p>
-
-              <h2 className="text-2xl font-semibold mb-3">Scope of Role</h2>
-              <p className="text-gray-700 mb-6">{job.scope}</p>
-
-              <h2 className="text-2xl font-semibold mb-3">Responsibilities</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.responsibilities.map((resp, index) => (
-                  <li key={index}>{resp}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold mb-3">Key Areas</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.key_areas.map((area, index) => (
-                  <li key={index}>{area}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold mb-3">Qualifications</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.qualifications.map((qual, index) => (
-                  <li key={index}>{qual}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold mb-3">Skills</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.skills.map((skill, index) => (
-                  <li key={index}>{skill}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold mb-3">Application Details</h2>
-              <p className="text-gray-700 mb-2"><strong>Deadline:</strong> {job.application.deadline}</p>
-              <p className="text-gray-700 mb-2"><strong>Submission:</strong> {job.application.submission}</p>
-              <p className="text-gray-700 mb-6"><strong>Note:</strong> {job.application.note}</p>
-
-              <Button className="bg-swahilipot-600 hover:bg-swahilipot-700">
-                <a href={job.application.application_link} target="_blank">Apply Now</a>
-              </Button>
-            </CardContent>
-          </Card>
-          <div className="mt-6">
-            <Button variant="outline" asChild>
-              <Link to="/careers">Back to Jobs</Link>
-            </Button>
+      <main>
+        <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gray-50">
+          <div className="container-custom">
+            <div className="text-center max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                We Are <span className="text-gradient-blue">Hiring</span>
+              </h1>
+              <p className="text-xl text-gray-700">
+                Join our team and help empower youth through technology, arts, and entrepreneurship across the Kenyan Coast.
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <section className="py-16 md:py-24">
+          <div className="container-custom">
+            <div className="grid gap-8">
+              {data.jobs.map((job) => {
+                const deadline = new Date(job.application.deadline);
+                const isPastDeadline = deadline < today;
+
+                return (
+                  <Card key={job.id}>
+                    <CardContent className="p-6">
+                      <div className="flex flex-col gap-4">
+                        <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
+                        <p className="text-gray-700 mb-4">{job.overview.position_summary}</p>
+                        <p className="text-gray-700 mb-4">
+                          Application Deadline: {deadline.toDateString()}
+                        </p>
+                        {isPastDeadline ? (
+                          <Button disabled className="w-fit cursor-not-allowed">
+                            Not Accepting Applications
+                          </Button>
+                        ) : (
+                          <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 w-fit" asChild>
+                            <Link to={`/career/${job.id}`}>View Details</Link>
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="container-custom">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">Why Work With Us?</h2>
+              <p className="text-gray-700 mb-12">
+                Join a dynamic team passionate about making a difference in East Africa through technology, arts, and entrepreneurship.
+              </p>
+              <div className="grid md:grid-cols-3 gap-8">
+                <Card className="bg-white">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-swahilipot-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-swahilipot-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h3 className="font-semibold mb-2">Impactful Work</h3>
+                    <p className="text-gray-600">Make a real difference in the lives of youth across East Africa</p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-white">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-swahilipot-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-swahilipot-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 className="font-semibold mb-2">Growth & Learning</h3>
+                    <p className="text-gray-600">Continuous learning opportunities and professional development</p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-white">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-swahilipot-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-swahilipot-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 className="font-semibold mb-2">Dynamic Environment</h3>
+                    <p className="text-gray-600">Work in a vibrant, creative, and innovative workspace</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
   );
 };
 
-export default JobDetail;
+export default Careers;
