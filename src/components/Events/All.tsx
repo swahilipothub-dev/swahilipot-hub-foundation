@@ -110,27 +110,33 @@ const AllEvents = () => {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-end">
-                {isBefore(currentDate, event.parsedDate) ? (
+              <CardFooter className="flex justify-end gap-2">
+                {isBefore(currentDate, event.parsedDate) && event.registrationLink && (
                   <Button 
                     size="sm"
                     onClick={() => {
-                      if (event.registrationLink) {
-                        console.log('Opening registration link:', event.registrationLink);
-                        try {
-                          window.open(event.registrationLink, '_blank', 'noopener,noreferrer');
-                        } catch (error) {
-                          console.error('Error opening registration link:', error);
-                          window.location.href = event.registrationLink;
-                        }
+                      console.log('Opening registration link:', event.registrationLink);
+                      try {
+                        window.open(event.registrationLink, '_blank', 'noopener,noreferrer');
+                      } catch (error) {
+                        console.error('Error opening registration link:', error);
+                        window.location.href = event.registrationLink;
                       }
                     }}
-                    disabled={!event.registrationLink}
                   >
-                    {event.registrationLink ? 'Register Now' : 'Registration Coming Soon'}
+                    Register Now
                   </Button>
+                )}
+                {event.pageLink ? (
+                  <Link to={event.pageLink}>
+                    <Button size="sm" variant="outline">View Details</Button>
+                  </Link>
                 ) : (
-                  <Button size="sm" variant="outline">View Details</Button>
+                  isBefore(currentDate, event.parsedDate) && !event.registrationLink && (
+                    <Button size="sm" variant="outline" disabled>
+                      Details Coming Soon
+                    </Button>
+                  )
                 )}
               </CardFooter>
             </Card>

@@ -117,6 +117,17 @@
       "time": "8:00 AM - 8:00 PM",
       "location": "Swahilipot Amphitheatre, Mombasa",
       "capacity": "400 attendees"
+    },
+    {
+      "id": 14,
+      "title": "MEN'S MENTAL HEALTH",
+      "description": "A dedicated event focusing on men's mental health awareness, providing a safe space for discussions, support, and professional guidance.",
+      "date": "2025-06-28",
+      "time": "10:00 AM - 8:00 PM",
+      "location": "Swahilipot Hub, Mombasa",
+      "capacity": "500 attendees",
+      "registrationLink": "https://bit.ly/mens-day-2025",
+      "pageLink": "/events/mens-mental-health"
     }
   ]
 }
