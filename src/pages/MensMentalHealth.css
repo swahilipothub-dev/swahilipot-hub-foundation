@@ -1,0 +1,29 @@
+.hero-background {
+  background-size: cover;
+  background-position: center;
+  /* Removed transform and fixed background for better performance */
+}
+
+.activity-card {
+  transition: opacity 0.3s ease;
+}
+
+.activity-card:hover {
+  opacity: 0.9;
+}
+
+.image-hover {
+  transition: opacity 0.3s ease;
+}
+
+.image-hover:hover {
+  opacity: 0.9;
+}
+
+.schedule-card {
+  transition: opacity 0.3s ease;
+}
+
+.schedule-card:hover {
+  opacity: 0.9;
+}
