@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,6 +26,7 @@ import EmployerEngagement from "./pages/EmployerEngagement";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import YouthEngagement from "./pages/YouthEngagement";
+import MensMentalHealth from "./pages/MensMentalHealth";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -65,6 +65,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="/team" element={<Team />} />
           <Route path="/team/:memberName" element={<Bio />} />
+          <Route path="/events/mens-mental-health" element={<MensMentalHealth />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
