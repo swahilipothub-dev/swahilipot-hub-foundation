@@ -20,6 +20,7 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
+import MensConference from "./pages/events/MensConference";
 import EmployerEngagement from "./pages/EmployerEngagement";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
@@ -58,7 +59,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/career/:jobId" element={<CareerDetail />} />
           
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/events/mens-conference" element={<MensConference />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
