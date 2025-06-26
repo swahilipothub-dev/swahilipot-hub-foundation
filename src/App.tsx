@@ -19,6 +19,7 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
+import MensConference from "./pages/events/MensConference";
 import Team from "./pages/Team";
 import Bio from "./pages/Bio";
 
@@ -57,6 +58,9 @@ const App = () => (
           <Route path="/department/tech-engineering" element={<TechEngineering />} />
           <Route path="/department/creatives" element={<Creatives />} />
           <Route path="/department/community-entrepreneurship" element={<CommunityEntrepreneurship />} />
+          
+          {/* Event routes */}
+          <Route path="/events/mens-conference" element={<MensConference />} />
 
           {/* Career routes */}
           <Route path="/careers" element={<Careers />} />
