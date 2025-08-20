@@ -8,30 +8,43 @@ import { Calendar, MapPin, Clock, Users } from "lucide-react";
 const upcomingEvents = [
   {
     id: 1,
+    title: "Pwani Innovation Week",
+    description: "Join us for the annual Pwani Innovation Week, a premier event celebrating innovation and technology in the coastal region.",
+    date: "Coming Soon",
+    time: "All Day",
+    location: "Swahilipot Hub, Mombasa",
+    capacity: "1000+ attendees",
+    registerLink: "https://www.pwaniinnovationweek.com/"
+  },
+  {
+    id: 2,
     title: "Tech Entrepreneurship Summit",
     description: "A gathering of tech entrepreneurs, investors, and industry leaders to discuss innovation and growth opportunities in East Africa.",
     date: "May 15, 2025",
     time: "9:00 AM - 5:00 PM",
     location: "Swahilipot Hub, Mombasa",
-    capacity: "250 attendees"
+    capacity: "250 attendees",
+    registerLink: "/register/tech-summit"
   },
   {
-    id: 2,
+    id: 3,
     title: "Digital Arts Exhibition",
     description: "Showcasing digital artwork, animations, and creative projects from young artists across the coastal region.",
     date: "June 8, 2025",
     time: "10:00 AM - 7:00 PM",
     location: "Swahilipot Gallery, Mombasa",
-    capacity: "200 attendees"
+    capacity: "200 attendees",
+    registerLink: "/register/digital-arts"
   },
   {
-    id: 3,
+    id: 4,
     title: "Youth Leadership Workshop",
     description: "Interactive workshop focused on developing leadership skills, public speaking, and community organizing for youth leaders.",
     date: "July 22, 2025",
     time: "2:00 PM - 6:00 PM",
     location: "Swahilipot Hub, Mombasa",
-    capacity: "50 attendees"
+    capacity: "50 attendees",
+    registerLink: "/register/leadership-workshop"
   }
 ];
 
@@ -52,7 +65,7 @@ const Events = () => {
             </div>
           </div>
         </section>
-        
+
         <section className="py-16 md:py-24">
           <div className="container-custom">
             <div className="text-center max-w-2xl mx-auto mb-12">
@@ -61,7 +74,7 @@ const Events = () => {
                 Join us for these exciting upcoming events and be part of the Swahilipot community experience.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               {upcomingEvents.map(event => (
                 <Card key={event.id} className="shadow-md hover:shadow-lg transition-shadow">
@@ -90,25 +103,40 @@ const Events = () => {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-swahilipot-600 hover:bg-swahilipot-700">Register Now</Button>
+                    {event.id === 1 ? (
+                      <a
+                        href={event.registerLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full"
+                      >
+                        <Button className="w-full bg-swahilipot-600 hover:bg-swahilipot-700">
+                          Learn More
+                        </Button>
+                      </a>
+                    ) : (
+                      <Button className="w-full bg-swahilipot-600 hover:bg-swahilipot-700">
+                        Register Now
+                      </Button>
+                    )}
                   </CardFooter>
                 </Card>
               ))}
             </div>
-            
+
             <div className="mt-12 text-center">
               <Button variant="outline" size="lg">View All Events</Button>
             </div>
           </div>
         </section>
-        
+
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-6">Host Your Event with Us</h2>
                 <p className="text-gray-700 mb-6">
-                  Swahilipot Hub offers modern, well-equipped spaces for conferences, workshops, meetups, and 
+                  Swahilipot Hub offers modern, well-equipped spaces for conferences, workshops, meetups, and
                   cultural events. Our versatile venues can accommodate both small gatherings and large conferences.
                 </p>
                 <div className="space-y-4 mb-6">
