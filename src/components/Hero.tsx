@@ -1,10 +1,31 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
     <div className="relative overflow-hidden">
+      {/* Pwani Innovation Week Banner */}
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 text-center">
+        <div className="container-custom flex flex-col md:flex-row items-center justify-center gap-2">
+          <div className="flex items-center font-medium">
+            <Calendar className="h-5 w-5 mr-2" />
+            <span>Pwani Innovation Week 2025</span>
+          </div>
+          <div className="text-sm md:ml-2">
+            Join us for the biggest innovation event in the coastal region! 
+            <a 
+              href="https://www.pwaniinnovationweek.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="ml-2 font-semibold underline hover:no-underline"
+            >
+              Learn More →
+            </a>
+          </div>
+        </div>
+      </div>
+      
       <div className="absolute inset-0 bg-swahilipot-900/10 -z-10"></div>
       <div className="absolute inset-0 bg-[url('/images/hero/hero1.jpg')] bg-cover bg-center opacity-10 -z-20"></div>
       
