@@ -8,6 +8,8 @@ router.get('/attachments', adminController.getAttachments);
 router.post('/attachments', adminController.createAttachment);
 router.put('/attachments/:id', adminController.updateAttachment);
 router.delete('/attachments/:id', adminController.deleteAttachment);
+router.put('/attachments/:id/accept', adminController.toggleAcceptance);
+router.put('/attachments/:id/archive', adminController.toggleArchive);
 
 router.get('/departments', adminController.getDepartments);
 router.post('/departments', adminController.createDepartment);
