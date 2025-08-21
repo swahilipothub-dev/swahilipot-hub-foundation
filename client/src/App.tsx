@@ -23,6 +23,9 @@ import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
 import EmployerEngagement from "./pages/EmployerEngagement";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
+import IndustrialAttachment from "./pages/IndustrialAttachment";
+import IndustrialAttachmentApply from "./pages/IndustrialAttachmentApply";
+import IndustrialAttachmentSuccess from "./pages/IndustrialAttachmentSuccess";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +60,10 @@ const App = () => (
           {/* Career routes */}
           <Route path="/careers" element={<Careers />} />
           <Route path="/career/:jobId" element={<CareerDetail />} />
+            {/* Industrial Attachment routes */}
+            <Route path="/industrial-attachment" element={<IndustrialAttachment />} />
+            <Route path="/industrial-attachment/apply" element={<IndustrialAttachmentApply />} />
+            <Route path="/industrial-attachment/success" element={<IndustrialAttachmentSuccess />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
