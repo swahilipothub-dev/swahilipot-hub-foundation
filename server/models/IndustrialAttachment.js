@@ -25,7 +25,6 @@ const industrialAttachmentSchema = new mongoose.Schema(
     agree_terms: { type: Boolean, required: true },
     agree_communications: { type: Boolean, default: false },
     is_accepted: { type: Boolean, default: false },
-    is_archived: { type: Boolean, default: false },
     about_yourself: { type: String, required: true },
     community_engagement_statement: { type: String, required: true },
     understanding_of_swahilipot: { type: String, required: true },

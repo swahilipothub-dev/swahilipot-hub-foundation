@@ -23,12 +23,6 @@ import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
 import EmployerEngagement from "./pages/EmployerEngagement";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
-import AdminDashboard from "./pages/AdminDashboard";
-import IndustrialAttachments from "./pages/admin/IndustrialAttachments";
-import Institutions from "./pages/admin/Institutions";
-import Departments from "./pages/admin/Departments";
-import Courses from "./pages/admin/Courses";
-import Users from "./pages/admin/Users";
 
 const queryClient = new QueryClient();
 
@@ -45,14 +39,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/donate" element={<Donate />} />
-
-          <Route path="/admin" element={<AdminDashboard />}>
-          <Route path="industrial-attachments" element={<IndustrialAttachments />} />
-            <Route path="departments" element={<Departments />} />
-            <Route path="institutions" element={<div>Institutions</div>} />
-            <Route path="courses" element={<Courses />} />
-            <Route path="users" element={<Users />} />
-          </Route>
+          
           {/* Program-specific routes */}
           <Route path="/programs/case-management" element={<CaseManagement />} />
           <Route path="/programs/tourism-innovation-lab" element={<TourismInnovationLab />} />
