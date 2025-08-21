@@ -9,10 +9,14 @@ import { Parser } from 'json2csv';
 // Attachments CRUD
 export const getAttachments = async (req, res) => {
   try {
-    const data = await IndustrialAttachment.find()
+    const { includeArchived = 'false' } = req.query;
+    const query = includeArchived === 'true' ? {} : { is_archived: { $ne: true } };
+    
+    const data = await IndustrialAttachment.find(query)
       .populate('institution', 'name')
       .populate('course', 'name')
-      .populate('department', 'name');
+      .populate('department', 'name')
+      .sort({ createdAt: -1 });
     res.json(data);
   } catch (error) {
     console.error('Error fetching attachments:', error);
@@ -22,70 +26,170 @@ export const getAttachments = async (req, res) => {
     });
   }
 };
+
+// Accept/Revoke attachment
+export const toggleAcceptance = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const attachment = await IndustrialAttachment.findById(id);
+    
+    if (!attachment) {
+      return res.status(404).json({ error: 'Attachment not found' });
+    }
+    
+    attachment.is_accepted = !attachment.is_accepted;
+    await attachment.save();
+    
+    res.json({ 
+      success: true, 
+      is_accepted: attachment.is_accepted,
+      message: attachment.is_accepted ? 'Application accepted' : 'Application acceptance revoked'
+    });
+  } catch (error) {
+    console.error('Error toggling acceptance:', error);
+    res.status(500).json({ 
+      error: 'Failed to toggle acceptance', 
+      details: error.message 
+    });
+  }
+};
+
+// Archive/Unarchive attachment
+export const toggleArchive = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const attachment = await IndustrialAttachment.findById(id);
+    
+    if (!attachment) {
+      return res.status(404).json({ error: 'Attachment not found' });
+    }
+    
+    attachment.is_archived = !attachment.is_archived;
+    await attachment.save();
+    
+    res.json({ 
+      success: true, 
+      is_archived: attachment.is_archived,
+      message: attachment.is_archived ? 'Application archived' : 'Application unarchived'
+    });
+  } catch (error) {
+    console.error('Error toggling archive:', error);
+    res.status(500).json({ 
+      error: 'Failed to toggle archive', 
+      details: error.message 
+    });
+  }
+};
 export const createAttachment = async (req, res) => {
   try {
-    console.log('Creating attachment with data:', req.body);
+    console.log('Creating attachment with data:', JSON.stringify(req.body, null, 2));
+    
+    // Validate required fields
+    const requiredFields = [
+      'first_name', 'last_name', 'phone_number', 'email', 'residential_location',
+      'date_of_birth', 'gender', 'year_of_study', 'expected_graduation_date',
+      'about_yourself', 'community_engagement_statement', 'understanding_of_swahilipot'
+    ];
+    
+    const missingFields = requiredFields.filter(field => !req.body[field]);
+    if (missingFields.length > 0) {
+      return res.status(400).json({
+        error: 'Missing required fields',
+        missingFields,
+        message: `Please provide all required fields: ${missingFields.join(', ')}`
+      });
+    }
     
     // Handle institution, course, and department creation if they don't exist
     let attachmentData = { ...req.body };
     
     // Handle institution
-    if (attachmentData.institution && typeof attachmentData.institution === 'object' && attachmentData.institution.name) {
-      let institution = await LearningInstitution.findOne({ name: attachmentData.institution.name });
-      if (!institution) {
-        institution = new LearningInstitution({ 
-          name: attachmentData.institution.name,
-          county: 'Nairobi' // Default county, you might want to make this configurable
-        });
-        await institution.save();
+    if (attachmentData.institution) {
+      const institutionName = typeof attachmentData.institution === 'object' 
+        ? attachmentData.institution.name 
+        : attachmentData.institution;
+        
+      if (institutionName) {
+        let institution = await LearningInstitution.findOne({ name: institutionName });
+        if (!institution) {
+          institution = new LearningInstitution({ 
+            name: institutionName,
+            county: 'Nairobi' // Default county
+          });
+          await institution.save();
+        }
+        attachmentData.institution = institution._id;
       }
-      attachmentData.institution = institution._id;
     }
     
     // Handle course
-    if (attachmentData.course && typeof attachmentData.course === 'object' && attachmentData.course.name) {
-      let course = await Course.findOne({ name: attachmentData.course.name });
-      if (!course) {
-        course = new Course({ 
-          name: attachmentData.course.name,
-          certification: 'Degree', // Default certification, you might want to make this configurable
-          institution: attachmentData.institution // Use the institution we just created/found
-        });
-        await course.save();
+    if (attachmentData.course) {
+      const courseName = typeof attachmentData.course === 'object' 
+        ? attachmentData.course.name 
+        : attachmentData.course;
+        
+      if (courseName) {
+        let course = await Course.findOne({ name: courseName });
+        if (!course) {
+          course = new Course({ 
+            name: courseName,
+            certification: 'Degree',
+            institution: attachmentData.institution
+          });
+          await course.save();
+        }
+        attachmentData.course = course._id;
       }
-      attachmentData.course = course._id;
     }
     
     // Handle department
-    if (attachmentData.department && typeof attachmentData.department === 'object' && attachmentData.department.name) {
-      let department = await Department.findOne({ name: attachmentData.department.name });
-      if (!department) {
-        department = new Department({ 
-          name: attachmentData.department.name,
-          description: `Department for ${attachmentData.department.name}`
-        });
-        await department.save();
+    if (attachmentData.department) {
+      const departmentName = typeof attachmentData.department === 'object'
+        ? attachmentData.department.name
+        : attachmentData.department;
+        
+      if (departmentName) {
+        let department = await Department.findOne({ name: departmentName });
+        if (!department) {
+          department = new Department({ 
+            name: departmentName,
+            description: `Department for ${departmentName}`
+          });
+          await department.save();
+        }
+        attachmentData.department = department._id;
       }
-      attachmentData.department = department._id;
     }
     
-    // Provide default values for required fields if they're empty
-    if (!attachmentData.resume_url || attachmentData.resume_url.trim() === '') {
-      attachmentData.resume_url = 'placeholder_resume_url';
-    }
-    if (!attachmentData.cover_letter_url || attachmentData.cover_letter_url.trim() === '') {
-      attachmentData.cover_letter_url = 'placeholder_cover_letter_url';
+    // Check if email already exists
+    const existingAttachment = await IndustrialAttachment.findOne({ email: attachmentData.email });
+    if (existingAttachment) {
+      return res.status(400).json({ 
+        error: 'Email already exists', 
+        details: 'An application with this email address already exists' 
+      });
     }
     
+    // Create and save the new attachment
     const item = new IndustrialAttachment(attachmentData);
     await item.save();
-    res.json(item);
+    
+    // Populate the references for the response
+    const populatedItem = await IndustrialAttachment.findById(item._id)
+      .populate('institution', 'name')
+      .populate('course', 'name')
+      .populate('department', 'name');
+    
+    res.status(201).json(populatedItem);
   } catch (error) {
     console.error('Error creating attachment:', error);
+    console.error('Request body:', req.body);
+    console.error('Validation errors:', error.errors);
     res.status(500).json({ 
       error: 'Failed to create attachment', 
       details: error.message,
-      validationErrors: error.errors 
+      validationErrors: error.errors,
+      requestBody: req.body
     });
   }
 };
