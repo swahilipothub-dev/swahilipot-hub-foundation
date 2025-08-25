@@ -1,14 +1,22 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const IndustrialAttachment: React.FC = () => {
   const navigate = useNavigate();
   return (
-  <div className="min-h-screen w-full py-0 px-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col md:flex-row gap-10 items-stretch">
-  <div className="flex-1 flex flex-col justify-center gap-10 px-12 py-16">
+    <>
+      <Navbar />
+      <div
+      className="min-h-screen w-full py-0 px-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col md:flex-row gap-10 items-stretch">
+      <div className="flex-1 flex flex-col justify-center gap-10 px-12 py-16">
         <div className="mb-6">
-          <h1 className="text-5xl font-extrabold mb-4 text-blue-700 drop-shadow-lg tracking-tight">Industrial Attachment Program</h1>
-          <p className="mb-6 text-xl text-gray-700 leading-relaxed">Join SwahiliPot Hub’s Industrial Attachment program and immerse yourself in a vibrant community of innovators, creators, and leaders. This program is designed for students eager to gain hands-on experience in technology, entrepreneurship, and social impact.</p>
+          <h1 className="text-5xl font-extrabold mb-4 text-blue-700 drop-shadow-lg tracking-tight">Industrial Attachment
+            Program</h1>
+          <p className="mb-6 text-xl text-gray-700 leading-relaxed">Join SwahiliPot Hub’s Industrial Attachment program
+            and immerse yourself in a vibrant community of innovators, creators, and leaders. This program is designed
+            for students eager to gain hands-on experience in technology, entrepreneurship, and social impact.</p>
           <button
             className="bg-gradient-to-r from-blue-600 to-blue-400 text-white px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:scale-105 hover:from-blue-700 transition-transform duration-200"
             onClick={() => navigate('/industrial-attachment/apply')}
@@ -19,11 +27,21 @@ const IndustrialAttachment: React.FC = () => {
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-3 text-blue-600">Why Choose SwahiliPot Hub?</h2>
           <ul className="grid grid-cols-1 gap-4 text-gray-800">
-            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Work on real-world projects and build your portfolio</li>
-            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Collaborate with experienced mentors and industry professionals</li>
-            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Access workshops, networking events, and career guidance</li>
-            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Engage in community-driven initiatives and make a difference</li>
-            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Flexible opportunities for both on-site and remote participation</li>
+            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Work on real-world projects and
+              build your portfolio
+            </li>
+            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Collaborate with experienced
+              mentors and industry professionals
+            </li>
+            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Access workshops, networking
+              events, and career guidance
+            </li>
+            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Engage in community-driven
+              initiatives and make a difference
+            </li>
+            <li className="bg-white rounded-xl shadow p-4 border-l-4 border-blue-400">Flexible opportunities for both
+              on-site and remote participation
+            </li>
           </ul>
         </div>
         <div className="mb-6">
@@ -57,10 +75,14 @@ const IndustrialAttachment: React.FC = () => {
           </ol>
         </div>
         <div className="mb-4 text-center text-gray-600">
-          <span className="inline-block bg-blue-50 px-4 py-2 rounded-full shadow">Questions? <a href="/contact" className="text-blue-600 underline font-semibold">Contact our team</a></span>
+          <span className="inline-block bg-blue-50 px-4 py-2 rounded-full shadow">Questions? <a href="/contact"
+                                                                                                className="text-blue-600 underline font-semibold">Contact our team</a></span>
         </div>
       </div>
     </div>
+      <Footer />
+    </>
+
   );
 };
 
