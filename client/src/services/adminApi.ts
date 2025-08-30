@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_BASE_URL = 'http://localhost:5000/api';
+
 // Create an axios instance with default config
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -42,8 +43,8 @@ export const industrialAttachmentsApi = {
     params: { includeArchived: includeArchived ? 'true' : 'false' } 
   }),
   getById: (id: string) => api.get(`/admin/attachments/${id}`),
-  create: (data: any) => api.post('/admin/attachments', data),
-  update: (id: string, data: any) => api.put(`/admin/attachments/${id}`, data),
+  create: (data: Record<string, unknown>) => api.post('/admin/attachments', data),
+  update: (id: string, data: Record<string, unknown>) => api.put(`/admin/attachments/${id}`, data),
   delete: (id: string) => api.delete(`/admin/attachments/${id}`),
   toggleAcceptance: (id: string) => api.put(`/admin/attachments/${id}/accept`),
   toggleArchive: (id: string) => api.put(`/admin/attachments/${id}/archive`),
@@ -54,8 +55,8 @@ export const industrialAttachmentsApi = {
 export const departmentsApi = {
   getAll: () => api.get('/admin/departments'),
   getById: (id: string) => api.get(`/admin/departments/${id}`),
-  create: (data: any) => api.post('/admin/departments', data),
-  update: (id: string, data: any) => api.put(`/admin/departments/${id}`, data),
+  create: (data: Record<string, unknown>) => api.post('/admin/departments', data),
+  update: (id: string, data: Record<string, unknown>) => api.put(`/admin/departments/${id}`, data),
   delete: (id: string) => api.delete(`/admin/departments/${id}`),
   exportCSV: () => api.get('/admin/export/departments', { responseType: 'blob' }),
 };
@@ -64,8 +65,8 @@ export const departmentsApi = {
 export const institutionsApi = {
   getAll: () => api.get('/admin/institutions'),
   getById: (id: string) => api.get(`/admin/institutions/${id}`),
-  create: (data: any) => api.post('/admin/institutions', data),
-  update: (id: string, data: any) => api.put(`/admin/institutions/${id}`, data),
+  create: (data: Record<string, unknown>) => api.post('/admin/institutions', data),
+  update: (id: string, data: Record<string, unknown>) => api.put(`/admin/institutions/${id}`, data),
   delete: (id: string) => api.delete(`/admin/institutions/${id}`),
   exportCSV: () => api.get('/admin/export/institutions', { responseType: 'blob' }),
 };
@@ -74,8 +75,8 @@ export const institutionsApi = {
 export const coursesApi = {
   getAll: () => api.get('/admin/courses'),
   getById: (id: string) => api.get(`/admin/courses/${id}`),
-  create: (data: any) => api.post('/admin/courses', data),
-  update: (id: string, data: any) => api.put(`/admin/courses/${id}`, data),
+  create: (data: Record<string, unknown>) => api.post('/admin/courses', data),
+  update: (id: string, data: Record<string, unknown>) => api.put(`/admin/courses/${id}`, data),
   delete: (id: string) => api.delete(`/admin/courses/${id}`),
   exportCSV: () => api.get('/admin/export/courses', { responseType: 'blob' }),
 };
@@ -84,8 +85,8 @@ export const coursesApi = {
 export const usersApi = {
   getAll: () => api.get('/admin/users'),
   getById: (id: string) => api.get(`/admin/users/${id}`),
-  create: (data: any) => api.post('/admin/users', data),
-  update: (id: string, data: any) => api.put(`/admin/users/${id}`, data),
+  create: (data: Record<string, unknown>) => api.post('/admin/users', data),
+  update: (id: string, data: Record<string, unknown>) => api.put(`/admin/users/${id}`, data),
   delete: (id: string) => api.delete(`/admin/users/${id}`),
   exportCSV: () => api.get('/admin/export/users', { responseType: 'blob' }),
 };

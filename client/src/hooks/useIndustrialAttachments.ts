@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { industrialAttachmentsApi } from '../services/adminApi';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
@@ -9,20 +9,20 @@ export const useIndustrialAttachments = (includeArchived: boolean = false) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchAttachments = async () => {
+  const fetchAttachments = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
       const { data } = await industrialAttachmentsApi.getAll(includeArchived);
       setAttachments(Array.isArray(data) ? data : []);
-    } catch (err: any) {
-      const errorMessage = err.response?.data?.message || 'Failed to fetch applications';
+    } catch (err: unknown) {
+      const errorMessage = (err as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to fetch applications';
       setError(errorMessage);
       toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
-  };
+  }, [includeArchived]);
 
   const deleteAttachment = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this application? This action cannot be undone.')) return;
@@ -32,8 +32,8 @@ export const useIndustrialAttachments = (includeArchived: boolean = false) => {
       await industrialAttachmentsApi.delete(id);
       toast.success('Application deleted successfully');
       await fetchAttachments();
-    } catch (err: any) {
-      const errorMessage = err.response?.data?.message || 'Failed to delete application';
+    } catch (err: unknown) {
+      const errorMessage = (err as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to delete application';
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -54,8 +54,8 @@ export const useIndustrialAttachments = (includeArchived: boolean = false) => {
       ));
       
       toast.success(message);
-    } catch (err: any) {
-      const errorMessage = err.response?.data?.message || 'Failed to update acceptance status';
+    } catch (err: unknown) {
+      const errorMessage = (err as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to update acceptance status';
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -76,8 +76,8 @@ export const useIndustrialAttachments = (includeArchived: boolean = false) => {
       ));
       
       toast.success(message);
-    } catch (err: any) {
-      const errorMessage = err.response?.data?.message || 'Failed to update archive status';
+    } catch (err: unknown) {
+      const errorMessage = (err as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to update archive status';
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -98,8 +98,8 @@ export const useIndustrialAttachments = (includeArchived: boolean = false) => {
       window.URL.revokeObjectURL(url);
       link.remove();
       toast.success('Export completed successfully');
-    } catch (err: any) {
-      const errorMessage = err.response?.data?.message || 'Failed to export data';
+    } catch (err: unknown) {
+      const errorMessage = (err as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to export data';
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -108,7 +108,7 @@ export const useIndustrialAttachments = (includeArchived: boolean = false) => {
 
   useEffect(() => {
     fetchAttachments();
-  }, [includeArchived]);
+  }, [includeArchived, fetchAttachments]);
 
   return {
     attachments,
