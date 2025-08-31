@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import ImpactSection from "@/components/Impact";
 import Footer from "@/components/Footer";
