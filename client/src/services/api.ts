@@ -35,8 +35,11 @@ export const industrialAttachmentAPI = {
   },
 
   // Get available courses
-  getCourses: async () => {
-    const url = '/api/users/courses';
+  getCourses: async (institutionId?: string) => {
+    const url = institutionId 
+      ? `/api/users/courses?institution=${institutionId}`
+      : '/api/users/courses';
+    
     console.log('Fetching courses from:', url);
     
     const response = await fetch(url);
