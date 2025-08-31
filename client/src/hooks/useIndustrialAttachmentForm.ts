@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { industrialAttachmentsApi } from '../services/adminApi';
+import { useState, useEffect } from 'react';
+import { industrialAttachmentsApi, institutionsApi, coursesApi, departmentsApi } from '../services/adminApi';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
 import { IndustrialAttachment } from '../types/industrialAttachment';
@@ -40,14 +40,64 @@ export const useIndustrialAttachmentForm = (
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState<'personal' | 'academic' | 'documents' | 'statements' | 'settings'>('personal');
+  
+  // Data for dropdowns
+  const [institutions, setInstitutions] = useState<Array<{ _id: string; name: string; county: string }>>([]);
+  const [courses, setCourses] = useState<Array<{ _id: string; name: string; certification: string; institution: { _id: string; name: string } }>>([]);
+  const [departments, setDepartments] = useState<Array<{ _id: string; name: string; description?: string }>>([]);
+  const [loading, setLoading] = useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setCurrentAttachment(prev => ({ ...prev, [name]: value }));
   };
 
+  // Fetch data for dropdowns
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const [institutionsRes, coursesRes, departmentsRes] = await Promise.all([
+          institutionsApi.getAll(),
+          coursesApi.getAll(),
+          departmentsApi.getAll()
+        ]);
+        
+        setInstitutions(institutionsRes.data);
+        setCourses(coursesRes.data);
+        setDepartments(departmentsRes.data);
+      } catch (error) {
+        console.error('Error fetching dropdown data:', error);
+        toast.error('Failed to load form data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleReferenceChange = (field: 'institution' | 'course' | 'department', value: string) => {
-    setCurrentAttachment(prev => ({ ...prev, [field]: { _id: '', name: value } }));
+    if (field === 'institution') {
+      const selectedInstitution = institutions.find(inst => inst._id === value);
+      setCurrentAttachment(prev => ({ 
+        ...prev, 
+        institution: selectedInstitution ? { _id: selectedInstitution._id, name: selectedInstitution.name } : { _id: '', name: '' },
+        course: { _id: '', name: '' } // Reset course when institution changes
+      }));
+    } else if (field === 'course') {
+      const selectedCourse = courses.find(course => course._id === value);
+      setCurrentAttachment(prev => ({ 
+        ...prev, 
+        course: selectedCourse ? { _id: selectedCourse._id, name: selectedCourse.name } : { _id: '', name: '' }
+      }));
+    } else if (field === 'department') {
+      const selectedDepartment = departments.find(dept => dept._id === value);
+      setCurrentAttachment(prev => ({ 
+        ...prev, 
+        department: selectedDepartment ? { _id: selectedDepartment._id, name: selectedDepartment.name } : { _id: '', name: '' }
+      }));
+    }
   };
 
   const handleSubmit = async (e?: React.FormEvent) => {
@@ -115,5 +165,9 @@ export const useIndustrialAttachmentForm = (
     handleInputChange,
     handleReferenceChange,
     handleSubmit,
+    institutions,
+    courses,
+    departments,
+    loading,
   };
 };

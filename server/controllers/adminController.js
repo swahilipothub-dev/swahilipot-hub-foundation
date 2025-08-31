@@ -253,16 +253,17 @@ export const deleteInstitution = async (req, res) => {
 
 // Courses CRUD
 export const getCourses = async (req, res) => {
-  const data = await Course.find();
+  const data = await Course.find().populate('institution', 'name county');
   res.json(data);
 };
 export const createCourse = async (req, res) => {
   const item = new Course(req.body);
   await item.save();
-  res.json(item);
+  const populatedItem = await Course.findById(item._id).populate('institution', 'name county');
+  res.json(populatedItem);
 };
 export const updateCourse = async (req, res) => {
-  const item = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  const item = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('institution', 'name county');
   res.json(item);
 };
 export const deleteCourse = async (req, res) => {
@@ -289,14 +290,266 @@ export const deleteUser = async (req, res) => {
   res.json({ success: true });
 };
 
-// Analytics (example: count per model)
+// Enhanced Analytics with detailed metrics
 export const getAnalytics = async (req, res) => {
-  const attachments = await IndustrialAttachment.countDocuments();
-  const departments = await Department.countDocuments();
-  const institutions = await LearningInstitution.countDocuments();
-  const courses = await Course.countDocuments();
-  const users = await Users.countDocuments();
-  res.json({ attachments, departments, institutions, courses, users });
+  try {
+    // Basic counts
+    const totalAttachments = await IndustrialAttachment.countDocuments();
+    const totalDepartments = await Department.countDocuments();
+    const totalInstitutions = await LearningInstitution.countDocuments();
+    const totalCourses = await Course.countDocuments();
+    const totalUsers = await Users.countDocuments();
+
+    // Attachment status breakdown
+    const acceptedAttachments = await IndustrialAttachment.countDocuments({ is_accepted: true, is_archived: false });
+    const pendingAttachments = await IndustrialAttachment.countDocuments({ is_accepted: false, is_archived: false });
+    const archivedAttachments = await IndustrialAttachment.countDocuments({ is_archived: true });
+
+    // Acceptance rate calculation
+    const acceptanceRate = totalAttachments > 0 ? ((acceptedAttachments / totalAttachments) * 100).toFixed(1) : 0;
+
+    // Department breakdown
+    const departmentBreakdown = await IndustrialAttachment.aggregate([
+      {
+        $lookup: {
+          from: 'departments',
+          localField: 'department',
+          foreignField: '_id',
+          as: 'departmentInfo'
+        }
+      },
+      {
+        $unwind: '$departmentInfo'
+      },
+      {
+        $group: {
+          _id: '$departmentInfo.name',
+          count: { $sum: 1 },
+          accepted: {
+            $sum: {
+              $cond: [{ $and: [{ $eq: ['$is_accepted', true] }, { $eq: ['$is_archived', false] }] }, 1, 0]
+            }
+          },
+          pending: {
+            $sum: {
+              $cond: [{ $and: [{ $eq: ['$is_accepted', false] }, { $eq: ['$is_archived', false] }] }, 1, 0]
+            }
+          },
+          archived: {
+            $sum: {
+              $cond: [{ $eq: ['$is_archived', true] }, 1, 0]
+            }
+          }
+        }
+      },
+      {
+        $project: {
+          department: '$_id',
+          count: 1,
+          accepted: 1,
+          pending: 1,
+          archived: 1,
+          acceptanceRate: {
+            $cond: [
+              { $gt: ['$count', 0] },
+              { $multiply: [{ $divide: ['$accepted', '$count'] }, 100] },
+              0
+            ]
+          }
+        }
+      },
+      { $sort: { count: -1 } }
+    ]);
+
+    // Course breakdown
+    const courseBreakdown = await IndustrialAttachment.aggregate([
+      {
+        $lookup: {
+          from: 'courses',
+          localField: 'course',
+          foreignField: '_id',
+          as: 'courseInfo'
+        }
+      },
+      {
+        $unwind: '$courseInfo'
+      },
+      {
+        $group: {
+          _id: '$courseInfo.name',
+          count: { $sum: 1 },
+          accepted: {
+            $sum: {
+              $cond: [{ $and: [{ $eq: ['$is_accepted', true] }, { $eq: ['$is_archived', false] }] }, 1, 0]
+            }
+          },
+          pending: {
+            $sum: {
+              $cond: [{ $and: [{ $eq: ['$is_accepted', false] }, { $eq: ['$is_archived', false] }] }, 1, 0]
+            }
+          },
+          archived: {
+            $sum: {
+              $cond: [{ $eq: ['$is_archived', true] }, 1, 0]
+            }
+          }
+        }
+      },
+      {
+        $project: {
+          course: '$_id',
+          count: 1,
+          accepted: 1,
+          pending: 1,
+          archived: 1,
+          acceptanceRate: {
+            $cond: [
+              { $gt: ['$count', 0] },
+              { $multiply: [{ $divide: ['$accepted', '$count'] }, 100] },
+              0
+            ]
+          }
+        }
+      },
+      { $sort: { count: -1 } }
+    ]);
+
+    // Institution breakdown
+    const institutionBreakdown = await IndustrialAttachment.aggregate([
+      {
+        $lookup: {
+          from: 'learninginstitutions',
+          localField: 'institution',
+          foreignField: '_id',
+          as: 'institutionInfo'
+        }
+      },
+      {
+        $unwind: '$institutionInfo'
+      },
+      {
+        $group: {
+          _id: '$institutionInfo.name',
+          count: { $sum: 1 },
+          accepted: {
+            $sum: {
+              $cond: [{ $and: [{ $eq: ['$is_accepted', true] }, { $eq: ['$is_archived', false] }] }, 1, 0]
+            }
+          },
+          pending: {
+            $sum: {
+              $cond: [{ $and: [{ $eq: ['$is_accepted', false] }, { $eq: ['$is_archived', false] }] }, 1, 0]
+            }
+          },
+          archived: {
+            $sum: {
+              $cond: [{ $eq: ['$is_archived', true] }, 1, 0]
+            }
+          }
+        }
+      },
+      {
+        $project: {
+          institution: '$_id',
+          count: 1,
+          accepted: 1,
+          pending: 1,
+          archived: 1,
+          acceptanceRate: {
+            $cond: [
+              { $gt: ['$count', 0] },
+              { $multiply: [{ $divide: ['$accepted', '$count'] }, 100] },
+              0
+            ]
+          }
+        }
+      },
+      { $sort: { count: -1 } }
+    ]);
+
+    // Recent activity (last 30 days)
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    
+    const recentAttachments = await IndustrialAttachment.countDocuments({
+      createdAt: { $gte: thirtyDaysAgo }
+    });
+
+    const recentAccepted = await IndustrialAttachment.countDocuments({
+      is_accepted: true,
+      updatedAt: { $gte: thirtyDaysAgo }
+    });
+
+    // Monthly trends (last 6 months)
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    
+    const monthlyTrends = await IndustrialAttachment.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: sixMonthsAgo }
+        }
+      },
+      {
+        $group: {
+          _id: {
+            year: { $year: '$createdAt' },
+            month: { $month: '$createdAt' }
+          },
+          count: { $sum: 1 },
+          accepted: {
+            $sum: {
+              $cond: [{ $eq: ['$is_accepted', true] }, 1, 0]
+            }
+          }
+        }
+      },
+      {
+        $project: {
+          month: {
+            $concat: [
+              { $toString: '$_id.year' },
+              '-',
+              { $toString: '$_id.month' }
+            ]
+          },
+          count: 1,
+          accepted: 1
+        }
+      },
+      { $sort: { '_id.year': 1, '_id.month': 1 } }
+    ]);
+
+    res.json({
+      // Basic metrics
+      totalAttachments,
+      totalDepartments,
+      totalInstitutions,
+      totalCourses,
+      totalUsers,
+      
+      // Status breakdown
+      acceptedAttachments,
+      pendingAttachments,
+      archivedAttachments,
+      acceptanceRate: parseFloat(acceptanceRate),
+      
+      // Recent activity
+      recentAttachments,
+      recentAccepted,
+      
+      // Breakdowns
+      departmentBreakdown,
+      courseBreakdown,
+      institutionBreakdown,
+      
+      // Trends
+      monthlyTrends
+    });
+  } catch (error) {
+    console.error('Analytics error:', error);
+    res.status(500).json({ error: 'Failed to fetch analytics data' });
+  }
 };
 
 // CSV Export
@@ -313,7 +566,7 @@ export const exportCSV = async (req, res) => {
       data = await LearningInstitution.find();
       break;
     case 'courses':
-      data = await Course.find();
+      data = await Course.find().populate('institution', 'name county');
       break;
     case 'users':
       data = await Users.find();

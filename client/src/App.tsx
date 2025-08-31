@@ -32,6 +32,9 @@ import Users from "./pages/admin/Users";
 import IndustrialAttachment from "./pages/IndustrialAttachment";
 import IndustrialAttachmentApply from "./pages/IndustrialAttachmentApply";
 import IndustrialAttachmentSuccess from "./pages/IndustrialAttachmentSuccess";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
 
 
 const queryClient = new QueryClient();
@@ -49,11 +52,17 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/login" element={<Login />} />
 
-          <Route path="/admin" element={<AdminDashboard />}>
+          <Route path="/admin" element={
+            <ProtectedRoute requireAdmin={true}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }>
+            <Route index element={<AnalyticsDashboard />} />
           <Route path="industrial-attachments" element={<IndustrialAttachments />} />
             <Route path="departments" element={<Departments />} />
-            <Route path="institutions" element={<div>Institutions</div>} />
+            <Route path="institutions" element={<Institutions />} />
             <Route path="courses" element={<Courses />} />
             <Route path="users" element={<Users />} />
           </Route>

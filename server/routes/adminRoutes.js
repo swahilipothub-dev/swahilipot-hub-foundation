@@ -1,7 +1,12 @@
 // Admin dashboard routes for managing models
 import express from 'express';
 import * as adminController from '../controllers/adminController.js';
+import { requireAdmin } from '../middleware/auth.js';
+
 const router = express.Router();
+
+// Apply requireAdmin middleware to all admin routes
+router.use(requireAdmin);
 
 // CRUD routes for each model
 router.get('/attachments', adminController.getAttachments);

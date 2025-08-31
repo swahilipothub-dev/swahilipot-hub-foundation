@@ -23,6 +23,10 @@ export const IndustrialAttachmentForm: React.FC<Props> = ({ attachment, isOpen, 
     handleInputChange,
     handleReferenceChange,
     handleSubmit,
+    institutions,
+    courses,
+    departments,
+    loading,
   } = useIndustrialAttachmentForm(attachment, onSuccess, onClose);
 
   if (!isOpen) return null;
@@ -46,6 +50,10 @@ export const IndustrialAttachmentForm: React.FC<Props> = ({ attachment, isOpen, 
           handleInputChange={handleInputChange}
           handleReferenceChange={handleReferenceChange}
           setCurrentAttachment={setCurrentAttachment}
+          institutions={institutions}
+          courses={courses}
+          departments={departments}
+          loading={loading}
         />
 
         <FormFooter

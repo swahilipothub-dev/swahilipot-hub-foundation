@@ -12,6 +12,10 @@ interface FormContentProps {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
   handleReferenceChange: (field: 'institution' | 'course' | 'department', value: string) => void;
   setCurrentAttachment: React.Dispatch<React.SetStateAction<Partial<IndustrialAttachment>>>;
+  institutions: Array<{ _id: string; name: string; county: string }>;
+  courses: Array<{ _id: string; name: string; certification: string; institution: { _id: string; name: string } }>;
+  departments: Array<{ _id: string; name: string; description?: string }>;
+  loading: boolean;
 }
 
 export const FormContent: React.FC<FormContentProps> = ({
@@ -20,6 +24,10 @@ export const FormContent: React.FC<FormContentProps> = ({
   handleInputChange,
   handleReferenceChange,
   setCurrentAttachment,
+  institutions,
+  courses,
+  departments,
+  loading,
 }) => {
   return (
     <div className="overflow-y-auto max-h-[60vh]">
@@ -36,6 +44,10 @@ export const FormContent: React.FC<FormContentProps> = ({
             currentAttachment={currentAttachment}
             handleInputChange={handleInputChange}
             handleReferenceChange={handleReferenceChange}
+            institutions={institutions}
+            courses={courses}
+            departments={departments}
+            loading={loading}
           />
         )}
 
