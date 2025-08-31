@@ -33,8 +33,8 @@ const Hero = () => {
               </Link>
             </Button>
             <Button className="btn-primary flex items-center gap-2 text-base" asChild>
-              <Link to="/careers">
-                Careers <ArrowRight size={16} />
+              <Link to="/industrial-attachment">
+                Industrial Attachment Applications <ArrowRight size={16} />
               </Link>
             </Button>
           </div>
