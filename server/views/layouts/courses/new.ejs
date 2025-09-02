@@ -1,0 +1,31 @@
+<% layout('layouts/admin', { title: 'New Course', active: 'courses' }) %>
+<h1 class="h4 mb-3">New Course</h1>
+<% if (errors.message) { %><div class="alert alert-danger"><%= errors.message %></div><% } %>
+<form action="/admin/courses" method="post" class="row g-3">
+  <div class="col-md-6">
+    <label class="form-label">Name</label>
+    <input name="name" class="form-control" value="<%= values.name || '' %>" required />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Certification</label>
+    <select name="certification" class="form-select" required>
+      <option value="">Select</option>
+      <% enums.forEach(opt => { %>
+        <option value="<%= opt %>" <%= values.certification===opt?'selected':'' %>><%= opt %></option>
+      <% }) %>
+    </select>
+  </div>
+  <div class="col-12">
+    <label class="form-label">Institution</label>
+    <select name="institution" class="form-select" required>
+      <option value="">Select institution</option>
+      <% institutions.forEach(i => { %>
+        <option value="<%= i._id %>" <%= values.institution===String(i._id)?'selected':'' %>><%= i.name %></option>
+      <% }) %>
+    </select>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">Create</button>
+    <a class="btn btn-outline-secondary" href="/admin/courses">Cancel</a>
+  </div>
+</form>
