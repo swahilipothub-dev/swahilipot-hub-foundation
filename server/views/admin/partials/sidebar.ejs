@@ -1,0 +1,104 @@
+<!-- Sidebar -->
+<nav id="sidebar" class="offcanvas-lg offcanvas-start bg-dark text-white vh-100" tabindex="-1">
+    <div class="offcanvas-header bg-dark">
+        <div class="d-flex align-items-center">
+            <img src="/images/sph-logo-inverted.png" alt="Logo" height="32" class="me-2">
+            <h5 class="mb-0 text-white">Swahilipot Hub</h5>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body d-flex flex-column p-0">
+        <!-- User Profile -->
+        <div class="p-3 border-bottom border-secondary">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="fas fa-user text-white"></i>
+                    </div>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <div class="fw-bold"><%= user?.name || 'Admin User' %></div>
+                    <small class="text-muted"><%= user?.role || 'Administrator' %></small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <ul class="nav flex-column flex-grow-1 py-2">
+            <li class="nav-item">
+                <a href="/admin" class="nav-link text-white <%= currentPath === '/admin' ? 'active' : '' %>">
+                    <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/admin/attachments" class="nav-link text-white <%= currentPath.startsWith('/admin/attachments') ? 'active' : '' %>">
+                    <i class="fas fa-briefcase me-2"></i> Industrial Attachments
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/admin/departments" class="nav-link text-white <%= currentPath.startsWith('/admin/departments') ? 'active' : '' %>">
+                    <i class="fas fa-building me-2"></i> Departments
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/admin/institutions" class="nav-link text-white <%= currentPath.startsWith('/admin/institutions') ? 'active' : '' %>">
+                    <i class="fas fa-university me-2"></i> Institutions
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/admin/courses" class="nav-link text-white <%= currentPath.startsWith('/admin/courses') ? 'active' : '' %>">
+                    <i class="fas fa-graduation-cap me-2"></i> Courses
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/admin/users" class="nav-link text-white <%= currentPath.startsWith('/admin/users') ? 'active' : '' %>">
+                    <i class="fas fa-users me-2"></i> Users
+                </a>
+            </li>
+            
+            <li class="nav-item mt-auto">
+                <hr class="border-secondary">
+                <div class="px-3 py-2">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center me-2" style="width: 36px; height: 36px;">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div class="d-none d-lg-block">
+                                <div class="small"><%= user?.name?.split(' ')[0] || 'Admin' %></div>
+                                <small class="text-muted"><%= user?.role || 'Administrator' %></small>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="/admin/profile"><i class="fas fa-user-circle me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="/admin/settings"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form action="/api/auth/logout" method="POST" class="d-inline">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <!-- Mobile Logout Button (visible only on mobile) -->
+        <div class="d-lg-none p-3 border-top border-secondary">
+            <form action="/api/auth/logout" method="POST" class="w-100">
+                <button type="submit" class="btn btn-outline-light w-100">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
