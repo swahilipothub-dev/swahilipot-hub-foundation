@@ -5,8 +5,40 @@ declare global {
 }
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { GraduationCap, User, MapPin, Calendar, FileText, Linkedin, Github, Building2, BookOpen } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
+import { industrialAttachmentAPI } from '@/services/api';
+
+// Types for the dropdown data
+interface Institution {
+  _id: string;
+  name: string;
+  county: string;
+}
+
+interface Course {
+  _id: string;
+  name: string;
+  certification: string;
+  institution: {
+    _id: string;
+    name: string;
+  };
+}
+
+interface Department {
+  _id: string;
+  name: string;
+  description: string;
+}
 
 const initialForm = {
   firstName: '',
@@ -39,23 +71,36 @@ const IndustrialAttachmentApply: React.FC = () => {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState<any>({});
   const [loading, setLoading] = useState(false);
-  const [institutions, setInstitutions] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [departments, setDepartments] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [institutions, setInstitutions] = useState<Institution[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [departments, setDepartments] = useState<Department[]>([]);
   const navigate = useNavigate();
 
+  // Fetch dropdown data on component mount
   useEffect(() => {
-    fetch('/api/institutions').then(r => r.json()).then(setInstitutions);
-    fetch('/api/departments').then(r => r.json()).then(setDepartments);
-  }, []);
+    const fetchData = async () => {
+      try {
+        setDataLoading(true);
+        const [institutionsData, coursesData, departmentsData] = await Promise.all([
+          industrialAttachmentAPI.getInstitutions(),
+          industrialAttachmentAPI.getCourses(),
+          industrialAttachmentAPI.getDepartments()
+        ]);
+        
+        setInstitutions(institutionsData);
+        setCourses(coursesData);
+        setDepartments(departmentsData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setErrors({ general: 'Failed to load form data. Please refresh the page.' });
+      } finally {
+        setDataLoading(false);
+      }
+    };
 
-  useEffect(() => {
-    if (form.institution) {
-      fetch(`/api/courses?institution=${form.institution}`).then(r => r.json()).then(setCourses);
-    } else {
-      setCourses([]);
-    }
-  }, [form.institution]);
+    fetchData();
+  }, []);
 
   const validate = () => {
     const e: any = {};
@@ -87,71 +132,525 @@ const IndustrialAttachmentApply: React.FC = () => {
     setForm(f => ({ ...f, [name]: type === 'checkbox' ? checked : value }));
   };
 
+  const handleSelectChange = (name: string, value: string) => {
+    setForm(f => ({ ...f, [name]: value }));
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const v = validate();
     setErrors(v);
     if (Object.keys(v).length) return;
+    
     setLoading(true);
     try {
-      const res = await fetch('/api/industrial-attachments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (res.status === 201) {
-        const data = await res.json();
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', 'industrial_attachment_apply');
-        }
-        navigate('/industrial-attachment/success', { state: { ref: data.referenceId } });
-      } else {
-        const err = await res.json();
-        setErrors(err.errors || { general: err.message || 'Server error' });
+      const data = await industrialAttachmentAPI.submitApplication(form);
+      
+      // Analytics event
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'industrial_attachment_apply');
       }
-    } catch {
-      setErrors({ general: 'Network/server error' });
+      
+      navigate('/industrial-attachment/success', { state: { ref: data.referenceId } });
+    } catch (error: any) {
+      setErrors({ general: error.message || 'Failed to submit application' });
     } finally {
       setLoading(false);
     }
   };
 
+  // Filter courses based on selected institution
+  const filteredCourses = form.institution 
+    ? courses.filter(course => course.institution._id === form.institution)
+    : courses;
+
+  if (dataLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+            <GraduationCap className="w-8 h-8 text-blue-600" />
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Loading Application Form...</h1>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen">
-        <form className="max-w-2xl mx-auto py-10 px-4" onSubmit={handleSubmit}>
-          <h2 className="text-2xl font-bold mb-4">Industrial Attachment Application</h2>
-          {errors.general && <div className="bg-red-100 text-red-700 p-2 mb-4">{errors.general}</div>}
-          <div className="mb-4"><label>First Name *</label><input name="firstName" value={form.firstName} onChange={handleChange} className="border p-2 w-full" />{errors.firstName && <span className="text-red-600 text-sm">{errors.firstName}</span>}</div>
-          <div className="mb-4"><label>Middle Name</label><input name="middleName" value={form.middleName} onChange={handleChange} className="border p-2 w-full" /></div>
-          <div className="mb-4"><label>Last Name *</label><input name="lastName" value={form.lastName} onChange={handleChange} className="border p-2 w-full" />{errors.lastName && <span className="text-red-600 text-sm">{errors.lastName}</span>}</div>
-          <div className="mb-4"><label>Phone Number *</label><input name="phone" value={form.phone} onChange={handleChange} className="border p-2 w-full" />{errors.phone && <span className="text-red-600 text-sm">{errors.phone}</span>}</div>
-          <div className="mb-4"><label>Email *</label><input name="email" value={form.email} onChange={handleChange} className="border p-2 w-full" />{errors.email && <span className="text-red-600 text-sm">{errors.email}</span>}</div>
-          <div className="mb-4"><label>Learning Institution *</label><select name="institution" value={form.institution} onChange={handleChange} className="border p-2 w-full"><option value="">Select institution</option>{institutions.map((i:any) => <option key={i.id} value={i.id}>{i.name}</option>)}</select>{errors.institution && <span className="text-red-600 text-sm">{errors.institution}</span>}</div>
-          <div className="mb-4"><label>Course *</label><select name="course" value={form.course} onChange={handleChange} className="border p-2 w-full" disabled={!form.institution}><option value="">Select course</option>{courses.map((c:any) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>{errors.course && <span className="text-red-600 text-sm">{errors.course}</span>}</div>
-          <div className="mb-4"><label>Residential Location/Town *</label><input name="location" value={form.location} onChange={handleChange} className="border p-2 w-full" />{errors.location && <span className="text-red-600 text-sm">{errors.location}</span>}</div>
-          <div className="mb-4"><label>Date of Birth *</label><input type="date" name="dob" value={form.dob} onChange={handleChange} className="border p-2 w-full" />{errors.dob && <span className="text-red-600 text-sm">{errors.dob}</span>}</div>
-          <div className="mb-4"><label>Resume/CV URL *</label><input name="resumeUrl" value={form.resumeUrl} onChange={handleChange} className="border p-2 w-full" />{errors.resumeUrl && <span className="text-red-600 text-sm">{errors.resumeUrl}</span>}</div>
-          <div className="mb-4"><label>Cover Letter URL *</label><input name="coverLetterUrl" value={form.coverLetterUrl} onChange={handleChange} className="border p-2 w-full" />{errors.coverLetterUrl && <span className="text-red-600 text-sm">{errors.coverLetterUrl}</span>}</div>
-          <div className="mb-4"><label>Gender *</label><select name="gender" value={form.gender} onChange={handleChange} className="border p-2 w-full"><option value="">Select gender</option><option value="Male">Male</option><option value="Female">Female</option></select>{errors.gender && <span className="text-red-600 text-sm">{errors.gender}</span>}</div>
-          <div className="mb-4"><label>Department *</label><select name="department" value={form.department} onChange={handleChange} className="border p-2 w-full"><option value="">Select department</option>{departments.map((d:any) => <option key={d.id} value={d.id}>{d.name}</option>)}</select>{errors.department && <span className="text-red-600 text-sm">{errors.department}</span>}</div>
-          <div className="mb-4"><label>Year of Study *</label><select name="yearOfStudy" value={form.yearOfStudy} onChange={handleChange} className="border p-2 w-full"><option value="">Select year</option>{Array.from({length:6},(_,i)=>i+1).map(y=><option key={y} value={`Year ${y}`}>{`Year ${y}`}</option>)}</select>{errors.yearOfStudy && <span className="text-red-600 text-sm">{errors.yearOfStudy}</span>}</div>
-          <div className="mb-4"><label>Expected Graduation Date *</label><input type="date" name="graduationDate" value={form.graduationDate} onChange={handleChange} className="border p-2 w-full" />{errors.graduationDate && <span className="text-red-600 text-sm">{errors.graduationDate}</span>}</div>
-          <div className="mb-4"><label>Available to Start *</label><input type="date" name="availableStart" value={form.availableStart} onChange={handleChange} className="border p-2 w-full" min="2025-09-01" />{errors.availableStart && <span className="text-red-600 text-sm">{errors.availableStart}</span>}</div>
-          <div className="mb-4 flex items-center"><input type="checkbox" name="onsite" checked={form.onsite} onChange={handleChange} className="mr-2" /><label>Can attend on-site</label></div>
-          <div className="mb-4 flex items-center"><input type="checkbox" name="agreeTerms" checked={form.agreeTerms} onChange={handleChange} className="mr-2" required /><label>I agree to the terms *</label>{errors.agreeTerms && <span className="text-red-600 text-sm ml-2">{errors.agreeTerms}</span>}</div>
-          <div className="mb-4 flex items-center"><input type="checkbox" name="agreeComms" checked={form.agreeComms} onChange={handleChange} className="mr-2" /><label>I agree to receive communications</label></div>
-          <div className="mb-4"><label>About Yourself *</label><textarea name="about" value={form.about} onChange={handleChange} className="border p-2 w-full" rows={3} />{errors.about && <span className="text-red-600 text-sm">{errors.about}</span>}</div>
-          <div className="mb-4"><label>Community Engagement Statement *</label><textarea name="community" value={form.community} onChange={handleChange} className="border p-2 w-full" rows={3} />{errors.community && <span className="text-red-600 text-sm">{errors.community}</span>}</div>
-          <div className="mb-4"><label>Understanding of SwahiliPot *</label><textarea name="understanding" value={form.understanding} onChange={handleChange} className="border p-2 w-full" rows={3} />{errors.understanding && <span className="text-red-600 text-sm">{errors.understanding}</span>}</div>
-          <div className="mb-4"><label>LinkedIn URL *</label><input name="linkedin" value={form.linkedin} onChange={handleChange} className="border p-2 w-full" />{errors.linkedin && <span className="text-red-600 text-sm">{errors.linkedin}</span>}</div>
-          <div className="mb-4"><label>GitHub URL</label><input name="github" value={form.github} onChange={handleChange} className="border p-2 w-full" /></div>
-          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700" disabled={loading}>{loading ? 'Submitting...' : 'Submit Application'}</button>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+            <GraduationCap className="w-8 h-8 text-blue-600" />
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Industrial Attachment Application</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Join SwahiliPot Hub for an enriching industrial attachment experience. Fill out the form below to begin your application process.
+          </p>
+        </div>
+
+        {errors.general && (
+          <Alert className="mb-6 border-red-200 bg-red-50">
+            <AlertDescription className="text-red-700">{errors.general}</AlertDescription>
+          </Alert>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Personal Information */}
+          <Card className="shadow-lg border-0">
+            <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
+              <div className="flex items-center gap-3">
+                <User className="w-5 h-5" />
+                <div>
+                  <CardTitle className="text-white">Personal Information</CardTitle>
+                  <CardDescription className="text-blue-100">Tell us about yourself</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="firstName" className="text-sm font-medium">First Name *</Label>
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    placeholder="Enter your first name"
+                    className={errors.firstName ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.firstName && <p className="text-red-600 text-xs">{errors.firstName}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="middleName" className="text-sm font-medium">Middle Name</Label>
+                  <Input
+                    id="middleName"
+                    name="middleName"
+                    value={form.middleName}
+                    onChange={handleChange}
+                    placeholder="Enter your middle name"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="lastName" className="text-sm font-medium">Last Name *</Label>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    placeholder="Enter your last name"
+                    className={errors.lastName ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.lastName && <p className="text-red-600 text-xs">{errors.lastName}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-sm font-medium">Phone Number *</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+254 700 000 000"
+                    className={errors.phone ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.phone && <p className="text-red-600 text-xs">{errors.phone}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                    className={errors.email ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="dob" className="text-sm font-medium">Date of Birth *</Label>
+                  <Input
+                    id="dob"
+                    name="dob"
+                    type="date"
+                    value={form.dob}
+                    onChange={handleChange}
+                    className={errors.dob ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.dob && <p className="text-red-600 text-xs">{errors.dob}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="gender" className="text-sm font-medium">Gender *</Label>
+                  <Select value={form.gender} onValueChange={(value) => handleSelectChange('gender', value)}>
+                    <SelectTrigger className={errors.gender ? "border-red-300 focus:border-red-500" : ""}>
+                      <SelectValue placeholder="Select your gender" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Male">Male</SelectItem>
+                      <SelectItem value="Female">Female</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.gender && <p className="text-red-600 text-xs">{errors.gender}</p>}
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <Label htmlFor="location" className="text-sm font-medium">Residential Location/Town *</Label>
+                <div className="relative mt-2">
+                  <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Input
+                    id="location"
+                    name="location"
+                    value={form.location}
+                    onChange={handleChange}
+                    placeholder="Enter your location"
+                    className={`pl-10 ${errors.location ? "border-red-300 focus:border-red-500" : ""}`}
+                  />
+                </div>
+                {errors.location && <p className="text-red-600 text-xs mt-1">{errors.location}</p>}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Academic Information */}
+          <Card className="shadow-lg border-0">
+            <CardHeader className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-t-lg">
+              <div className="flex items-center gap-3">
+                <Building2 className="w-5 h-5" />
+                <div>
+                  <CardTitle className="text-white">Academic Information</CardTitle>
+                  <CardDescription className="text-green-100">Your educational background</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="institution" className="text-sm font-medium">Learning Institution *</Label>
+                  <Select value={form.institution} onValueChange={(value) => handleSelectChange('institution', value)}>
+                    <SelectTrigger className={errors.institution ? "border-red-300 focus:border-red-500" : ""}>
+                      <SelectValue placeholder="Select your institution" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {institutions.map((inst) => (
+                        <SelectItem key={inst._id} value={inst._id}>
+                          {inst.name} - {inst.county}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {errors.institution && <p className="text-red-600 text-xs">{errors.institution}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="course" className="text-sm font-medium">Course *</Label>
+                  <Select 
+                    value={form.course} 
+                    onValueChange={(value) => handleSelectChange('course', value)}
+                    disabled={!form.institution}
+                  >
+                    <SelectTrigger className={errors.course ? "border-red-300 focus:border-red-500" : ""}>
+                      <SelectValue placeholder={form.institution ? "Select your course" : "Select institution first"} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {filteredCourses.map((course) => (
+                        <SelectItem key={course._id} value={course._id}>
+                          {course.name} ({course.certification})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {errors.course && <p className="text-red-600 text-xs">{errors.course}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="department" className="text-sm font-medium">Department *</Label>
+                  <Select value={form.department} onValueChange={(value) => handleSelectChange('department', value)}>
+                    <SelectTrigger className={errors.department ? "border-red-300 focus:border-red-500" : ""}>
+                      <SelectValue placeholder="Select your department" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {departments.map((dept) => (
+                        <SelectItem key={dept._id} value={dept._id}>
+                          {dept.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {errors.department && <p className="text-red-600 text-xs">{errors.department}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="yearOfStudy" className="text-sm font-medium">Year of Study *</Label>
+                  <Select value={form.yearOfStudy} onValueChange={(value) => handleSelectChange('yearOfStudy', value)}>
+                    <SelectTrigger className={errors.yearOfStudy ? "border-red-300 focus:border-red-500" : ""}>
+                      <SelectValue placeholder="Select year" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Array.from({ length: 6 }, (_, i) => i + 1).map(y => (
+                        <SelectItem key={y} value={`Year ${y}`}>{`Year ${y}`}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {errors.yearOfStudy && <p className="text-red-600 text-xs">{errors.yearOfStudy}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="graduationDate" className="text-sm font-medium">Expected Graduation *</Label>
+                  <Input
+                    id="graduationDate"
+                    name="graduationDate"
+                    type="date"
+                    value={form.graduationDate}
+                    onChange={handleChange}
+                    className={errors.graduationDate ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.graduationDate && <p className="text-red-600 text-xs">{errors.graduationDate}</p>}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Documents & Availability */}
+          <Card className="shadow-lg border-0">
+            <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-t-lg">
+              <div className="flex items-center gap-3">
+                <FileText className="w-5 h-5" />
+                <div>
+                  <CardTitle className="text-white">Documents & Availability</CardTitle>
+                  <CardDescription className="text-purple-100">Upload your documents and availability</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="resumeUrl" className="text-sm font-medium">Resume/CV URL *</Label>
+                  <Input
+                    id="resumeUrl"
+                    name="resumeUrl"
+                    value={form.resumeUrl}
+                    onChange={handleChange}
+                    placeholder="https://drive.google.com/..."
+                    className={errors.resumeUrl ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.resumeUrl && <p className="text-red-600 text-xs">{errors.resumeUrl}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="coverLetterUrl" className="text-sm font-medium">Cover Letter URL *</Label>
+                  <Input
+                    id="coverLetterUrl"
+                    name="coverLetterUrl"
+                    value={form.coverLetterUrl}
+                    onChange={handleChange}
+                    placeholder="https://drive.google.com/..."
+                    className={errors.coverLetterUrl ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.coverLetterUrl && <p className="text-red-600 text-xs">{errors.coverLetterUrl}</p>}
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <Label htmlFor="availableStart" className="text-sm font-medium">Available to Start *</Label>
+                <div className="relative mt-2">
+                  <Calendar className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Input
+                    id="availableStart"
+                    name="availableStart"
+                    type="date"
+                    value={form.availableStart}
+                    onChange={handleChange}
+                    min="2025-09-01"
+                    className={`pl-10 ${errors.availableStart ? "border-red-300 focus:border-red-500" : ""}`}
+                  />
+                </div>
+                {errors.availableStart && <p className="text-red-600 text-xs mt-1">{errors.availableStart}</p>}
+              </div>
+
+              <div className="mt-4 space-y-3">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="onsite"
+                    name="onsite"
+                    checked={form.onsite}
+                    onCheckedChange={(checked) => setForm(f => ({ ...f, onsite: checked as boolean }))}
+                  />
+                  <Label htmlFor="onsite" className="text-sm font-medium">I can attend on-site</Label>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Personal Statements */}
+          <Card className="shadow-lg border-0">
+            <CardHeader className="bg-gradient-to-r from-orange-600 to-orange-700 text-white rounded-t-lg">
+              <div className="flex items-center gap-3">
+                <BookOpen className="w-5 h-5" />
+                <div>
+                  <CardTitle className="text-white">Personal Statements</CardTitle>
+                  <CardDescription className="text-orange-100">Tell us more about yourself</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="about" className="text-sm font-medium">About Yourself *</Label>
+                  <Textarea
+                    id="about"
+                    name="about"
+                    value={form.about}
+                    onChange={handleChange}
+                    placeholder="Tell us about your background, interests, and what drives you..."
+                    rows={3}
+                    className={errors.about ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.about && <p className="text-red-600 text-xs">{errors.about}</p>}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="community" className="text-sm font-medium">Community Engagement Statement *</Label>
+                  <Textarea
+                    id="community"
+                    name="community"
+                    value={form.community}
+                    onChange={handleChange}
+                    placeholder="Describe your involvement in community activities and social impact initiatives..."
+                    rows={3}
+                    className={errors.community ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.community && <p className="text-red-600 text-xs">{errors.community}</p>}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="understanding" className="text-sm font-medium">Understanding of SwahiliPot *</Label>
+                  <Textarea
+                    id="understanding"
+                    name="understanding"
+                    value={form.understanding}
+                    onChange={handleChange}
+                    placeholder="What do you know about SwahiliPot Hub and why do you want to join us?"
+                    rows={3}
+                    className={errors.understanding ? "border-red-300 focus:border-red-500" : ""}
+                  />
+                  {errors.understanding && <p className="text-red-600 text-xs">{errors.understanding}</p>}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Social Links */}
+          <Card className="shadow-lg border-0">
+            <CardHeader className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-t-lg">
+              <div className="flex items-center gap-3">
+                <Linkedin className="w-5 h-5" />
+                <div>
+                  <CardTitle className="text-white">Professional Links</CardTitle>
+                  <CardDescription className="text-indigo-100">Your online presence</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="linkedin" className="text-sm font-medium">LinkedIn URL *</Label>
+                  <div className="relative">
+                    <Linkedin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <Input
+                      id="linkedin"
+                      name="linkedin"
+                      value={form.linkedin}
+                      onChange={handleChange}
+                      placeholder="https://linkedin.com/in/yourprofile"
+                      className={`pl-10 ${errors.linkedin ? "border-red-300 focus:border-red-500" : ""}`}
+                    />
+                  </div>
+                  {errors.linkedin && <p className="text-red-600 text-xs">{errors.linkedin}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="github" className="text-sm font-medium">GitHub URL</Label>
+                  <div className="relative">
+                    <Github className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <Input
+                      id="github"
+                      name="github"
+                      value={form.github}
+                      onChange={handleChange}
+                      placeholder="https://github.com/yourusername"
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Terms & Conditions */}
+          <Card className="shadow-lg border-0">
+            <CardContent className="p-6">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <Checkbox
+                    id="agreeTerms"
+                    name="agreeTerms"
+                    checked={form.agreeTerms}
+                    onCheckedChange={(checked) => setForm(f => ({ ...f, agreeTerms: checked as boolean }))}
+                    className="mt-1"
+                  />
+                  <div className="space-y-1">
+                    <Label htmlFor="agreeTerms" className="text-sm font-medium">I agree to the terms and conditions *</Label>
+                    <p className="text-xs text-gray-600">By checking this box, you agree to our terms of service and privacy policy.</p>
+                    {errors.agreeTerms && <p className="text-red-600 text-xs">{errors.agreeTerms}</p>}
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Checkbox
+                    id="agreeComms"
+                    name="agreeComms"
+                    checked={form.agreeComms}
+                    onCheckedChange={(checked) => setForm(f => ({ ...f, agreeComms: checked as boolean }))}
+                    className="mt-1"
+                  />
+                  <div className="space-y-1">
+                    <Label htmlFor="agreeComms" className="text-sm font-medium">I agree to receive communications</Label>
+                    <p className="text-xs text-gray-600">Receive updates about your application and future opportunities.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Submit Button */}
+          <div className="flex justify-center">
+            <Button
+              type="submit"
+              size="lg"
+              disabled={loading}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200"
+            >
+              {loading ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                  Submitting Application...
+                </>
+              ) : (
+                'Submit Application'
+              )}
+            </Button>
+          </div>
         </form>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </div>
   );
 };
 
