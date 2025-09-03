@@ -77,9 +77,10 @@ The frontend will run on port 5173 by default.
 ### Industrial Attachment Endpoints
 
 - `POST /api/users/industrial-attachments` - Submit application
-- `GET /api/users/institutions` - Get available institutions
-- `GET /api/users/courses` - Get available courses
-- `GET /api/users/departments` - Get available departments
+- `GET /api/users/institutions` - Get available institutions (cached for 1 hour)
+- `GET /api/users/courses` - Get available courses (cached for 30 minutes)
+- `GET /api/users/courses?institution=:id` - Get courses for specific institution (cached for 30 minutes)
+- `GET /api/users/departments` - Get available departments (cached for 1 hour)
 
 ### User Management Endpoints
 
@@ -119,6 +120,42 @@ The frontend will run on port 5173 by default.
 - **Reference ID Generation**: Unique reference ID for each application
 - **Duplicate Prevention**: Email-based duplicate application checking
 - **Responsive Design**: Mobile-friendly form interface
+- **Performance Optimization**: HTTP caching for reference data endpoints
+
+## Caching Strategy
+
+The system implements HTTP caching for public reference data to improve performance:
+
+- **Institutions**: Cached for 1 hour (3600 seconds)
+- **Courses**: Cached for 30 minutes (1800 seconds)
+- **Departments**: Cached for 1 hour (3600 seconds)
+
+Cache headers include:
+- `Cache-Control`: Specifies caching behavior
+- `Expires`: Absolute expiration time
+- `Last-Modified`: Resource modification timestamp
+
+This reduces database queries and improves response times for frequently accessed reference data.
+
+## Performance Optimizations
+
+The system implements several performance optimizations for reference data endpoints:
+
+### Database Optimizations
+- **Lean Queries**: Using `.lean()` to return plain JavaScript objects instead of Mongoose documents
+- **Field Selection**: Only selecting required fields to reduce payload size
+- **Alphabetical Sorting**: Results sorted alphabetically for better user experience
+
+### Response Optimizations
+- **Minimal Payloads**: Only essential data returned for form dropdowns
+- **Efficient Population**: Minimal institution data in course responses
+- **Consistent Structure**: Standardized response format across all endpoints
+
+### Performance Benefits
+- **Faster Database Queries**: Lean objects reduce memory usage
+- **Smaller Network Payloads**: Reduced data transfer
+- **Better User Experience**: Sorted results for easier selection
+- **Improved Scalability**: More efficient resource usage
 
 ## Troubleshooting
 
