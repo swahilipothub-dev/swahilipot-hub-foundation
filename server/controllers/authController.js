@@ -39,32 +39,51 @@ export const register = async (req, res) => {
 // Login user
 export const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, redirectTo = '/admin' } = req.body;
 
     // Find user by email
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials.' });
+      return res.status(401).json({ 
+        success: false,
+        error: 'Invalid credentials.' 
+      });
     }
 
     // Check if user is active
     if (!user.isActive) {
-      return res.status(401).json({ error: 'Account is deactivated.' });
+      return res.status(401).json({ 
+        success: false,
+        error: 'Account is deactivated. Please contact an administrator.' 
+      });
     }
 
     // Check password
     const isPasswordValid = await user.comparePassword(password);
     if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid credentials.' });
+      return res.status(401).json({ 
+        success: false,
+        error: 'Invalid credentials.' 
+      });
     }
 
     // Generate token
     const token = generateToken(user._id);
 
+    // Set token in HTTP-only cookie
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 24 * 60 * 60 * 1000 // 1 day
+    });
+
+    // Return success response with redirect URL
     res.json({
+      success: true,
       message: 'Login successful',
-      user: user.toJSON(),
-      token
+      redirectTo: redirectTo,
+      user: user.toJSON()
     });
   } catch (error) {
     console.error('Login error:', error);
@@ -84,10 +103,29 @@ export const getCurrentUser = async (req, res) => {
   }
 };
 
-// Logout (client-side token removal)
-export const logout = async (req, res) => {
+// Logout user
+export const logout = (req, res) => {
   try {
-    res.json({ message: 'Logout successful' });
+    // Clear the token cookie with same options as when it was set
+    res.clearCookie('token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/', // Important: must match the path used when setting the cookie
+    });
+    
+    // Clear any client-side storage
+    if (req.path.startsWith('/api/')) {
+      return res.json({ 
+        success: true, 
+        message: 'Logout successful',
+        redirectTo: '/login'
+      });
+    }
+    
+    // For web requests, redirect to login page with a no-cache header
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.redirect('/login');
   } catch (error) {
     console.error('Logout error:', error);
     res.status(500).json({ error: 'Server error during logout.' });

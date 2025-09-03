@@ -1,0 +1,257 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="/admin/users">Users</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><%= user ? 'Edit User' : 'Create User' %></li>
+                </ol>
+            </nav>
+            <h1 class="h3 mb-0 mt-2"><%= user ? 'Edit User' : 'Create New User' %></h1>
+        </div>
+        <div>
+            <a href="/admin/users" class="btn btn-outline-secondary me-2">
+                <i class="fas fa-arrow-left me-2"></i> Back to Users
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">User Information</h5>
+                </div>
+                <div class="card-body">
+                    <form id="userForm" action="<%= user ? `/admin/users/${user._id}` : '/admin/users' %>" method="POST" enctype="multipart/form-data">
+                        <% if (user) { %>
+                            <input type="hidden" name="_method" value="PUT">
+                        <% } %>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name" name="name" value="<%= user ? user.name : '' %>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" name="email" value="<%= user ? user.email : '' %>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" value="<%= user ? user.phone : '' %>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="role" name="role" required>
+                                        <option value="user" <%= user && user.role === 'user' ? 'selected' : '' %>>User</option>
+                                        <option value="admin" <%= user && user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <% if (!user) { %>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="form-text">Password must be at least 8 characters long</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                            <div class="col-12">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="isActive" name="isActive" <%= user && user.isActive ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="isActive">Active User</label>
+                                    <div class="form-text">Inactive users cannot log in to the system</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <a href="/admin/users" class="btn btn-outline-secondary">
+                                <i class="fas fa-times me-1"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Profile Picture</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="position-relative d-inline-block mb-3">
+                        <div class="avatar avatar-xxl rounded-circle bg-light border">
+                            <% if (user && user.avatar) { %>
+                                <img src="<%= user.avatar %>" id="avatarPreview" class="rounded-circle" width="120" height="120" alt="User Avatar">
+                            <% } else { %>
+                                <div id="avatarPreview" class="d-flex align-items-center justify-content-center w-100 h-100 bg-primary bg-opacity-10 text-primary">
+                                    <i class="fas fa-user fa-3x"></i>
+                                </div>
+                            <% } %>
+                        </div>
+                        <label class="position-absolute bottom-0 end-0 bg-white rounded-circle p-2 shadow-sm" style="cursor: pointer;">
+                            <i class="fas fa-camera text-muted"></i>
+                            <input type="file" name="avatar" id="avatarInput" class="d-none" accept="image/*">
+                        </label>
+                    </div>
+                    <div class="text-muted small">Click the camera icon to upload a new photo</div>
+                    <div class="text-muted small">Recommended size: 500x500 pixels</div>
+                </div>
+            </div>
+            
+            <% if (user) { %>
+            <div class="card border-danger">
+                <div class="card-header bg-danger bg-opacity-10 text-danger">
+                    <h5 class="mb-0">Danger Zone</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="mb-3">Delete this user</h6>
+                    <p class="small text-muted">Once you delete a user, there is no going back. Please be certain.</p>
+                    <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+                        <i class="fas fa-trash-alt me-2"></i> Delete User
+                    </button>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<% if (user) { %>
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-danger">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="flex-shrink-0 me-3">
+                        <i class="fas fa-exclamation-triangle text-danger fa-2x"></i>
+                    </div>
+                    <div>
+                        <h6>Are you sure you want to delete this user?</h6>
+                        <p class="mb-0 text-muted">This action cannot be undone. All data associated with this user will be permanently removed.</p>
+                    </div>
+                </div>
+                <div class="alert alert-warning" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <strong>Warning:</strong> This action is irreversible. Please confirm you want to proceed.
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i> Cancel
+                </button>
+                <form action="/admin/users/<%= user._id %>" method="POST" class="d-inline">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash-alt me-1"></i> Delete User
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle password visibility
+    const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+    togglePasswordButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const icon = this.querySelector('i');
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        });
+    });
+
+    // Password match validation
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+    const form = document.getElementById('userForm');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            if (password && confirmPassword && password.value !== confirmPassword.value) {
+                e.preventDefault();
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-danger';
+                alert.role = 'alert';
+                alert.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i> Passwords do not match!';
+                
+                const existingAlert = form.querySelector('.alert-danger');
+                if (!existingAlert) {
+                    form.insertBefore(alert, form.firstChild);
+                }
+                
+                return false;
+            }
+            return true;
+        });
+    }
+    
+    // Avatar preview
+    const avatarInput = document.getElementById('avatarInput');
+    if (avatarInput) {
+        avatarInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const avatarPreview = document.getElementById('avatarPreview');
+                    if (avatarPreview.tagName === 'IMG') {
+                        avatarPreview.src = event.target.result;
+                    } else {
+                        const img = document.createElement('img');
+                        img.id = 'avatarPreview';
+                        img.src = event.target.result;
+                        img.className = 'rounded-circle';
+                        img.width = 120;
+                        img.height = 120;
+                        img.alt = 'User Avatar';
+                        avatarPreview.parentNode.replaceChild(img, avatarPreview);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+});
+</script>
