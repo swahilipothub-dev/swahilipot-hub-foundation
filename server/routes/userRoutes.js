@@ -4,6 +4,7 @@ import IndustrialAttachment from "../models/IndustrialAttachment.js";
 import LearningInstitution from "../models/LearningInstitution.js";
 import Course from "../models/Course.js";
 import Department from "../models/Department.js";
+import { cacheMiddleware } from '../middleware/cache.js';
 
 const router = express.Router();
 
@@ -106,9 +107,13 @@ router.post("/industrial-attachments", async (req, res) => {
 });
 
 // Get available institutions
-router.get("/institutions", async (req, res) => {
+router.get("/institutions", cacheMiddleware(3600), async (req, res) => {
   try {
-    const institutions = await LearningInstitution.find().select('name county');
+    const institutions = await LearningInstitution.find()
+      .select('name county')
+      .lean() // Convert to plain objects for better performance
+      .sort({ name: 1 }); // Sort alphabetically for better UX
+    
     res.json(institutions);
   } catch (error) {
     res.status(500).json({ message: "Error fetching institutions", error: error.message });
@@ -116,9 +121,21 @@ router.get("/institutions", async (req, res) => {
 });
 
 // Get available courses
-router.get("/courses", async (req, res) => {
+router.get("/courses", cacheMiddleware(1800), async (req, res) => {
   try {
-    const courses = await Course.find().populate('institution', 'name').select('name certification institution');
+    const { institution } = req.query;
+    let query = {};
+    
+    if (institution) {
+      query.institution = institution;
+    }
+    
+    const courses = await Course.find(query)
+      .select('name certification institution')
+      .populate('institution', 'name')
+      .lean() // Convert to plain objects for better performance
+      .sort({ name: 1 }); // Sort alphabetically for better UX
+      
     res.json(courses);
   } catch (error) {
     res.status(500).json({ message: "Error fetching courses", error: error.message });
@@ -126,9 +143,13 @@ router.get("/courses", async (req, res) => {
 });
 
 // Get available departments
-router.get("/departments", async (req, res) => {
+router.get("/departments", cacheMiddleware(3600), async (req, res) => {
   try {
-    const departments = await Department.find().select('name description');
+    const departments = await Department.find()
+      .select('name description')
+      .lean() // Convert to plain objects for better performance
+      .sort({ name: 1 }); // Sort alphabetically for better UX
+    
     res.json(departments);
   } catch (error) {
     res.status(500).json({ message: "Error fetching departments", error: error.message });

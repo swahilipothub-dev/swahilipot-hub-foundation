@@ -72,6 +72,7 @@ const IndustrialAttachmentApply: React.FC = () => {
   const [errors, setErrors] = useState<any>({});
   const [loading, setLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(true);
+  const [coursesLoading, setCoursesLoading] = useState(false);
   const [institutions, setInstitutions] = useState<Institution[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
   const [departments, setDepartments] = useState<Department[]>([]);
@@ -82,14 +83,12 @@ const IndustrialAttachmentApply: React.FC = () => {
     const fetchData = async () => {
       try {
         setDataLoading(true);
-        const [institutionsData, coursesData, departmentsData] = await Promise.all([
+        const [institutionsData, departmentsData] = await Promise.all([
           industrialAttachmentAPI.getInstitutions(),
-          industrialAttachmentAPI.getCourses(),
           industrialAttachmentAPI.getDepartments()
         ]);
         
         setInstitutions(institutionsData);
-        setCourses(coursesData);
         setDepartments(departmentsData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -101,6 +100,29 @@ const IndustrialAttachmentApply: React.FC = () => {
 
     fetchData();
   }, []);
+
+  // Fetch courses when institution changes
+  useEffect(() => {
+    if (form.institution) {
+      const fetchCourses = async () => {
+        try {
+          setCoursesLoading(true);
+          setErrors({}); // Clear previous errors
+          const coursesData = await industrialAttachmentAPI.getCourses(form.institution);
+          setCourses(coursesData);
+        } catch (error) {
+          console.error('Error fetching courses:', error);
+          setErrors({ general: 'Failed to load courses for selected institution.' });
+        } finally {
+          setCoursesLoading(false);
+        }
+      };
+      fetchCourses();
+    } else {
+      setCourses([]);
+      setCoursesLoading(false);
+    }
+  }, [form.institution]);
 
   const validate = () => {
     const e: any = {};
@@ -133,7 +155,21 @@ const IndustrialAttachmentApply: React.FC = () => {
   };
 
   const handleSelectChange = (name: string, value: string) => {
-    setForm(f => ({ ...f, [name]: value }));
+    setForm(f => ({ 
+      ...f, 
+      [name]: value,
+      // Clear course selection when institution changes
+      ...(name === 'institution' && { course: '' })
+    }));
+    
+    // Clear course-related errors when institution changes
+    if (name === 'institution') {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.course;
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e: any) => {
@@ -159,10 +195,7 @@ const IndustrialAttachmentApply: React.FC = () => {
     }
   };
 
-  // Filter courses based on selected institution
-  const filteredCourses = form.institution 
-    ? courses.filter(course => course.institution._id === form.institution)
-    : courses;
+
 
   if (dataLoading) {
     return (
@@ -353,20 +386,34 @@ const IndustrialAttachmentApply: React.FC = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="course" className="text-sm font-medium">Course *</Label>
-                  <Select 
+                                    <Select 
                     value={form.course} 
                     onValueChange={(value) => handleSelectChange('course', value)}
-                    disabled={!form.institution}
+                    disabled={!form.institution || coursesLoading}
                   >
                     <SelectTrigger className={errors.course ? "border-red-300 focus:border-red-500" : ""}>
-                      <SelectValue placeholder={form.institution ? "Select your course" : "Select institution first"} />
+                      <SelectValue placeholder={
+                        !form.institution ? "Select institution first" :
+                        coursesLoading ? "Loading courses..." :
+                        "Select your course"
+                      } />
                     </SelectTrigger>
                     <SelectContent>
-                      {filteredCourses.map((course) => (
-                        <SelectItem key={course._id} value={course._id}>
-                          {course.name} ({course.certification})
-                        </SelectItem>
-                      ))}
+                      {coursesLoading ? (
+                        <div className="px-2 py-1.5 text-sm text-muted-foreground">
+                          Loading courses...
+                        </div>
+                      ) : courses.length > 0 ? (
+                        courses.map((course) => (
+                          <SelectItem key={course._id} value={course._id}>
+                            {course.name} ({course.certification})
+                          </SelectItem>
+                        ))
+                      ) : (
+                        <div className="px-2 py-1.5 text-sm text-muted-foreground">
+                          {form.institution ? "No courses available for this institution" : "Select an institution first"}
+                        </div>
+                      )}
                     </SelectContent>
                   </Select>
                   {errors.course && <p className="text-red-600 text-xs">{errors.course}</p>}
