@@ -1,0 +1,10 @@
+export { IndustrialAttachmentForm } from './IndustrialAttachmentForm';
+export { PersonalInfoTab } from './PersonalInfoTab';
+export { AcademicInfoTab } from './AcademicInfoTab';
+export { DocumentsTab } from './DocumentsTab';
+export { StatementsTab } from './StatementsTab';
+export { SettingsTab } from './SettingsTab';
+export { FormHeader } from './FormHeader';
+export { FormTabs } from './FormTabs';
+export { FormContent } from './FormContent';
+export { FormFooter } from './FormFooter';
