@@ -38,6 +38,8 @@ const corsOptions = {
       'http://localhost:5000',
       `http://localhost:${process.env.PORT || 5000}`,
       `http://127.0.0.1:${process.env.PORT || 5000}`
+      
+
     ];
 
     // Get additional origins from environment variable
