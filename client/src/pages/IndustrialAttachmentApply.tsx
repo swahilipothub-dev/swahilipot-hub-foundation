@@ -180,7 +180,42 @@ const IndustrialAttachmentApply: React.FC = () => {
     
     setLoading(true);
     try {
-      const data = await industrialAttachmentAPI.submitApplication(form);
+      // Format dates to ISO string and ensure required fields are present
+      const formatDate = (dateString: string) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toISOString();
+      };
+
+      // Format the data to match the backend's expected structure
+      const submissionData = {
+        first_name: form.firstName.trim(),
+        middle_name: form.middleName?.trim() || '',
+        last_name: form.lastName.trim(),
+        phone_number: form.phone.trim(),
+        email: form.email.trim().toLowerCase(),
+        gender: form.gender,
+        date_of_birth: formatDate(form.dob),
+        residential_location: form.location.trim(),
+        institution: form.institution,
+        department: form.department,
+        course: form.course,
+        year_of_study: form.yearOfStudy,
+        expected_graduation_date: formatDate(form.graduationDate),
+        available_start_date: form.availableStart ? formatDate(form.availableStart) : undefined,
+        can_attend_onsite: Boolean(form.onsite),
+        about_yourself: form.about.trim(),
+        community_engagement_statement: form.community.trim(),
+        understanding_of_swahilipot: form.understanding.trim(),
+        linkedin_url: form.linkedin?.trim() || '',
+        github_url: form.github?.trim() || '',
+        resume_url: form.resumeUrl.trim(),
+        cover_letter_url: form.coverLetterUrl.trim(),
+        agree_terms: Boolean(form.agreeTerms),
+        agree_communications: Boolean(form.agreeComms)
+      };
+
+      const data = await industrialAttachmentAPI.submitApplication(submissionData);
       
       // Analytics event
       if (typeof window !== 'undefined' && window.gtag) {
@@ -189,7 +224,8 @@ const IndustrialAttachmentApply: React.FC = () => {
       
       navigate('/industrial-attachment/success', { state: { ref: data.referenceId } });
     } catch (error: any) {
-      setErrors({ general: error.message || 'Failed to submit application' });
+      console.error('Submission error:', error);
+      setErrors({ general: error.message || 'Failed to submit application. Please check all fields and try again.' });
     } finally {
       setLoading(false);
     }

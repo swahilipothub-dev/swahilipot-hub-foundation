@@ -1,0 +1,557 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">Learning Institutions</h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstitutionModal">
+            <i class="fas fa-plus me-2"></i> Add Institution
+        </button>
+    </div>
+
+    <!-- Institutions Table -->
+    <div class="card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="institutionsTableBody">
+                        <!-- Will be populated by JavaScript -->
+                        <tr>
+                            <td colspan="6" class="text-center py-4">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center p-3 border-top">
+                <div class="text-muted">
+                    Showing <span id="showingFrom">0</span> to <span id="showingTo">0</span> of 
+                    <span id="totalItems">0</span> entries
+                </div>
+                <nav>
+                    <ul class="pagination pagination-sm mb-0" id="pagination">
+                        <!-- Will be populated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Institution Modal -->
+<div class="modal fade" id="addInstitutionModal" tabindex="-1" aria-labelledby="addInstitutionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="addInstitutionForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addInstitutionModalLabel">Add New Institution</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="institutionName" class="form-label">Institution Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="institutionName" name="name" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="institutionType" class="form-label">Institution Type <span class="text-danger">*</span></label>
+                                <select class="form-select" id="institutionType" name="type" required>
+                                    <option value="">Select Type</option>
+                                    <option value="university">University</option>
+                                    <option value="college">College</option>
+                                    <option value="polytechnic">Polytechnic</option>
+                                    <option value="tvet">TVET</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="institutionEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="institutionEmail" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="institutionAddress" class="form-label">Address</label>
+                        <textarea class="form-control" id="institutionAddress" name="address" rows="2"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="institutionPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="institutionPhone" name="phone">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="institutionWebsite" class="form-label">Website</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">https://</span>
+                                    <input type="text" class="form-control" id="institutionWebsite" name="website" placeholder="example.com">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="isActive" name="isActive" checked>
+                        <label class="form-check-label" for="isActive">Active</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Institution</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Institution Modal -->
+<div class="modal fade" id="editInstitutionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="editInstitutionForm">
+                <input type="hidden" id="editInstitutionId" name="id">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Institution</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="editInstitutionName" class="form-label">Institution Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editInstitutionName" name="name" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="editInstitutionType" class="form-label">Institution Type <span class="text-danger">*</span></label>
+                                <select class="form-select" id="editInstitutionType" name="type" required>
+                                    <option value="university">University</option>
+                                    <option value="college">College</option>
+                                    <option value="polytechnic">Polytechnic</option>
+                                    <option value="tvet">TVET</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="editInstitutionEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="editInstitutionEmail" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editInstitutionAddress" class="form-label">Address</label>
+                        <textarea class="form-control" id="editInstitutionAddress" name="address" rows="2"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="editInstitutionPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="editInstitutionPhone" name="phone">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="editInstitutionWebsite" class="form-label">Website</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">https://</span>
+                                    <input type="text" class="form-control" id="editInstitutionWebsite" name="website" placeholder="example.com">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="editIsActive" name="isActive">
+                        <label class="form-check-label" for="editIsActive">Active</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteInstitutionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this institution? This action cannot be undone.
+                <p class="mt-2 text-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Warning: This will affect all associated students and courses.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Delete Institution</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Institutions Page -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize DataTable and modals
+        const institutionsTable = document.getElementById('institutionsTableBody');
+        const addInstitutionForm = document.getElementById('addInstitutionForm');
+        const editInstitutionForm = document.getElementById('editInstitutionForm');
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteInstitutionModal'));
+        let currentPage = 1;
+        const itemsPerPage = 10;
+        let institutions = [];
+        let institutionToDelete = null;
+
+        // Fetch institutions from API
+        async function fetchInstitutions() {
+            try {
+                const response = await fetch('/api/admin/institutions');
+                if (!response.ok) throw new Error('Failed to fetch institutions');
+                institutions = await response.json();
+                renderInstitutions();
+                renderPagination();
+            } catch (error) {
+                console.error('Error fetching institutions:', error);
+                showAlert('danger', 'Failed to load institutions. Please try again.');
+            }
+        }
+
+        // Render institutions in the table
+        function renderInstitutions() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedItems = institutions.slice(start, end);
+
+            if (paginatedItems.length === 0) {
+                institutionsTable.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center py-4">
+                            <div class="text-muted">No institutions found</div>
+                            <button class="btn btn-sm btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#addInstitutionModal">
+                                <i class="fas fa-plus me-1"></i> Add Institution
+                            </button>
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            institutionsTable.innerHTML = paginatedItems.map(inst => `
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-sm bg-light rounded p-2 me-3">
+                                <i class="fas fa-university text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold">${escapeHtml(inst.name)}</div>
+                                <small class="text-muted">${inst.website ? escapeHtml(inst.website) : 'No website'}</small>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="badge bg-info">${formatInstitutionType(inst.type)}</span></td>
+                    <td class="text-truncate" style="max-width: 150px;" title="${escapeHtml(inst.address || '')}">
+                        ${inst.address ? escapeHtml(inst.address) : '<span class="text-muted">No address</span>'}
+                    </td>
+                    <td>
+                        ${inst.phone ? `
+                            <div>${escapeHtml(inst.phone)}</div>
+                            <small class="text-muted">${inst.email || ''}</small>
+                        ` : '<span class="text-muted">No contact</span>'}
+                    </td>
+                    <td>
+                        <span class="badge ${inst.is_active !== false ? 'bg-success' : 'bg-secondary'}">
+                            ${inst.is_active !== false ? 'Active' : 'Inactive'}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-link text-primary edit-btn" data-id="${inst._id}" title="Edit">
+                                <i class="far fa-edit"></i>
+                            </button>
+                            <button class="btn btn-link text-danger delete-btn" data-id="${inst._id}" title="Delete">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Add event listeners to action buttons
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', () => handleEdit(btn.dataset.id));
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', () => handleDeleteClick(btn.dataset.id));
+            });
+
+            // Update pagination info
+            document.getElementById('showingFrom').textContent = start + 1;
+            document.getElementById('showingTo').textContent = Math.min(end, institutions.length);
+            document.getElementById('totalItems').textContent = institutions.length;
+        }
+
+        // Format institution type for display
+        function formatInstitutionType(type) {
+            if (!type) return 'Unknown';
+            return type.charAt(0).toUpperCase() + type.slice(1);
+        }
+
+        // Render pagination controls
+        function renderPagination() {
+            const totalPages = Math.ceil(institutions.length / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage - 1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>`;
+
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                    </li>`;
+            }
+
+            paginationHTML += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage + 1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>`;
+
+            pagination.innerHTML = paginationHTML;
+
+            // Add event listeners to pagination links
+            document.querySelectorAll('.page-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (link.closest('.disabled')) return;
+                    currentPage = parseInt(link.dataset.page);
+                    renderInstitutions();
+                    renderPagination();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Handle edit button click
+        async function handleEdit(institutionId) {
+            try {
+                const response = await fetch(`/api/admin/institutions/${institutionId}`);
+                if (!response.ok) throw new Error('Failed to fetch institution');
+                const institution = await response.json();
+                
+                // Populate edit form
+                document.getElementById('editInstitutionId').value = institution._id;
+                document.getElementById('editInstitutionName').value = institution.name || '';
+                document.getElementById('editInstitutionType').value = institution.type || 'other';
+                document.getElementById('editInstitutionEmail').value = institution.email || '';
+                document.getElementById('editInstitutionAddress').value = institution.address || '';
+                document.getElementById('editInstitutionPhone').value = institution.phone || '';
+                
+                // Handle website (remove https:// if present)
+                let website = institution.website || '';
+                if (website.startsWith('http://')) website = website.substring(7);
+                if (website.startsWith('https://')) website = website.substring(8);
+                document.getElementById('editInstitutionWebsite').value = website;
+                
+                document.getElementById('editIsActive').checked = institution.is_active !== false;
+                
+                // Show edit modal
+                const editModal = new bootstrap.Modal(document.getElementById('editInstitutionModal'));
+                editModal.show();
+            } catch (error) {
+                console.error('Error fetching institution:', error);
+                showAlert('danger', 'Failed to load institution details. Please try again.');
+            }
+        }
+
+        // Handle delete button click
+        function handleDeleteClick(institutionId) {
+            institutionToDelete = institutionId;
+            deleteModal.show();
+        }
+
+        // Handle form submission for adding a new institution
+        addInstitutionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('institutionName').value,
+                type: document.getElementById('institutionType').value,
+                email: document.getElementById('institutionEmail').value,
+                address: document.getElementById('institutionAddress').value,
+                phone: document.getElementById('institutionPhone').value,
+                website: document.getElementById('institutionWebsite').value ? 
+                    'https://' + document.getElementById('institutionWebsite').value : '',
+                is_active: document.getElementById('isActive').checked
+            };
+
+            try {
+                const response = await fetch('/api/admin/institutions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Failed to add institution');
+                }
+
+                // Close modal and reset form
+                const modal = bootstrap.Modal.getInstance(document.getElementById('addInstitutionModal'));
+                modal.hide();
+                addInstitutionForm.reset();
+                
+                // Refresh institution list
+                await fetchInstitutions();
+                showAlert('success', 'Institution added successfully!');
+            } catch (error) {
+                console.error('Error adding institution:', error);
+                showAlert('danger', error.message || 'Failed to add institution. Please try again.');
+            }
+        });
+
+        // Handle form submission for editing an institution
+        editInstitutionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const institutionId = document.getElementById('editInstitutionId').value;
+            const formData = {
+                name: document.getElementById('editInstitutionName').value,
+                type: document.getElementById('editInstitutionType').value,
+                email: document.getElementById('editInstitutionEmail').value,
+                address: document.getElementById('editInstitutionAddress').value,
+                phone: document.getElementById('editInstitutionPhone').value,
+                website: document.getElementById('editInstitutionWebsite').value ? 
+                    'https://' + document.getElementById('editInstitutionWebsite').value : '',
+                is_active: document.getElementById('editIsActive').checked
+            };
+
+            try {
+                const response = await fetch(`/api/admin/institutions/${institutionId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Failed to update institution');
+                }
+
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('editInstitutionModal'));
+                modal.hide();
+                
+                // Refresh institution list
+                await fetchInstitutions();
+                showAlert('success', 'Institution updated successfully!');
+            } catch (error) {
+                console.error('Error updating institution:', error);
+                showAlert('danger', error.message || 'Failed to update institution. Please try again.');
+            }
+        });
+
+        // Handle institution deletion
+        document.getElementById('confirmDelete').addEventListener('click', async () => {
+            if (!institutionToDelete) return;
+
+            try {
+                const response = await fetch(`/api/admin/institutions/${institutionToDelete}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Failed to delete institution');
+                }
+
+                // Close modal
+                deleteModal.hide();
+                
+                // Refresh institution list
+                await fetchInstitutions();
+                showAlert('success', 'Institution deleted successfully!');
+            } catch (error) {
+                console.error('Error deleting institution:', error);
+                showAlert('danger', error.message || 'Failed to delete institution. Please try again.');
+            } finally {
+                institutionToDelete = null;
+            }
+        });
+
+        // Helper function to show alerts
+        function showAlert(type, message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
+            alertDiv.role = 'alert';
+            alertDiv.style.zIndex = '1100';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Auto-dismiss after 5 seconds
+            setTimeout(() => {
+                const alert = bootstrap.Alert.getOrCreateInstance(alertDiv);
+                alert.close();
+            }, 5000);
+        }
+
+        // Helper function to escape HTML
+        function escapeHtml(unsafe) {
+            if (!unsafe) return '';
+            return unsafe
+                .toString()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Initialize the page
+        fetchInstitutions();
+    });
+</script>

@@ -1,0 +1,276 @@
+<%- include('../partials/header', { title: 'New Industrial Attachment' }) %>
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">New Industrial Attachment</h1>
+        <a href="/admin/attachments" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i> Back to List
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="attachmentForm" action="/api/attachments" method="POST">
+                <h4 class="mb-3">Personal Information</h4>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="first_name" class="form-label">First Name *</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="middle_name" class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" id="middle_name" name="middle_name">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="last_name" class="form-label">Last Name *</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone_number" class="form-label">Phone Number *</label>
+                        <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="gender" class="form-label">Gender *</label>
+                        <select class="form-select" id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="date_of_birth" class="form-label">Date of Birth *</label>
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="residential_location" class="form-label">Residential Location *</label>
+                        <input type="text" class="form-control" id="residential_location" name="residential_location" required>
+                    </div>
+                </div>
+
+                <h4 class="mb-3 mt-4">Education Information</h4>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="institution" class="form-label">Institution *</label>
+                        <select class="form-select" id="institution" name="institution" required>
+                            <option value="">Select Institution</option>
+                            <% institutions.forEach(institution => { %>
+                                <option value="<%= institution._id %>"><%= institution.name %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="department" class="form-label">Department *</label>
+                        <select class="form-select" id="department" name="department" required>
+                            <option value="">Select Department</option>
+                            <% departments.forEach(department => { %>
+                                <option value="<%= department._id %>"><%= department.name %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="course" class="form-label">Course *</label>
+                        <select class="form-select" id="course" name="course" required>
+                            <option value="">Select Course</option>
+                            <% courses.forEach(course => { %>
+                                <option value="<%= course._id %>"><%= course.name %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="year_of_study" class="form-label">Year of Study *</label>
+                        <select class="form-select" id="year_of_study" name="year_of_study" required>
+                            <option value="">Select Year</option>
+                            <option value="Year 1">Year 1</option>
+                            <option value="Year 2">Year 2</option>
+                            <option value="Year 3">Year 3</option>
+                            <option value="Year 4">Year 4</option>
+                            <option value="Year 5">Year 5</option>
+                            <option value="Year 6">Year 6</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="expected_graduation_date" class="form-label">Expected Graduation Date *</label>
+                        <input type="date" class="form-control" id="expected_graduation_date" name="expected_graduation_date" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="available_start_date" class="form-label">Available Start Date</label>
+                        <input type="date" class="form-control" id="available_start_date" name="available_start_date">
+                    </div>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="can_attend_onsite" name="can_attend_onsite" value="true" checked>
+                    <label class="form-check-label" for="can_attend_onsite">I can attend onsite</label>
+                </div>
+
+                <h4 class="mb-3 mt-4">Additional Information</h4>
+                <div class="mb-3">
+                    <label for="about_yourself" class="form-label">Tell us about yourself *</label>
+                    <textarea class="form-control" id="about_yourself" name="about_yourself" rows="3" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="community_engagement_statement" class="form-label">Community Engagement Statement *</label>
+                    <textarea class="form-control" id="community_engagement_statement" name="community_engagement_statement" rows="3" required></textarea>
+                    <div class="form-text">Describe your involvement in community service or social impact activities.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="understanding_of_swahilipot" class="form-label">Understanding of Swahilipot *</label>
+                    <textarea class="form-control" id="understanding_of_swahilipot" name="understanding_of_swahilipot" rows="3" required></textarea>
+                    <div class="form-text">What do you understand about Swahilipot Hub?</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="linkedin_url" class="form-label">LinkedIn Profile URL</label>
+                    <input type="url" class="form-control" id="linkedin_url" name="linkedin_url">
+                </div>
+
+                <div class="mb-3">
+                    <label for="github_url" class="form-label">GitHub Profile URL</label>
+                    <input type="url" class="form-control" id="github_url" name="github_url">
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="agree_terms" name="agree_terms" value="true" required>
+                    <label class="form-check-label" for="agree_terms">I agree to the terms and conditions *</label>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="agree_communications" name="agree_communications" value="true">
+                    <label class="form-check-label" for="agree_communications">I agree to receive communications from Swahilipot Hub</label>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <button type="button" class="btn btn-outline-secondary me-md-2" onclick="window.history.back()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('attachmentForm');
+    
+    // Format date fields to ISO string before submission
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+        return new Date(dateString).toISOString();
+    };
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            first_name: formData.get('first_name'),
+            middle_name: formData.get('middle_name') || undefined,
+            last_name: formData.get('last_name'),
+            email: formData.get('email'),
+            phone_number: formData.get('phone_number'),
+            gender: formData.get('gender'),
+            date_of_birth: formatDate(formData.get('date_of_birth')),
+            residential_location: formData.get('residential_location'),
+            institution: formData.get('institution'),
+            department: formData.get('department'),
+            course: formData.get('course'),
+            year_of_study: formData.get('year_of_study'),
+            expected_graduation_date: formatDate(formData.get('expected_graduation_date')),
+            available_start_date: formatDate(formData.get('available_start_date')) || undefined,
+            can_attend_onsite: formData.get('can_attend_onsite') === 'true',
+            about_yourself: formData.get('about_yourself'),
+            community_engagement_statement: formData.get('community_engagement_statement'),
+            understanding_of_swahilipot: formData.get('understanding_of_swahilipot'),
+            linkedin_url: formData.get('linkedin_url') || undefined,
+            github_url: formData.get('github_url') || undefined,
+            agree_terms: formData.get('agree_terms') === 'true',
+            agree_communications: formData.get('agree_communications') === 'true'
+        };
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                // Show success message and redirect
+                const successMessage = document.createElement('div');
+                successMessage.className = 'alert alert-success mt-3';
+                successMessage.textContent = 'Attachment application submitted successfully!';
+                form.prepend(successMessage);
+                
+                // Redirect after a short delay
+                setTimeout(() => {
+                    window.location.href = '/admin/attachments';
+                }, 1500);
+            } else {
+                // Show validation errors
+                let errorMessage = result.message || 'Failed to submit application';
+                if (result.errors) {
+                    errorMessage = Object.values(result.errors).join('\n');
+                }
+                
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert alert-danger mt-3';
+                errorAlert.textContent = errorMessage;
+                form.prepend(errorAlert);
+                
+                // Scroll to top to show error
+                window.scrollTo(0, 0);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while submitting the application. Please try again.');
+        } finally {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+    
+    // Add date validation
+    const dateOfBirth = document.getElementById('date_of_birth');
+    const expectedGraduationDate = document.getElementById('expected_graduation_date');
+    const availableStartDate = document.getElementById('available_start_date');
+    
+    // Set max date for date of birth to today
+    const today = new Date().toISOString().split('T')[0];
+    dateOfBirth.max = today;
+    
+    // Set min date for expected graduation date to today
+    expectedGraduationDate.min = today;
+    availableStartDate.min = today;
+});
+</script>

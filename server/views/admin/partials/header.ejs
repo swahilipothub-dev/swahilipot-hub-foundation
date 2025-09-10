@@ -1,0 +1,100 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-dark">
+    <div class="container-fluid px-3">
+        <!-- Mobile sidebar toggle -->
+        <button class="btn btn-link text-white d-lg-none p-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <i class="fas fa-bars fa-lg"></i>
+        </button>
+        
+        <!-- Brand/logo - hidden on mobile -->
+        <a class="navbar-brand d-none d-lg-block" href="/admin">
+            <img src="/images/sph-logo-inverted.png" alt="Swahilipot Hub" height="28" class="d-inline-block align-text-top me-2">
+            <span class="align-middle">Admin Dashboard</span>
+        </a>
+        
+        <!-- Page title - shown on mobile -->
+        <div class="d-lg-none">
+            <h5 class="text-white mb-0">
+                <% if (typeof title !== 'undefined') { %>
+                    <%= title %>
+                <% } else { %>
+                    Dashboard
+                <% } %>
+            </h5>
+        </div>
+        
+        <!-- Right side navigation -->
+        <div class="d-flex align-items-center">
+            <!-- Notifications -->
+            <div class="dropdown me-3 d-none d-lg-block">
+                <button class="btn btn-link text-white position-relative p-2" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-bell fa-lg"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                        <span class="visually-hidden">unread notifications</span>
+                    </span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end shadow" aria-labelledby="notificationsDropdown" style="min-width: 300px;">
+                    <li class="dropdown-header">You have 3 new notifications</li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a href="#" class="dropdown-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <i class="fas fa-user-plus text-primary"></i>
+                                </div>
+                                <div>
+                                    <div class="small text-muted">5 minutes ago</div>
+                                    <span class="fw-bold">New user registered</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="text-center">
+                        <a href="#" class="text-decoration-none small">View all notifications</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- User dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-link text-white text-decoration-none d-flex align-items-center p-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <div class="me-2 d-none d-md-block text-end">
+                            <div class="small fw-bold"><%= user?.name?.split(' ')[0] || 'Admin' %></div>
+                            <div class="small text-muted"><%= user?.role || 'Administrator' %></div>
+                        </div>
+                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                    </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                    <li class="px-3 py-2 text-muted small">
+                        <div>Signed in as</div>
+                        <div class="fw-bold text-truncate"><%= user?.email || 'admin@example.com' %></div>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="/admin/profile">
+                            <i class="fas fa-user-circle me-2"></i> Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/admin/settings">
+                            <i class="fas fa-cog me-2"></i> Settings
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form action="/api/auth/logout" method="POST" class="d-inline w-100">
+                            <button type="submit" class="dropdown-item text-danger">
+                                <i class="fas fa-sign-out-alt me-2"></i> Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
