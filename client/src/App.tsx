@@ -34,6 +34,7 @@ import IndustrialAttachmentSuccess from "./pages/IndustrialAttachmentSuccess";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
+import Vijana2Thrive from "./pages/TOR-V2T";
 
 
 const queryClient = new QueryClient();
@@ -59,7 +60,7 @@ const App = () => (
             </ProtectedRoute>
           }>
             <Route index element={<AnalyticsDashboard />} />
-          <Route path="industrial-attachments" element={<IndustrialAttachments />} />
+            <Route path="industrial-attachments" element={<IndustrialAttachments />} />
             <Route path="departments" element={<Departments />} />
             <Route path="institutions" element={<Institutions />} />
             <Route path="courses" element={<Courses />} />
@@ -72,21 +73,24 @@ const App = () => (
           <Route path="/programs/campus-ambassador" element={<CampusAmbassador />} />
           <Route path="/programs/swahili-tech-women" element={<SwahiliTechWomen />} />
           <Route path="/programs/employer-engagement" element={<EmployerEngagement />} />
-          
+
           {/* Department routes */}
           <Route path="/department/communication" element={<Communication />} />
           <Route path="/department/tech-engineering" element={<TechEngineering />} />
           <Route path="/department/creatives" element={<Creatives />} />
           <Route path="/department/community-entrepreneurship" element={<CommunityEntrepreneurship />} />
-          
+
           {/* Career routes */}
           <Route path="/careers" element={<Careers />} />
           <Route path="/career/:jobId" element={<CareerDetail />} />
-            {/* Industrial Attachment routes */}
-            <Route path="/industrial-attachment" element={<IndustrialAttachment />} />
-            <Route path="/industrial-attachment/apply" element={<IndustrialAttachmentApply />} />
-            <Route path="/industrial-attachment/success" element={<IndustrialAttachmentSuccess />} />
-          
+          {/* Industrial Attachment routes */}
+          <Route path="/industrial-attachment" element={<IndustrialAttachment />} />
+          <Route path="/industrial-attachment/apply" element={<IndustrialAttachmentApply />} />
+          <Route path="/industrial-attachment/success" element={<IndustrialAttachmentSuccess />} />
+
+          {/* terms of reference */}
+          <Route path="/terms-of-reference/vijana-2-thrive" element={<Vijana2Thrive />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
