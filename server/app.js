@@ -30,16 +30,44 @@ const corsOptions = {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    const allowedOrigins = [
-      'http://localhost:8080', 
-      'http://localhost:5173', 
+    // Default development origins
+    const defaultOrigins = [
+      'http://localhost:8080',
+      'http://localhost:5173',
       'http://localhost:3000',
-      'http://localhost:5000' // Add your production domain here
+      'http://localhost:5000',
+      `http://localhost:${process.env.PORT || 5000}`,
+      `http://127.0.0.1:${process.env.PORT || 5000}`
     ];
+
+    // Get additional origins from environment variable
+    const envOrigins = process.env.CORS_ORIGINS 
+      ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
+      : [];
+
+    // Combine default and environment origins, remove duplicates
+    const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins])];
     
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    // For production, also check subdomains if needed
+    if (process.env.NODE_ENV === 'production') {
+      const productionDomains = [
+        'https://swahilipothub.org',
+        'https://www.swahilipothub.org',
+        'https://api.swahilipothub.org'
+      ];
+      
+      productionDomains.forEach(domain => {
+        if (!allowedOrigins.includes(domain)) {
+          allowedOrigins.push(domain);
+        }
+      });
+    }
+
+    if (allowedOrigins.includes(origin) || 
+        allowedOrigins.some(domain => origin.endsWith(new URL(domain).hostname))) {
       callback(null, true);
     } else {
+      console.warn(`CORS blocked for origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
