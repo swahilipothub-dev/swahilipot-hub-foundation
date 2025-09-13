@@ -13,6 +13,7 @@ import authRoutes from "./routes/authRoutes.js";
 import adminViewRoutes from "./routes/adminViewRoutes.js";
 import attachmentRoutes from "./routes/attachmentRoutes.js";
 import expressLayouts from "express-ejs-layouts";
+import createDefaultAdmin from "./utils/createAdmin.js";
 
 
 // ES module fix for __dirname
@@ -22,9 +23,12 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 connectDB();
 
+connectDB().then(() => {
+  createDefaultAdmin(); // ensure default admin is created
+});
+
 const app = express();
 
-// Configure CORS with proper credentials support
 const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
@@ -34,7 +38,7 @@ const corsOptions = {
       'http://localhost:8080', 
       'http://localhost:5173', 
       'http://localhost:3000',
-      'http://localhost:5000' // Add your production domain here
+      'http://localhost:5000'
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {

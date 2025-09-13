@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Users, Heart, Target, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAboutPageSEO } from "@/hooks/useSEO";
 
 const values = [
   {
@@ -29,6 +30,8 @@ const values = [
 ];
 
 const About = () => {
+  useAboutPageSEO();
+
   return (
     <>
       <Navbar />

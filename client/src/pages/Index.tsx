@@ -6,8 +6,11 @@ import Impact from "@/components/Impact";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useHomePageSEO } from "@/hooks/useSEO";
 
 const Index = () => {
+  useHomePageSEO();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />

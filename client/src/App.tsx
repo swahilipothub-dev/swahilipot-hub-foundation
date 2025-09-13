@@ -35,6 +35,7 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
 import Vijana2Thrive from "./pages/TOR-V2T";
+import TermsOfReference from "./pages/TermsOfReference";
 
 
 const queryClient = new QueryClient();
@@ -89,6 +90,7 @@ const App = () => (
           <Route path="/industrial-attachment/success" element={<IndustrialAttachmentSuccess />} />
 
           {/* terms of reference */}
+          <Route path="/terms-of-reference" element={<TermsOfReference />} />
           <Route path="/terms-of-reference/vijana-2-thrive" element={<Vijana2Thrive />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
