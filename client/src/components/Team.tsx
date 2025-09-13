@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import LazyImage from "./LazyImage";
 
 const teamMembers = [
   {
@@ -47,7 +48,7 @@ const Team = () => {
           {teamMembers.map((member) => (
             <Card key={member.id} className="border-0 overflow-hidden shadow hover:shadow-md transition-shadow">
               <div className="aspect-square overflow-hidden">
-                <img 
+                <LazyImage 
                   src={member.image} 
                   alt={member.name} 
                   className="w-full h-full object-cover transition-transform hover:scale-105"

@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import LazyImage from "./LazyImage";
 
 const About = () => {
   return (
@@ -41,8 +42,8 @@ const About = () => {
           
           <div className="relative">
             <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
-              <img
-                src="\img\communityspace.jpg"
+              <LazyImage
+                src="/img/communityspace.jpg"
                 alt="Youth collaboration at Swahilipot Hub"
                 className="w-full h-full object-cover"
               />

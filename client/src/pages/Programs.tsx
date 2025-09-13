@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code, Palette, Lightbulb, Users, BookOpen, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useProgramsPageSEO } from "@/hooks/useSEO";
 
 const programCategories = [
   {
@@ -110,6 +111,8 @@ const programCategories = [
 ];
 
 const Programs = () => {
+  useProgramsPageSEO();
+
   return (
     <>
       <Navbar />

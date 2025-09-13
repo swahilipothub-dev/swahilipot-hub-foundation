@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, BookOpen, Users, Rocket, Trophy } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
 
 const initiativesList = [
   {
@@ -82,7 +83,7 @@ const SwahiliTechWomen = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
-                  <img
+                  <LazyImage
                     src="/img/stw/image.png"
                     alt="Women in tech workshop"
                     className="w-full h-full object-cover"

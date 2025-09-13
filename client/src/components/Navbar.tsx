@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import LazyImage from "./LazyImage";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,7 +25,12 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <img src="/sph-logo.png" alt="Swahilipot Hub Logo" width={180} />
+            <LazyImage 
+              src="/sph-logo.png" 
+              alt="Swahilipot Hub Logo" 
+              width={180}
+              loading="eager"
+            />
           </Link>
         </div>
 

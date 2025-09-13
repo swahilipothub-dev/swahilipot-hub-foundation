@@ -2,8 +2,11 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactComponent from "@/components/Contact";
+import { useContactPageSEO } from "@/hooks/useSEO";
 
 const Contact = () => {
+  useContactPageSEO();
+
   return (
     <>
       <Navbar />
