@@ -28,6 +28,15 @@ const JobDetail = () => {
       <Navbar />
       <main className="py-16 md:py-24">
         <div className="container-custom">
+          {job.hero_image && (
+            <div className="mb-8 rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src={job.hero_image}
+                alt={`${job.title} hero`}
+                className="w-full h-auto"
+              />
+            </div>
+          )}
           <Card>
             <CardContent className="p-6">
               <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
