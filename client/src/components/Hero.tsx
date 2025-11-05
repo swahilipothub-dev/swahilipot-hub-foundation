@@ -33,8 +33,8 @@ const Hero = () => {
               </Link>
             </Button>
             <Button className="btn-primary flex items-center gap-2 text-base" asChild>
-              <Link to="/terms-of-reference">
-                Terms of Reference <ArrowRight size={16} />
+              <Link to="/careers">
+                Careers <ArrowRight size={16} />
               </Link>
             </Button>
           </div>
