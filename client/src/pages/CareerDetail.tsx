@@ -46,7 +46,9 @@ const JobDetail = () => {
                   <p><strong>Location:</strong> {job.location}</p>
                   <p><strong>Duration:</strong> {job.duration}</p>
                   <p><strong>Reporting To:</strong> {job.reporting_to}</p>
-                  <p><strong>Direct Reports:</strong> {job.direct_reports}</p>
+                  {job.direct_reports && (
+                    <p><strong>Direct Reports:</strong> {job.direct_reports}</p>
+                  )}
                 </div>
               </div>
 
