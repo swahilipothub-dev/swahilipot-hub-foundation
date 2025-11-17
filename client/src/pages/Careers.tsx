@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import data from '@/data/jobs.json';
+import { isDateCurrentOrFuture } from "@/utils/dateUtils";
 
 const Careers = () => {
+  const openJobs = data.jobs.filter((job) => isDateCurrentOrFuture(job.application.deadline));
+
   return (
     <>
       <Navbar />
@@ -26,7 +29,10 @@ const Careers = () => {
         <section className="py-16 md:py-24">
           <div className="container-custom">
             <div className="grid gap-8">
-              {data.jobs.map((job) => (
+              {openJobs.length === 0 && (
+                <p className="text-gray-700">No open roles at the moment. Please check back soon.</p>
+              )}
+              {openJobs.map((job) => (
                 <Card key={job.id}>
                   <CardContent className="p-6">
                     <div className="flex flex-col gap-4">

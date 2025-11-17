@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useParams, Link } from "react-router-dom";
 import data from '@/data/jobs.json';
+import { isDateCurrentOrFuture } from "@/utils/dateUtils";
 
 const JobDetail = () => {
   const { jobId } = useParams();
   const job = data.jobs.find((job) => job.id === jobId);
+  const isDeadlineVisible = job ? isDateCurrentOrFuture(job.application.deadline) : true;
 
   if (!job) {
     return (
@@ -90,7 +92,9 @@ const JobDetail = () => {
               </ul>
 
               <h2 className="text-2xl font-semibold mb-3">Application Details</h2>
-              <p className="text-gray-700 mb-2"><strong>Deadline:</strong> {job.application.deadline}</p>
+              {isDeadlineVisible && (
+                <p className="text-gray-700 mb-2"><strong>Deadline:</strong> {job.application.deadline}</p>
+              )}
               <p className="text-gray-700 mb-2"><strong>Submission:</strong> {job.application.submission}</p>
               <p className="text-gray-700 mb-6"><strong>Note:</strong> {job.application.note}</p>
 
