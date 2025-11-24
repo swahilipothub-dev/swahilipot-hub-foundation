@@ -83,6 +83,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="74a76416-3ac7-4d41-a41a-03db2a627066"
+      ></script>
     </footer>
   );
 };
