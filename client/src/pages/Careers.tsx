@@ -3,16 +3,19 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import data from '@/data/jobs.json';
+import data from "@/data/jobs.json";
 import { isDateCurrentOrFuture } from "@/utils/dateUtils";
 
 const Careers = () => {
-  const openJobs = data.jobs.filter((job) => isDateCurrentOrFuture(job.application.deadline));
+  const openJobs = data.jobs.filter((job) =>
+    isDateCurrentOrFuture(job.application.deadline)
+  );
 
   return (
     <>
       <Navbar />
       <main>
+        {/* Hero Section */}
         <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gray-50">
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto">
@@ -20,26 +23,87 @@ const Careers = () => {
                 We Are <span className="text-gradient-blue">Hiring</span>
               </h1>
               <p className="text-xl text-gray-700">
-                Join our team and help empower youth through technology, arts, and entrepreneurship across the Kenyan Coast.
+                Join our team and help empower youth through technology, arts,
+                and entrepreneurship across the Kenyan Coast.
               </p>
             </div>
           </div>
         </section>
 
+        {/* Strategic Placement Partnerships TOR */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto">
+              <Card className="border border-gray-200 shadow-sm">
+                <CardContent className="p-8">
+                  <div className="flex flex-col gap-4">
+                    <h2 className="text-2xl font-bold text-gray-900">
+                      Strategic Placement Partnerships
+                    </h2>
+
+                    <p className="text-sm uppercase tracking-wide text-swahilipot-600 font-semibold">
+                      Vijana2Thrive (V2T) Program — Terms of Reference
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed">
+                      These Terms of Reference outline the framework for engaging
+                      Strategic Placement Partners to support the transition of
+                      trained and work-ready young women and young people into
+                      safe, productive, and dignified employment.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
+                      <span className="text-sm text-gray-600">
+                        Submission Deadline:{" "}
+                        <strong>January 30, 2026</strong>
+                      </span>
+
+                      <Button
+                        className="bg-swahilipot-600 hover:bg-swahilipot-700 w-fit"
+                        asChild
+                      >
+                        <Link to="/placement-partners-tor">
+                          View Full Terms of Reference
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Open Positions */}
         <section className="py-16 md:py-24">
           <div className="container-custom">
             <div className="grid gap-8">
               {openJobs.length === 0 && (
-                <p className="text-gray-700">No open roles at the moment. Please check back soon.</p>
+                <p className="text-gray-700">
+                  No open roles at the moment. Please check back soon.
+                </p>
               )}
+
               {openJobs.map((job) => (
                 <Card key={job.id}>
                   <CardContent className="p-6">
                     <div className="flex flex-col gap-4">
-                      <h3 className="text-xl font-semibold mb-2">{job.title}</h3>
-                      <p className="text-gray-700 mb-4">{job.overview.position_summary}</p>
-                      <p className="text-gray-700 mb-4">Application Deadline: {job.application.deadline}</p>
-                      <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 w-fit" asChild>
+                      <h3 className="text-xl font-semibold mb-2">
+                        {job.title}
+                      </h3>
+
+                      <p className="text-gray-700 mb-4">
+                        {job.overview.position_summary}
+                      </p>
+
+                      <p className="text-gray-700 mb-4">
+                        Application Deadline: {job.application.deadline}
+                      </p>
+
+                      <Button
+                        className="bg-swahilipot-600 hover:bg-swahilipot-700 w-fit"
+                        asChild
+                      >
                         <Link to={`/career/${job.id}`}>View Details</Link>
                       </Button>
                     </div>
@@ -50,39 +114,90 @@ const Careers = () => {
           </div>
         </section>
 
+        {/* Why Work With Us */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-6">Why Work With Us?</h2>
               <p className="text-gray-700 mb-12">
-                Join a dynamic team passionate about making a difference in East Africa through technology, arts, and entrepreneurship.
+                Join a dynamic team passionate about making a difference in East
+                Africa through technology, arts, and entrepreneurship.
               </p>
+
               <div className="grid md:grid-cols-3 gap-8">
                 <Card className="bg-white">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-swahilipot-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-swahilipot-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                      <svg
+                        className="w-6 h-6 text-swahilipot-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1z"
+                        />
+                      </svg>
                     </div>
                     <h3 className="font-semibold mb-2">Impactful Work</h3>
-                    <p className="text-gray-600">Make a real difference in the lives of youth across East Africa</p>
+                    <p className="text-gray-600">
+                      Make a real difference in the lives of youth across East
+                      Africa
+                    </p>
                   </CardContent>
                 </Card>
+
                 <Card className="bg-white">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-swahilipot-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-swahilipot-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                      <svg
+                        className="w-6 h-6 text-swahilipot-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
                     </div>
                     <h3 className="font-semibold mb-2">Growth & Learning</h3>
-                    <p className="text-gray-600">Continuous learning opportunities and professional development</p>
+                    <p className="text-gray-600">
+                      Continuous learning opportunities and professional
+                      development
+                    </p>
                   </CardContent>
                 </Card>
+
                 <Card className="bg-white">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-swahilipot-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-swahilipot-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                      <svg
+                        className="w-6 h-6 text-swahilipot-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
                     </div>
-                    <h3 className="font-semibold mb-2">Dynamic Environment</h3>
-                    <p className="text-gray-600">Work in a vibrant, creative, and innovative workspace</p>
+                    <h3 className="font-semibold mb-2">
+                      Dynamic Environment
+                    </h3>
+                    <p className="text-gray-600">
+                      Work in a vibrant, creative, and innovative workspace
+                    </p>
                   </CardContent>
                 </Card>
               </div>
