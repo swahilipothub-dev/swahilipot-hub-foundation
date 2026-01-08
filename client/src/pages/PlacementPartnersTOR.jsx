@@ -7,7 +7,7 @@ const PlacementPartnersTOR = () => {
       <Navbar />
 
       <main className="pt-30 pb-32 mx-auto bg-white">
-        <div className="max-w-5xl container mx-auto py-20 px-6">
+        <div className="max-w-5xl container mx-auto py-10 px-10">
 
           {/* Page Header */}
           <h1 className="text-4xl font-bold mb-2">
