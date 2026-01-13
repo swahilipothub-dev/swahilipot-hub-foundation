@@ -91,7 +91,6 @@ const App = () => (
 
           {/* terms of reference */}
           <Route path="/terms-of-reference" element={<TermsOfReference />} />
-          <Route path="/terms-of-reference/vijana-2-thrive" element={<Vijana2Thrive />} />
           <Route
             path="/placement-partners-tor"
             element={<PlacementPartnersTOR />}
