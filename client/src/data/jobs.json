@@ -302,6 +302,69 @@
         "application_link": "mailto:hr@swahilipothub.co.ke",
         "note": "Only shortlisted candidates will be contacted."
       }
-    }
+    },
+    {
+      "id": "erp_vendor_rfp_2026_001",
+      "title": "Request for Proposals – Integrated ERP System Implementation",
+      "duration": "3–6 Months (Implementation Phase) + Support Period",
+      "programme": "Organization-wide Digital Transformation",
+      "location": "Kenya (Hybrid / On-site as required)",
+      "reporting_to": "Management & Project Steering Committee",
+      "hero_image": "/erp-system.jpg",
+      "overview": {
+        "about_sph": "Swahilipot Hub Foundation is a non-profit organization that meaningfully engages and empowers youth aged 18–35 to unleash their full potential through technology, innovation, and creative programs.",
+        "website": "https://www.swahilipothub.co.ke",
+        "position_summary": "Swahilipot Hub Foundation invites qualified vendors to deploy, customize, and support a comprehensive Enterprise Resource Planning (ERP) system to digitize and automate operational workflows, creating a single source of truth across programs, finance, HR, logistics, and stakeholder management."
+      },
+      "scope": "Design, configure, customize, deploy, and support a scalable, secure, and multi-entity ERP system that integrates program management, finance, HR, procurement, logistics, and stakeholder engagement while ensuring compliance with Kenyan regulatory and data protection requirements.",
+      "responsibilities": [
+        "Deploy and configure an integrated ERP system covering all functional modules defined in the RFP.",
+        "Customize ERP modules to align with Swahilipot’s operational workflows and reporting needs.",
+        "Implement multi-company and multi-branch architecture with appropriate access controls.",
+        "Migrate historical data from existing systems including QuickBooks and Excel files.",
+        "Configure Monitoring, Evaluation, Accountability, and Learning (MEAL) tools within the ERP.",
+        "Implement finance, procurement, HR, payroll, inventory, asset, fleet, CRM, and helpdesk modules.",
+        "Ensure system compliance with Kenyan statutory, donor, and data protection requirements.",
+        "Develop custom reports and dashboards for management and donor reporting.",
+        "Integrate the ERP with third-party systems such as Power BI, Microsoft 365, and external APIs.",
+        "Support user acceptance testing (UAT) and address identified issues prior to go-live.",
+        "Provide post-go-live support, bug fixes, and system stabilization services."
+      ],
+          "key_areas": [
+            "ERP architecture and system design",
+            "Multi-company and multi-branch configuration",
+            "Program, project, and MEAL systems implementation",
+            "Financial accounting and donor-compliant budgeting",
+            "Human resource management and payroll compliance",
+            "Procurement, inventory, asset, and fleet management",
+            "Stakeholder CRM, events, and helpdesk systems",
+            "Data migration and system integrations",
+            "Custom reporting and dashboards",
+            "Security, RBAC, and data privacy compliance"
+          ],
+          "qualifications": [
+            "Demonstrated experience implementing ERP systems for NGOs or donor-funded organizations.",
+            "Proven track record in deploying finance, HR, procurement, and project management modules.",
+            "Experience with ERP platforms such as Odoo, SAP, Microsoft Dynamics, or similar.",
+            "Strong understanding of Kenyan statutory requirements and donor compliance frameworks.",
+            "Capacity to deliver projects within a 3–6 month implementation window.",
+            "Availability of a qualified implementation team including project managers, developers, and trainers."
+          ],
+          "skills": [
+            "ERP system architecture and customization",
+            "Business process analysis and workflow automation",
+            "Financial systems and donor reporting expertise",
+            "Data migration and integration capabilities",
+            "Strong project management and documentation skills",
+            "User training and change management",
+            "Security, access control, and data protection compliance"
+          ],
+          "application": {
+            "deadline": "16 January 2026",
+            "submission": "Submit a technical proposal, financial proposal, and proof of similar ERP implementations.",
+            "application_link": "mailto:hr@swahilipothub.co.ke",
+            "note": "Applications should include methodology, solution architecture, implementation timeline, team CVs, and cost breakdown by module."
+          }
+        }
   ]
 }
