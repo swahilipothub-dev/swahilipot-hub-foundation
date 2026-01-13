@@ -365,6 +365,110 @@
         "application_link": "mailto:hr@swahilipothub.co.ke",
         "note": "Applications should include methodology, solution architecture, implementation timeline, team CVs, and cost breakdown by module."
       }
+    },
+    {
+      "id": "v2t_strategic_placement_partners_tor_001",
+      "title": "Terms of Reference – Strategic Placement Partnerships",
+      "duration": "Program-based Engagement (Vijana2Thrive Lifecycle)",
+      "programme": "Vijana2Thrive (V2T)",
+      "location": "Kenya (Mombasa, Kilifi, Nairobi, Kitui)",
+      "reporting_to": "Vijana2Thrive National and County Teams",
+      "hero_image": "/v2t-placement-partnerships.jpg",
+      "overview": {
+        "about_sph": "Swahilipot Hub Foundation is a youth-centric non-governmental organization based in Mombasa, Kenya, that meaningfully engages and empowers young people to access socio-economic opportunities through innovative and sustainable interventions.",
+        "partners": [
+          "Mastercard Foundation",
+          "National Council of Churches of Kenya (NCCK)",
+          "E4Impact Foundation"
+        ],
+        "position_summary": "The Vijana2Thrive (V2T) Program seeks to engage Strategic Placement Partners to support the transition of trained and work-ready young women and young people into safe, productive, and dignified employment, with a strong focus on gender-responsive and inclusive labor-market outcomes."
+      },
+      "background": {
+        "context": "Kenya faces a significant youth unemployment challenge, particularly among opportunity youth (OYs) who are not in education, employment, or training (NEET). In 2023, youth unemployment stood at 12.23%, with 2.9 million young people affected. Young women are disproportionately impacted, accounting for 27% of unemployed youth compared to 15% of young men.",
+        "challenge_summary": "Beyond skills gaps, many opportunity youth face psychosocial, environmental, and systemic barriers that limit their access to dignified work. Addressing both technical and psychosocial needs is critical to enabling meaningful economic participation."
+      },
+      "purpose": "To establish a framework for engaging Strategic Placement Partners who will support job placement, retention, and progression for trained and work-ready young women and young people under the Vijana2Thrive Program.",
+      "objectives": [
+        "Expand young women’s access to dignified and fulfilling employment.",
+        "Improve alignment between skills development and labor-market demand.",
+        "Increase job placement, retention, and progression outcomes for young women.",
+        "Promote gender-responsive employment practices among partner employers.",
+        "Reduce employer risk through shared investment in demand-driven skilling.",
+        "Contribute to systemic improvements in young women’s economic participation."
+      ],
+      "scope": {
+        "engagement_pathways": [
+          {
+            "pathway": "Job Placement and Matching",
+            "activities": [
+              "Source and validate job opportunities through established employer networks.",
+              "Match pre-screened, work-ready young women and young people to appropriate roles.",
+              "Support fair and transparent recruitment, onboarding, and placement confirmation.",
+              "Promote placements that meet decent and dignified work standards."
+            ],
+            "dignified_work_standards": [
+              "Fair and timely remuneration above the government-defined minimum wage.",
+              "Safe, respectful, and harassment-free working environments.",
+              "Clear contracts and lawful employment terms.",
+              "Opportunities for learning, progression, and job stability."
+            ]
+          },
+          {
+            "pathway": "Demand-Driven Skilling and Placement",
+            "activities": [
+              "Co-design short, targeted training programs aligned to specific job roles.",
+              "Ensure training content is gender-responsive and accessible to young women.",
+              "Support training delivery linked to confirmed or high-probability job openings.",
+              "Facilitate rapid transition from training into employment."
+            ]
+          }
+        ]
+      },
+      "value_proposition": [
+        "Access to a prepared and motivated talent pipeline with a strong focus on young women.",
+        "Shared financial and technical investment in demand-driven skilling tied to real job opportunities.",
+        "Structured post-placement support to improve retention and performance.",
+        "Performance-based incentives linked to verified placement and retention outcomes.",
+        "Association with a high-impact, donor-supported initiative advancing young women’s economic inclusion."
+      ],
+      "eligibility_requirements": {
+        "placement_capacity": [
+          "Proven experience in recruitment, job placement, or workforce intermediation.",
+          "Active employer networks capable of generating real employment opportunities."
+        ],
+        "commitment_to_dignified_work": [
+          "Fair and transparent wages above the minimum wage.",
+          "Safe, inclusive, and respectful workplaces.",
+          "Zero tolerance for harassment or exploitation.",
+          "Opportunities for learning, progression, and job security.",
+          "Demonstrated commitment to gender equity and young women’s advancement."
+        ],
+        "operational_readiness": [
+          "Capacity for timely reporting and outcome tracking disaggregated by gender.",
+          "Willingness to collaborate closely with V2T implementation partners.",
+          "Adherence to safeguarding, ethical recruitment, and data protection standards."
+        ]
+      },
+      "roles_and_responsibilities": [
+        "Work closely with V2T national and county implementation teams.",
+        "Share labor-market intelligence and insights on opportunities for young women.",
+        "Support tracking, verification, and reporting of employment outcomes.",
+        "Participate in learning, reflection, and continuous improvement processes."
+      ],
+      "application": {
+        "type": "Expression of Interest (EOI)",
+        "deadline": "30 January 2026",
+        "submission": "Submit an Expression of Interest via email.",
+        "application_link": "mailto:procurement@swahilipothub.co.ke",
+        "required_content": [
+          "Organizational profile and placement experience, particularly with young women.",
+          "Key sectors and employer networks.",
+          "Geographic coverage (counties of operation).",
+          "Types and estimated volumes of job opportunities.",
+          "Proposed collaboration model and projected placement numbers, disaggregated by gender."
+        ],
+        "selection_process": "EOIs will be reviewed based on demonstrated capacity, commitment to dignified work, and alignment with the program’s young women-centered objectives. Shortlisted organizations will undergo further discussions, due diligence, and partnership formalization."
+      }
     }
   ]
 }
