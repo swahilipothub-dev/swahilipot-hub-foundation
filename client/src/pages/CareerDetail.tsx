@@ -6,6 +6,18 @@ import { useParams, Link } from "react-router-dom";
 import data from '@/data/jobs.json';
 import { isDateCurrentOrFuture } from "@/utils/dateUtils";
 
+const renderList = (items?: string[]) => {
+  if (!Array.isArray(items) || items.length === 0) return null;
+
+  return (
+    <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+};
+
 const JobDetail = () => {
   const { jobId } = useParams();
   const job = data.jobs.find((job) => job.id === jobId);
@@ -60,36 +72,79 @@ const JobDetail = () => {
               <h2 className="text-2xl font-semibold mb-3">Position Overview</h2>
               <p className="text-gray-700 mb-6">{job.overview.position_summary}</p>
 
-              <h2 className="text-2xl font-semibold mb-3">Scope of Role</h2>
-              <p className="text-gray-700 mb-6">{job.scope}</p>
+              {typeof job.scope === "string" && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Scope of Role</h2>
+                  <p className="text-gray-700 mb-6">{job.scope}</p>
+                </>
+              )}
+              
+              {typeof job.scope === "object" && job.scope.engagement_pathways && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-4">Scope of Engagement</h2>
+              
+                  {job.scope.engagement_pathways.map((pathway, index) => (
+                    <div key={index} className="mb-6">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {pathway.pathway}
+                      </h3>
+              
+                      {renderList(pathway.activities)}
+              
+                      {pathway.dignified_work_standards && (
+                        <>
+                          <h4 className="font-semibold mt-3 mb-2">
+                            Dignified Work Standards
+                          </h4>
+                          {renderList(pathway.dignified_work_standards)}
+                        </>
+                      )}
+                    </div>
+                  ))}
+                </>
+              )}
+              
+              {job.objectives && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Objectives</h2>
+                  {renderList(job.objectives)}
+                </>
+              )}
+              
+              {job.value_proposition && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Value Proposition</h2>
+                  {renderList(job.value_proposition)}
+                </>
+              )}
 
-              <h2 className="text-2xl font-semibold mb-3">Responsibilities</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.responsibilities.map((resp, index) => (
-                  <li key={index}>{resp}</li>
-                ))}
-              </ul>
+              {job.responsibilities && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Responsibilities</h2>
+                  {renderList(job.responsibilities)}
+                </>
+              )}
 
-              <h2 className="text-2xl font-semibold mb-3">Key Areas</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.key_areas.map((area, index) => (
-                  <li key={index}>{area}</li>
-                ))}
-              </ul>
+              {job.key_areas && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Key Areas</h2>
+                  {renderList(job.key_areas)}
+                </>
+              )}
 
-              <h2 className="text-2xl font-semibold mb-3">Qualifications</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.qualifications.map((qual, index) => (
-                  <li key={index}>{qual}</li>
-                ))}
-              </ul>
+              {job.qualifications && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Qualifications</h2>
+                  {renderList(job.qualifications)}
+                </>
+              )}
 
-              <h2 className="text-2xl font-semibold mb-3">Skills</h2>
-              <ul className="list-disc list-inside space-y-1 text-gray-700 mb-6">
-                {job.skills.map((skill, index) => (
-                  <li key={index}>{skill}</li>
-                ))}
-              </ul>
+              {job.skills && (
+                <>
+                  <h2 className="text-2xl font-semibold mb-3">Skills</h2>
+                  {renderList(job.skills)}
+                </>
+              )}
 
               <h2 className="text-2xl font-semibold mb-3">Application Details</h2>
               {isDeadlineVisible && (

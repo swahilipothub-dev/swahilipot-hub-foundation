@@ -34,7 +34,6 @@ import IndustrialAttachmentSuccess from "./pages/IndustrialAttachmentSuccess";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
-import Vijana2Thrive from "./pages/TOR-V2T";
 import TermsOfReference from "./pages/TermsOfReference";
 import PlacementPartnersTOR from "@/pages/PlacementPartnersTOR";
 
