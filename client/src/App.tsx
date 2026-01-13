@@ -35,6 +35,7 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
 import TermsOfReference from "./pages/TermsOfReference";
+import PlacementPartnersTOR from "@/pages/PlacementPartnersTOR";
 
 
 const queryClient = new QueryClient();
@@ -90,6 +91,11 @@ const App = () => (
 
           {/* terms of reference */}
           <Route path="/terms-of-reference" element={<TermsOfReference />} />
+          <Route path="/terms-of-reference/vijana-2-thrive" element={<Vijana2Thrive />} />
+          <Route
+            path="/placement-partners-tor"
+            element={<PlacementPartnersTOR />}
+          />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
