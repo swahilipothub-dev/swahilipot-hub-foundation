@@ -330,41 +330,41 @@
         "Support user acceptance testing (UAT) and address identified issues prior to go-live.",
         "Provide post-go-live support, bug fixes, and system stabilization services."
       ],
-          "key_areas": [
-            "ERP architecture and system design",
-            "Multi-company and multi-branch configuration",
-            "Program, project, and MEAL systems implementation",
-            "Financial accounting and donor-compliant budgeting",
-            "Human resource management and payroll compliance",
-            "Procurement, inventory, asset, and fleet management",
-            "Stakeholder CRM, events, and helpdesk systems",
-            "Data migration and system integrations",
-            "Custom reporting and dashboards",
-            "Security, RBAC, and data privacy compliance"
-          ],
-          "qualifications": [
-            "Demonstrated experience implementing ERP systems for NGOs or donor-funded organizations.",
-            "Proven track record in deploying finance, HR, procurement, and project management modules.",
-            "Experience with ERP platforms such as Odoo, SAP, Microsoft Dynamics, or similar.",
-            "Strong understanding of Kenyan statutory requirements and donor compliance frameworks.",
-            "Capacity to deliver projects within a 3–6 month implementation window.",
-            "Availability of a qualified implementation team including project managers, developers, and trainers."
-          ],
-          "skills": [
-            "ERP system architecture and customization",
-            "Business process analysis and workflow automation",
-            "Financial systems and donor reporting expertise",
-            "Data migration and integration capabilities",
-            "Strong project management and documentation skills",
-            "User training and change management",
-            "Security, access control, and data protection compliance"
-          ],
-          "application": {
-            "deadline": "16 January 2026",
-            "submission": "Submit a technical proposal, financial proposal, and proof of similar ERP implementations.",
-            "application_link": "mailto:hr@swahilipothub.co.ke",
-            "note": "Applications should include methodology, solution architecture, implementation timeline, team CVs, and cost breakdown by module."
-          }
-        }
+      "key_areas": [
+        "ERP architecture and system design",
+        "Multi-company and multi-branch configuration",
+        "Program, project, and MEAL systems implementation",
+        "Financial accounting and donor-compliant budgeting",
+        "Human resource management and payroll compliance",
+        "Procurement, inventory, asset, and fleet management",
+        "Stakeholder CRM, events, and helpdesk systems",
+        "Data migration and system integrations",
+        "Custom reporting and dashboards",
+        "Security, RBAC, and data privacy compliance"
+      ],
+      "qualifications": [
+        "Demonstrated experience implementing ERP systems for NGOs or donor-funded organizations.",
+        "Proven track record in deploying finance, HR, procurement, and project management modules.",
+        "Experience with ERP platforms such as Odoo, SAP, Microsoft Dynamics, or similar.",
+        "Strong understanding of Kenyan statutory requirements and donor compliance frameworks.",
+        "Capacity to deliver projects within a 3–6 month implementation window.",
+        "Availability of a qualified implementation team including project managers, developers, and trainers."
+      ],
+      "skills": [
+        "ERP system architecture and customization",
+        "Business process analysis and workflow automation",
+        "Financial systems and donor reporting expertise",
+        "Data migration and integration capabilities",
+        "Strong project management and documentation skills",
+        "User training and change management",
+        "Security, access control, and data protection compliance"
+      ],
+      "application": {
+        "deadline": "16 January 2026",
+        "submission": "Submit a technical proposal, financial proposal, and proof of similar ERP implementations.",
+        "application_link": "mailto:hr@swahilipothub.co.ke",
+        "note": "Applications should include methodology, solution architecture, implementation timeline, team CVs, and cost breakdown by module."
+      }
+    }
   ]
 }
