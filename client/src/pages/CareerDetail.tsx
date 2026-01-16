@@ -146,6 +146,13 @@ const JobDetail = () => {
                 </>
               )}
 
+              {job.application.required_content && (
+                  <>
+                    <h2 className="text-2xl font-semibold mb-3">Expression of Interest</h2>
+                    {renderList(job.application.required_content)}
+                  </>
+              )}
+
               <h2 className="text-2xl font-semibold mb-3">Application Details</h2>
               {isDeadlineVisible && (
                 <p className="text-gray-700 mb-2"><strong>Deadline:</strong> {job.application.deadline}</p>
