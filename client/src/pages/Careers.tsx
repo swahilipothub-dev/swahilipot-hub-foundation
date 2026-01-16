@@ -30,54 +30,10 @@ const Careers = () => {
           </div>
         </section>
 
-        {/* Strategic Placement Partnerships TOR */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="container-custom">
-            <div className="max-w-4xl mx-auto">
-              <Card className="border border-gray-200 shadow-sm">
-                <CardContent className="p-8">
-                  <div className="flex flex-col gap-4">
-                    <h2 className="text-2xl font-bold text-gray-900">
-                      Strategic Placement Partnerships
-                    </h2>
-
-                    <p className="text-sm uppercase tracking-wide text-swahilipot-600 font-semibold">
-                      Vijana2Thrive (V2T) Program — Terms of Reference
-                    </p>
-
-                    <p className="text-gray-700 leading-relaxed">
-                      These Terms of Reference outline the framework for engaging
-                      Strategic Placement Partners to support the transition of
-                      trained and work-ready young women and young people into
-                      safe, productive, and dignified employment.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
-                      <span className="text-sm text-gray-600">
-                        Submission Deadline:{" "}
-                        <strong>January 30, 2026</strong>
-                      </span>
-
-                      <Button
-                        className="bg-swahilipot-600 hover:bg-swahilipot-700 w-fit"
-                        asChild
-                      >
-                        <Link to="/placement-partners-tor">
-                          View Full Terms of Reference
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
         {/* Open Positions */}
         <section className="py-16 md:py-24">
           <div className="container-custom">
-            <div className="grid gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {openJobs.length === 0 && (
                 <p className="text-gray-700">
                   No open roles at the moment. Please check back soon.
