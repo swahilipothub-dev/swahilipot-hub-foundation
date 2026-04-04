@@ -30,6 +30,12 @@ const programCategories = [
         description: "Training in essential digital literacy and professional tools.",
         duration: "7 weeks",
         frequency: "Ongoing"
+      },
+      {
+        title: "Programming Foundation",
+        description: "Programming Foundation is an introductory software development program designed to equip learners with essential programming knowledge and practical development skills.",
+        duration: "3 months",
+        frequency: "Ongoing"
       }
     ]
   },
