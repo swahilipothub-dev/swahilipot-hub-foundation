@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code, Palette, Lightbulb, Users, BookOpen, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useProgramsPageSEO } from "@/hooks/useSEO";
+// import { useProgramsPageSEO } from "@/hooks/useSEO";
 
 const programCategories = [
   {
@@ -24,6 +24,24 @@ const programCategories = [
         description: "In partnership with DataCamp, Swahilipot Hub offers comprehensive data science and analytics learning scholarships. Selected participants receive full access to DataCamp's premium courses, projects, and certifications to build their data skills.",
         duration: "6 months",
         frequency: "Quarterly intake"
+      },
+      {
+        title: "Digital Literacy Program (Digital Boat)",
+        description: "Access to digital skills is essential for education, employment, and entrepreneurship. The Digital Boat is a hands-on, community-driven program designed to bridge the digital divide by equipping learners with practical computer, internet, data, and introductory AI skills aligned with real-world needs.",
+        duration: "12 weeks (3 months) per cohort",
+        frequency: "Ongoing"
+      },
+      {
+        title: "SPH Cisco Networking Academy",
+        description: "As digital transformation accelerates, networking and cybersecurity skills have become critical. The SPH Cisco Academy delivers internationally aligned Cisco curriculum through structured, instructor-led classes. It provides industry-relevant training and lab practice while maintaining affordability.",
+        duration: "8 to 12 weeks per module",
+        frequency: "Intake"
+      },
+      {
+        title: "DigiKen (Digital Platforms Kenya)",
+        description: "Supported by a UN Joint SDG Programme, DigiKen utilizes a hybrid learning model to ensure Kenya's digital transformation leaves no one behind. Swahilipot Hub serves as a community anchor, providing foundational in-person training for marginalized groups and virtual guidance for advanced digital skills.",
+        duration: "Rolled out as part of a broader 36-month UN Joint SDG Programme",
+        frequency: "Rolling out"
       },
       {
         title: "Digital Skills Workshop",
@@ -111,13 +129,19 @@ const programCategories = [
         description: "Workshops on career planning, resume building, and job searching.",
         duration: "2 weeks",
         frequency: "Monthly"
+      },
+      {
+        title: "Campus Ambassador Program",
+        description: "A strategic partnership with academic institutions designed to bridge the gap between academic learning and industry requirements. Student ambassadors serve as the official link between their campus and Swahilipot Hub, co-leading initiatives that enhance peer skills, institutional visibility, and community impact.",
+        duration: "A year-long initiative",
+        frequency: "Ongoing"
       }
     ]
   }
 ];
 
 const Programs = () => {
-  useProgramsPageSEO();
+  // useProgramsPageSEO();
 
   return (
     <>
@@ -177,6 +201,14 @@ const Programs = () => {
                 </TabsContent>
               ))}
             </Tabs>
+            
+            <div className="text-center mt-8">
+              <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-700" asChild>
+                <a href="https://www.swahilipotfm.co.ke/" target="_blank" rel="noopener noreferrer">
+                  Listen to Swahilipot FM
+                </a>
+              </Button>
+            </div>
           </div>
         </section>
         
@@ -200,12 +232,8 @@ const Programs = () => {
                 </p>
               </div>
               <div className="relative">
-                <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
-                  <img
-                    src="/img/programs/image4.jpg"
-                    alt="Training session at Swahilipot Hub"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden flex items-center justify-center">
+                  <p className="text-swahilipot-600">Training Session Image</p>
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-swahilipot-50 rounded-lg -z-10"></div>
               </div>

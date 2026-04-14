@@ -35,6 +35,14 @@ const Footer = () => {
               <a href="https://www.youtube.com/@swahilipothubfoundation" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
                 <FaYoutube size={20} />
               </a>
+              <a href="https://www.swahilipotfm.co.ke/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors" title="Listen to Swahilipot FM">
+                <span className="inline-flex items-center gap-1">
+                  <span className="w-2 h-2 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="w-1 h-1 bg-white rounded-full"></span>
+                  </span>
+                  <span className="text-xs">FM</span>
+                </span>
+              </a>
             </div>
           </div>
           
