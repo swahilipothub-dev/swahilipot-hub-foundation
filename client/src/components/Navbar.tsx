@@ -113,6 +113,19 @@ const Navbar = () => {
           <Link to="/contact" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
             Contact
           </Link>
+          <a href="https://www.swahilipotfm.co.ke/" target="_blank" rel="noopener noreferrer" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors flex items-center gap-1" title="Listen to Swahilipot FM Live">
+            <div className="relative group">
+              <div className="absolute -inset-0 bg-swahilipot-600 rounded-full blur-sm opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
+              <div className="relative flex items-center gap-1">
+                <div className="relative">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 bg-red-400 rounded-full animate-ping"></div>
+                </div>
+                <span className="text-sm font-medium">LIVE</span>
+                <span className="text-lg">FM</span>
+              </div>
+            </div>
+          </a>
           <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white flex items-center gap-2 ml-2" asChild>
             <Link to="/events">
               <Heart size={16} /> Events
