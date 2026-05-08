@@ -36,7 +36,7 @@ const Careers = () => {
                 text-align: center;
                 margin-bottom: 40px;
                 padding: 30px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
                 color: white;
                 border-radius: 10px;
               }
@@ -72,21 +72,21 @@ const Careers = () => {
                 letter-spacing: 1px;
               }
               h2 { 
-                color: #2c3e50; 
+                color: #1e3a8a; 
                 margin-top: 40px; 
                 margin-bottom: 20px; 
-                border-bottom: 2px solid #3498db; 
+                border-bottom: 2px solid #1e3a8a; 
                 padding-bottom: 10px;
                 font-size: 1.8em;
               }
               h3 { 
-                color: #34495e; 
+                color: #2c5282; 
                 margin-top: 30px; 
                 margin-bottom: 15px;
                 font-size: 1.4em;
               }
               h4 { 
-                color: #7f8c8d; 
+                color: #374151; 
                 margin-top: 25px; 
                 margin-bottom: 10px;
                 font-size: 1.2em;
@@ -105,7 +105,7 @@ const Careers = () => {
                 text-align: left; 
               }
               th { 
-                background: linear-gradient(135deg, #3498db, #2980b9); 
+                background: linear-gradient(135deg, #1e3a8a, #2c5282); 
                 color: white; 
                 font-weight: 600;
                 text-transform: uppercase;
@@ -116,15 +116,15 @@ const Careers = () => {
                 background-color: #f8f9fa;
               }
               tr:hover {
-                background-color: #e3f2fd;
+                background-color: #f0fdf4;
               }
               .highlight { 
-                background: linear-gradient(135deg, #e8f4fd, #d1e7ff); 
+                background: linear-gradient(135deg, #f0fdf4, #e0f2fe); 
                 padding: 20px; 
-                border-left: 5px solid #3498db; 
+                border-left: 5px solid #1e3a8a; 
                 margin: 25px 0; 
                 border-radius: 0 8px 8px 0;
-                box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+                box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
               }
               ul, ol { 
                 margin: 15px 0; 
@@ -135,21 +135,21 @@ const Careers = () => {
                 line-height: 1.7;
               }
               .contact { 
-                background: linear-gradient(135deg, #ecf0f1, #bdc3c7); 
                 padding: 25px; 
                 border-radius: 10px; 
                 margin-top: 40px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+                border: 2px solid #1e3a8a;
               }
               .contact h3 {
                 margin-top: 0;
-                color: #2c3e50;
+                color: #ffffff;
               }
               .back-button {
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                background: linear-gradient(135deg, #3498db, #2980b9);
+                background: linear-gradient(135deg, #1e3a8a, #2c5282);
                 color: white;
                 border: none;
                 padding: 12px 24px;
@@ -157,7 +157,7 @@ const Careers = () => {
                 cursor: pointer;
                 font-size: 16px;
                 font-weight: 600;
-                box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+                box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
                 transition: all 0.3s ease;
                 z-index: 1000;
                 text-decoration: none;
@@ -167,8 +167,8 @@ const Careers = () => {
               }
               .back-button:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-                background: linear-gradient(135deg, #2980b9, #21618c);
+                box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+                background: linear-gradient(135deg, #1a252f, #374151);
               }
               .back-button svg {
                 width: 20px;
@@ -609,9 +609,7 @@ const Careers = () => {
 
             <div class="contact">
               <h3>Application Submission</h3>
-              <p><strong>Email:</strong> procurement@swahilipothub.co.ke</p>
-              <p><strong>Subject Line:</strong> V2T OCA Consultancy Application – [Consultant/Firm Name]</p>
-              <p><strong>Deadline:</strong> As specified in the Call for Applications</p>
+              <p>Applications should be submitted to: <strong>procurement@swahilipothub.co.ke</strong> with the subject line: <strong>V2T OCA Consultancy Application – [Consultant/Firm Name]</strong> by the deadline specified in the Call for Applications.</p>
             </div>
           </body>
         </html>

@@ -41,7 +41,7 @@ const programCategories = [
         title: "DigiKen (Digital Platforms Kenya)",
         description: "Supported by a UN Joint SDG Programme, DigiKen utilizes a hybrid learning model to ensure Kenya's digital transformation leaves no one behind. Swahilipot Hub serves as a community anchor, providing foundational in-person training for marginalized groups and virtual guidance for advanced digital skills.",
         duration: "Rolled out as part of a broader 36-month UN Joint SDG Programme",
-        frequency: "Rolling out"
+        frequency: "Intake"
       },
       {
         title: "Digital Skills Workshop",
