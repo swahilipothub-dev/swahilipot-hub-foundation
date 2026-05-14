@@ -761,7 +761,7 @@ const Careers = () => {
                           <h4 className="font-semibold mb-2">Application Requirements</h4>
                           <p className="text-gray-700 mb-3">
                             Interested consultants should submit: Technical Proposal, Financial Proposal, CV(s), 
-                            Samples of Previous Work, and References to: procuremen@swahilipothub.co.ke
+                            Samples of Previous Work, and References to: procurement@swahilipothub.co.ke
                           </p>
                         </div>
                       </div>
