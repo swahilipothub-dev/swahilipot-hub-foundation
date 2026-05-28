@@ -70,4 +70,88 @@
   .container-custom {
     @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
   }
+  
+  .animate-story-slide {
+    @apply opacity-0;
+    animation: slide-in-left 0.9s ease-out forwards;
+  }
+
+  .animate-story-slide-right {
+    @apply opacity-0;
+    animation: slide-in-right 0.9s ease-out forwards;
+  }
+
+  .animate-pop-in {
+    animation: pop-in 0.6s ease-out forwards;
+  }
+
+  .story-font {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .story-paragraph {
+    @apply text-slate-700 leading-8 text-lg;
+  }
+
+  .documentary-frame {
+    border: 12px solid transparent;
+    border-image: repeating-linear-gradient(45deg, #0d8dde 0 10px, #ffffff 10px 20px, #0d8dde 20px 30px, #ffffff 30px 40px) 20;
+    background: rgba(255,255,255,0.9);
+  }
+
+  .documentary-frame-inner {
+    position: relative;
+  }
+
+  .documentary-frame-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at top left, rgba(13,141,222,0.12), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(2,112,189,0.12), transparent 30%);
+  }
+
+  .logo-rotate {
+    display: inline-block;
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .logo-badge img {
+    filter: drop-shadow(0 16px 24px rgba(15, 23, 42, 0.18));
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
