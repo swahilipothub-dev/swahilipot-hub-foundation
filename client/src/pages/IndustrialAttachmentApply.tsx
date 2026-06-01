@@ -13,7 +13,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { GraduationCap, User, MapPin, Calendar, FileText, Linkedin, Github, Building2, BookOpen } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGraduationCap, faUser, faLocationDot, faCalendarDays, faFileLines, faBuilding, faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Separator } from '@/components/ui/separator';
 import { industrialAttachmentAPI } from '@/services/api';
 
@@ -238,7 +240,7 @@ const IndustrialAttachmentApply: React.FC = () => {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-            <GraduationCap className="w-8 h-8 text-blue-600" />
+            <FontAwesomeIcon icon={faGraduationCap} className="text-3xl text-blue-600" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Loading Application Form...</h1>
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
@@ -253,7 +255,7 @@ const IndustrialAttachmentApply: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-            <GraduationCap className="w-8 h-8 text-blue-600" />
+            <FontAwesomeIcon icon={faGraduationCap} className="text-3xl text-blue-600" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Industrial Attachment Application</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -272,7 +274,7 @@ const IndustrialAttachmentApply: React.FC = () => {
           <Card className="shadow-lg border-0">
             <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
               <div className="flex items-center gap-3">
-                <User className="w-5 h-5" />
+                <FontAwesomeIcon icon={faUser} className="text-lg" />
                 <div>
                   <CardTitle className="text-white">Personal Information</CardTitle>
                   <CardDescription className="text-blue-100">Tell us about yourself</CardDescription>
@@ -376,7 +378,7 @@ const IndustrialAttachmentApply: React.FC = () => {
               <div className="mt-4">
                 <Label htmlFor="location" className="text-sm font-medium">Residential Location/Town *</Label>
                 <div className="relative mt-2">
-                  <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <FontAwesomeIcon icon={faLocationDot} className="absolute left-3 top-3 text-sm text-gray-400" />
                   <Input
                     id="location"
                     name="location"
@@ -395,7 +397,7 @@ const IndustrialAttachmentApply: React.FC = () => {
           <Card className="shadow-lg border-0">
             <CardHeader className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-t-lg">
               <div className="flex items-center gap-3">
-                <Building2 className="w-5 h-5" />
+                <FontAwesomeIcon icon={faBuilding} className="text-lg" />
                 <div>
                   <CardTitle className="text-white">Academic Information</CardTitle>
                   <CardDescription className="text-green-100">Your educational background</CardDescription>
@@ -507,7 +509,7 @@ const IndustrialAttachmentApply: React.FC = () => {
           <Card className="shadow-lg border-0">
             <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-t-lg">
               <div className="flex items-center gap-3">
-                <FileText className="w-5 h-5" />
+                <FontAwesomeIcon icon={faFileLines} className="text-lg" />
                 <div>
                   <CardTitle className="text-white">Documents & Availability</CardTitle>
                   <CardDescription className="text-purple-100">Upload your documents and availability</CardDescription>
@@ -545,7 +547,7 @@ const IndustrialAttachmentApply: React.FC = () => {
               <div className="mt-4">
                 <Label htmlFor="availableStart" className="text-sm font-medium">Available to Start *</Label>
                 <div className="relative mt-2">
-                  <Calendar className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <FontAwesomeIcon icon={faCalendarDays} className="absolute left-3 top-3 text-sm text-gray-400" />
                   <Input
                     id="availableStart"
                     name="availableStart"
@@ -577,7 +579,7 @@ const IndustrialAttachmentApply: React.FC = () => {
           <Card className="shadow-lg border-0">
             <CardHeader className="bg-gradient-to-r from-orange-600 to-orange-700 text-white rounded-t-lg">
               <div className="flex items-center gap-3">
-                <BookOpen className="w-5 h-5" />
+                <FontAwesomeIcon icon={faBookOpen} className="text-lg" />
                 <div>
                   <CardTitle className="text-white">Personal Statements</CardTitle>
                   <CardDescription className="text-orange-100">Tell us more about yourself</CardDescription>
@@ -635,7 +637,7 @@ const IndustrialAttachmentApply: React.FC = () => {
           <Card className="shadow-lg border-0">
             <CardHeader className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-t-lg">
               <div className="flex items-center gap-3">
-                <Linkedin className="w-5 h-5" />
+                <FontAwesomeIcon icon={faLinkedin} className="text-lg" />
                 <div>
                   <CardTitle className="text-white">Professional Links</CardTitle>
                   <CardDescription className="text-indigo-100">Your online presence</CardDescription>
@@ -647,7 +649,7 @@ const IndustrialAttachmentApply: React.FC = () => {
                 <div className="space-y-2">
                   <Label htmlFor="linkedin" className="text-sm font-medium">LinkedIn URL *</Label>
                   <div className="relative">
-                    <Linkedin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <FontAwesomeIcon icon={faLinkedin} className="absolute left-3 top-3 text-sm text-gray-400" />
                     <Input
                       id="linkedin"
                       name="linkedin"
@@ -662,7 +664,7 @@ const IndustrialAttachmentApply: React.FC = () => {
                 <div className="space-y-2">
                   <Label htmlFor="github" className="text-sm font-medium">GitHub URL</Label>
                   <div className="relative">
-                    <Github className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <FontAwesomeIcon icon={faGithub} className="absolute left-3 top-3 text-sm text-gray-400" />
                     <Input
                       id="github"
                       name="github"

@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { FileText, ChevronDown, ChevronUp, BookOpen, Mic } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileLines, faChevronDown, faChevronUp, faBookOpen, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import data from "@/data/jobs.json";
 import { isDateCurrentOrFuture } from "@/utils/dateUtils";
@@ -626,18 +627,25 @@ const Careers = () => {
     <>
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gray-50">
-          <div className="container-custom">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                We Are <span className="text-gradient-blue">Hiring</span>
-              </h1>
-              <p className="text-xl text-gray-700">
-                Join our team and help empower youth through technology, arts,
-                and entrepreneurship across the Kenyan Coast.
-              </p>
-            </div>
+        {/* Page Banner */}
+        <section className="relative pt-36 pb-20 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/images/hero/hero1.jpg')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-swahilipot-900/80"></div>
+          <div className="container-custom relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">We Are Hiring</h1>
+            <p className="text-white/80 text-lg max-w-2xl mx-auto mb-4">
+              Join our team and help empower youth through technology, arts, and entrepreneurship across the Kenyan Coast.
+            </p>
+            <nav className="flex justify-center items-center gap-2 text-sm text-white/70">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-swahilipot-300">Careers</span>
+            </nav>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" className="fill-white w-full h-8">
+              <path d="M0,20 C360,45 1080,0 1440,20 L1440,40 L0,40 Z" />
+            </svg>
           </div>
         </section>
 
@@ -657,9 +665,9 @@ const Careers = () => {
                         className="ml-2"
                       >
                         {expandedConsultancy ? (
-                          <ChevronUp className="h-4 w-4" />
+                          <FontAwesomeIcon icon={faChevronUp} className="text-sm" />
                         ) : (
-                          <ChevronDown className="h-4 w-4" />
+                          <FontAwesomeIcon icon={faChevronDown} className="text-sm" />
                         )}
                       </Button>
                     </CardTitle>
@@ -670,11 +678,11 @@ const Careers = () => {
                   <CardContent>
                     <div className="flex justify-between mb-4">
                       <div className="flex items-center gap-2">
-                        <BookOpen className="h-4 w-4 text-swahilipot-600" />
+                        <FontAwesomeIcon icon={faBookOpen} className="text-sm text-swahilipot-600" />
                         <span className="text-sm text-gray-600">10 weeks</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Mic className="h-4 w-4 text-swahilipot-600" />
+                        <FontAwesomeIcon icon={faMicrophone} className="text-sm text-swahilipot-600" />
                         <span className="text-sm text-gray-600">One-time consultancy</span>
                       </div>
                     </div>
@@ -820,8 +828,10 @@ const Careers = () => {
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">Why Work With Us?</h2>
-              <p className="text-gray-700 mb-12">
+              <span className="inline-block text-swahilipot-600 font-semibold uppercase tracking-wider text-xs mb-3">Join the Team</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Why Work With Us?</h2>
+              <div className="w-12 h-1 bg-swahilipot-600 mx-auto mb-5"></div>
+              <p className="text-gray-600 mb-12">
                 Join a dynamic team passionate about making a difference in East
                 Africa through technology, arts, and entrepreneurship.
               </p>
