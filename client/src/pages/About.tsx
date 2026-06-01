@@ -253,6 +253,7 @@ const About = () => {
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-swahilipot-50 rounded-lg -z-10"></div>
+
               </div>
             </div>
           </div>
