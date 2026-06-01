@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, ChevronDown } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark, faChevronDown, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faXTwitter, faInstagram, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import LazyImage from "./LazyImage";
 import {
@@ -10,268 +12,199 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
+  const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMobileSubmenu = (menu: string) =>
+    setOpenMobileMenu(openMobileMenu === menu ? null : menu);
 
   return (
-    <nav className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-sm border-b shadow-sm">
-      <div className="container-custom flex items-center justify-between h-16 md:h-20">
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <LazyImage 
-              src="/sph-logo.png" 
-              alt="Swahilipot Hub Logo" 
-              width={180}
-              loading="eager"
-            />
-          </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:gap-4 lg:gap-6">
-          <Link to="/" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
-            Home
-          </Link>
-          <Link to="/about" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
-            About
-          </Link>
-          
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent h-auto px-2 py-1 hover:bg-transparent hover:text-swahilipot-600 data-[state=open]:bg-transparent">Programs</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[500px] gap-3 p-4">
-                    <Link to="/programs" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">All Programs</div>
-                      <div className="text-sm text-gray-600">Overview of all our programs</div>
-                    </Link>
-                    <Link to="/programs/case-management" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Case Management</div>
-                      <div className="text-sm text-gray-600">Personalized youth support</div>
-                    </Link>
-                    <Link to="/programs/tourism-innovation-lab" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Tourism Innovation Lab</div>
-                      <div className="text-sm text-gray-600">Transforming tourism through tech</div>
-                    </Link>
-                    <Link to="/programs/employer-engagement" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Employer Engagement</div>
-                      <div className="text-sm text-gray-600">Youth employment program</div>
-                    </Link>
-                    <Link to="/programs/campus-ambassador" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Campus Ambassador</div>
-                      <div className="text-sm text-gray-600">University outreach program</div>
-                    </Link>
-                    <Link to="/programs/swahili-tech-women" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Swahili Tech Women</div>
-                      <div className="text-sm text-gray-600">Women in technology initiative</div>
-                    </Link>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-          
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent h-auto px-2 py-1 hover:bg-transparent hover:text-swahilipot-600 data-[state=open]:bg-transparent">Departments</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[500px] gap-3 p-4">
-                    <Link to="/department/communication" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Communication</div>
-                      <div className="text-sm text-gray-600">Strategic messaging and media</div>
-                    </Link>
-                    <Link to="/department/tech-engineering" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Tech & Engineering</div>
-                      <div className="text-sm text-gray-600">Innovative tech solutions</div>
-                    </Link>
-                    <Link to="/department/creatives" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Creatives</div>
-                      <div className="text-sm text-gray-600">Arts and creative expression</div>
-                    </Link>
-                    <Link to="/department/community-entrepreneurship" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                      <div className="font-medium">Community & Entrepreneurship</div>
-                      <div className="text-sm text-gray-600">Business development and community support</div>
-                    </Link>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-          
-          <Link to="/impact" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
-            Impact
-          </Link>
-          <Link to="/contact" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors">
-            Contact
-          </Link>
-          <a href="https://www.swahilipotfm.co.ke/" target="_blank" rel="noopener noreferrer" className="px-2 py-1 text-foreground hover:text-swahilipot-600 transition-colors flex items-center gap-1" title="Listen to Swahilipot FM Live">
-            <div className="relative group">
-              <div className="absolute -inset-0 bg-swahilipot-600 rounded-full blur-sm opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
-              <div className="relative flex items-center gap-1">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                  <div className="absolute inset-0 bg-red-400 rounded-full animate-ping"></div>
-                </div>
-                <span className="text-sm font-medium">LIVE</span>
-                <span className="text-lg">FM</span>
-              </div>
-            </div>
-          </a>
-          <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white flex items-center gap-2 ml-2" asChild>
-            <Link to="/events">
-              <Heart size={16} /> Events
-            </Link>
-          </Button>
-        </div>
-
-        {/* Mobile menu button */}
-        <div className="md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-gray-700 hover:text-swahilipot-600 focus:outline-none p-2"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+    <header className="w-full z-50 sticky top-0">
+      {/* Top Bar */}
+      <div className="bg-swahilipot-900 text-white py-2 hidden md:block">
+        <div className="container-custom flex items-center justify-between text-sm">
+          <div className="flex items-center gap-6">
+            <a href="mailto:info@swahilipothub.co.ke" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+              <FontAwesomeIcon icon={faEnvelope} className="text-xs" />
+              info@swahilipothub.co.ke
+            </a>
+            <a href="tel:+254114635505" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+              <FontAwesomeIcon icon={faPhone} className="text-xs" />
+              +254 11 4635505
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            {[
+              { href: "https://facebook.com/Swahilipothub", icon: faFacebook },
+              { href: "https://x.com/swahilipothub", icon: faXTwitter },
+              { href: "https://www.instagram.com/swahilipothub/", icon: faInstagram },
+              { href: "https://www.linkedin.com/company/swahilipot-hub/", icon: faLinkedinIn },
+              { href: "https://www.youtube.com/@swahilipothubfoundation", icon: faYoutube },
+            ].map(({ href, icon }) => (
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
+                <FontAwesomeIcon icon={icon} className="text-xs" />
+              </a>
+            ))}
+            <span className="w-px h-4 bg-white/20 mx-1"></span>
+            <a href="https://www.swahilipotfm.co.ke/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-white/80 hover:text-white transition-colors">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              </span>
+              <span className="text-xs font-medium">LIVE FM</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white absolute top-16 w-full border-b shadow-lg">
-          <div className="flex flex-col space-y-2 px-4 py-4">
-            <Link 
-              to="/" 
-              className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/about" 
-              className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              About
-            </Link>
-            
-            <div className="py-2">
-              <div className="flex items-center justify-between text-foreground">
-                <Link 
-                  to="/programs" 
-                  className="hover:text-swahilipot-600 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Programs
-                </Link>
-              </div>
-              <div className="pl-4 mt-2 border-l border-gray-200 space-y-2">
-                <Link 
-                  to="/programs/case-management" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Case Management
-                </Link>
-                <Link 
-                  to="/programs/tourism-innovation-lab" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Tourism Innovation Lab
-                </Link>
-                <Link 
-                  to="/programs/employer-engagement" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Employer Engagement
-                </Link>
-                <Link 
-                  to="/programs/campus-ambassador" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Campus Ambassador
-                </Link>
-                <Link 
-                  to="/programs/swahili-tech-women" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Swahili Tech Women
-                </Link>
-              </div>
+      {/* Main Navigation */}
+      <nav className="bg-white shadow-md">
+        <div className="container-custom flex items-center justify-between h-16 md:h-20">
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <LazyImage src="/sph-logo.png" alt="Swahilipot Hub Logo" width={160} loading="eager" />
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex md:items-center md:gap-1 lg:gap-2">
+            <Link to="/" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">Home</Link>
+            <Link to="/about" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">About</Link>
+
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent h-auto px-3 py-2 text-gray-700 font-medium text-sm hover:bg-transparent hover:text-swahilipot-600 data-[state=open]:bg-transparent data-[state=open]:text-swahilipot-600">
+                    Programs
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 w-[520px] gap-1 p-3">
+                      {[
+                        { to: "/programs", label: "All Programs", desc: "Overview of all our programs" },
+                        { to: "/programs/case-management", label: "Case Management", desc: "Personalized youth support" },
+                        { to: "/programs/tourism-innovation-lab", label: "Tourism Innovation Lab", desc: "Transforming tourism through tech" },
+                        { to: "/programs/employer-engagement", label: "Employer Engagement", desc: "Youth employment program" },
+                        { to: "/programs/campus-ambassador", label: "Campus Ambassador", desc: "University outreach program" },
+                      ].map((item) => (
+                        <Link key={item.to} to={item.to} className="block p-3 rounded-md hover:bg-swahilipot-50 group transition-colors">
+                          <div className="font-medium text-gray-800 group-hover:text-swahilipot-600 text-sm">{item.label}</div>
+                          <div className="text-xs text-gray-500 mt-0.5">{item.desc}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent h-auto px-3 py-2 text-gray-700 font-medium text-sm hover:bg-transparent hover:text-swahilipot-600 data-[state=open]:bg-transparent data-[state=open]:text-swahilipot-600">
+                    Departments
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 w-[480px] gap-1 p-3">
+                      {[
+                        { to: "/department/communication", label: "Communication", desc: "Strategic messaging and media" },
+                        { to: "/department/tech-engineering", label: "Tech & Engineering", desc: "Innovative tech solutions" },
+                        { to: "/department/creatives", label: "Creatives", desc: "Arts and creative expression" },
+                        { to: "/department/community-entrepreneurship", label: "Community & Entrepreneurship", desc: "Business development" },
+                      ].map((item) => (
+                        <Link key={item.to} to={item.to} className="block p-3 rounded-md hover:bg-swahilipot-50 group transition-colors">
+                          <div className="font-medium text-gray-800 group-hover:text-swahilipot-600 text-sm">{item.label}</div>
+                          <div className="text-xs text-gray-500 mt-0.5">{item.desc}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            <Link to="/impact" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">Impact</Link>
+            <Link to="/contact" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">Contact</Link>
+
+            <div className="ml-2">
+              <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white text-sm px-5 h-9 rounded" asChild>
+                <Link to="/events">Events</Link>
+              </Button>
             </div>
-            
-            <div className="py-2">
-              <div className="flex items-center justify-between text-foreground">
-                <span className="text-foreground">Departments</span>
-              </div>
-              <div className="pl-4 mt-2 border-l border-gray-200 space-y-2">
-                <Link 
-                  to="/department/communication" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Communication
-                </Link>
-                <Link 
-                  to="/department/tech-engineering" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Tech & Engineering
-                </Link>
-                <Link 
-                  to="/department/creatives" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Creatives
-                </Link>
-                <Link 
-                  to="/department/community-entrepreneurship" 
-                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
-                  onClick={toggleMenu}
-                >
-                  Community & Entrepreneurship
-                </Link>
-              </div>
-            </div>
-            
-            <Link 
-              to="/impact" 
-              className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Impact
-            </Link>
-            <Link 
-              to="/contact" 
-              className="text-foreground hover:text-swahilipot-600 transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Contact
-            </Link>
-            <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white w-full flex items-center justify-center gap-2 mt-2" asChild>
-              <Link to="/events" onClick={toggleMenu}>
-                <Heart size={16} /> Events
-              </Link>
-            </Button>
           </div>
+
+          {/* Mobile menu button */}
+          <button onClick={toggleMenu} className="md:hidden text-gray-700 hover:text-swahilipot-600 focus:outline-none p-2" aria-label="Toggle menu">
+            <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} className="text-xl" />
+          </button>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t shadow-lg max-h-[80vh] overflow-y-auto">
+            <div className="flex flex-col px-4 py-3 space-y-1">
+              <div className="flex items-center gap-4 py-2 border-b mb-2 text-xs text-gray-500">
+                <a href="tel:+254114635505" className="flex items-center gap-1">
+                  <FontAwesomeIcon icon={faPhone} className="text-xs" /> +254 11 4635505
+                </a>
+                <a href="https://www.swahilipotfm.co.ke/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-red-500">
+                  <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> LIVE FM
+                </a>
+              </div>
+
+              <Link to="/" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>Home</Link>
+              <Link to="/about" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>About</Link>
+
+              <div className="border-b border-gray-100">
+                <button className="w-full flex items-center justify-between py-2.5 text-gray-700 font-medium hover:text-swahilipot-600" onClick={() => toggleMobileSubmenu("programs")}>
+                  Programs <FontAwesomeIcon icon={faChevronDown} className={`text-xs transition-transform ${openMobileMenu === "programs" ? "rotate-180" : ""}`} />
+                </button>
+                {openMobileMenu === "programs" && (
+                  <div className="pl-4 pb-2 space-y-1">
+                    {[
+                      { to: "/programs", label: "All Programs" },
+                      { to: "/programs/case-management", label: "Case Management" },
+                      { to: "/programs/tourism-innovation-lab", label: "Tourism Innovation Lab" },
+                      { to: "/programs/employer-engagement", label: "Employer Engagement" },
+                      { to: "/programs/campus-ambassador", label: "Campus Ambassador" },
+                    ].map((item) => (
+                      <Link key={item.to} to={item.to} className="block py-1.5 text-sm text-gray-600 hover:text-swahilipot-600" onClick={toggleMenu}>{item.label}</Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="border-b border-gray-100">
+                <button className="w-full flex items-center justify-between py-2.5 text-gray-700 font-medium hover:text-swahilipot-600" onClick={() => toggleMobileSubmenu("departments")}>
+                  Departments <FontAwesomeIcon icon={faChevronDown} className={`text-xs transition-transform ${openMobileMenu === "departments" ? "rotate-180" : ""}`} />
+                </button>
+                {openMobileMenu === "departments" && (
+                  <div className="pl-4 pb-2 space-y-1">
+                    {[
+                      { to: "/department/communication", label: "Communication" },
+                      { to: "/department/tech-engineering", label: "Tech & Engineering" },
+                      { to: "/department/creatives", label: "Creatives" },
+                      { to: "/department/community-entrepreneurship", label: "Community & Entrepreneurship" },
+                    ].map((item) => (
+                      <Link key={item.to} to={item.to} className="block py-1.5 text-sm text-gray-600 hover:text-swahilipot-600" onClick={toggleMenu}>{item.label}</Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link to="/impact" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>Impact</Link>
+              <Link to="/contact" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>Contact</Link>
+
+              <div className="pt-2">
+                <Button className="bg-swahilipot-600 hover:bg-swahilipot-700 text-white w-full" asChild>
+                  <Link to="/events" onClick={toggleMenu}>Events</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 };
 

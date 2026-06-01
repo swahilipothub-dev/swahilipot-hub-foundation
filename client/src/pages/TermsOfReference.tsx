@@ -4,7 +4,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Users, Clock } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays, faLocationDot, faUsers, faClock } from "@fortawesome/free-solid-svg-icons";
 import { useTORPageSEO } from "@/hooks/useSEO";
 
 const TermsOfReference = () => {
@@ -100,24 +101,24 @@ const TermsOfReference = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-sm text-neutral-600">
-                        <MapPin className="h-4 w-4 text-indigo-600" />
+                        <FontAwesomeIcon icon={faLocationDot} className="text-sm text-indigo-600" />
                         <span className="font-medium">Counties:</span>
                         <span>{tor.counties.join(", ")}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-neutral-600">
-                        <Users className="h-4 w-4 text-indigo-600" />
+                        <FontAwesomeIcon icon={faUsers} className="text-sm text-indigo-600" />
                         <span className="font-medium">Target:</span>
                         <span>{tor.targetParticipants}</span>
                       </div>
                     </div>
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-sm text-neutral-600">
-                        <Clock className="h-4 w-4 text-indigo-600" />
+                        <FontAwesomeIcon icon={faClock} className="text-sm text-indigo-600" />
                         <span className="font-medium">Duration:</span>
                         <span>{tor.estimatedDuration}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-neutral-600">
-                        <Calendar className="h-4 w-4 text-indigo-600" />
+                        <FontAwesomeIcon icon={faCalendarDays} className="text-sm text-indigo-600" />
                         <span className="font-medium">Deadline:</span>
                         <span className="font-semibold text-red-600">{tor.deadline}</span>
                       </div>
@@ -164,7 +165,7 @@ const TermsOfReference = () => {
           {torList.length === 0 && (
             <div className="text-center py-12">
               <div className="mx-auto w-24 h-24 bg-neutral-100 rounded-full flex items-center justify-center mb-4">
-                <Calendar className="h-12 w-12 text-neutral-400" />
+                <FontAwesomeIcon icon={faCalendarDays} className="text-5xl text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-2">No Current Opportunities</h3>
               <p className="text-neutral-600 mb-6">

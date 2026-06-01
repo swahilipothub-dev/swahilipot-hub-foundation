@@ -4,7 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Gift, Users, School, Paintbrush, Code } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faGift, faUsers, faSchool, faPaintbrush, faCode } from "@fortawesome/free-solid-svg-icons";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -23,7 +24,7 @@ const donationProjects = [
     id: 1,
     title: "Tech Innovation",
     description: "Support youth to develop technological solutions to local challenges.",
-    icon: Code,
+    icon: faCode,
     color: "text-blue-600",
     target: 15000,
     raised: 9750
@@ -32,7 +33,7 @@ const donationProjects = [
     id: 2,
     title: "Arts & Culture",
     description: "Help preserve and promote East African arts and cultural expression.",
-    icon: Paintbrush,
+    icon: faPaintbrush,
     color: "text-purple-600",
     target: 10000,
     raised: 6200
@@ -41,7 +42,7 @@ const donationProjects = [
     id: 3,
     title: "Education Fund",
     description: "Provide scholarships and educational resources to disadvantaged youth.",
-    icon: School,
+    icon: faSchool,
     color: "text-green-600",
     target: 20000,
     raised: 12800
@@ -50,7 +51,7 @@ const donationProjects = [
     id: 4,
     title: "Community Outreach",
     description: "Support our efforts to reach more communities across East Africa.",
-    icon: Users,
+    icon: faUsers,
     color: "text-orange-600",
     target: 8000,
     raised: 3500
@@ -96,7 +97,7 @@ const Donate = () => {
         <div className="py-12 bg-gradient-to-b from-swahilipot-50 to-white">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <Heart className="h-12 w-12 text-swahilipot-600 mx-auto mb-4" />
+              <FontAwesomeIcon icon={faHeart} className="text-5xl text-swahilipot-600 mx-auto mb-4 block" />
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Support Our Mission</h1>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto">
                 Your contribution helps us empower more youth through technology, arts, and entrepreneurship across East Africa.
@@ -160,7 +161,7 @@ const Donate = () => {
                           <CardContent className="p-6">
                             <div className="flex items-start gap-4">
                               <div className={`p-3 rounded-full ${project.color.replace('text-', 'bg-').replace('600', '100')}`}>
-                                <project.icon className={`h-6 w-6 ${project.color}`} />
+                                <FontAwesomeIcon icon={project.icon} className={`h-6 w-6 ${project.color}`} />
                               </div>
                               <div>
                                 <h3 className="font-semibold text-lg">{project.title}</h3>
@@ -186,7 +187,7 @@ const Donate = () => {
                   </div>
                   
                   <Button type="submit" className="w-full py-6 text-lg">
-                    <Gift className="h-5 w-5 mr-2" />
+                    <FontAwesomeIcon icon={faGift} className="text-base mr-2" />
                     Donate Now
                   </Button>
                 </form>
@@ -198,7 +199,7 @@ const Donate = () => {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-swahilipot-100 p-3 rounded-full">
-                      <Users className="h-6 w-6 text-swahilipot-600" />
+                      <FontAwesomeIcon icon={faUsers} className="text-xl text-swahilipot-600" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Empowering Communities</h3>
@@ -211,7 +212,7 @@ const Donate = () => {
                   
                   <div className="flex items-start gap-4">
                     <div className="bg-swahilipot-100 p-3 rounded-full">
-                      <School className="h-6 w-6 text-swahilipot-600" />
+                      <FontAwesomeIcon icon={faSchool} className="text-xl text-swahilipot-600" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Building Future Leaders</h3>
@@ -224,7 +225,7 @@ const Donate = () => {
                   
                   <div className="flex items-start gap-4">
                     <div className="bg-swahilipot-100 p-3 rounded-full">
-                      <Code className="h-6 w-6 text-swahilipot-600" />
+                      <FontAwesomeIcon icon={faCode} className="text-xl text-swahilipot-600" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Fostering Innovation</h3>

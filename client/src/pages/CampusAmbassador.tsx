@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, Award, Target, Users, Megaphone } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGraduationCap, faTrophy, faBullseye, faUsers, faBullhorn } from "@fortawesome/free-solid-svg-icons";
 
 const universities = [
   "Technical University of Mombasa",
@@ -19,23 +20,33 @@ const CampusAmbassador = () => {
     <>
       <Navbar />
       <main>
-        <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gray-50">
-          <div className="container-custom">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Campus <span className="text-gradient-blue">Ambassador</span> Program
-              </h1>
-              <p className="text-xl text-gray-700">
-                Empowering student leaders to foster innovation and entrepreneurship across university campuses.
-              </p>
-            </div>
+        <section className="relative pt-36 pb-20 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/images/hero/hero1.jpg')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-swahilipot-900/80"></div>
+          <div className="container-custom relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 reveal reveal-left" data-reveal>Campus Ambassador Program</h1>
+            <p className="text-white/80 text-lg max-w-2xl mx-auto mb-4 reveal reveal-right" data-reveal>
+              Empowering student leaders to foster innovation and entrepreneurship across university campuses.
+            </p>
+            <nav className="flex justify-center items-center gap-2 text-sm text-white/70 reveal reveal-up" data-reveal>
+              <a href="/" className="hover:text-white transition-colors">Home</a>
+              <span>/</span>
+              <a href="/programs" className="hover:text-white transition-colors">Programs</a>
+              <span>/</span>
+              <span className="text-swahilipot-300">Campus Ambassador</span>
+            </nav>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" className="fill-white w-full h-8">
+              <path d="M0,20 C360,45 1080,0 1440,20 L1440,40 L0,40 Z" />
+            </svg>
           </div>
         </section>
         
         <section className="py-16 md:py-24">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="reveal reveal-left" data-reveal>
                 <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
                 <p className="text-gray-700 mb-6">
                   The Campus Ambassador Program connects Swahilipot Hub with universities across the coastal 
@@ -51,7 +62,7 @@ const CampusAmbassador = () => {
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Users className="h-6 w-6 text-swahilipot-600 flex-shrink-0" />
+                    <FontAwesomeIcon icon={faUsers} className="text-xl text-swahilipot-600 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold">Community Building</h3>
                       <p className="text-gray-600">Creating and nurturing innovation communities on campus</p>
@@ -65,7 +76,7 @@ const CampusAmbassador = () => {
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Award className="h-6 w-6 text-swahilipot-600 flex-shrink-0" />
+                    <FontAwesomeIcon icon={faTrophy} className="text-xl text-swahilipot-600 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold">Leadership Development</h3>
                       <p className="text-gray-600">Growing personal and professional skills through mentorship</p>
@@ -76,8 +87,8 @@ const CampusAmbassador = () => {
                   Apply to Become an Ambassador
                 </Button> */}
               </div>
-              <div className="relative">
-                <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
+              <div className="relative reveal reveal-right" data-reveal>
+                <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden reveal-img" data-reveal>
                   <img
                     src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80"
                     alt="Campus ambassador presenting"
@@ -92,7 +103,7 @@ const CampusAmbassador = () => {
         
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+<div className="text-center max-w-2xl mx-auto mb-12 reveal reveal-up" data-reveal>
               <h2 className="text-3xl font-bold mb-4">Partner Universities</h2>
               <p className="text-gray-700">
                 Our Campus Ambassador Program has a presence at these universities across the coastal region.
@@ -101,7 +112,7 @@ const CampusAmbassador = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {universities.map((university, index) => (
-                <Card key={index} className="border-0 shadow-sm">
+                <Card key={index} className="border-0 shadow-sm reveal reveal-up" data-reveal>
                   <CardContent className="p-6 flex items-center gap-4">
                     <GraduationCap className="h-8 w-8 text-swahilipot-600" />
                     <span className="font-medium">{university}</span>
