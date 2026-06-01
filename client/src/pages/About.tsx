@@ -20,7 +20,6 @@ const values = [
   { icon: faHeart, title: "Empowerment", description: "We strive to give youth the tools and confidence to succeed." },
   { icon: faBullseye, title: "Innovation", description: "We encourage creative solutions to local and global challenges." },
   { icon: faClock, title: "Sustainability", description: "We focus on long-term impact and sustainable development." },
-
   {
     icon: Users,
     title: "Community",
@@ -263,7 +262,6 @@ const About = () => {
         {/* Core Values */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
-
             <div className="text-center mb-14">
               <span className="inline-block text-swahilipot-600 font-semibold uppercase tracking-wider text-xs mb-3">What Guides Us</span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Our Core Values</h2>
