@@ -11,9 +11,9 @@ const Communication = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="theme-bg-pattern-1">
         <section className="relative pt-36 pb-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/hero/hero1.jpg')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 theme-bg-pattern-2"></div>
           <div className="absolute inset-0 bg-swahilipot-900/80"></div>
           <div className="container-custom relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 reveal reveal-left" data-reveal>Communication Department</h1>

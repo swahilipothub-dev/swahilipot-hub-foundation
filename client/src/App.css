@@ -1,3 +1,29 @@
+/* ── Anniversary celebration pop animation ────────────────────────────── */
+@keyframes celebrationPop {
+  0%   { transform: scale(0.6) rotate(-4deg); opacity: 0; }
+  60%  { transform: scale(1.08) rotate(1.5deg); opacity: 1; }
+  80%  { transform: scale(0.97) rotate(-0.5deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ── Brand Pattern Backgrounds ────────────────────────────────────────── */
+/* Apply .theme-bg-pattern-1 to <main> to use Pattern 1 as the full page background.
+   Sections with solid bg-white/bg-gray cards sit on top; the pattern shows through
+   any transparent areas and creates a subtle parallax as the user scrolls.          */
+.theme-bg-pattern-1 {
+  background-image: url('/images/theme-color/SPH Brand Pattern.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Pattern 2 — used for page banner/hero sections (behind a dark colour overlay). */
+.theme-bg-pattern-2 {
+  background-image: url('/images/theme-color/SPH Brand Pattern 2.png');
+  background-size: cover;
+  background-position: center;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

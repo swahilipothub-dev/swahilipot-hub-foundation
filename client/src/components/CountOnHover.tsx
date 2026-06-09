@@ -8,7 +8,7 @@ interface CountOnHoverProps {
 }
 
 const CountOnHover = ({ target, suffix = "", duration = 800, className = "" }: CountOnHoverProps) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState<number>(target);
   const frame = useRef<number | null>(null);
   const startTime = useRef<number | null>(null);
 
@@ -35,6 +35,8 @@ const CountOnHover = ({ target, suffix = "", duration = 800, className = "" }: C
     if (frame.current) {
       cancelAnimationFrame(frame.current);
     }
+    // start from 0 and animate to the target
+    setValue(0);
     startTime.current = null;
     frame.current = requestAnimationFrame(animate);
   };
@@ -44,7 +46,8 @@ const CountOnHover = ({ target, suffix = "", duration = 800, className = "" }: C
       cancelAnimationFrame(frame.current);
       frame.current = null;
     }
-    setValue(0);
+    // ensure value shows the final target after hover ends
+    setValue(target);
   };
 
   useEffect(() => {

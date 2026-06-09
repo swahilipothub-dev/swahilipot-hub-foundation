@@ -117,7 +117,7 @@ const Footer = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <FontAwesomeIcon icon={faLocationDot} className="text-swahilipot-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-white/60 text-sm">Opp. Governor's Office, Butterfly House, Mombasa, Kenya</span>
+                  <span className="text-white/60 text-sm">Swahili Cultural Centre<br />Mombasa Hospital Road<br />Opp. Governor's Office, Msa Kenya</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <FontAwesomeIcon icon={faEnvelope} className="text-swahilipot-400 flex-shrink-0" />

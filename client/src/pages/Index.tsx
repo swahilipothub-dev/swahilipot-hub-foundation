@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Anniversary from "@/components/Anniversary";
-import About from "@/components/About";
+import Approach from "@/components/Approach";
 import Programs from "@/components/Programs";
 import Impact from "@/components/Impact";
-import Team from "@/components/Team";
+import SuccessStories from "@/components/SuccessStories";
 import Partners from "@/components/Partners";
+import ImpactNewsletter from "@/components/ImpactNewsletter";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useHomePageSEO } from "@/hooks/useSEO";
@@ -18,12 +19,13 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <div className="border-t border-slate-200" />
         <Anniversary />
-        <About />
+        <Approach />
         <Programs />
-        <Impact />
-        <Team /> {/* Change this to sponsors maybe if the team section won't be necessary */}
+        <SuccessStories />
         <Partners />
+        <ImpactNewsletter />
         <Contact />
       </main>
       <Footer />
