@@ -98,30 +98,7 @@ const Navbar = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent h-auto px-3 py-2 text-gray-700 font-medium text-sm hover:bg-transparent hover:text-swahilipot-600 data-[state=open]:bg-transparent data-[state=open]:text-swahilipot-600">
-                    Departments
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid grid-cols-2 w-[480px] gap-1 p-3">
-                      {[
-                        { to: "/department/communication", label: "Communication", desc: "Strategic messaging and media" },
-                        { to: "/department/tech-engineering", label: "Tech & Engineering", desc: "Innovative tech solutions" },
-                        { to: "/department/creatives", label: "Creatives", desc: "Arts and creative expression" },
-                        { to: "/department/community-entrepreneurship", label: "Community & Entrepreneurship", desc: "Business development" },
-                      ].map((item) => (
-                        <Link key={item.to} to={item.to} className="block p-3 rounded-md hover:bg-swahilipot-50 group transition-colors">
-                          <div className="font-medium text-gray-800 group-hover:text-swahilipot-600 text-sm">{item.label}</div>
-                          <div className="text-xs text-gray-500 mt-0.5">{item.desc}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            <Link to="/board-members" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">Board Members</Link>
 
             <Link to="/impact" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">Impact</Link>
             <Link to="/contact" className="px-3 py-2 text-gray-700 font-medium hover:text-swahilipot-600 transition-colors text-sm">Contact</Link>
@@ -174,23 +151,7 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="border-b border-gray-100">
-                <button className="w-full flex items-center justify-between py-2.5 text-gray-700 font-medium hover:text-swahilipot-600" onClick={() => toggleMobileSubmenu("departments")}>
-                  Departments <FontAwesomeIcon icon={faChevronDown} className={`text-xs transition-transform ${openMobileMenu === "departments" ? "rotate-180" : ""}`} />
-                </button>
-                {openMobileMenu === "departments" && (
-                  <div className="pl-4 pb-2 space-y-1">
-                    {[
-                      { to: "/department/communication", label: "Communication" },
-                      { to: "/department/tech-engineering", label: "Tech & Engineering" },
-                      { to: "/department/creatives", label: "Creatives" },
-                      { to: "/department/community-entrepreneurship", label: "Community & Entrepreneurship" },
-                    ].map((item) => (
-                      <Link key={item.to} to={item.to} className="block py-1.5 text-sm text-gray-600 hover:text-swahilipot-600" onClick={toggleMenu}>{item.label}</Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <Link to="/board-members" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>Board Members</Link>
 
               <Link to="/impact" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>Impact</Link>
               <Link to="/contact" className="py-2.5 text-gray-700 font-medium hover:text-swahilipot-600 border-b border-gray-100" onClick={toggleMenu}>Contact</Link>

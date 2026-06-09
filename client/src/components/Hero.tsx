@@ -1,36 +1,50 @@
 import { Button } from "@/components/ui/button";
-import CountOnHover from "./CountOnHover";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-
-const heroStats = [
-  { count: 5000, suffix: "+", label: "Youth Impacted" },
-  { count: 200, suffix: "+", label: "Projects Launched" },
-  { count: 150, suffix: "+", label: "Startups Incubated" },
-];
+import { useState, useEffect } from "react";
 
 const Hero = () => {
-  return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/hero/hero1.jpg')] bg-cover bg-center"></div>
-      <div className="absolute inset-0 bg-swahilipot-950/75"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-swahilipot-950/90 via-swahilipot-950/60 to-transparent"></div>
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = ["/img/general-people/image2.jpeg", "/img/general-people/image3.jpeg"];
 
-      <div className="container-custom relative z-10 py-24">
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <section className="relative min-h-[92vh] flex items-center overflow-x-hidden">
+      {/* Background images - rotating */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === currentImageIndex ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ backgroundImage: `url('${image}')` }}
+        />
+      ))}
+
+      {/* Overlay gradients — lighter so images show through */}
+      <div className="absolute inset-0 bg-swahilipot-950/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-swahilipot-950/75 via-swahilipot-950/45 to-transparent"></div>
+
+      {/* Content */}
+      <div className="container-custom relative z-10 py-24 pb-32">
         <div className="max-w-2xl">
           <span className="inline-block bg-swahilipot-600 text-white text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded mb-6 reveal reveal-left" data-reveal>
             Empowering East African Youth
           </span>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 reveal reveal-left" data-reveal>
-            Building a <span className="text-swahilipot-400">Brighter Future</span>{" "}
-            For Our Youth
+            Building a <span className="text-swahilipot-400">Brighter Future</span> For Our Youth
           </h1>
 
           <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl reveal reveal-right" data-reveal>
-            Swahilipot Hub Foundation nurtures youth talent through technology, arts,
-            and entrepreneurship in the heart of East Africa.
+            Swahilipot Hub Foundation nurtures youth talent through technology, arts, and entrepreneurship in the heart of East Africa.
           </p>
 
           <div className="flex flex-wrap gap-4 reveal reveal-up" data-reveal>
@@ -46,19 +60,25 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="mt-14 flex flex-wrap gap-8">
-            {heroStats.map((stat, index) => (
-              <div key={stat.label} className="text-center reveal reveal-up" data-reveal style={{ transitionDelay: `${index * 100}ms` }}>
-                <p className="text-3xl font-bold text-swahilipot-400">
-                  <CountOnHover target={stat.count} suffix={stat.suffix} />
-                </p>
-                <p className="text-white/70 text-sm mt-0.5">{stat.label}</p>
-              </div>
-            ))}
+          {/* Mission & Vision */}
+          <div className="mt-14 space-y-6">
+            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
+              <p className="text-sm uppercase tracking-[0.35em] text-slate-300 mb-3">Mission</p>
+              <p className="text-slate-100 leading-relaxed text-sm">
+                To empower and transform youth by providing access to safe spaces, building their capacity, promoting collaboration and linking them to opportunities for their holistic growth and development.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
+              <p className="text-sm uppercase tracking-[0.35em] text-slate-300 mb-3">Vision</p>
+              <p className="text-slate-200 leading-relaxed text-sm">
+                'Transformed youth, thriving communities'
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Wave SVG */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" className="fill-white w-full h-10">
           <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" />

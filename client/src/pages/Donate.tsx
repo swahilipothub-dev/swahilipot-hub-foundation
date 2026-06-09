@@ -93,7 +93,7 @@ const Donate = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow theme-bg-pattern-1">
         <div className="py-12 bg-gradient-to-b from-swahilipot-50 to-white">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -106,7 +106,7 @@ const Donate = () => {
           </div>
         </div>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white theme-bg-pattern-2 theme-bg-overlay">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12">
               <div>

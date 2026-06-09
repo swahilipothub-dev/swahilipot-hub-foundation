@@ -2,30 +2,48 @@ import { useEffect } from "react";
 
 const useScrollReveal = () => {
   useEffect(() => {
-    const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-
-    if (!targets.length) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+            io.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
 
-    targets.forEach((target) => observer.observe(target));
+    const register = (el: HTMLElement) => {
+      // Already visible on load — show immediately without waiting for scroll
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("show");
+      } else {
+        io.observe(el);
+      }
+    };
 
-    return () => observer.disconnect();
+    // Observe elements present at mount
+    document.querySelectorAll<HTMLElement>("[data-reveal]").forEach(register);
+
+    // Re-observe elements added by route changes (React Router swaps page content)
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => {
+        m.addedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) return;
+          if (node.hasAttribute("data-reveal")) register(node);
+          node.querySelectorAll<HTMLElement>("[data-reveal]").forEach(register);
+        });
+      });
+    });
+
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, []);
 };
 

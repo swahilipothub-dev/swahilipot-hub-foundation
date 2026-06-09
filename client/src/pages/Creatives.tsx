@@ -11,10 +11,10 @@ const Creatives = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="theme-bg-pattern-1">
         <section className="relative pt-36 pb-20 overflow-hidden">
           <div
-            className="absolute inset-0 bg-[url('/img/theatre.jpg')] bg-cover"
+            className="absolute inset-0 theme-bg-pattern-2"
             style={{ backgroundPosition: 'center 20%' }}
           ></div>
           <div className="absolute inset-0 bg-swahilipot-900/80"></div>

@@ -3,8 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Index from "./pages/Index";
 import useScrollReveal from "@/hooks/useScrollReveal";
+import SplashScreen from "@/components/SplashScreen";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Contact from "./pages/Contact";
@@ -36,17 +38,24 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
 import TermsOfReference from "./pages/TermsOfReference";
+import BoardMembers from "./pages/BoardMembers";
 import PlacementPartnersTOR from "@/pages/PlacementPartnersTOR";
 
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
   useScrollReveal();
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
         <Toaster />
         <Sonner />
         <BrowserRouter>
@@ -92,6 +101,9 @@ const App = () => {
           <Route path="/industrial-attachment" element={<IndustrialAttachment />} />
           <Route path="/industrial-attachment/apply" element={<IndustrialAttachmentApply />} />
           <Route path="/industrial-attachment/success" element={<IndustrialAttachmentSuccess />} />
+
+          {/* Board Members */}
+          <Route path="/board-members" element={<BoardMembers />} />
 
           {/* terms of reference */}
           <Route path="/terms-of-reference" element={<TermsOfReference />} />

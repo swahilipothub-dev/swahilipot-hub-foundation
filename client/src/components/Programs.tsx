@@ -4,46 +4,19 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const programs = [
   {
-    title: "Tech Programs",
-    category: "Technology",
-    tag: "TECH · ONGOING",
-    description: "Providing resources, mentorship, and workspace for tech startups and innovators across the Kenyan coast.",
-    status: "Open now",
-    ages: "Ages 18–35",
-    link: "/programs",
-    image: "/img/communityspace.jpg",
-    overlay: "from-blue-900/80 to-blue-700/50",
-    dotColor: "bg-blue-500",
-    categoryColor: "text-blue-600",
-    watermark: "Tech",
-  },
-  {
     title: "Creative & Arts",
     category: "Creative Arts",
     tag: "ARTS · ONGOING",
     description: "Promoting creative expression through music, film, dance, and visual arts programs.",
     status: "Open now",
     ages: "Ages 18–35",
-    link: "/programs",
-    image: "/img/team/kiplangat.jpg",
+    link: "/department/creatives",
+    image: "/img/general-people/image4.jpeg",
     overlay: "from-orange-900/80 to-orange-600/50",
     dotColor: "bg-orange-500",
     categoryColor: "text-orange-600",
     watermark: "Sanaa",
-  },
-  {
-    title: "Entrepreneurship",
-    category: "Entrepreneurship",
-    tag: "INCUBATOR · ONGOING",
-    description: "Developing business skills and connecting youth entrepreneurs with funding and market opportunities.",
-    status: "Open now",
-    ages: "Ages 18–35",
-    link: "/programs",
-    image: "/img/team/atrash.jpg",
-    overlay: "from-yellow-900/80 to-yellow-700/50",
-    dotColor: "bg-yellow-500",
-    categoryColor: "text-yellow-700",
-    watermark: "Biashara",
+    highlight: true,
   },
   {
     title: "Case Management",
@@ -53,43 +26,78 @@ const programs = [
     status: "Open enrollment",
     ages: "Ages 18–35",
     link: "/programs/case-management",
-    image: "/img/case-management/cm1.jpg",
+    image: "/img/general-people/image5.jpeg",
     overlay: "from-swahilipot-900/80 to-swahilipot-600/50",
     dotColor: "bg-swahilipot-500",
     categoryColor: "text-swahilipot-600",
     watermark: "Msaada",
+    highlight: true,
   },
   {
-    title: "Tourism Innovation Lab",
+    title: "V2T",
     category: "Innovation",
     tag: "TECH · ONGOING",
-    description: "Developing innovative solutions to transform Mombasa's tourism sector and create new youth opportunities.",
+    description: "Connecting visionary youth to transformative opportunities through technology, mentorship, and enterprise development.",
     status: "Open now",
     ages: "Ages 18–35",
-    link: "/programs/tourism-innovation-lab",
-    image: "/img/tourism/til1.jpg",
+    link: "/programs/v2t",
+    image: "/img/general-people/image6.jpeg",
     overlay: "from-teal-900/80 to-teal-600/50",
     dotColor: "bg-teal-500",
     categoryColor: "text-teal-600",
-    watermark: "Pwani",
+    watermark: "V2T",
+    highlight: true,
   },
   {
-    title: "Campus Ambassador",
-    category: "Leadership",
-    tag: "PROGRAM · YEAR-LONG",
-    description: "Connecting university students with Swahilipot Hub to co-lead initiatives and build campus impact.",
+    title: "Youth Hub Network",
+    category: "Community",
+    tag: "NETWORK · ONGOING",
+    description: "Connecting youth across the region through our network of innovation hubs and community spaces.",
+    status: "Open now",
+    ages: "Ages 18–35",
+    link: "/programs",
+    image: "/img/communityspace.jpg",
+    overlay: "from-green-900/80 to-green-700/50",
+    dotColor: "bg-green-500",
+    categoryColor: "text-green-600",
+    watermark: "Mtandao",
+    highlight: false,
+  },
+  {
+    title: "Digital Literacy",
+    category: "Education",
+    tag: "LEARNING · ONGOING",
+    description: "Building essential digital skills and tech literacy for youth to thrive in the digital economy.",
     status: "Open enrollment",
-    ages: "Ages 18–29",
-    link: "/programs/campus-ambassador",
+    ages: "Ages 18–35",
+    link: "/programs",
+    image: "/img/team/atrash.jpg",
+    overlay: "from-blue-900/80 to-blue-700/50",
+    dotColor: "bg-blue-500",
+    categoryColor: "text-blue-600",
+    watermark: "Ujifunze",
+    highlight: false,
+  },
+  {
+    title: "Scale Up",
+    category: "Entrepreneurship",
+    tag: "ACCELERATOR · ONGOING",
+    description: "Accelerating growth for youth entrepreneurs through mentorship, funding, and market access.",
+    status: "Open now",
+    ages: "Ages 18–35",
+    link: "/programs",
     image: "/img/team/miriam.jpg",
-    overlay: "from-indigo-900/80 to-indigo-600/50",
-    dotColor: "bg-indigo-500",
-    categoryColor: "text-indigo-600",
-    watermark: "Uongozi",
+    overlay: "from-purple-900/80 to-purple-700/50",
+    dotColor: "bg-purple-500",
+    categoryColor: "text-purple-600",
+    watermark: "Kukua",
+    highlight: false,
   },
 ];
 
 const Programs = () => {
+  const highlightedPrograms = programs.filter((p) => p.highlight);
+
   return (
     <section id="programs" className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -108,9 +116,14 @@ const Programs = () => {
           </p>
         </div>
 
+        {/* Program Highlights subtitle */}
+        <div className="text-center mb-10 reveal reveal-up" data-reveal>
+          <h3 className="text-xl font-semibold text-gray-800">Program Highlights</h3>
+        </div>
+
         {/* Cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.map((program) => (
+          {highlightedPrograms.map((program) => (
             <Link
               key={program.title}
               to={program.link}

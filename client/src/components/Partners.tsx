@@ -30,13 +30,11 @@ const Partners = () => {
               transform: translateX(-50%);
             }
           }
-          
+
           .carousel-track {
+            min-width: 200%;
             animation: scrollLeft 30s linear infinite;
-          }
-          
-          .carousel-track:hover {
-            animation-play-state: paused;
+            will-change: transform;
           }
         `}</style>
 
