@@ -3,7 +3,7 @@ import ImpactSection from "@/components/Impact";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faWifi, faGraduationCap, faSeedling } from "@fortawesome/free-solid-svg-icons";
 
 const successStories = [
   {
@@ -34,8 +34,8 @@ const Impact = () => {
       <main className="flex-grow theme-bg-pattern-1">
         {/* Page Banner */}
         <section className="relative pt-36 pb-20 overflow-hidden">
-          <div className="absolute inset-0 theme-bg-pattern-2"></div>
-          <div className="absolute inset-0 bg-swahilipot-900/80"></div>
+          <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('/img/general-people/image9.jpeg')", backgroundPosition: "center 20%" }}></div>
+          <div className="absolute inset-0 bg-swahilipot-900/75"></div>
           <div className="container-custom relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Our Impact</h1>
             <nav className="flex justify-center items-center gap-2 text-sm text-white/70">
@@ -53,6 +53,76 @@ const Impact = () => {
 
         {/* Stats */}
         <ImpactSection />
+
+        {/* Opportunity Youth Cards */}
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <span className="inline-block text-swahilipot-600 font-semibold uppercase tracking-wider text-xs mb-3">Our Framework</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Opportunity Youth</h2>
+              <div className="w-12 h-1 bg-swahilipot-600 mx-auto mb-5"></div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                We measure our success through three stages of transformation for every young person we serve.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: faWifi,
+                  stage: "Stage 01",
+                  title: "Opportunity Youth Connected",
+                  subtitle: "Reached and Engaged",
+                  description: "Opportunity Youth (OY) who have been reached and engaged by Swahilipot Hub Foundation through outreach and awareness activities, including social media platforms, community events, workshops, seminars, forums, and registrations on Swahilipot Hub programs and platforms.",
+                  image: "/img/general-people/image22.jpeg",
+                  overlay: "bg-swahilipot-900/75",
+                },
+                {
+                  icon: faGraduationCap,
+                  stage: "Stage 02",
+                  title: "Opportunity Youth Improved",
+                  subtitle: "Skills and Capacity",
+                  description: "Opportunity Youth (OY) who have actively participated in Swahilipot Hub Foundation programs and services, resulting in enhanced knowledge, skills, confidence, networks, or readiness for employment, entrepreneurship, and personal development.",
+                  image: "/img/general-people/image20.jpeg",
+                  overlay: "bg-teal-900/75",
+                },
+                {
+                  icon: faSeedling,
+                  stage: "Stage 03",
+                  title: "Opportunity Youth Transformed",
+                  subtitle: "Sustainable Livelihoods",
+                  description: "Opportunity Youth (OY) who have achieved sustainable livelihood outcomes as a result of Swahilipot Hub Foundation interventions. This includes securing paid internships, obtaining dignified and stable employment, improving the quality of existing employment through better wages or working conditions, or establishing income-generating businesses. Transformation has also been supported through enabling services such as mentorship, and psychosocial support.",
+                  image: "/img/general-people/image7.jpeg",
+                  overlay: "bg-green-900/75",
+                },
+              ].map((card) => (
+                <div key={card.title} className="relative rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group min-h-96">
+                  {/* Background image */}
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Solid colour overlay */}
+                  <div className={`absolute inset-0 ${card.overlay}`} />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col justify-end h-full p-7">
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/60 mb-3 block">{card.stage}</span>
+                    <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center mb-4">
+                      <FontAwesomeIcon icon={card.icon} className="text-xl text-white" />
+                    </div>
+                    <h3 className="text-white text-xl font-bold leading-snug mb-2">{card.title}</h3>
+                    <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 bg-white/20 backdrop-blur-sm text-white border border-white/20 self-start">
+                      {card.subtitle}
+                    </span>
+                    <p className="text-white/80 text-sm leading-relaxed">{card.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Success Stories + Report */}
         <section className="py-16 md:py-24">

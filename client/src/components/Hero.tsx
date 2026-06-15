@@ -29,8 +29,7 @@ const Hero = () => {
       ))}
 
       {/* Overlay gradients — lighter so images show through */}
-      <div className="absolute inset-0 bg-swahilipot-950/40"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-swahilipot-950/75 via-swahilipot-950/45 to-transparent"></div>
+      <div className="absolute inset-0 bg-swahilipot-950/60"></div>
 
       {/* Content */}
       <div className="container-custom relative z-10 py-24 pb-32">

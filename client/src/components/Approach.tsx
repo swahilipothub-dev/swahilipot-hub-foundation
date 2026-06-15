@@ -15,7 +15,7 @@ const steps = [
     icon: faMagnifyingGlass,
     title: "Identify",
     desc: "We seek out talented, ambitious young people across the Coast who lack access to platforms that match their potential — and open our doors wide.",
-    accent: "from-swahilipot-600 to-swahilipot-700",
+    accent: "bg-swahilipot-600",
     border: "border-swahilipot-200",
     textAccent: "text-swahilipot-600",
     bgLight: "bg-swahilipot-50",
@@ -25,7 +25,7 @@ const steps = [
     icon: faGraduationCap,
     title: "Equip",
     desc: "Through structured programmes in technology, creative arts, and entrepreneurship, we give youth practical skills and the confidence to use them.",
-    accent: "from-amber-500 to-amber-600",
+    accent: "bg-amber-500",
     border: "border-amber-200",
     textAccent: "text-amber-600",
     bgLight: "bg-amber-50",
@@ -35,7 +35,7 @@ const steps = [
     icon: faHandshake,
     title: "Mentor",
     desc: "Every participant is paired with a dedicated mentor and supported by our Case Management team — ensuring no one walks the journey alone.",
-    accent: "from-teal-600 to-teal-700",
+    accent: "bg-teal-600",
     border: "border-teal-200",
     textAccent: "text-teal-600",
     bgLight: "bg-teal-50",
@@ -45,7 +45,7 @@ const steps = [
     icon: faRocket,
     title: "Launch",
     desc: "We connect graduates to investors, employers, and markets — then continue supporting them as they grow, scale, and give back to the next cohort.",
-    accent: "from-purple-600 to-purple-700",
+    accent: "bg-purple-600",
     border: "border-purple-200",
     textAccent: "text-purple-600",
     bgLight: "bg-purple-50",
@@ -84,7 +84,7 @@ const Approach = () => {
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Number badge */}
-              <span className={`absolute -top-3.5 left-6 inline-block bg-gradient-to-br ${step.accent} text-white text-xs font-black tracking-widest px-3 py-1 rounded-full shadow`}>
+              <span className={`absolute -top-3.5 left-6 inline-block ${step.accent} text-white text-xs font-black tracking-widest px-3 py-1 rounded-full shadow`}>
                 {step.num}
               </span>
 

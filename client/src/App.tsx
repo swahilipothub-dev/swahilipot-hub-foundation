@@ -40,6 +40,11 @@ import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
 import TermsOfReference from "./pages/TermsOfReference";
 import BoardMembers from "./pages/BoardMembers";
 import PlacementPartnersTOR from "@/pages/PlacementPartnersTOR";
+import Heritage from "./pages/Heritage";
+import V2T from "./pages/V2T";
+import YouthHubNetwork from "./pages/YouthHubNetwork";
+import DigitalLiteracy from "./pages/DigitalLiteracy";
+import ScaleUp from "./pages/ScaleUp";
 
 
 const queryClient = new QueryClient();
@@ -87,6 +92,12 @@ const App = () => {
           <Route path="/programs/campus-ambassador" element={<CampusAmbassador />} />
           <Route path="/programs/swahili-tech-women" element={<SwahiliTechWomen />} />
           <Route path="/programs/employer-engagement" element={<EmployerEngagement />} />
+
+          <Route path="/programs/heritage" element={<Heritage />} />
+          <Route path="/programs/v2t" element={<V2T />} />
+          <Route path="/programs/youth-hub-network" element={<YouthHubNetwork />} />
+          <Route path="/programs/digital-literacy" element={<DigitalLiteracy />} />
+          <Route path="/programs/scale-up" element={<ScaleUp />} />
 
           {/* Department routes */}
           <Route path="/department/communication" element={<Communication />} />

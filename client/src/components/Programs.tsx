@@ -12,7 +12,7 @@ const programs = [
     ages: "Ages 18–35",
     link: "/department/creatives",
     image: "/img/general-people/image4.jpeg",
-    overlay: "from-orange-900/80 to-orange-600/50",
+    overlay: "bg-orange-900/70",
     dotColor: "bg-orange-500",
     categoryColor: "text-orange-600",
     watermark: "Sanaa",
@@ -27,7 +27,7 @@ const programs = [
     ages: "Ages 18–35",
     link: "/programs/case-management",
     image: "/img/general-people/image5.jpeg",
-    overlay: "from-swahilipot-900/80 to-swahilipot-600/50",
+    overlay: "bg-swahilipot-900/70",
     dotColor: "bg-swahilipot-500",
     categoryColor: "text-swahilipot-600",
     watermark: "Msaada",
@@ -42,7 +42,7 @@ const programs = [
     ages: "Ages 18–35",
     link: "/programs/v2t",
     image: "/img/general-people/image6.jpeg",
-    overlay: "from-teal-900/80 to-teal-600/50",
+    overlay: "bg-teal-900/70",
     dotColor: "bg-teal-500",
     categoryColor: "text-teal-600",
     watermark: "V2T",
@@ -141,7 +141,7 @@ const Programs = () => {
                   }}
                 />
                 {/* Color overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${program.overlay}`}></div>
+                <div className={`absolute inset-0 ${program.overlay}`}></div>
                 {/* Watermark text */}
                 <span className="absolute inset-0 flex items-center justify-center text-white/25 text-5xl font-black italic pointer-events-none select-none">
                   {program.watermark}

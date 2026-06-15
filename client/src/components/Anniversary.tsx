@@ -399,7 +399,7 @@ const Anniversary = () => {
         {/* Giant "10" */}
         <div className="text-center mb-14">
           <div className="relative inline-block leading-none animate-[celebrationPop_0.8s_ease-out_both]">
-            <span className="text-[10rem] md:text-[14rem] font-black bg-gradient-to-b from-amber-300 via-amber-400 to-swahilipot-400 bg-clip-text text-transparent select-none leading-none">
+            <span className="text-[10rem] md:text-[14rem] font-black text-amber-300 select-none leading-none">
               10
             </span>
           </div>
@@ -436,16 +436,9 @@ const Anniversary = () => {
 
         {/* Quote banner */}
         <div className="mb-20 reveal reveal-up" data-reveal>
-          <div
-            className="relative overflow-hidden rounded-3xl"
-            style={{
-              backgroundImage: "url('/images/theme-color/SPH Brand Pattern.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            {/* Dark overlay — lighter so the pattern shows through */}
-            <div className="absolute inset-0 bg-swahilipot-950/55" />
+          <div className="relative overflow-hidden rounded-3xl bg-amber-500">
+            {/* Subtle texture overlay */}
+            <div className="absolute inset-0 bg-black/10" />
 
             {/* Decorative amber glow blobs */}
             <div className="absolute -top-16 -left-16 w-64 h-64 bg-amber-400 rounded-full opacity-10 blur-3xl pointer-events-none" />
@@ -455,9 +448,9 @@ const Anniversary = () => {
             <div className="relative z-10 px-10 py-16 md:py-20 text-center">
               {/* Decorative top rule */}
               <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="h-px w-12 bg-amber-400/40" />
-                <span className="text-amber-400 text-xs font-bold uppercase tracking-[0.3em]">10 Years &amp; Beyond</span>
-                <div className="h-px w-12 bg-amber-400/40" />
+                <div className="h-px w-12 bg-white/40" />
+                <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">10 Years &amp; Beyond</span>
+                <div className="h-px w-12 bg-white/40" />
               </div>
 
               {/* Large quotation mark */}
@@ -471,11 +464,11 @@ const Anniversary = () => {
               {/* Main quote */}
               <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 max-w-3xl mx-auto">
                 A decade in, we're{" "}
-                <span className="text-amber-300">just getting started.</span>
+                <span className="text-white/90 underline decoration-white/40 underline-offset-4">just getting started.</span>
               </h3>
 
               {/* Sub-text */}
-              <p className="text-white/55 max-w-xl mx-auto text-base leading-relaxed mb-10">
+              <p className="text-white/80 max-w-xl mx-auto text-base leading-relaxed mb-10">
                 Our commitment to nurturing the next generation of innovators, artists, and
                 entrepreneurs remains stronger than ever. Together, we are building a
                 brighter future for East Africa.
@@ -483,12 +476,12 @@ const Anniversary = () => {
 
               {/* Attribution row */}
               <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-amber-400/20 border border-amber-400/30 flex items-center justify-center">
-                  <span className="text-amber-300 text-lg font-black">S</span>
+                <div className="w-10 h-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+                  <span className="text-white text-lg font-black">S</span>
                 </div>
                 <div className="text-left">
                   <p className="text-white font-semibold text-sm leading-none">Swahilipot Hub Foundation</p>
-                  <p className="text-white/40 text-xs mt-0.5">Mombasa, Kenya · Est. 2016</p>
+                  <p className="text-white/70 text-xs mt-0.5">Mombasa, Kenya · Est. 2016</p>
                 </div>
               </div>
             </div>
