@@ -206,3 +206,179 @@
     transform: translateY(0);
   }
 }
+
+/* ── Program page shared animations (Heritage-style) ───────────────── */
+
+/* ── Keyframes ─────────────────────────────────────────────────────── */
+
+@keyframes wordUp {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Word flies in from left with skew overshoot */
+@keyframes wordFromLeft {
+  0%   { transform: translateX(-115%) skewX(18deg); opacity: 0; }
+  65%  { transform: translateX(4%) skewX(-4deg);    opacity: 1; }
+  100% { transform: translateX(0)   skewX(0deg);    opacity: 1; }
+}
+
+/* Word flies in from right with skew overshoot */
+@keyframes wordFromRight {
+  0%   { transform: translateX(115%) skewX(-18deg); opacity: 0; }
+  65%  { transform: translateX(-4%) skewX(4deg);    opacity: 1; }
+  100% { transform: translateX(0)   skewX(0deg);    opacity: 1; }
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Line wipe for the section dividers */
+@keyframes lineWipe {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Word classes (run on mount, used in headings) ─────────────────── */
+
+.word-reveal {
+  transform: translateY(110%);
+  opacity: 0;
+  animation: wordUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.word-from-left {
+  display: inline-block;
+  opacity: 0;
+  animation: wordFromLeft 0.75s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.word-from-right {
+  display: inline-block;
+  opacity: 0;
+  animation: wordFromRight 0.75s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* ── Scroll-reveal: generic fade-up ────────────────────────────────── */
+
+[data-ht] {
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+              transform 0.75s cubic-bezier(0.16,1,0.3,1);
+}
+[data-ht].ht-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Scroll-reveal: slide from left ────────────────────────────────── */
+
+[data-ht-left] {
+  opacity: 0;
+  transform: translateX(-90px) skewX(6deg);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+[data-ht-left].ht-visible {
+  opacity: 1;
+  transform: translateX(0) skewX(0deg);
+}
+
+/* ── Scroll-reveal: slide from right ───────────────────────────────── */
+
+[data-ht-right] {
+  opacity: 0;
+  transform: translateX(90px) skewX(-6deg);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+[data-ht-right].ht-visible {
+  opacity: 1;
+  transform: translateX(0) skewX(0deg);
+}
+
+/* ── Scroll-reveal: scale pop ──────────────────────────────────────── */
+
+[data-ht-scale] {
+  opacity: 0;
+  transform: scale(0.82);
+  transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1),
+              transform 0.65s cubic-bezier(0.34,1.56,0.64,1);
+}
+[data-ht-scale].ht-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Delay helpers (work for all data-ht variants) ─────────────────── */
+
+[data-ht-d="1"], [data-ht-left][data-ht-d="1"], [data-ht-right][data-ht-d="1"], [data-ht-scale][data-ht-d="1"] { transition-delay: 0.08s; }
+[data-ht-d="2"], [data-ht-left][data-ht-d="2"], [data-ht-right][data-ht-d="2"], [data-ht-scale][data-ht-d="2"] { transition-delay: 0.16s; }
+[data-ht-d="3"], [data-ht-left][data-ht-d="3"], [data-ht-right][data-ht-d="3"], [data-ht-scale][data-ht-d="3"] { transition-delay: 0.24s; }
+[data-ht-d="4"], [data-ht-left][data-ht-d="4"], [data-ht-right][data-ht-d="4"], [data-ht-scale][data-ht-d="4"] { transition-delay: 0.32s; }
+[data-ht-d="5"], [data-ht-left][data-ht-d="5"], [data-ht-right][data-ht-d="5"], [data-ht-scale][data-ht-d="5"] { transition-delay: 0.40s; }
+[data-ht-d="6"], [data-ht-left][data-ht-d="6"], [data-ht-right][data-ht-d="6"], [data-ht-scale][data-ht-d="6"] { transition-delay: 0.48s; }
+
+/* ── Line draw ─────────────────────────────────────────────────────── */
+
+.line-draw {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.16,1,0.3,1);
+}
+[data-ht].ht-visible .line-draw,
+[data-ht-left].ht-visible .line-draw,
+[data-ht-right].ht-visible .line-draw {
+  transform: scaleX(1);
+}
+
+/* ── Stat pop (used inside [data-ht] or [data-ht-scale]) ───────────── */
+
+.stat-pop {
+  transform: scale(0.65);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.34,1.56,0.64,1),
+              opacity 0.55s ease;
+}
+[data-ht].ht-visible .stat-pop,
+[data-ht-left].ht-visible .stat-pop,
+[data-ht-right].ht-visible .stat-pop,
+[data-ht-scale].ht-visible .stat-pop {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ── Quote word cascade ────────────────────────────────────────────── */
+
+.q-word {
+  display: inline-block;
+  margin-right: 0.28em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+[data-ht].ht-visible .q-word,
+[data-ht-left].ht-visible .q-word,
+[data-ht-right].ht-visible .q-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Marquee ───────────────────────────────────────────────────────── */
+
+.marquee-track {
+  animation: marqueeScroll 22s linear infinite;
+  white-space: nowrap;
+}
+
+/* ── Card hover lift ───────────────────────────────────────────────── */
+
+.heritage-card {
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+}
+.heritage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.13);
+}

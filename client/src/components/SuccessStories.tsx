@@ -112,7 +112,7 @@ const SuccessStories = () => {
                 }}
               />
               {/* Gradient scrim for the quote overlay on mobile */}
-              <div className="absolute inset-0 bg-gradient-to-t from-swahilipot-950/80 via-transparent to-transparent md:hidden" />
+              <div className="absolute inset-0 bg-swahilipot-950/60 md:hidden" />
             </div>
 
             {/* Text panel */}
@@ -188,7 +188,7 @@ const SuccessStories = () => {
                     (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gray-900/50" />
                 {/* Program badge on image */}
                 <span
                   className={`absolute bottom-3 left-3 text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${s.programBg} ${s.programText}`}

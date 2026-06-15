@@ -81,11 +81,13 @@ const Navbar = () => {
                   <NavigationMenuContent>
                     <div className="grid grid-cols-2 w-[520px] gap-1 p-3">
                       {[
-                        { to: "/programs", label: "All Programs", desc: "Overview of all our programs" },
-                        { to: "/programs/case-management", label: "Case Management", desc: "Personalized youth support" },
-                        { to: "/programs/tourism-innovation-lab", label: "Tourism Innovation Lab", desc: "Transforming tourism through tech" },
-                        { to: "/programs/employer-engagement", label: "Employer Engagement", desc: "Youth employment program" },
-                        { to: "/programs/campus-ambassador", label: "Campus Ambassador", desc: "University outreach program" },
+                        { to: "/programs/case-management", label: "Case Management", desc: "Personalized youth support & guidance" },
+                        { to: "/programs/v2t", label: "V2T", desc: "Visionaries to transformers program" },
+                        { to: "/programs/youth-hub-network", label: "Youth Hub Network", desc: "Connecting youth across the region" },
+                        { to: "/department/creatives", label: "Creatives", desc: "Music, film, dance & visual arts" },
+                        { to: "/programs/digital-literacy", label: "Digital Literacy", desc: "Building digital skills for the future" },
+                        { to: "/programs/scale-up", label: "Scale Up", desc: "Accelerating youth entrepreneurship" },
+                        { to: "/programs/heritage", label: "Heritage", desc: "Bridging culture and digital practices" },
                       ].map((item) => (
                         <Link key={item.to} to={item.to} className="block p-3 rounded-md hover:bg-swahilipot-50 group transition-colors">
                           <div className="font-medium text-gray-800 group-hover:text-swahilipot-600 text-sm">{item.label}</div>
@@ -139,11 +141,13 @@ const Navbar = () => {
                 {openMobileMenu === "programs" && (
                   <div className="pl-4 pb-2 space-y-1">
                     {[
-                      { to: "/programs", label: "All Programs" },
                       { to: "/programs/case-management", label: "Case Management" },
-                      { to: "/programs/tourism-innovation-lab", label: "Tourism Innovation Lab" },
-                      { to: "/programs/employer-engagement", label: "Employer Engagement" },
-                      { to: "/programs/campus-ambassador", label: "Campus Ambassador" },
+                      { to: "/programs/v2t", label: "V2T" },
+                      { to: "/programs/youth-hub-network", label: "Youth Hub Network" },
+                      { to: "/department/creatives", label: "Creatives" },
+                      { to: "/programs/digital-literacy", label: "Digital Literacy" },
+                      { to: "/programs/scale-up", label: "Scale Up" },
+                      { to: "/programs/heritage", label: "Heritage" },
                     ].map((item) => (
                       <Link key={item.to} to={item.to} className="block py-1.5 text-sm text-gray-600 hover:text-swahilipot-600" onClick={toggleMenu}>{item.label}</Link>
                     ))}
