@@ -111,7 +111,6 @@ const Creatives = () => {
         </section>
 
         <section className="bg-white py-24">
-
           <div className="container-custom text-center" data-ht>
             <p className="text-gray-400 text-xs font-black uppercase tracking-[0.4em] mb-6">Join the Community</p>
             <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight"><SplitHeading text="Are you a creative ready to grow?" accentWords={[3, 4, 5]} accentClass="text-orange-500" /></h3>

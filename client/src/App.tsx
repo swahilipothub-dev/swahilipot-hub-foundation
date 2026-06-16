@@ -3,49 +3,49 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import Index from "./pages/Index";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import SplashScreen from "@/components/SplashScreen";
-import About from "./pages/About";
-import Programs from "./pages/Programs";
-import Contact from "./pages/Contact";
-import Impact from "./pages/Impact";
-import Donate from "./pages/Donate";
-import NotFound from "./pages/NotFound";
-import CaseManagement from "./pages/CaseManagement";
-import TourismInnovationLab from "./pages/TourismInnovationLab";
-import Events from "./pages/Events";
-import CampusAmbassador from "./pages/CampusAmbassador";
-import SwahiliTechWomen from "./pages/SwahiliTechWomen";
-import Communication from "./pages/Communication";
-import TechEngineering from "./pages/TechEngineering";
-import Creatives from "./pages/Creatives";
-import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
-import EmployerEngagement from "./pages/EmployerEngagement";
-import Careers from "./pages/Careers";
-import CareerDetail from "./pages/CareerDetail";
-import AdminDashboard from "./pages/AdminDashboard";
-import IndustrialAttachments from "./pages/admin/IndustrialAttachments";
-import Institutions from "./pages/admin/Institutions";
-import Departments from "./pages/admin/Departments";
-import Courses from "./pages/admin/Courses";
-import Users from "./pages/admin/Users";
-import IndustrialAttachment from "./pages/IndustrialAttachment";
-import IndustrialAttachmentApply from "./pages/IndustrialAttachmentApply";
-import IndustrialAttachmentSuccess from "./pages/IndustrialAttachmentSuccess";
-import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AnalyticsDashboard from "./pages/admin/AnalyticsDashboard";
-import TermsOfReference from "./pages/TermsOfReference";
-import BoardMembers from "./pages/BoardMembers";
-import PlacementPartnersTOR from "@/pages/PlacementPartnersTOR";
-import Heritage from "./pages/Heritage";
-import V2T from "./pages/V2T";
-import YouthHubNetwork from "./pages/YouthHubNetwork";
-import DigitalLiteracy from "./pages/DigitalLiteracy";
-import ScaleUp from "./pages/ScaleUp";
 
+const About = lazy(() => import("./pages/About"));
+const Programs = lazy(() => import("./pages/Programs"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Impact = lazy(() => import("./pages/Impact"));
+const Donate = lazy(() => import("./pages/Donate"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const CaseManagement = lazy(() => import("./pages/CaseManagement"));
+const TourismInnovationLab = lazy(() => import("./pages/TourismInnovationLab"));
+const Events = lazy(() => import("./pages/Events"));
+const CampusAmbassador = lazy(() => import("./pages/CampusAmbassador"));
+const SwahiliTechWomen = lazy(() => import("./pages/SwahiliTechWomen"));
+const Communication = lazy(() => import("./pages/Communication"));
+const TechEngineering = lazy(() => import("./pages/TechEngineering"));
+const Creatives = lazy(() => import("./pages/Creatives"));
+const CommunityEntrepreneurship = lazy(() => import("./pages/CommunityEntrepreneurship"));
+const EmployerEngagement = lazy(() => import("./pages/EmployerEngagement"));
+const Careers = lazy(() => import("./pages/Careers"));
+const CareerDetail = lazy(() => import("./pages/CareerDetail"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const IndustrialAttachments = lazy(() => import("./pages/admin/IndustrialAttachments"));
+const Institutions = lazy(() => import("./pages/admin/Institutions"));
+const Departments = lazy(() => import("./pages/admin/Departments"));
+const Courses = lazy(() => import("./pages/admin/Courses"));
+const Users = lazy(() => import("./pages/admin/Users"));
+const IndustrialAttachment = lazy(() => import("./pages/IndustrialAttachment"));
+const IndustrialAttachmentApply = lazy(() => import("./pages/IndustrialAttachmentApply"));
+const IndustrialAttachmentSuccess = lazy(() => import("./pages/IndustrialAttachmentSuccess"));
+const Login = lazy(() => import("./pages/Login"));
+const AnalyticsDashboard = lazy(() => import("./pages/admin/AnalyticsDashboard"));
+const TermsOfReference = lazy(() => import("./pages/TermsOfReference"));
+const BoardMembers = lazy(() => import("./pages/BoardMembers"));
+const PlacementPartnersTOR = lazy(() => import("@/pages/PlacementPartnersTOR"));
+const Heritage = lazy(() => import("./pages/Heritage"));
+const V2T = lazy(() => import("./pages/V2T"));
+const YouthHubNetwork = lazy(() => import("./pages/YouthHubNetwork"));
+const DigitalLiteracy = lazy(() => import("./pages/DigitalLiteracy"));
+const ScaleUp = lazy(() => import("./pages/ScaleUp"));
 
 const queryClient = new QueryClient();
 
@@ -64,6 +64,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+        <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -126,6 +127,7 @@ const App = () => {
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

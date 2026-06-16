@@ -1,7 +1,15 @@
 const Partners = () => {
-  const partners = Array(5).fill(null).map((_, i) => ({
-    id: i + 1,
-  }));
+  const partners = [
+    { id: 1, name: "National Museums of Kenya", logo: "/images/logos/NMK.png" },
+    { id: 2, name: "Seacom", logo: "/images/logos/seacom-logo.png" },
+    { id: 3, name: "Konza Technopolis", logo: "/images/logos/Konza.png" },
+    { id: 4, name: "ICT Authority", logo: "/images/logos/ICT.png" },
+    { id: 5, name: "Mastercard Foundation", logo: "/images/logos/MCF.png" },
+  ];
+
+  // Repeat the list so a single "block" is always wider than the viewport,
+  // guaranteeing the track never runs out of cards before the loop wraps.
+  const block = Array(4).fill(partners).flat();
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-swahilipot-50 overflow-hidden">
@@ -32,43 +40,64 @@ const Partners = () => {
           }
 
           .carousel-track {
-            min-width: 200%;
-            animation: scrollLeft 30s linear infinite;
+            animation: scrollLeft 60s linear infinite;
             will-change: transform;
           }
         `}</style>
 
         <div className="carousel-track flex gap-6 md:gap-8 w-max">
           {/* First set of partners */}
-          {partners.map((partner) => (
+          {block.map((partner, i) => (
             <div
-              key={`set1-${partner.id}`}
-              className="flex-shrink-0 w-64 h-48 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center border-2 border-dashed border-gray-200 hover:border-swahilipot-300 cursor-pointer group"
+              key={`set1-${partner.id}-${i}`}
+              className="flex-shrink-0 w-64 h-48 flex items-center justify-center group"
             >
               <div className="text-center">
-                <div className="w-20 h-20 bg-swahilipot-100 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:bg-swahilipot-200 transition-colors">
-                  <svg className="w-10 h-10 text-swahilipot-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  </svg>
-                </div>
-                <p className="text-sm font-medium text-gray-500">Partner {partner.id}</p>
+                {partner.logo ? (
+                  <>
+                    <div className="w-32 h-20 mx-auto mb-3 flex items-center justify-center">
+                      <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <p className="text-sm font-medium text-gray-500">{partner.name}</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-20 h-20 bg-swahilipot-100 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:bg-swahilipot-200 transition-colors">
+                      <svg className="w-10 h-10 text-swahilipot-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-medium text-gray-500">Partner {partner.id}</p>
+                  </>
+                )}
               </div>
             </div>
           ))}
 
           {/* Duplicate set for seamless loop */}
-          {partners.map((partner) => (
+          {block.map((partner, i) => (
             <div
-              key={`set2-${partner.id}`}
-              className="flex-shrink-0 w-64 h-48 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center border-2 border-dashed border-gray-200 hover:border-swahilipot-300 cursor-pointer group"
+              key={`set2-${partner.id}-${i}`}
+              className="flex-shrink-0 w-64 h-48 flex items-center justify-center group"
             >
               <div className="text-center">
-                <div className="w-20 h-20 bg-swahilipot-100 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:bg-swahilipot-200 transition-colors">
-                  <svg className="w-10 h-10 text-swahilipot-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  </svg>
-                </div>
-                <p className="text-sm font-medium text-gray-500">Partner {partner.id}</p>
+                {partner.logo ? (
+                  <>
+                    <div className="w-32 h-20 mx-auto mb-3 flex items-center justify-center">
+                      <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <p className="text-sm font-medium text-gray-500">{partner.name}</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-20 h-20 bg-swahilipot-100 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:bg-swahilipot-200 transition-colors">
+                      <svg className="w-10 h-10 text-swahilipot-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-medium text-gray-500">Partner {partner.id}</p>
+                  </>
+                )}
               </div>
             </div>
           ))}

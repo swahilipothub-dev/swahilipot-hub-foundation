@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Anniversary from "@/components/Anniversary";
 import Approach from "@/components/Approach";
 import Programs from "@/components/Programs";
-import Impact from "@/components/Impact";
 import SuccessStories from "@/components/SuccessStories";
 import Partners from "@/components/Partners";
 import ImpactNewsletter from "@/components/ImpactNewsletter";

@@ -82,7 +82,7 @@ const Navbar = () => {
                     <div className="grid grid-cols-2 w-[520px] gap-1 p-3">
                       {[
                         { to: "/programs/case-management", label: "Case Management", desc: "Personalized youth support & guidance" },
-                        { to: "/programs/v2t", label: "V2T", desc: "Visionaries to transformers program" },
+                        { to: "/programs/v2t", label: "V2T", desc: "Vijana To Thrive program" },
                         { to: "/programs/youth-hub-network", label: "Youth Hub Network", desc: "Connecting youth across the region" },
                         { to: "/department/creatives", label: "Creatives", desc: "Music, film, dance & visual arts" },
                         { to: "/programs/digital-literacy", label: "Digital Literacy", desc: "Building digital skills for the future" },

@@ -10,7 +10,7 @@ const DigitalLiteracy = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="Digital Literacy" subtitle="Equipping youth with practical computer, internet, data, and introductory AI skills aligned with real-world needs — bridging the digital divide." image="/img/team/atrash.jpg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Digital Literacy" }]} accentColor="bg-blue-600 text-white" />
+        <PageHero label="Program" title="Digital Literacy" subtitle="Equipping youth with practical computer, internet, data, and introductory AI skills aligned with real-world needs — bridging the digital divide." image="/img/general-people/image14.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Digital Literacy" }]} accentColor="bg-blue-600 text-white" />
         <MarqueeStrip items={["Digital Skills", "Internet Literacy", "Data Basics", "AI Introduction", "Digital Boat", "DigiKen"]} bg="bg-blue-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">
@@ -47,8 +47,10 @@ const DigitalLiteracy = () => {
           </div>
         </section>
 
-        <section className="bg-swahilipot-950 py-24">
-          <div className="container-custom">
+        <section className="relative py-24 overflow-hidden">
+          <img src="/img/general-people/image13.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <div className="absolute inset-0 bg-swahilipot-950/80" />
+          <div className="relative container-custom">
             <div className="max-w-4xl mx-auto text-center" data-ht>
               <p className="text-white/25 text-xs font-black uppercase tracking-[0.4em] mb-10">Our Mission</p>
               <p className="text-white text-3xl md:text-4xl lg:text-5xl font-black leading-tight">
@@ -78,8 +80,10 @@ const DigitalLiteracy = () => {
           </div>
         </section>
 
-        <section className="bg-gray-50 py-24 md:py-32">
-          <div className="container-custom">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <img src="/img/general-people/image5.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <div className="absolute inset-0 bg-gray-50/70" />
+          <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>
               <span className="text-blue-600 text-xs font-black uppercase tracking-[0.35em]">02 — Partner Programs</span>
               <div className="flex-1 h-px bg-gray-300 line-draw" />
