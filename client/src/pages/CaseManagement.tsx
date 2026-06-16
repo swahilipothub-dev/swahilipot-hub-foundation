@@ -10,7 +10,7 @@ const CaseManagement = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="Case Management" subtitle="Personalized support that walks with youth through every challenge, every step of the way." image="/img/general-people/image5.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Case Management" }]} />
+        <PageHero label="Program" title="Case Management" subtitle="Personalized support that walks with youth through every challenge, every step of the way." image="/img/general-people/image20.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Case Management" }]} />
         <MarqueeStrip items={["Personalized Support", "Youth Guidance", "Case Management", "Holistic Care", "Mentorship"]} />
 
         {/* S1 */}
@@ -89,8 +89,10 @@ const CaseManagement = () => {
         </section>
 
         {/* S2 */}
-        <section className="bg-gray-50 py-24 md:py-32">
-          <div className="container-custom">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <img src="/img/general-people/image15.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <div className="absolute inset-0 bg-gray-50/70" />
+          <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>
               <span className="text-amber-500 text-xs font-black uppercase tracking-[0.35em]">02 — Areas of Support</span>
               <div className="flex-1 h-px bg-gray-300 line-draw" />
@@ -107,8 +109,8 @@ const CaseManagement = () => {
                 { icon: faUsers, title: "Peer Networks", body: "Building connections with alumni and fellow participants who provide encouragement and lived experience.", bg: "bg-purple-700", text: "text-white", sub: "text-white/60", ic: "text-white" },
                 { icon: faCalendarDays, title: "Long-term Follow-up", body: "We don't disappear after graduation — our case managers continue checking in and celebrating milestones.", bg: "bg-gray-800", text: "text-white", sub: "text-white/60", ic: "text-amber-400" },
               ].map((card, i) => (
-                <div key={card.title} className={`rounded-2xl p-7 heritage-card ${card.bg}`} {...(i % 2 === 0 ? { "data-ht-left": "" } : { "data-ht-right": "" })} data-ht-d={String((i % 3) + 1)}>
-                  <FontAwesomeIcon icon={card.icon} className={`text-2xl mb-5 ${card.ic} opacity-80`} />
+                <div key={card.title} className={`group rounded-2xl p-7 heritage-card transition-transform duration-300 hover:scale-[1.04] ${card.bg}`} {...(i % 2 === 0 ? { "data-ht-left": "" } : { "data-ht-right": "" })} data-ht-d={String((i % 3) + 1)}>
+                  <FontAwesomeIcon icon={card.icon} className={`text-2xl mb-5 ${card.ic} opacity-80 transition-transform duration-300 group-hover:scale-125 group-hover:-translate-y-1`} />
                   <h3 className={`font-black text-base mb-2 ${card.text}`}>{card.title}</h3>
                   <p className={`text-sm leading-relaxed ${card.sub}`}>{card.body}</p>
                 </div>

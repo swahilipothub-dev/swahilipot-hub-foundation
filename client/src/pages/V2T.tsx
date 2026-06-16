@@ -10,8 +10,8 @@ const V2T = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="V2T" subtitle="Visionaries to Transformers — connecting youth with transformative opportunities through technology, mentorship, and enterprise development." image="/img/general-people/image12.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "V2T" }]} accentColor="bg-teal-500 text-white" />
-        <MarqueeStrip items={["Visionaries", "Transformers", "Innovation", "Enterprise", "Mentorship", "Technology"]} bg="bg-teal-600" text="text-white" />
+        <PageHero label="Program" title="V2T" subtitle="Vijana To Thrive — connecting youth with transformative opportunities through technology, mentorship, and enterprise development." image="/img/general-people/image12.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "V2T" }]} accentColor="bg-teal-500 text-white" />
+        <MarqueeStrip items={["Vijana", "Thrive", "Innovation", "Enterprise", "Mentorship", "Technology"]} bg="bg-teal-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">
           <div className="container-custom">
@@ -25,7 +25,7 @@ const V2T = () => {
                   <SplitHeading text="From visionary ideas to real transformation." accentWords={[3, 4, 5]} accentClass="text-teal-600" />
                 </h2>
                 <div className="space-y-5 text-gray-500 leading-relaxed text-[15px]" data-ht-left data-ht-d="2">
-                  <p>V2T — Visionaries to Transformers — is a flagship program designed to connect ambitious youth with the opportunities, tools, and networks they need to turn bold ideas into real-world impact.</p>
+                  <p>V2T — Vijana To Thrive — is a flagship program designed to connect ambitious youth with the opportunities, tools, and networks they need to turn bold ideas into real-world impact.</p>
                   <p>The program operates at the intersection of technology, mentorship, and enterprise development. We work with young people who already have a spark — and we provide the fuel to make it a flame.</p>
                   <p>Through structured cohorts, workshop intensives, and one-on-one mentorship, V2T participants move from having an idea to validating, prototyping, and launching solutions that address real community challenges.</p>
                 </div>
@@ -83,7 +83,7 @@ const V2T = () => {
           <img src="/img/general-people/image12.jpeg" alt="V2T youth in action" className="w-full h-full object-cover" style={{ objectPosition: "center 35%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/55 flex items-end">
             <div className="container-custom pb-10 md:pb-14">
-              <p className="text-teal-400 text-xs font-black uppercase tracking-[0.35em] mb-3">Visionaries to Transformers</p>
+              <p className="text-teal-400 text-xs font-black uppercase tracking-[0.35em] mb-3">Vijana To Thrive</p>
               <p className="text-white text-xl md:text-3xl font-black max-w-xl leading-snug">Ideas are only the beginning — V2T turns them into reality.</p>
             </div>
           </div>

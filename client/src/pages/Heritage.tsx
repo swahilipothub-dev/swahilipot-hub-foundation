@@ -14,7 +14,7 @@ const Heritage = () => {
         <MarqueeStrip items={["Digital Heritage", "Jiwe Studios", "Coastal Stories", "Youth & Culture", "Fort Jesus"]} />
 
         {/* S1 */}
-        <section className="bg-white py-24 md:py-32">
+        <section className="bg-white border-t border-gray-200 py-24 md:py-32">
           <div className="container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-left>
               <span className="text-swahilipot-600 text-xs font-black uppercase tracking-[0.35em]">01 — Digital Practices</span>
@@ -52,7 +52,7 @@ const Heritage = () => {
         </section>
 
         {/* Quote */}
-        <section className="relative py-24 overflow-hidden">
+        <section className="relative border-t border-gray-200 py-24 overflow-hidden">
           <img src="/img/general-people/image17.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/85" />
           <div className="relative container-custom">
@@ -69,7 +69,7 @@ const Heritage = () => {
         </section>
 
         {/* Stats */}
-        <section className="bg-white border-b border-gray-100 py-20">
+        <section className="bg-white border-t border-b border-gray-200 py-20">
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
@@ -88,7 +88,7 @@ const Heritage = () => {
         </section>
 
         {/* Image break */}
-        <section className="relative h-72 md:h-[460px] overflow-hidden" data-ht>
+        <section className="relative border-t border-gray-200 h-72 md:h-[460px] overflow-hidden" data-ht>
           <img src="/img/general-people/image18.jpeg" alt="Heritage youth workshop" className="w-full h-full object-cover" style={{ objectPosition: "center 40%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/55 flex items-end">
             <div className="container-custom pb-10 md:pb-14">
@@ -99,8 +99,10 @@ const Heritage = () => {
         </section>
 
         {/* S2 */}
-        <section className="bg-gray-50 py-24 md:py-32">
-          <div className="container-custom">
+        <section className="relative border-t border-gray-200 py-24 md:py-32 overflow-hidden">
+          <img src="/img/general-people/ornaments.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <div className="absolute inset-0 bg-gray-50/70" />
+          <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>
               <span className="text-amber-500 text-xs font-black uppercase tracking-[0.35em]">02 — Youth-Museum Workshop</span>
               <div className="flex-1 h-px bg-gray-300 line-draw" />
@@ -138,7 +140,7 @@ const Heritage = () => {
         </section>
 
         {/* CTA */}
-        <section className="bg-white py-24">
+        <section className="bg-white border-t border-gray-200 py-24">
           <div className="container-custom text-center" data-ht>
             <p className="text-gray-400 text-xs font-black uppercase tracking-[0.4em] mb-6">Get Involved</p>
             <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight"><SplitHeading text="Ready to bridge heritage and the digital world?" accentWords={[3, 4, 5, 6, 7]} accentClass="text-swahilipot-600" /></h3>
