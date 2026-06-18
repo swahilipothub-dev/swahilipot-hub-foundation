@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faStar, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faStar, faRocket, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import CountOnHover from "./CountOnHover";
 
 const GOLD_SPARKLE_COLORS = ["#FFD700", "#FFC107", "#FFE08A", "#FFF3C4", "#FFB300"];
@@ -340,11 +341,20 @@ const Anniversary = () => {
   ];
 
   const timeline = [
-    { milestone: "Milestone 1", title: "Founded",      desc: "Established to empower coastal youth" },
-    { milestone: "Milestone 2", title: "1,000 Youth",  desc: "First thousand youth reached" },
-    { milestone: "Milestone 3", title: "Regional",     desc: "Extended impact beyond Mombasa" },
-    { milestone: "Milestone 4", title: "Digital",      desc: "Programs adapted for online platforms" },
-    { milestone: "Milestone 5", title: "10 Years",     desc: "A full decade of transformation" },
+    { year: "2016", title: "Founded",      desc: "Established to empower coastal youth" },
+    { year: "2018", title: "1,000 Youth",  desc: "First thousand youth reached" },
+    { year: "2020", title: "Regional",     desc: "Extended impact beyond Mombasa" },
+    { year: "2023", title: "Digital",      desc: "Programs adapted for online platforms" },
+    { year: "2026", title: "10 Years",     desc: "A full decade of transformation" },
+  ];
+
+  const marqueeItems = [
+    "10 Years of Impact",
+    "Swahilipot Hub Foundation",
+    "2016 – 2026",
+    "Celebrating Youth",
+    "Mombasa, Kenya",
+    "Technology · Arts · Entrepreneurship",
   ];
 
   const launchFireworks = useCallback(() => {
@@ -392,199 +402,213 @@ const Anniversary = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-swahilipot-950 py-24"
+      className="relative overflow-hidden bg-swahilipot-950"
     >
-      {/* Canvas 1 — fireworks (semi-transparent fill for glow trails) */}
+      <style>{`
+        @keyframes annvOrbitCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg); } }
+        @keyframes annvOrbitCCW { from { transform: rotate(360deg); } to { transform: rotate(0deg);   } }
+        @keyframes annvTwinkle {
+          0%, 100% { opacity: 0.3; transform: scale(0.7); }
+          50%      { opacity: 1;   transform: scale(1.3); }
+        }
+        @keyframes annvSparklePop {
+          0%   { opacity: 0; transform: translate(-50%, -50%) scale(0)   rotate(0deg); }
+          25%  { opacity: 1; transform: translate(-50%, -50%) scale(1)   rotate(40deg); }
+          100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(110deg) translateY(-22px); }
+        }
+        @keyframes annvGlowPulse {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50%      { opacity: 0.9; transform: scale(1.05); }
+        }
+        @keyframes annvShimmer {
+          0%   { background-position: 200% center; }
+          100% { background-position: -200% center; }
+        }
+        .annv-orbit-ring   { position: absolute; top: 50%; left: 50%; width: 0; height: 0; pointer-events: none; }
+        .annv-orbit-ring--a { animation: annvOrbitCW  7s  linear infinite; }
+        .annv-orbit-ring--b { animation: annvOrbitCCW 11s linear infinite; }
+        .annv-orbit-ring--c { animation: annvOrbitCW  16s linear infinite; }
+        .annv-comet {
+          position: absolute; top: 0; left: 0;
+          transform-origin: 0 0;
+          width: 56px; height: 3px; border-radius: 9999px;
+          background: linear-gradient(90deg, transparent 0%, #FFD700 45%, #FFF8DC 75%, #FFFFFF 100%);
+          box-shadow: 0 0 14px 3px rgba(255, 215, 0, 0.85), 0 0 4px 1px rgba(255, 248, 220, 0.9);
+        }
+        .annv-comet--sm { width: 38px; height: 2px; }
+        .annv-star {
+          position: absolute; top: 0; left: 0;
+          transform-origin: 0 0;
+          width: 6px; height: 6px; border-radius: 9999px;
+          background: #FFD700;
+          box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.9), 0 0 4px 1px rgba(255, 248, 220, 0.8);
+          animation: annvTwinkle 2s ease-in-out infinite;
+        }
+        .annv-hover-sparkle {
+          position: absolute; pointer-events: none;
+          animation: annvSparklePop 700ms ease-out forwards;
+        }
+        .annv-shimmer-text {
+          background: linear-gradient(90deg, #D4AF37, #FFD700, #FFF8DC, #FFD700, #D4AF37);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: annvShimmer 5s linear infinite;
+        }
+        .annv-glow-ring { animation: annvGlowPulse 3s ease-in-out infinite; }
+        .annv-gold { color: #FFD700; }
+        .annv-gold-muted { color: #E8C547; }
+      `}</style>
+
+      {/* Canvas layers */}
       <canvas
         ref={fireworksCanvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ zIndex: 1 }}
       />
-      {/* Canvas 2 — falling decorations (clear each frame) */}
       <canvas
         ref={fallingCanvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ zIndex: 2 }}
       />
 
-      {/* Concentric ring decorations */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
-        <div className="w-[500px]  h-[500px]  rounded-full border border-white/5 absolute" />
-        <div className="w-[750px]  h-[750px]  rounded-full border border-white/5 absolute" />
-        <div className="w-[1000px] h-[1000px] rounded-full border border-white/5 absolute" />
-        <div className="w-[1300px] h-[1300px] rounded-full border border-white/5 absolute" />
+      {/* Background atmosphere */}
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,215,0,0.1),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(14,116,144,0.22),transparent_50%)]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full border border-white/[0.04]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] rounded-full border border-[#FFD700]/[0.08]" />
       </div>
+      <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#FFD700] rounded-full opacity-[0.05] blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-swahilipot-400 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
 
-      {/* Ambient orbs */}
-      <div className="absolute top-0 left-1/3 w-72 h-72 bg-swahilipot-500 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
-      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-swahilipot-400 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
-      <div className="absolute top-1/2 left-0 w-56 h-56 bg-amber-400 rounded-full opacity-5 blur-3xl pointer-events-none" style={{ zIndex: 0 }} />
-
-      {/* Content */}
-      <div className="container-custom relative" style={{ zIndex: 3 }}>
-
-        {/* Badge */}
-        <div className="flex justify-center mb-6 reveal reveal-up" data-reveal>
-          <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-amber-300 px-5 py-2 rounded-full text-xs font-semibold border border-white/10 tracking-widest uppercase">
-            <FontAwesomeIcon icon={faStar} className="text-amber-400 text-[10px]" />
-            A Decade of Excellence
-          </span>
-        </div>
-
-        {/* Giant "10" */}
-        <div className="text-center mb-14">
-          <div
-            className="relative inline-block leading-none animate-[celebrationPop_0.8s_ease-out_both] cursor-default"
-            onMouseEnter={handleNumberMouseEnter}
-            onMouseMove={handleNumberMouseMove}
-          >
-            <style>{`
-              @keyframes annvOrbitCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg); } }
-              @keyframes annvOrbitCCW { from { transform: rotate(360deg); } to { transform: rotate(0deg);   } }
-              @keyframes annvTwinkle {
-                0%, 100% { opacity: 0.25; transform: scale(0.6); }
-                50%      { opacity: 1;    transform: scale(1.2); }
-              }
-              @keyframes annvSparklePop {
-                0%   { opacity: 0; transform: translate(-50%, -50%) scale(0)   rotate(0deg); }
-                25%  { opacity: 1; transform: translate(-50%, -50%) scale(1)   rotate(40deg); }
-                100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(110deg) translateY(-22px); }
-              }
-              .annv-orbit-ring   { position: absolute; top: 50%; left: 50%; width: 0; height: 0; pointer-events: none; }
-              .annv-orbit-ring--a { animation: annvOrbitCW  9s  linear infinite; }
-              .annv-orbit-ring--b { animation: annvOrbitCCW 14s linear infinite; }
-              .annv-orbit-ring--c { animation: annvOrbitCW  22s linear infinite; }
-              .annv-comet {
-                position: absolute; top: 0; left: 0;
-                transform-origin: 0 0;
-                width: 64px; height: 3px; border-radius: 9999px;
-                background: linear-gradient(90deg, transparent, #FFD700 55%, #FFFBEA);
-                box-shadow: 0 0 12px 2px rgba(255,215,0,0.75);
-              }
-              .annv-star {
-                position: absolute; top: 0; left: 0;
-                transform-origin: 0 0;
-                width: 5px; height: 5px; border-radius: 9999px;
-                background: #FFE08A;
-                box-shadow: 0 0 8px 2px rgba(255,224,138,0.8);
-                animation: annvTwinkle 2.4s ease-in-out infinite;
-              }
-              .annv-hover-sparkle {
-                position: absolute; pointer-events: none;
-                animation: annvSparklePop 700ms ease-out forwards;
-              }
-            `}</style>
-
-            {/* Orbiting golden comets + twinkling stars, looping around the 10 */}
-            <div className="annv-orbit-ring annv-orbit-ring--a">
-              <span className="annv-comet" style={{ transform: "rotate(0deg) translateX(130px) translateY(-50%)" }} />
-              <span className="annv-star" style={{ transform: "rotate(140deg) translateX(150px)", animationDelay: "0.2s" }} />
-              <span className="annv-star" style={{ transform: "rotate(250deg) translateX(120px)", animationDelay: "0.9s" }} />
-            </div>
-            <div className="annv-orbit-ring annv-orbit-ring--b">
-              <span className="annv-comet" style={{ transform: "rotate(200deg) translateX(170px) translateY(-50%)", width: "48px" }} />
-              <span className="annv-star" style={{ transform: "rotate(40deg) translateX(190px)", animationDelay: "0.5s" }} />
-              <span className="annv-star" style={{ transform: "rotate(320deg) translateX(175px)", animationDelay: "1.3s" }} />
-            </div>
-            <div className="annv-orbit-ring annv-orbit-ring--c">
-              <span className="annv-star" style={{ transform: "rotate(80deg) translateX(220px)", animationDelay: "0.1s" }} />
-              <span className="annv-star" style={{ transform: "rotate(190deg) translateX(210px)", animationDelay: "1.6s" }} />
-              <span className="annv-star" style={{ transform: "rotate(300deg) translateX(225px)", animationDelay: "0.7s" }} />
-            </div>
-
-            <span className="relative z-10 text-[10rem] md:text-[14rem] font-black text-amber-300 select-none leading-none">
-              10
+      {/* Celebration ticker */}
+      <div className="relative border-y border-[#FFD700]/20 bg-[#FFD700]/[0.06] backdrop-blur-sm overflow-hidden py-3.5" style={{ zIndex: 3 }}>
+        <div className="marquee-track flex items-center gap-10 text-[#E8C547] font-black text-xs md:text-sm uppercase tracking-[0.25em]">
+          {Array(4).fill(null).map((_, i) => (
+            <span key={i} className="flex items-center gap-10 flex-shrink-0">
+              {marqueeItems.map((item, j) => (
+                <span key={j} className="flex items-center gap-10 flex-shrink-0">
+                  <span className="flex items-center gap-2">
+                    <FontAwesomeIcon icon={faStar} className="text-[#FFD700] text-[9px]" />
+                    {item}
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFD700]/60 inline-block" />
+                </span>
+              ))}
             </span>
-
-            {/* Sparkles spawned fresh on every hover/move, not just once */}
-            {hoverSparkles.map((s) => (
-              <span
-                key={s.id}
-                className="annv-hover-sparkle"
-                style={{ left: s.x, top: s.y }}
-              >
-                <FontAwesomeIcon icon={faStar} style={{ color: s.color, fontSize: "10px" }} />
-              </span>
-            ))}
-          </div>
-          <div className="text-white/70 text-2xl md:text-3xl font-bold tracking-[0.25em] uppercase -mt-4 mb-6">
-            Years of Impact
-          </div>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-            Since 2016, Swahilipot Hub Foundation has been a beacon of hope and opportunity,
-            empowering thousands of young people across East Africa through technology, arts,
-            and entrepreneurship.
-          </p>
-        </div>
-
-        {/* Glassmorphism stat cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          {milestones.map((m, i) => (
-            <div
-              key={i}
-              className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 reveal reveal-up"
-              data-reveal
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-swahilipot-600/40 border border-swahilipot-400/30 mb-5 group-hover:bg-swahilipot-500/40 transition-colors">
-                <FontAwesomeIcon icon={m.icon} className="text-lg text-swahilipot-300" />
-              </div>
-              <div className="text-5xl font-black text-white mb-2 tabular-nums">
-                <CountOnHover target={m.target} suffix={m.suffix} />
-              </div>
-              <div className="text-amber-300 font-bold text-base mb-1">{m.label}</div>
-              <div className="text-white/40 text-sm">{m.desc}</div>
-            </div>
           ))}
         </div>
+      </div>
 
-        {/* Quote banner */}
-        <div className="mb-20 reveal reveal-up" data-reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-amber-500">
-            {/* Subtle texture overlay */}
-            <div className="absolute inset-0 bg-black/10" />
+      <div className="container-custom relative py-16 md:py-24" style={{ zIndex: 3 }}>
 
-            {/* Decorative amber glow blobs */}
-            <div className="absolute -top-16 -left-16 w-64 h-64 bg-amber-400 rounded-full opacity-10 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-swahilipot-500 rounded-full opacity-10 blur-3xl pointer-events-none" />
+        {/* ── Hero: copy + motion graphic ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20 md:mb-28">
+          <div className="reveal reveal-left" data-reveal>
+            <span className="inline-flex items-center gap-2 bg-[#FFD700]/10 backdrop-blur-sm annv-gold-muted px-4 py-2 rounded-full text-[11px] font-bold border border-[#FFD700]/25 tracking-[0.2em] uppercase mb-6">
+              <FontAwesomeIcon icon={faTrophy} className="text-[#FFD700] text-[10px]" />
+              A Decade of Excellence
+            </span>
 
-            {/* Content */}
-            <div className="relative z-10 px-10 py-16 md:py-20 text-center">
-              {/* Decorative top rule */}
-              <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="h-px w-12 bg-white/40" />
-                <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">10 Years &amp; Beyond</span>
-                <div className="h-px w-12 bg-white/40" />
+            <h2 className="text-4xl md:text-5xl lg:text-[3.4rem] font-black text-white leading-[1.05] mb-6">
+              Celebrating{" "}
+              <span className="annv-shimmer-text">10 Years</span>
+              {" "}of Transforming Lives
+            </h2>
+
+            <p className="text-white/60 text-lg leading-relaxed max-w-lg mb-8">
+              Since 2016, Swahilipot Hub Foundation has been a beacon of hope and opportunity,
+              empowering thousands of young people across East Africa through technology, arts,
+              and entrepreneurship.
+            </p>
+
+            {/* Year arc */}
+            <div className="flex items-center gap-4 mb-10 max-w-md">
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-black annv-gold tabular-nums">2016</p>
+                <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">Founded</p>
               </div>
-
-              {/* Large quotation mark */}
-              <div
-                className="text-[7rem] font-black leading-none select-none mb-0 -mb-6"
-                style={{ color: "rgba(251,191,36,0.18)", fontFamily: "Georgia, serif" }}
-              >
-                "
+              <div className="flex-1 relative h-px bg-gradient-to-r from-[#FFD700]/50 via-[#FFF8DC]/30 to-[#FFD700]/50">
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-swahilipot-900 border border-[#FFD700]/40 flex items-center justify-center annv-gold text-xs font-bold">
+                  10
+                </span>
               </div>
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-black annv-gold tabular-nums">2026</p>
+                <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">Today</p>
+              </div>
+            </div>
 
-              {/* Main quote */}
-              <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 max-w-3xl mx-auto">
-                A decade in, we're{" "}
-                <span className="text-white/90 underline decoration-white/40 underline-offset-4">just getting started.</span>
-              </h3>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 bg-[#FFD700] hover:bg-[#FFE55C] text-swahilipot-950 font-bold text-sm px-7 py-3.5 rounded-full transition-colors duration-300 shadow-lg shadow-[#FFD700]/20"
+            >
+              Explore Our Story
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
 
-              {/* Sub-text */}
-              <p className="text-white/80 max-w-xl mx-auto text-base leading-relaxed mb-10">
-                Our commitment to nurturing the next generation of innovators, artists, and
-                entrepreneurs remains stronger than ever. Together, we are building a
-                brighter future for East Africa.
-              </p>
+          {/* Motion graphic showcase */}
+          <div className="relative reveal reveal-right" data-reveal>
+            <div className="annv-glow-ring absolute -inset-4 rounded-[2rem] bg-[#FFD700]/15 blur-2xl pointer-events-none" />
 
-              {/* Attribution row */}
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
-                  <span className="text-white text-lg font-black">S</span>
+            <div className="relative rounded-3xl p-[3px] bg-[#FFD700]/40 shadow-2xl shadow-[#FFD700]/15">
+              <div className="relative rounded-[1.35rem] overflow-hidden aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  aria-label="Swahilipot Hub 10 year anniversary motion graphic"
+                >
+                  <source src="/motion_graphics/@10.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-swahilipot-950/90 via-swahilipot-950/20 to-transparent" />
+
+                {/* Interactive "10" badge with orbiting golden comets */}
+                <div
+                  className="absolute bottom-6 left-6 cursor-default"
+                  onMouseEnter={handleNumberMouseEnter}
+                  onMouseMove={handleNumberMouseMove}
+                >
+                  <div className="relative w-36 h-36 md:w-40 md:h-40 flex items-center justify-center">
+                    <div className="annv-orbit-ring annv-orbit-ring--a">
+                      <span className="annv-comet" style={{ transform: "rotate(0deg) translateX(72px) translateY(-50%)" }} />
+                      <span className="annv-comet annv-comet--sm" style={{ transform: "rotate(130deg) translateX(78px) translateY(-50%)" }} />
+                      <span className="annv-star" style={{ transform: "rotate(220deg) translateX(82px)", animationDelay: "0.2s" }} />
+                      <span className="annv-star" style={{ transform: "rotate(310deg) translateX(76px)", animationDelay: "1.0s" }} />
+                    </div>
+                    <div className="annv-orbit-ring annv-orbit-ring--b">
+                      <span className="annv-comet" style={{ transform: "rotate(55deg) translateX(90px) translateY(-50%)", width: "44px" }} />
+                      <span className="annv-comet annv-comet--sm" style={{ transform: "rotate(200deg) translateX(86px) translateY(-50%)" }} />
+                      <span className="annv-star" style={{ transform: "rotate(160deg) translateX(94px)", animationDelay: "0.6s" }} />
+                      <span className="annv-star" style={{ transform: "rotate(280deg) translateX(88px)", animationDelay: "1.3s" }} />
+                    </div>
+                    <div className="annv-orbit-ring annv-orbit-ring--c">
+                      <span className="annv-comet annv-comet--sm" style={{ transform: "rotate(100deg) translateX(64px) translateY(-50%)" }} />
+                      <span className="annv-star" style={{ transform: "rotate(30deg) translateX(68px)", animationDelay: "0.4s" }} />
+                      <span className="annv-star" style={{ transform: "rotate(175deg) translateX(70px)", animationDelay: "0.9s" }} />
+                      <span className="annv-star" style={{ transform: "rotate(340deg) translateX(66px)", animationDelay: "1.6s" }} />
+                    </div>
+
+                    <div className="relative z-10 w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-swahilipot-950/50 backdrop-blur-md border border-[#FFD700]/35 flex flex-col items-center justify-center shadow-xl shadow-[#FFD700]/10">
+                      <span className="text-5xl md:text-6xl font-black annv-gold leading-none select-none">10</span>
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#E8C547] mt-1">Years</span>
+                    </div>
+
+                    {hoverSparkles.map((s) => (
+                      <span key={s.id} className="annv-hover-sparkle" style={{ left: s.x, top: s.y }}>
+                        <FontAwesomeIcon icon={faStar} style={{ color: s.color, fontSize: "10px" }} />
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-white font-semibold text-sm leading-none">Swahilipot Hub Foundation</p>
+
+                <div className="absolute bottom-6 right-6 left-32 md:left-36 text-right">
+                  <p className="text-white font-bold text-sm leading-tight">Swahilipot Hub Foundation</p>
                   <p className="text-white/70 text-xs mt-0.5">Mombasa, Kenya · Est. 2016</p>
                 </div>
               </div>
@@ -592,24 +616,93 @@ const Anniversary = () => {
           </div>
         </div>
 
-        {/* Horizontal timeline */}
+        {/* ── Impact stats ── */}
+        <div className="mb-20 md:mb-28">
+          <div className="text-center mb-10 reveal reveal-up" data-reveal>
+            <p className="annv-gold-muted text-xs font-bold uppercase tracking-[0.35em] mb-3">By The Numbers</p>
+            <h3 className="text-3xl md:text-4xl font-black text-white">A Decade of Measurable Impact</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {milestones.map((m, i) => (
+              <div
+                key={i}
+                className="group relative overflow-hidden rounded-2xl p-[1px] bg-[#FFD700]/30 reveal reveal-up"
+                data-reveal
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div className="relative h-full rounded-2xl bg-swahilipot-900/80 backdrop-blur-md px-8 py-10 text-center group-hover:bg-swahilipot-900/60 transition-colors duration-300">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/20 mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <FontAwesomeIcon icon={m.icon} className="text-xl annv-gold" />
+                  </div>
+                  <div className="text-4xl md:text-5xl font-black text-white mb-2 tabular-nums">
+                    <CountOnHover target={m.target} suffix={m.suffix} />
+                  </div>
+                  <div className="annv-gold-muted font-bold text-base mb-2">{m.label}</div>
+                  <div className="text-white/45 text-sm leading-relaxed">{m.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Quote banner ── */}
+        <div className="mb-14 md:mb-16 reveal reveal-up" data-reveal>
+          <div className="relative overflow-hidden rounded-2xl border border-[#FFD700]/30 bg-swahilipot-900/80 shadow-lg shadow-[#FFD700]/10">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,215,0,0.08),transparent_55%)] pointer-events-none" />
+            <div className="absolute -right-8 -top-8 w-32 h-32 bg-[#FFD700]/5 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 px-6 py-7 md:px-9 md:py-8">
+              <div className="flex sm:flex-col items-center sm:items-start gap-3 shrink-0">
+                <span
+                  className="text-5xl font-black leading-none select-none text-[#FFD700]/15 hidden sm:block"
+                  style={{ fontFamily: "Georgia, serif" }}
+                  aria-hidden
+                >
+                  "
+                </span>
+                <span className="inline-flex items-center gap-1.5 bg-[#FFD700]/10 backdrop-blur-sm annv-gold text-[10px] font-bold uppercase tracking-[0.22em] px-3.5 py-1.5 rounded-full border border-[#FFD700]/30 whitespace-nowrap">
+                  <FontAwesomeIcon icon={faStar} className="text-[8px]" />
+                  10 Years &amp; Beyond
+                </span>
+              </div>
+
+              <div className="hidden sm:block w-px self-stretch bg-[#FFD700]/20 shrink-0" />
+
+              <div className="flex-1 min-w-0">
+                <h3 className="text-white text-lg md:text-xl font-black leading-snug mb-1.5">
+                  A decade in, we're{" "}
+                  <span className="annv-gold underline decoration-[#FFD700]/40 underline-offset-4">just getting started.</span>
+                </h3>
+                <p className="text-white/65 text-sm leading-relaxed">
+                  Our commitment to nurturing innovators, artists, and entrepreneurs across East Africa is stronger than ever.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Journey timeline ── */}
         <div className="reveal reveal-up" data-reveal>
-          <h3 className="text-center text-white/60 text-xs font-bold tracking-[0.3em] uppercase mb-12">
-            Our Journey
-          </h3>
+          <div className="text-center mb-12">
+            <p className="annv-gold-muted text-xs font-bold uppercase tracking-[0.35em] mb-3">Our Journey</p>
+            <h3 className="text-3xl md:text-4xl font-black text-white">Five Milestones, One Mission</h3>
+          </div>
 
           <div className="relative">
-            <div className="absolute top-6 left-[10%] right-[10%] h-px bg-swahilipot-400/30 hidden md:block" />
+            <div className="absolute top-[2.75rem] left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-[#FFD700]/35 to-transparent hidden md:block" />
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 gap-x-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-5">
               {timeline.map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center group">
-                  <div className="w-12 h-12 rounded-full bg-swahilipot-800 border-2 border-swahilipot-500 flex items-center justify-center font-black text-lg text-amber-300 mb-4 group-hover:border-amber-400 group-hover:bg-swahilipot-700 group-hover:scale-110 transition-all duration-300 relative z-10">
-                    {i + 1}
+                <div
+                  key={i}
+                  className="group relative flex flex-col items-center text-center rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm px-4 py-6 hover:border-[#FFD700]/30 hover:bg-[#FFD700]/[0.04] transition-all duration-300"
+                >
+                  <div className="w-11 h-11 rounded-full bg-[#FFD700] flex items-center justify-center font-black text-sm text-swahilipot-950 mb-4 shadow-lg shadow-[#FFD700]/25 group-hover:scale-110 transition-transform duration-300 relative z-10">
+                    {item.year}
                   </div>
-                  <div className="text-amber-300 font-bold text-xs mb-0.5">{item.milestone}</div>
-                  <div className="text-white font-semibold text-sm mb-1">{item.title}</div>
-                  <div className="text-white/40 text-xs leading-relaxed">{item.desc}</div>
+                  <div className="text-white font-bold text-sm mb-1.5">{item.title}</div>
+                  <div className="text-white/45 text-xs leading-relaxed">{item.desc}</div>
                 </div>
               ))}
             </div>

@@ -99,7 +99,7 @@ const Programs = () => {
   const highlightedPrograms = programs.filter((p) => p.highlight);
 
   return (
-    <section id="programs" className="section-padding bg-gray-50">
+    <section id="programs" className="section-padding bg-transparent">
       <div className="container-custom">
         {/* Section heading */}
         <div className="text-center mb-14 reveal reveal-up" data-reveal>
