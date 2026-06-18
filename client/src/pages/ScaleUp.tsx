@@ -10,7 +10,7 @@ const ScaleUp = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="Scale Up" subtitle="Accelerating growth for youth entrepreneurs through mentorship, funding access, and market connections." image="/img/team/miriam.jpg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Scale Up" }]} accentColor="bg-purple-600 text-white" />
+        <PageHero label="Program" title="Scale Up" subtitle="Accelerating growth for youth entrepreneurs through mentorship, funding access, and market connections." image="/img/general-people/image10.jpeg" imagePosition="center 5%" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Scale Up" }]} accentColor="bg-purple-600 text-white" />
         <MarqueeStrip items={["Entrepreneurship", "Accelerator", "Mentorship", "Market Access", "Funding", "Growth"]} bg="bg-purple-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">

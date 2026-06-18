@@ -139,6 +139,7 @@ export const PageHero = ({
   subtitle,
   breadcrumb,
   image,
+  imagePosition = "center 20%",
   accentColor = "bg-amber-400 text-swahilipot-900",
 }: {
   label: string;
@@ -146,6 +147,7 @@ export const PageHero = ({
   subtitle?: string;
   breadcrumb: { label: string; to?: string }[];
   image: string;
+  imagePosition?: string;
   accentColor?: string;
 }) => {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -164,7 +166,7 @@ export const PageHero = ({
       <div
         ref={bgRef}
         className="absolute inset-0 scale-110 bg-cover"
-        style={{ backgroundImage: `url('${image}')`, backgroundPosition: "center 20%" }}
+        style={{ backgroundImage: `url('${image}')`, backgroundPosition: imagePosition }}
       />
       <div className="absolute inset-0 bg-swahilipot-950/75" />
 
@@ -184,7 +186,7 @@ export const PageHero = ({
           {label}
         </span>
 
-        <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] mb-8 max-w-4xl">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] sm:leading-[0.9] mb-8 max-w-4xl break-words">
           <WordReveal text={title} delay={200} />
         </h1>
 

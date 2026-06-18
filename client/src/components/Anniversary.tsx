@@ -1,7 +1,9 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faStar, faRocket } from "@fortawesome/free-solid-svg-icons";
 import CountOnHover from "./CountOnHover";
+
+const GOLD_SPARKLE_COLORS = ["#FFD700", "#FFC107", "#FFE08A", "#FFF3C4", "#FFB300"];
 
 /* ─── Shared colours ────────────────────────────────────────────────────── */
 
@@ -298,6 +300,39 @@ const Anniversary = () => {
   const fallingRafRef      = useRef<number>(0);
   const isVisibleRef       = useRef(false);
 
+  const [hoverSparkles, setHoverSparkles] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
+  const sparkleIdRef       = useRef(0);
+  const lastSparkleTimeRef = useRef(0);
+
+  const spawnSparkleAt = useCallback((x: number, y: number) => {
+    const id = sparkleIdRef.current++;
+    const color = GOLD_SPARKLE_COLORS[Math.floor(Math.random() * GOLD_SPARKLE_COLORS.length)];
+    setHoverSparkles((prev) => [...prev, { id, x, y, color }]);
+    setTimeout(() => {
+      setHoverSparkles((prev) => prev.filter((s) => s.id !== id));
+    }, 700);
+  }, []);
+
+  const handleNumberMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const now = Date.now();
+    if (now - lastSparkleTimeRef.current < 110) return;
+    lastSparkleTimeRef.current = now;
+    const rect = e.currentTarget.getBoundingClientRect();
+    spawnSparkleAt(e.clientX - rect.left, e.clientY - rect.top);
+  }, [spawnSparkleAt]);
+
+  const handleNumberMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    for (let i = 0; i < 6; i++) {
+      setTimeout(() => {
+        spawnSparkleAt(
+          rect.width * (0.2 + Math.random() * 0.6),
+          rect.height * (0.1 + Math.random() * 0.6),
+        );
+      }, i * 70);
+    }
+  }, [spawnSparkleAt]);
+
   const milestones = [
     { target: 51088, suffix: "+", label: "Connected",   icon: faUsers,  desc: "Youth connected to opportunities" },
     { target: 33049, suffix: "+", label: "Improved",    icon: faStar,   desc: "Lives meaningfully improved" },
@@ -398,10 +433,79 @@ const Anniversary = () => {
 
         {/* Giant "10" */}
         <div className="text-center mb-14">
-          <div className="relative inline-block leading-none animate-[celebrationPop_0.8s_ease-out_both]">
-            <span className="text-[10rem] md:text-[14rem] font-black text-amber-300 select-none leading-none">
+          <div
+            className="relative inline-block leading-none animate-[celebrationPop_0.8s_ease-out_both] cursor-default"
+            onMouseEnter={handleNumberMouseEnter}
+            onMouseMove={handleNumberMouseMove}
+          >
+            <style>{`
+              @keyframes annvOrbitCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg); } }
+              @keyframes annvOrbitCCW { from { transform: rotate(360deg); } to { transform: rotate(0deg);   } }
+              @keyframes annvTwinkle {
+                0%, 100% { opacity: 0.25; transform: scale(0.6); }
+                50%      { opacity: 1;    transform: scale(1.2); }
+              }
+              @keyframes annvSparklePop {
+                0%   { opacity: 0; transform: translate(-50%, -50%) scale(0)   rotate(0deg); }
+                25%  { opacity: 1; transform: translate(-50%, -50%) scale(1)   rotate(40deg); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(110deg) translateY(-22px); }
+              }
+              .annv-orbit-ring   { position: absolute; top: 50%; left: 50%; width: 0; height: 0; pointer-events: none; }
+              .annv-orbit-ring--a { animation: annvOrbitCW  9s  linear infinite; }
+              .annv-orbit-ring--b { animation: annvOrbitCCW 14s linear infinite; }
+              .annv-orbit-ring--c { animation: annvOrbitCW  22s linear infinite; }
+              .annv-comet {
+                position: absolute; top: 0; left: 0;
+                transform-origin: 0 0;
+                width: 64px; height: 3px; border-radius: 9999px;
+                background: linear-gradient(90deg, transparent, #FFD700 55%, #FFFBEA);
+                box-shadow: 0 0 12px 2px rgba(255,215,0,0.75);
+              }
+              .annv-star {
+                position: absolute; top: 0; left: 0;
+                transform-origin: 0 0;
+                width: 5px; height: 5px; border-radius: 9999px;
+                background: #FFE08A;
+                box-shadow: 0 0 8px 2px rgba(255,224,138,0.8);
+                animation: annvTwinkle 2.4s ease-in-out infinite;
+              }
+              .annv-hover-sparkle {
+                position: absolute; pointer-events: none;
+                animation: annvSparklePop 700ms ease-out forwards;
+              }
+            `}</style>
+
+            {/* Orbiting golden comets + twinkling stars, looping around the 10 */}
+            <div className="annv-orbit-ring annv-orbit-ring--a">
+              <span className="annv-comet" style={{ transform: "rotate(0deg) translateX(130px) translateY(-50%)" }} />
+              <span className="annv-star" style={{ transform: "rotate(140deg) translateX(150px)", animationDelay: "0.2s" }} />
+              <span className="annv-star" style={{ transform: "rotate(250deg) translateX(120px)", animationDelay: "0.9s" }} />
+            </div>
+            <div className="annv-orbit-ring annv-orbit-ring--b">
+              <span className="annv-comet" style={{ transform: "rotate(200deg) translateX(170px) translateY(-50%)", width: "48px" }} />
+              <span className="annv-star" style={{ transform: "rotate(40deg) translateX(190px)", animationDelay: "0.5s" }} />
+              <span className="annv-star" style={{ transform: "rotate(320deg) translateX(175px)", animationDelay: "1.3s" }} />
+            </div>
+            <div className="annv-orbit-ring annv-orbit-ring--c">
+              <span className="annv-star" style={{ transform: "rotate(80deg) translateX(220px)", animationDelay: "0.1s" }} />
+              <span className="annv-star" style={{ transform: "rotate(190deg) translateX(210px)", animationDelay: "1.6s" }} />
+              <span className="annv-star" style={{ transform: "rotate(300deg) translateX(225px)", animationDelay: "0.7s" }} />
+            </div>
+
+            <span className="relative z-10 text-[10rem] md:text-[14rem] font-black text-amber-300 select-none leading-none">
               10
             </span>
+
+            {/* Sparkles spawned fresh on every hover/move, not just once */}
+            {hoverSparkles.map((s) => (
+              <span
+                key={s.id}
+                className="annv-hover-sparkle"
+                style={{ left: s.x, top: s.y }}
+              >
+                <FontAwesomeIcon icon={faStar} style={{ color: s.color, fontSize: "10px" }} />
+              </span>
+            ))}
           </div>
           <div className="text-white/70 text-2xl md:text-3xl font-bold tracking-[0.25em] uppercase -mt-4 mb-6">
             Years of Impact
