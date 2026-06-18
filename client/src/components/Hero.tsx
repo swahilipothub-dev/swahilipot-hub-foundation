@@ -44,46 +44,61 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container-custom relative z-10 py-24 pb-32">
-        <div className="max-w-2xl">
-          <span className="inline-block bg-swahilipot-600 text-white text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded mb-6 reveal reveal-left" data-reveal>
-            Empowering East African Youth
-          </span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="max-w-2xl">
+            <span className="inline-block bg-swahilipot-600 text-white text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded mb-6 reveal reveal-left" data-reveal>
+              Empowering East African Youth
+            </span>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 reveal reveal-left" data-reveal>
-            Building a <span className="text-swahilipot-400">Brighter Future</span> For Our Youth
-          </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 reveal reveal-left" data-reveal>
+              Building a <span className="text-swahilipot-400">Brighter Future</span> For Our Youth
+            </h1>
 
-          <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl reveal reveal-right" data-reveal>
-            Swahilipot Hub Foundation nurtures youth talent through technology, arts, and entrepreneurship in the heart of East Africa.
-          </p>
+            <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl reveal reveal-right" data-reveal>
+              Swahilipot Hub Foundation nurtures youth talent through technology, arts, and entrepreneurship in the heart of East Africa.
+            </p>
 
-          <div className="flex flex-wrap gap-4 reveal reveal-up" data-reveal>
-            <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-500 text-white px-8 h-12 text-base font-semibold rounded transition-all duration-300 shadow-lg shadow-swahilipot-900/40" asChild>
-              <Link to="/programs" className="flex items-center gap-2">
-                Discover Programs <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-swahilipot-800 px-8 h-12 text-base font-semibold rounded transition-all duration-300 bg-transparent" asChild>
-              <Link to="/about" className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faCirclePlay} /> Our Story
-              </Link>
-            </Button>
+            <div className="flex flex-wrap gap-4 reveal reveal-up" data-reveal>
+              <Button size="lg" className="bg-swahilipot-600 hover:bg-swahilipot-500 text-white px-8 h-12 text-base font-semibold rounded transition-all duration-300 shadow-lg shadow-swahilipot-900/40" asChild>
+                <Link to="/programs" className="flex items-center gap-2">
+                  Discover Programs <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-swahilipot-800 px-8 h-12 text-base font-semibold rounded transition-all duration-300 bg-transparent" asChild>
+                <Link to="/about" className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faCirclePlay} /> Our Story
+                </Link>
+              </Button>
+            </div>
+
+            {/* Mission & Vision */}
+            <div className="mt-14 space-y-6">
+              <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
+                <p className="text-sm uppercase tracking-[0.35em] text-slate-300 mb-3">Mission</p>
+                <p className="text-slate-100 leading-relaxed text-sm">
+                  To empower and transform youth by providing access to safe spaces, building their capacity, promoting collaboration and linking them to opportunities for their holistic growth and development.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
+                <p className="text-sm uppercase tracking-[0.35em] text-slate-300 mb-3">Vision</p>
+                <p className="text-slate-200 leading-relaxed text-sm">
+                  'Transformed youth, thriving communities'
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Mission & Vision */}
-          <div className="mt-14 space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
-              <p className="text-sm uppercase tracking-[0.35em] text-slate-300 mb-3">Mission</p>
-              <p className="text-slate-100 leading-relaxed text-sm">
-                To empower and transform youth by providing access to safe spaces, building their capacity, promoting collaboration and linking them to opportunities for their holistic growth and development.
-              </p>
-            </div>
-            <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl">
-              <p className="text-sm uppercase tracking-[0.35em] text-slate-300 mb-3">Vision</p>
-              <p className="text-slate-200 leading-relaxed text-sm">
-                'Transformed youth, thriving communities'
-              </p>
-            </div>
+          <div className="reveal reveal-right" data-reveal>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-2xl shadow-2xl shadow-black/40"
+              aria-label="Swahilipot Hub 10 year anniversary motion graphic"
+            >
+              <source src="/motion_graphics/@10.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

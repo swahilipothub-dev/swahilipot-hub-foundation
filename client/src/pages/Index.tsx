@@ -21,8 +21,27 @@ const Index = () => {
         <div className="border-t border-slate-200" />
         <Anniversary />
         <Approach />
-        <Programs />
-        <SuccessStories />
+        <div className="relative">
+          <div className="grid [&>*]:col-start-1 [&>*]:row-start-1">
+            {/* Fixed-in-viewport background while scrolling Programs → Stories of Impact */}
+            <div
+              className="sticky top-0 h-screen w-full z-0 pointer-events-none"
+              aria-hidden
+            >
+              <img
+                src="/img/programs/image4.jpg"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-white/95 backdrop-blur-sm" />
+            </div>
+
+            <div className="relative z-10">
+              <Programs />
+              <SuccessStories />
+            </div>
+          </div>
+        </div>
         <Partners />
         <ImpactNewsletter />
         <Contact />

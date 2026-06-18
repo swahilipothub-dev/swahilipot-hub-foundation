@@ -76,7 +76,7 @@ const stories = [
 
 const SuccessStories = () => {
   return (
-    <section id="success-stories" className="section-padding bg-gray-50">
+    <section id="success-stories" className="section-padding bg-transparent">
       <div className="container-custom">
 
         {/* ── Section header ─────────────────────────────────────── */}
