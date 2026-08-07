@@ -2,42 +2,23 @@ import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [nextImagesLoaded, setNextImagesLoaded] = useState(false);
-  const images = ["/img/general-people/image2.jpeg", "/img/general-people/image3.jpeg"];
-
-  useEffect(() => {
-    // Defer loading subsequent hero images so they don't compete with the
-    // first paint's critical requests.
-    const idleTimer = setTimeout(() => setNextImagesLoaded(true), 1500);
-    return () => clearTimeout(idleTimer);
-  }, []);
-
-  useEffect(() => {
-    if (!nextImagesLoaded) return;
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [images.length, nextImagesLoaded]);
+  const heroVideo = "/videos/Preview%202%20-%20Trim.mp4";
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-x-hidden">
-      {/* Background images - rotating */}
-      {images.map((image, index) => (
-        (index === 0 || nextImagesLoaded) && (
-          <div
-            key={index}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ backgroundImage: `url('${image}')` }}
-          />
-        )
-      ))}
+      {/* Background video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
 
       {/* Overlay gradients — lighter so images show through */}
       <div className="absolute inset-0 bg-swahilipot-950/60"></div>

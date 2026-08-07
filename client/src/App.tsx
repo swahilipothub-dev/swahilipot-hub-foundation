@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import SplashScreen from "@/components/SplashScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
+import FloatingSuggestionIcon from "@/components/FloatingSuggestionIcon";
 
 const About = lazy(() => import("./pages/About"));
 const Programs = lazy(() => import("./pages/Programs"));
@@ -128,6 +129,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
+        <FloatingSuggestionIcon />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
