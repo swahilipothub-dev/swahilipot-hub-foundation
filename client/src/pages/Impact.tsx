@@ -12,21 +12,35 @@ import {
   faGlobeAfrica,
   faArrowRight,
   faHandHoldingDollar,
+  faQuoteLeft,
+  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { PageHero, MarqueeStrip, MagneticLink, usePageReveal, SplitHeading } from "@/components/PageAnimations";
 
 const successStories = [
   {
-    name: "Maria Kimani",
-    role: "Tech Entrepreneur",
-    quote: "Swahilipot Hub gave me the skills and confidence to start my own tech company. Today, I employ five other youths from my community.",
-    title: "Maria's Tech Journey",
+    name: "Riziki Khalfan",
+    role: "Entrepreneur, Vijana2Thrive (V2T) — Likoni Sub-county",
+    quote: "Small beginnings should never define your future. With the right support, skills, and determination, you can build a business that transforms your life and inspires others to dream bigger.",
+    title: "From a Few Items to a Thriving Fashion Business",
+    story: "Driven by a passion for business and financial independence, a young entrepreneur from Likoni Sub-county transformed her small ladies' fashion business through the Vijana2Thrive (V2T) program implemented by Swahilipot Hub Foundation. Before joining the program, limited capital and business management skills meant she could only stock a few items, making it difficult to meet customer demand and grow her income. Through V2T's entrepreneurship training, mentorship, and financial management sessions, she gained practical skills to strengthen her business and build confidence as an entrepreneur. A business grant enabled her to expand her stock, diversify her products, and improve the quality of her business, resulting in increased sales, a growing customer base, and more stable income. Today, she is able to support herself, contribute to her family, and save towards expanding her business while inspiring other young women in Likoni to pursue entrepreneurship with confidence and determination.",
+    image: "/img/success-stories/story-1.jpg",
   },
   {
-    name: "James Odhiambo",
-    role: "Visual Artist",
-    quote: "The arts program at Swahilipot helped me find my voice. Our collective now showcases East African art internationally.",
-    title: "James' Art Collective",
+    name: "Zahra Stanley",
+    role: "Entrepreneur, V2T Mentee — Cohort 3",
+    quote: "Never let a setback define your future. With the right support, skills, and determination, you can rebuild your business, regain your confidence, and create the life you deserve.",
+    title: "Turning Setbacks into Stepping Stones",
+    story: "At 32 years old, Zahra Stanley, a mentee under Fatma Yahya (Cohort 3), turned a period of uncertainty into a story of resilience and growth through the Vijana2Thrive (V2T) Mentorship Programme. After her beauty and fashion business struggled and she lost hope, V2T equipped her with practical skills in entrepreneurship, financial management, and marketing, alongside entrepreneurship support that helped her restock, diversify her products, and expand her customer base. Today, Zahra runs a thriving business with renewed confidence and is inspiring other young people to believe that setbacks can become stepping stones to success.",
+    image: "/img/success-stories/zahra-stanley.jpg",
+  },
+  {
+    name: "Faith Muthoni",
+    role: "Entrepreneur & Mentor, Case Management Mentorship Program",
+    quote: "Mentorship helped me see that my story is not just about surviving it's about growing, believing in myself, and creating opportunities for others. Every small step I took became the foundation for a better future.",
+    title: "From Surviving to Thriving — and Mentoring Others",
+    story: "Faith Muthoni's journey is a testament to the power of resilience, mentorship, and determination. Faced with the challenges of single motherhood and financial hardship, she started a modest food vending business to provide for her children. Through the Case Management Mentorship Program, Faith gained confidence, strengthened her entrepreneurial skills, embraced a culture of saving, and steadily expanded her business from selling snacks to offering a wider range of products. Today, she is not only a thriving entrepreneur but also a community leader who mentors other young people and has helped several of them start their own businesses, proving that empowerment grows when it is shared.",
+    image: "/img/success-stories/story-3.jpg",
   },
 ];
 
@@ -159,61 +173,105 @@ const Impact = () => {
           </div>
         </section>
 
-        {/* S3 — Success Stories + Report */}
+        {/* S3 — Success Stories */}
         <section className="bg-white py-24 md:py-32">
           <div className="container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-left>
               <span className="text-swahilipot-600 text-xs font-black uppercase tracking-[0.35em]">03 — Real Lives, Real Change</span>
               <div className="flex-1 h-px bg-gray-200 line-draw" />
             </div>
-            <div className="grid md:grid-cols-2 gap-14 items-start">
-              <div data-ht-left>
-                <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-3">
-                  <SplitHeading text="Success Stories" accentClass="text-swahilipot-600" accentWords={[1]} />
-                </h2>
-                <div className="w-12 h-1 bg-swahilipot-600 mb-6"></div>
-                <p className="text-gray-500 mb-8 leading-relaxed text-[15px]">
-                  Our impact goes beyond numbers. Here are real stories of youth whose lives have been transformed through our programs.
-                </p>
-                <div className="space-y-6">
-                  {successStories.map((story, i) => (
-                    <div key={story.name} className="bg-white rounded-xl shadow-md p-6 border-l-4 border-swahilipot-600 hover:shadow-lg transition-shadow heritage-card" data-ht-left data-ht-d={String(i + 1)}>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">{story.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-3 italic">"{story.quote}"</p>
-                      <p className="text-swahilipot-600 font-semibold text-sm">{story.name}, {story.role}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="max-w-2xl mb-16" data-ht-left>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-3">
+                <SplitHeading text="Success Stories" accentClass="text-swahilipot-600" accentWords={[1]} />
+              </h2>
+              <div className="w-12 h-1 bg-swahilipot-600 mb-6"></div>
+              <p className="text-gray-500 leading-relaxed text-[15px]">
+                Our impact goes beyond numbers. Here are real stories of youth whose lives have been transformed through our programs.
+              </p>
+            </div>
 
-              <div className="bg-swahilipot-600 rounded-2xl p-8 text-white heritage-card" data-ht-right>
-                <span className="inline-block text-swahilipot-200 font-semibold uppercase tracking-wider text-xs mb-3">By the Numbers</span>
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">Impact Report</h2>
-                <div className="w-10 h-1 bg-white/40 mb-6"></div>
-                <p className="text-white/80 mb-8 text-sm leading-relaxed">
-                  Our annual impact reports showcase the measurable change we're making in communities across East Africa — built for funders who want evidence, not anecdotes.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  {reportStats.map((stat) => (
-                    <div key={stat.value} className="bg-white/15 rounded-xl p-4 text-center">
-                      <p className="text-3xl font-extrabold text-white mb-1">{stat.value}</p>
-                      <p className="text-white/75 text-xs leading-tight">{stat.label}</p>
+            <div className="space-y-10">
+              {successStories.map((story, i) => (
+                <div
+                  key={story.name}
+                  className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden heritage-card`}
+                  {...(i % 2 === 0 ? { "data-ht-left": "" } : { "data-ht-right": "" })}
+                  data-ht-d={String(i + 1)}
+                >
+                  {/* Photo */}
+                  <div className="relative md:w-2/5 flex-shrink-0 min-h-[280px] md:min-h-[420px]">
+                    <img
+                      src={story.image}
+                      alt={story.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
+                      }}
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col justify-center p-8 md:p-12 md:w-3/5">
+                    <FontAwesomeIcon icon={faQuoteLeft} className="text-swahilipot-100 text-4xl mb-4 block" />
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-snug mb-4">
+                      {story.title}
+                    </h3>
+                    <blockquote className="border-l-4 border-swahilipot-600 pl-4 italic text-gray-700 text-base leading-relaxed mb-5">
+                      "{story.quote}"
+                    </blockquote>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-6 whitespace-pre-line">
+                      {story.story}
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <p className="font-bold text-gray-900 text-base">{story.name}</p>
+                        <p className="text-xs text-gray-400 flex items-center gap-1 mt-0.5">
+                          <FontAwesomeIcon icon={faLocationDot} className="text-swahilipot-400" />
+                          {story.role}
+                        </p>
+                      </div>
                     </div>
-                  ))}
+                  </div>
                 </div>
-                <a href="#download-report" className="inline-flex items-center gap-2 bg-white text-swahilipot-700 hover:bg-swahilipot-50 font-semibold px-6 py-3 rounded transition-colors text-sm">
-                  <FontAwesomeIcon icon={faDownload} className="text-sm" /> Download 2024 Impact Report
-                </a>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* S4 — Why Partner With Us */}
+        {/* S4 — Impact Report */}
         <section className="bg-gray-50 py-24 md:py-32">
           <div className="container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>
-              <span className="text-amber-500 text-xs font-black uppercase tracking-[0.35em]">04 — For Funders & Partners</span>
+              <span className="text-amber-500 text-xs font-black uppercase tracking-[0.35em]">04 — By the Numbers</span>
+              <div className="flex-1 h-px bg-gray-300 line-draw" />
+            </div>
+            <div className="bg-swahilipot-600 rounded-2xl p-8 md:p-12 text-white heritage-card max-w-4xl mx-auto" data-ht-scale>
+              <span className="inline-block text-swahilipot-200 font-semibold uppercase tracking-wider text-xs mb-3">By the Numbers</span>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">Impact Report</h2>
+              <div className="w-10 h-1 bg-white/40 mb-6"></div>
+              <p className="text-white/80 mb-8 text-sm leading-relaxed max-w-2xl">
+                Our annual impact reports showcase the measurable change we're making in communities across East Africa — built for funders who want evidence, not anecdotes.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                {reportStats.map((stat) => (
+                  <div key={stat.value} className="bg-white/15 rounded-xl p-4 text-center">
+                    <p className="text-3xl font-extrabold text-white mb-1">{stat.value}</p>
+                    <p className="text-white/75 text-xs leading-tight">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <a href="#download-report" className="inline-flex items-center gap-2 bg-white text-swahilipot-700 hover:bg-swahilipot-50 font-semibold px-6 py-3 rounded transition-colors text-sm">
+                <FontAwesomeIcon icon={faDownload} className="text-sm" /> Download 2024 Impact Report
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* S5 — Why Partner With Us */}
+        <section className="bg-gray-50 py-24 md:py-32">
+          <div className="container-custom">
+            <div className="flex items-center gap-5 mb-16" data-ht-right>
+              <span className="text-amber-500 text-xs font-black uppercase tracking-[0.35em]">05 — For Funders & Partners</span>
               <div className="flex-1 h-px bg-gray-300 line-draw" />
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-16 max-w-2xl" data-ht-left>
