@@ -82,7 +82,7 @@ const Navbar = () => {
                     <div className="grid grid-cols-2 w-[520px] gap-1 p-3">
                       {[
                         { to: "/programs/case-management", label: "Case Management", desc: "Personalized youth support & guidance" },
-                        { to: "/programs/v2t", label: "V2T", desc: "Vijana To Thrive program" },
+                        { to: "/programs/v2t", label: "Vijana2Thrive", desc: "Vijana2Thrive program" },
                         { to: "/programs/youth-hub-network", label: "Youth Hub Network", desc: "Connecting youth across the region" },
                         { to: "/department/creatives", label: "Creatives", desc: "Music, film, dance & visual arts" },
                         { to: "/programs/digital-literacy", label: "Digital Literacy", desc: "Building digital skills for the future" },
@@ -142,7 +142,7 @@ const Navbar = () => {
                   <div className="pl-4 pb-2 space-y-1">
                     {[
                       { to: "/programs/case-management", label: "Case Management" },
-                      { to: "/programs/v2t", label: "V2T" },
+                      { to: "/programs/v2t", label: "Vijana2Thrive" },
                       { to: "/programs/youth-hub-network", label: "Youth Hub Network" },
                       { to: "/department/creatives", label: "Creatives" },
                       { to: "/programs/digital-literacy", label: "Digital Literacy" },

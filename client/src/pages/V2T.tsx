@@ -10,7 +10,7 @@ const V2T = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="V2T" subtitle="Vijana To Thrive — connecting youth with transformative opportunities through technology, mentorship, and enterprise development." image="/img/general-people/image12.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "V2T" }]} accentColor="bg-teal-500 text-white" />
+        <PageHero label="Program" title="V2T" subtitle="Vijana2Thrive — connecting youth with transformative opportunities through technology, mentorship, and enterprise development." image="/img/general-people/image12.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "V2T" }]} accentColor="bg-teal-500 text-white" />
         <MarqueeStrip items={["Vijana", "Thrive", "Innovation", "Enterprise", "Mentorship", "Technology"]} bg="bg-teal-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">

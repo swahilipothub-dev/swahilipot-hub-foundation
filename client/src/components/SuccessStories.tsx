@@ -10,65 +10,65 @@ import {
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 
 const featured = {
-  name: "Amina Hassan",
-  age: 24,
-  location: "Mombasa, Kenya",
-  program: "Case Management",
+  name: "John Washe Tsuma",
+  location: "Rabai Kisurutini, Kilifi County",
+  program: "V2T Mentorship Program",
   programBg: "bg-swahilipot-100",
   programText: "text-swahilipot-700",
   quote:
-    "Swahilipot didn't just give me a skill — they gave me back my belief in myself.",
+    "Don't let your current circumstances define your future. Keep learning, seek mentorship, and stay ready \u2014 opportunities come to those who prepare for them.",
   story:
-    "At 21, Amina arrived at Swahilipot carrying the weight of unemployment and a difficult home situation. The Case Management team connected her with counselling, life-skills training, and a digital-marketing internship. Three years later she runs her own social-media consultancy serving five Mombasa businesses — and mentors new programme entrants on Saturdays.",
-  outcome: "Now employs 2 youth assistants",
-  image: "/img/case-management/cm1.jpg",
+    "From Rabai Kisurutini, Kilifi County, John Washe Tsuma joined the V2T Mentorship Program after facing prolonged unemployment and uncertainty about his future. Through mentorship, he developed essential employability skills, including CV writing, interview preparation, professional communication, and confidence building, which empowered him to proactively pursue opportunities. Today, John is employed at Coca-Cola Coastal Bottlers, has achieved financial independence, supports his family, and actively mentors and mobilizes other young people in his community to embrace mentorship, build their skills, and believe in their potential.",
+  outcome: "Employed at Coca-Cola Coastal Bottlers",
+  image: "/images/success-stories/JOHN%20WASHE.jpeg",
 };
 
 const stories = [
   {
-    name: "Brian Odhiambo",
-    age: 23,
-    location: "Kisauni, Mombasa",
-    program: "Creative & Arts",
+    name: "Edgar Mogonchi",
+    age: 21,
+    location: "Kibera, Nairobi",
+    program: "V2T Mentorship",
     programBg: "bg-orange-100",
     programText: "text-orange-700",
     accentBorder: "border-orange-400",
-    quote: "The studio gave me a professional platform I never thought I'd have.",
+    quote: "I would sit back, stay silent, and let life happen to me. Now I know who I am.",
     story:
-      "Brian joined the music production track with nothing but raw talent and a phone voice-memo library. Within 12 months he released his debut EP, which has since racked up thousands of streams and earned him a slot at a regional arts festival.",
-    stat: "Debut EP released · 3 k+ streams",
+      "Edgar grew up carrying low self-esteem and deep uncertainty about his own worth. He joined the V2T mentorship program scared, but made one quiet, courageous decision — he kept showing up. Week after week, in group sessions and one-on-one meetings with his mentor Collins, he gave his first speech with a trembling voice, drew his life on paper, and heard others say they understood. Today he speaks with confidence, leads with purpose, and carries a clear sense of who he is.",
+    stat: "V2T Mentorship Program Graduate",
     statBg: "bg-orange-50 text-orange-700",
-    image: "/img/team/kiplangat.jpg",
+    image: "/images/success-stories/edgar.jpg",
   },
   {
-    name: "Fatuma Said",
-    age: 26,
-    location: "Old Town, Mombasa",
-    program: "V2T",
+    name: "Rachael Katuku",
+    location: "Zimmerman, Nairobi",
+    program: "V2T Mentorship",
     programBg: "bg-teal-100",
     programText: "text-teal-700",
     accentBorder: "border-teal-400",
-    quote: "I walked in with an idea and walked out with a business.",
+    quote:
+      "I was working hard every day, but I felt like I was only surviving. Today, I'm building a business, creating jobs, and securing a better future for my child.",
     story:
-      "Fatuma's agri-tech platform connects smallholder farmers in the Coastal region directly to urban buyers, cutting out middlemen and boosting farmer income by up to 35 %. She built the first prototype inside the V2T lab's weekend hackathon.",
-    stat: "40+ farmers connected · 35 % income uplift",
+      "A single mother from Zimmerman, Nairobi, Rachael joined the V2T Mentorship Program while running a small barber shop that barely provided enough to support her family. Through mentorship, entrepreneurship training, and a business grant, she gained the skills, confidence, and resources to grow her enterprise. Today her barber shop provides a stable income and employs two young people.",
+    stat: "Business grown \u00b7 2 young people employed",
     statBg: "bg-teal-50 text-teal-700",
-    image: "/img/team/miriam.jpg",
+    image: "/images/success-stories/rachael%20katuku.jpeg",
   },
   {
-    name: "Kevin Mwangi",
-    age: 28,
-    location: "Bamburi, Mombasa",
-    program: "Scale Up",
+    name: "Nahya Yahya Abdalla",
+    location: "Kilifi County",
+    program: "V2T Mentorship",
     programBg: "bg-purple-100",
     programText: "text-purple-700",
     accentBorder: "border-purple-400",
-    quote: "Mentorship here changed how I think about growing a business entirely.",
+    quote:
+      "Choosing myself was not giving up — it was choosing dignity, healing, and the future I deserve.",
     story:
-      "Kevin walked into Scale Up with a single sewing machine and a Facebook page. The accelerator gave him a business-model workshop, a micro-grant, and connections to bulk-fabric suppliers. His tailoring workshop now employs six people full-time.",
-    stat: "6-person workshop · 6× growth in 18 months",
+      "From Kilifi County, Nahya joined the V2T Mentorship Program after enduring emotional and physical abuse in her marriage. Through mentorship, she rebuilt her confidence, rediscovered her self-worth, and realized that everyone deserves to be treated with dignity and respect. Today she is pursuing her education, rebuilding her life with courage and independence, and inspiring other young women to choose safety, healing, and hope over silence and fear.",
+    stat: "Pursuing education · Inspiring other young women",
     statBg: "bg-purple-50 text-purple-700",
-    image: "/img/team/atrash.jpg",
+    image: "/images/success-stories/Nahiya%20Yahya%20.jpg.jpeg",
+    imagePosition: "50% 22%",
   },
 ];
 
@@ -146,7 +146,7 @@ const SuccessStories = () => {
                   <p className="font-bold text-gray-900 text-base">{featured.name}</p>
                   <p className="text-xs text-gray-400 flex items-center gap-1 mt-0.5">
                     <FontAwesomeIcon icon={faLocationDot} className="text-swahilipot-400" />
-                    {featured.location} · Age {featured.age}
+                    {featured.location}
                   </p>
                 </div>
                 <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-green-100">
@@ -184,6 +184,7 @@ const SuccessStories = () => {
                   src={s.image}
                   alt={s.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: s.imagePosition ?? "center" }}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
                   }}
@@ -204,7 +205,7 @@ const SuccessStories = () => {
                   <p className="font-bold text-gray-900 text-base">{s.name}</p>
                   <p className="text-xs text-gray-400 flex items-center gap-1 mt-0.5">
                     <FontAwesomeIcon icon={faLocationDot} className="text-swahilipot-400" />
-                    {s.location} · Age {s.age}
+                    {s.location}{s.age ? ` · Age ${s.age}` : ""}
                   </p>
                 </div>
 

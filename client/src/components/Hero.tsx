@@ -1,24 +1,51 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
+const heroSlides = [
+  "/img/theatre.jpg",
+  "/img/general-people/image5.jpeg",
+  "/img/general-people/image7.jpeg",
+  "/img/general-people/image17.jpeg",
+  "/img/general-people/image19.jpeg",
+];
+
+const SLIDE_DURATION = 6000;
+
 const Hero = () => {
-  const heroVideo = "/videos/cover%20video.mp4";
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, SLIDE_DURATION);
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-x-hidden">
-      {/* Background video */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+      {/* Background carousel */}
+      <div className="absolute inset-0 overflow-hidden">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === activeSlide ? "opacity-100 hero-slide-active" : "opacity-0"
+            }`}
+            aria-hidden={index !== activeSlide}
+          >
+            <img
+              src={slide}
+              alt=""
+              className="h-full w-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
 
       {/* Overlay gradients — lighter so images show through */}
       <div className="absolute inset-0 bg-swahilipot-950/60"></div>
