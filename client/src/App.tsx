@@ -3,10 +3,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy, useState } from "react";
+import { Suspense, lazy } from "react";
 import Index from "./pages/Index";
 import useScrollReveal from "@/hooks/useScrollReveal";
-import SplashScreen from "@/components/SplashScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FloatingSuggestionIcon from "@/components/FloatingSuggestionIcon";
 
@@ -51,17 +50,11 @@ const ScaleUp = lazy(() => import("./pages/ScaleUp"));
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(true);
   useScrollReveal();
-
-  const handleSplashComplete = () => {
-    setShowSplash(false);
-  };
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
         <Toaster />
         <Sonner />
         <BrowserRouter>

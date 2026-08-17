@@ -55,11 +55,7 @@ const steps = [
 const Approach = () => {
   return (
     <section id="approach" className="relative section-padding overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center blur-[3px] scale-105"
-        style={{ backgroundImage: "url('/img/general-people/image2.jpeg')" }}
-      />
-      <div className="absolute inset-0 bg-white/88" />
+      <div className="absolute inset-0 bg-white" />
       <div className="container-custom relative z-10">
 
         {/* ── Header ─────────────────────────────────────────────── */}

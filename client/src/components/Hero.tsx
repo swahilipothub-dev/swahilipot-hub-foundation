@@ -4,7 +4,7 @@ import { faArrowRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const heroVideo = "/videos/Preview%202%20-%20Trim.mp4";
+  const heroVideo = "/videos/cover%20video.mp4";
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-x-hidden">
