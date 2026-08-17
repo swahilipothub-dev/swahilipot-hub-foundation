@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +12,7 @@ import {
   faShieldHalved,
   faGlobeAfrica,
   faArrowRight,
+  faArrowLeft,
   faHandHoldingDollar,
   faQuoteLeft,
   faLocationDot,
@@ -42,7 +44,57 @@ const successStories = [
     story: "Faith Muthoni's journey is a testament to the power of resilience, mentorship, and determination. Faced with the challenges of single motherhood and financial hardship, she started a modest food vending business to provide for her children. Through the Case Management Mentorship Program, Faith gained confidence, strengthened her entrepreneurial skills, embraced a culture of saving, and steadily expanded her business from selling snacks to offering a wider range of products. Today, she is not only a thriving entrepreneur but also a community leader who mentors other young people and has helped several of them start their own businesses, proving that empowerment grows when it is shared.",
     image: "/img/success-stories/story-3.jpg",
   },
+  {
+    name: "Michael Safari",
+    role: "Peer Educator & Youth Advocate, Vipingo Youth Empowerment Initiative (VYEI)",
+    quote: "Your current situation does not have to determine your future. Seek support, believe in your ability to change, and never give up on yourself.",
+    title: "From Addiction to Advocacy",
+    story: "From Vipingo, Kilifi County, Michael Safari transformed his life from battling Muguka addiction to becoming a respected peer educator and youth advocate. After participating in a drug and substance abuse awareness program under the Vipingo Youth Empowerment Initiative (VYEI), he overcame addiction, embraced recovery, and dedicated himself to helping other young people make informed choices. Today, Michael leads peer education initiatives, mentors youth across Vipingo and Junju, and uses his story to prove that with the right support, resilience, and opportunity, lasting transformation is possible.",
+    image: "/img/success-stories/story-4.jpg",
+  },
+  {
+    name: "Hidaya Dena",
+    role: "Youth Advisory Group (YAG) Member, V2T Mentorship Program",
+    quote: "I realized that my voice matters, my experiences have value, and confidence begins the moment you choose to believe in yourself.",
+    title: "Finding Her Voice Through Mentorship",
+    story: "From Rabai Sub-County, Kilifi County, Hidaya Dena joined the V2T Mentorship Program lacking confidence and unsure of her future. Through mentorship, storytelling, leadership activities, and critical thinking sessions, she found her voice, built self-confidence, and developed the courage to step into leadership. Today, she serves as a Youth Advisory Group (YAG) member under the V2T Program, representing youth voices, supporting community initiatives, and inspiring other young women to embrace opportunities, believe in themselves, and lead with confidence.",
+    image: "/img/success-stories/story-5.jpg",
+  },
+  {
+    name: "Dimples Owuor",
+    role: "Youth Advocate, Vijana2Thrive (V2T) Mentorship Program",
+    quote: "Prioritize yourself first. A girl child has a place in society, and we will make it in life. Let us believe in ourselves and uphold our dignity.",
+    title: "Turning Adversity into Advocacy at 19",
+    story: "At just 19 years old, Dimples Owuor from Westlands Sub-county has turned personal adversity into a story of resilience and hope. As a paternal orphan and caregiver to her ailing mother, she joined the Vijana2Thrive (V2T) Mentorship Program seeking guidance and a path to a better future. Through mentorship, she gained confidence, developed essential life skills, embraced healing through self-reflection, and discovered her voice — culminating in confidently moderating the program's close-out meeting. Today, Dimples is a passionate advocate for young women, inspiring others to believe in themselves despite life's challenges.",
+    image: "/img/success-stories/story-6.jpg",
+  },
+  {
+    name: "Martha Musungu",
+    role: "Entrepreneur, Vijana2Thrive (V2T) Mentorship Programme",
+    quote: "Put God first in everything you do. Women are capable of earning their own income and supporting their families. Don't be afraid to work hard and pursue opportunities that can change your life.",
+    title: "Stepping Into Confidence, One Business at a Time",
+    story: "At 32 years old, Martha Musungu from Westlands Sub-county has transformed her life from struggling to meet her family's basic needs to becoming a confident entrepreneur. Through the Vijana2Thrive (V2T) Mentorship Programme, she gained practical business skills, shifted her mindset about women's economic empowerment, and launched a successful Crocs footwear business that now enables her to provide regular meals, pay her children's school fees, and support her family with dignity. Today, Martha is an inspiration to other women, proving that with the right support, determination, and opportunity, lasting change is possible.",
+    image: "/img/success-stories/story-7.jpg",
+  },
+  {
+    name: "Charity Bosibori",
+    role: "Youth Leader, Vijana2Thrive (V2T) Mentorship Programme",
+    quote: "Your background does not disqualify you. No matter where you come from or what you've been through, you have the strength to rise, lead, and create a better future for yourself.",
+    title: "Leading Through Adversity",
+    story: "Charity Bosibori's story is one of resilience, courage, and unwavering determination. After losing her mother at a young age, she found herself caring for her grieving father and brother while taking on the responsibility of providing for her family through casual jobs. Seeking hope and direction, she joined the Vijana2Thrive (V2T) Mentorship Programme, where she developed leadership, communication, and life skills that transformed her confidence and outlook. Today, Charity is no longer defined by the hardships she has endured but by the strength with which she leads, inspiring others to believe that difficult circumstances do not determine their future.",
+    image: "/img/success-stories/story-8.jpg",
+  },
+  {
+    name: "Patricia Ngaira",
+    role: "Tailoring Apprentice, Vijana2Thrive (V2T) Mentorship Programme",
+    quote: "The mentorship sessions gave me the confidence to speak about my dreams. When I finally shared my desire to continue my studies with my husband, he fully supported me. Today, I am pursuing tailoring skills and looking forward to a brighter future for myself and my family.",
+    title: "Speaking Her Dreams Into Reality",
+    story: "Patricia Ngaira's journey is a powerful testament to the life-changing impact of mentorship. Having grown up in a challenging family environment, she struggled with self-confidence and kept her dream of furthering her education to herself, fearing she would not receive support. Through the Vijana2Thrive (V2T) Mentorship Programme, Patricia gained the confidence to believe in her aspirations and openly discuss them with her husband, who wholeheartedly encouraged her to pursue them. Today, she is undertaking a tailoring apprenticeship, equipping herself with practical skills that will help her achieve economic independence and create a better future for her family. Patricia's story inspires other women to believe in themselves, speak up for their dreams, and embrace opportunities for growth.",
+    image: "/img/success-stories/story-9.jpg",
+  },
 ];
+
+const STORIES_PER_PAGE = 3;
 
 const reportStats = [
   { value: "87%", label: "of participants find employment within 6 months" },
@@ -53,6 +105,12 @@ const reportStats = [
 
 const Impact = () => {
   usePageReveal();
+  const [storyPage, setStoryPage] = useState(0);
+  const totalStoryPages = Math.ceil(successStories.length / STORIES_PER_PAGE);
+  const visibleStories = successStories.slice(
+    storyPage * STORIES_PER_PAGE,
+    storyPage * STORIES_PER_PAGE + STORIES_PER_PAGE,
+  );
   return (
     <>
       <Navbar />
@@ -180,23 +238,37 @@ const Impact = () => {
               <span className="text-swahilipot-600 text-xs font-black uppercase tracking-[0.35em]">03 — Real Lives, Real Change</span>
               <div className="flex-1 h-px bg-gray-200 line-draw" />
             </div>
-            <div className="max-w-2xl mb-16" data-ht-left>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-3">
-                <SplitHeading text="Success Stories" accentClass="text-swahilipot-600" accentWords={[1]} />
-              </h2>
-              <div className="w-12 h-1 bg-swahilipot-600 mb-6"></div>
-              <p className="text-gray-500 leading-relaxed text-[15px]">
-                Our impact goes beyond numbers. Here are real stories of youth whose lives have been transformed through our programs.
-              </p>
+            <div className="flex flex-wrap items-end justify-between gap-6 mb-16" data-ht-left>
+              <div className="max-w-2xl">
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-3">
+                  <SplitHeading text="Success Stories" accentClass="text-swahilipot-600" accentWords={[1]} />
+                </h2>
+                <div className="w-12 h-1 bg-swahilipot-600 mb-6"></div>
+                <p className="text-gray-500 leading-relaxed text-[15px]">
+                  Our impact goes beyond numbers. Here are real stories of youth whose lives have been transformed through our programs.
+                </p>
+              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">
+                Page {storyPage + 1} of {totalStoryPages}
+              </span>
             </div>
 
-            <div className="space-y-10">
-              {successStories.map((story, i) => (
+            <style>{`
+              @keyframes pageFlipIn {
+                0% { opacity: 0; transform: perspective(1400px) rotateY(-8deg) scale(0.98); }
+                100% { opacity: 1; transform: perspective(1400px) rotateY(0deg) scale(1); }
+              }
+              .story-page-flip {
+                animation: pageFlipIn 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+                transform-origin: left center;
+              }
+            `}</style>
+
+            <div key={storyPage} className="space-y-10 story-page-flip">
+              {visibleStories.map((story, i) => (
                 <div
                   key={story.name}
                   className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden heritage-card`}
-                  {...(i % 2 === 0 ? { "data-ht-left": "" } : { "data-ht-right": "" })}
-                  data-ht-d={String(i + 1)}
                 >
                   {/* Photo */}
                   <div className="relative md:w-2/5 flex-shrink-0 min-h-[280px] md:min-h-[420px]">
@@ -234,6 +306,39 @@ const Impact = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Story pager — turns to the next set like a page in a book */}
+            <div className="flex items-center justify-center gap-6 mt-14" data-ht>
+              <button
+                type="button"
+                onClick={() => setStoryPage((p) => Math.max(0, p - 1))}
+                disabled={storyPage === 0}
+                className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full border border-gray-200 text-gray-600 hover:border-swahilipot-600 hover:text-swahilipot-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:text-gray-600"
+              >
+                <FontAwesomeIcon icon={faArrowLeft} className="text-xs" /> Previous
+              </button>
+
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalStoryPages }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setStoryPage(i)}
+                    aria-label={`Go to stories page ${i + 1}`}
+                    className={`w-2.5 h-2.5 rounded-full transition-colors ${i === storyPage ? "bg-swahilipot-600" : "bg-gray-200 hover:bg-swahilipot-300"}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setStoryPage((p) => Math.min(totalStoryPages - 1, p + 1))}
+                disabled={storyPage === totalStoryPages - 1}
+                className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full bg-swahilipot-600 hover:bg-swahilipot-700 text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-swahilipot-600"
+              >
+                Continue <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+              </button>
             </div>
           </div>
         </section>
