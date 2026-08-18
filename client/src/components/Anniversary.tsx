@@ -1,5 +1,19 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faStar,
+  faRocket,
+  faBriefcase,
+  faLightbulb,
+  faScrewdriverWrench,
+  faUserTie,
+  faStore,
+  faArrowTrendUp,
+  faGraduationCap,
+  faCertificate,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { faUsers, faStar, faRocket, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import CountOnHover from "./CountOnHover";
@@ -335,10 +349,49 @@ const Anniversary = () => {
   }, [spawnSparkleAt]);
 
   const milestones = [
-    { target: 51088, suffix: "+", label: "Connected",   icon: faUsers,  desc: "Youth connected to opportunities" },
-    { target: 33049, suffix: "+", label: "Improved",    icon: faStar,   desc: "Lives meaningfully improved" },
-    { target: 7263,  suffix: "+", label: "Transformed", icon: faRocket, desc: "Entrepreneurs launched" },
+    { target: 67000, suffix: "", label: "Youth Connected",   icon: faUsers,  desc: "Young people engaged and linked to opportunities, networks and resources" },
+    { target: 59700, suffix: "", label: "Youth Improved",    icon: faStar,   desc: "Young people equipped with skills, mindset, experience and tools to advance their potential" },
+    { target: 25400, suffix: "", label: "Youth Transformed", icon: faRocket, desc: "Young people achieving meaningful outcomes in employment, entrepreneurship and beyond" },
   ];
+
+  const youthImproved = [
+    { target: 14490, icon: faUserTie,            label: "Improved Career Management", desc: "Stronger career planning and job search skills" },
+    { target: 14490, icon: faLightbulb,          label: "Improved Mindset",           desc: "Positive mindset, confidence and resilience" },
+    { target: 6572,  icon: faScrewdriverWrench,  label: "Skilled",                    desc: "Trained with in-demand, market-relevant skills" },
+    { target: 11120, icon: faBriefcase,          label: "Obtained Work Experience",   desc: "Gained practical work experience and exposure" },
+  ];
+
+  const youthTransformed = [
+    { target: 11120, icon: faBriefcase,     label: "Youth Employed",    desc: "Young people in decent and sustainable employment" },
+    { target: 4191,  icon: faStore,         label: "Businesses Started", desc: "Young entrepreneurs who started their own businesses" },
+    { target: 670,   icon: faArrowTrendUp,  label: "Businesses Grown",   desc: "Businesses strengthened and scaled for greater impact" },
+  ];
+
+  const additionalImpact = [
+    { target: 59700, icon: faGraduationCap, label: "Youth Trained",          desc: "Completed training programs across multiple fields" },
+    { target: 2136,  icon: faCertificate,   label: "Certifications Issued",  desc: "Industry-recognized certifications earned to validate skills and enhance employability" },
+  ];
+
+  const journey = [
+    { no: "01", year: "2016", title: "The Journey Begins",     points: ["Tech ecosystem partnerships formed", "Safe space for youth innovation"] },
+    { no: "02", year: "2018", title: "Expanding Opportunities", points: ["Programmes diversified", "Digital skills & creative arts", "First Pwani Innovation Week launched"] },
+    { no: "03", year: "2020", title: "Building Resilience",     points: ["Joined GOYN", "Youth-centred programmes expanded", "Demand-driven approach adopted"] },
+    { no: "04", year: "2022", title: "Growing Partnerships",    points: ["County & private sector collaboration", "Youth programmes co-designed", "Expanded to Kilifi & Kwale", "Youth Hub Networks"] },
+    { no: "05", year: "2024", title: "Scaling Impact",          points: ["PIW becomes a regional platform", "Tanga Collaboration", "Swahilipot FM is launched", "Greater regional participation"] },
+    { no: "06", year: "2026", title: "A Decade of Impact",      points: ["10 years of youth empowerment", "Stronger institutional growth", "Inclusive innovation ecosystem"] },
+  ];
+
+  const youthGallery = [
+    "/img/general-people/image2.jpeg",
+    "/img/general-people/image5.jpeg",
+    "/img/general-people/image7.jpeg",
+    "/img/general-people/image9.jpeg",
+    "/img/general-people/image11.jpeg",
+    "/img/general-people/image13.jpeg",
+    "/img/general-people/image16.jpeg",
+    "/img/general-people/image17.jpeg",
+    "/img/general-people/image19.jpeg",
+    "/img/general-people/image21.jpeg",
 
   const timeline = [
     { year: "2016", title: "Founded",      desc: "Established to empower coastal youth" },
@@ -512,6 +565,47 @@ const Anniversary = () => {
               A Decade of Excellence
             </span>
 
+            {/* Sparkles spawned fresh on every hover/move, not just once */}
+            {hoverSparkles.map((s) => (
+              <span
+                key={s.id}
+                className="annv-hover-sparkle"
+                style={{ left: s.x, top: s.y }}
+              >
+                <FontAwesomeIcon icon={faStar} style={{ color: s.color, fontSize: "10px" }} />
+              </span>
+            ))}
+          </div>
+          <div className="text-white/70 text-2xl md:text-3xl font-bold tracking-[0.25em] uppercase -mt-4 mb-6">
+            Years of Impact
+          </div>
+          <p className="text-amber-200/80 text-base md:text-lg max-w-2xl mx-auto italic mb-5">
+            A decade of empowering coastal youth. Transforming lives. Building futures.
+          </p>
+          <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
+            Over the past decade, Swahilipot Hub Foundation has connected thousands of young
+            people to opportunities, strengthened their skills and mindset, and supported them
+            to build better futures.
+          </p>
+        </div>
+
+        {/* Glassmorphism stat cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-5xl mx-auto">
+          {milestones.map((m, i) => (
+            <div
+              key={i}
+              className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 reveal reveal-up"
+              data-reveal
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-swahilipot-600/40 border border-swahilipot-400/30 mb-3 group-hover:bg-swahilipot-500/40 transition-colors">
+                <FontAwesomeIcon icon={m.icon} className="text-sm text-swahilipot-300" />
+              </div>
+              <div className="text-3xl font-black text-white mb-1 tabular-nums">
+                <CountOnHover target={m.target} suffix={m.suffix} className="annv-counter w-full" />
+              </div>
+              <div className="text-amber-300 font-bold text-sm mb-1">{m.label}</div>
+              <div className="text-white/40 text-xs leading-snug">{m.desc}</div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.4rem] font-black text-white leading-[1.05] mb-6">
               Celebrating{" "}
               <span className="annv-shimmer-text">10 Years</span>
@@ -616,6 +710,29 @@ const Anniversary = () => {
           </div>
         </div>
 
+
+        {/* Youth Improved — breakdown */}
+        <div className="mb-12 reveal reveal-up" data-reveal>
+          <h3 className="text-center text-white text-xl md:text-2xl font-black mb-1">
+            Youth Improved — What Change Looks Like
+          </h3>
+          <p className="text-center text-white/50 text-xs mb-6">
+            59,700 young people equipped to advance their potential
+          </p>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {youthImproved.map((item, i) => (
+              <div
+                key={i}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                <FontAwesomeIcon icon={item.icon} className="text-swahilipot-300 text-sm mb-2" />
+                <div className="text-2xl font-black text-white mb-1 tabular-nums">
+                  <CountOnHover target={item.target} className="annv-counter w-full" />
+                </div>
+                <div className="text-amber-300 font-bold text-xs mb-1">{item.label}</div>
+                <div className="text-white/40 text-[11px] leading-snug">{item.desc}</div>
+
         {/* ── Impact stats ── */}
         <div className="mb-20 md:mb-28">
           <div className="text-center mb-10 reveal reveal-up" data-reveal>
@@ -645,6 +762,50 @@ const Anniversary = () => {
             ))}
           </div>
         </div>
+
+        {/* Youth Transformed — breakdown */}
+        <div className="mb-12 reveal reveal-up" data-reveal>
+          <h3 className="text-center text-white text-xl md:text-2xl font-black mb-1">
+            Youth Transformed — Lasting Outcomes
+          </h3>
+          <p className="text-center text-white/50 text-xs mb-6">
+            25,400 young people achieving meaningful outcomes
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {youthTransformed.map((item, i) => (
+              <div
+                key={i}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                <FontAwesomeIcon icon={item.icon} className="text-swahilipot-300 text-sm mb-2" />
+                <div className="text-2xl font-black text-white mb-1 tabular-nums">
+                  <CountOnHover target={item.target} className="annv-counter w-full" />
+                </div>
+                <div className="text-amber-300 font-bold text-xs mb-1">{item.label}</div>
+                <div className="text-white/40 text-[11px] leading-snug">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional impact */}
+        <div className="mb-12 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto reveal reveal-up" data-reveal>
+          {additionalImpact.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-start gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            >
+              <div className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-swahilipot-600/40 border border-swahilipot-400/30">
+                <FontAwesomeIcon icon={item.icon} className="text-sm text-swahilipot-300" />
+              </div>
+              <div>
+                <div className="text-2xl font-black text-white mb-0.5 tabular-nums">
+                  <CountOnHover target={item.target} className="annv-counter w-full" />
+                </div>
+                <div className="text-amber-300 font-bold text-xs mb-1">{item.label}</div>
+                <div className="text-white/40 text-[11px] leading-snug">{item.desc}</div>
+
 
         {/* ── Quote banner ── */}
         <div className="mb-14 md:mb-16 reveal reveal-up" data-reveal>
@@ -677,11 +838,107 @@ const Anniversary = () => {
                 <p className="text-white/65 text-sm leading-relaxed">
                   Our commitment to nurturing innovators, artists, and entrepreneurs across East Africa is stronger than ever.
                 </p>
+
               </div>
             </div>
-          </div>
+          ))}
         </div>
 
+        {/* From Room to Hub — milestone timeline */}
+        <div className="mb-16 reveal reveal-up" data-reveal>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10px] uppercase tracking-[0.3em] text-white/40 mb-6">
+            <span>Part I • Chapter 02</span>
+            <span className="text-white/20">/</span>
+            <span>Swahilipot@10 • Pwani Innovation Week</span>
+            <span className="text-white/20">/</span>
+            <span>Mombasa, Kenya</span>
+            <span className="text-white/20">/</span>
+            <span>2016/2026</span>
+          </div>
+
+          <h3 className="text-center text-white text-3xl md:text-4xl font-black mb-2">
+            From Room to Hub
+          </h3>
+          <p className="text-center text-amber-200/80 text-sm italic mb-10">
+            Ten years, told in milestones.
+          </p>
+
+          <div className="relative max-w-5xl mx-auto">
+            {/* Spine */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-swahilipot-400/25 md:-translate-x-1/2" />
+
+            <div className="space-y-8">
+              {journey.map((item, i) => (
+                <div
+                  key={item.no}
+                  className={`relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-10 ${
+                    i % 2 === 0 ? "" : "md:[direction:rtl]"
+                  }`}
+                >
+                  {/* Node */}
+                  <div className="absolute left-4 md:left-1/2 top-5 w-3 h-3 rounded-full bg-amber-400 ring-4 ring-swahilipot-950 -translate-x-1/2 z-10" />
+
+                  <div className={`[direction:ltr] ${i % 2 === 0 ? "md:text-right md:pr-2" : "md:text-left md:pl-2"}`}>
+                    <div className="inline-block bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-left w-full">
+                      <div className="flex items-baseline gap-3 mb-2">
+                        <span className="text-amber-300/70 font-black text-xs tracking-widest">{item.no}</span>
+                        <span className="text-white font-black text-2xl tabular-nums">{item.year}</span>
+                      </div>
+                      <div className="text-amber-300 font-bold text-sm mb-3">{item.title}</div>
+                      <ul className="space-y-1.5">
+                        {item.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2 text-white/50 text-xs leading-snug">
+                            <span className="mt-1.5 w-1 h-1 rounded-full bg-swahilipot-300 shrink-0" />
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="hidden md:block" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-center text-white/50 text-sm leading-relaxed max-w-3xl mx-auto mt-10">
+            From its beginnings as a safe space for youth innovation, Swahilipot Hub Foundation has
+            grown into a regional youth empowerment and inclusive innovation ecosystem — marked by
+            expanding programmes, partnerships, geographic reach, Pwani Innovation Week, and
+            Swahilipot FM.
+          </p>
+        </div>
+
+
+        {/* Infinite youth gallery marquee */}
+        <div className="reveal reveal-up" data-reveal>
+          <h3 className="text-center text-white/60 text-xs font-bold tracking-[0.3em] uppercase mb-12">
+            The Youth We Serve
+          </h3>
+
+          <div className="relative overflow-hidden">
+            {/* Edge fades */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-swahilipot-950 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-swahilipot-950 to-transparent z-10" />
+
+            <div className="flex w-max animate-[marqueeScroll_45s_linear_infinite] hover:[animation-play-state:paused]">
+              {[0, 1].map((copy) => (
+                <div key={copy} className="flex shrink-0" aria-hidden={copy === 1}>
+                  {youthGallery.map((src, i) => (
+                    <div
+                      key={i}
+                      className="h-56 w-80 shrink-0 overflow-hidden rounded-2xl border border-white/10 mr-5"
+                    >
+                      <img
+                        src={src}
+                        alt=""
+                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  ))}
         {/* ── Journey timeline ── */}
         <div className="reveal reveal-up" data-reveal>
           <div className="text-center mb-12">
@@ -703,6 +960,7 @@ const Anniversary = () => {
                   </div>
                   <div className="text-white font-bold text-sm mb-1.5">{item.title}</div>
                   <div className="text-white/45 text-xs leading-relaxed">{item.desc}</div>
+
                 </div>
               ))}
             </div>

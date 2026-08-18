@@ -54,8 +54,9 @@ const steps = [
 
 const Approach = () => {
   return (
-    <section id="approach" className="section-padding bg-white overflow-hidden">
-      <div className="container-custom">
+    <section id="approach" className="relative section-padding overflow-hidden">
+      <div className="absolute inset-0 bg-white" />
+      <div className="container-custom relative z-10">
 
         {/* ── Header ─────────────────────────────────────────────── */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal reveal-up" data-reveal>
