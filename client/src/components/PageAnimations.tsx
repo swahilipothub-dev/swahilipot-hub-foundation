@@ -141,6 +141,7 @@ export const PageHero = ({
   image,
   imagePosition = "center 20%",
   accentColor = "bg-amber-400 text-swahilipot-900",
+  sideLabel = "Swahilipot Hub · Programs",
 }: {
   label: string;
   title: string;
@@ -149,6 +150,7 @@ export const PageHero = ({
   image: string;
   imagePosition?: string;
   accentColor?: string;
+  sideLabel?: string;
 }) => {
   const bgRef = useRef<HTMLDivElement>(null);
 
@@ -174,7 +176,7 @@ export const PageHero = ({
       <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3">
         <div className="h-24 w-px bg-white/20" />
         <span className="text-white/30 text-[10px] font-bold uppercase tracking-[0.4em] rotate-90 origin-center whitespace-nowrap">
-          Swahilipot Hub · Programs
+          {sideLabel}
         </span>
       </div>
 
