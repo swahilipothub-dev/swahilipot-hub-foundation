@@ -1,61 +1,50 @@
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faMagnifyingGlass,
-  faGraduationCap,
+  faUsers,
   faHandshake,
-  faRocket,
-  faArrowRight,
-  faQuoteLeft,
+  faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 
-const steps = [
+const priorities = [
   {
     num: "01",
-    icon: faMagnifyingGlass,
-    title: "Identify",
-    desc: "We seek out talented, ambitious young people across the Coast who lack access to platforms that match their potential — and open our doors wide.",
+    icon: faUsers,
+    title: "Safe Spaces, Support & Civic Participation",
+    outcome: "Youth have access to safe and conducive spaces, holistic support, and services to enhance their civic participation and effect change in their communities.",
+    focus: ["Safe and inclusive spaces", "Holistic youth support", "Civic participation", "Community engagement"],
+    areas: ["Creatives & Arts", "Heritage", "Swahilipot FM", "Opportunity Youth"],
     accent: "bg-swahilipot-600",
-    border: "border-swahilipot-200",
     textAccent: "text-swahilipot-600",
-    bgLight: "bg-swahilipot-50",
+    chip: "bg-swahilipot-50 text-swahilipot-700",
   },
   {
     num: "02",
-    icon: faGraduationCap,
-    title: "Equip",
-    desc: "Through structured programmes in technology, creative arts, and entrepreneurship, we give youth practical skills and the confidence to use them.",
+    icon: faHandshake,
+    title: "Partnerships, Collaboration & Opportunities",
+    outcome: "Partnerships and collaboration strengthen ecosystems and institutions, increase youth opportunities, and catalyze systemic change.",
+    focus: ["Strategic partnerships", "Stakeholder collaboration", "Stronger youth-serving ecosystems", "More youth opportunities"],
+    areas: ["Entrepreneurship Support", "Opportunity Youth", "Technology & Innovation"],
     accent: "bg-amber-500",
-    border: "border-amber-200",
     textAccent: "text-amber-600",
-    bgLight: "bg-amber-50",
+    chip: "bg-amber-50 text-amber-700",
   },
   {
     num: "03",
-    icon: faHandshake,
-    title: "Mentor",
-    desc: "Every participant is paired with a dedicated mentor and supported by our Case Management team — ensuring no one walks the journey alone.",
+    icon: faGraduationCap,
+    title: "Positive Youth Development",
+    outcome: "Positive youth development programs build young people's capacity, agency, and assets.",
+    focus: ["Capacity building", "Skills development", "Youth agency and leadership", "Individual and community assets"],
+    areas: ["Technology & Innovation", "Entrepreneurship Support", "Creatives & Arts", "Opportunity Youth"],
     accent: "bg-teal-600",
-    border: "border-teal-200",
     textAccent: "text-teal-600",
-    bgLight: "bg-teal-50",
-  },
-  {
-    num: "04",
-    icon: faRocket,
-    title: "Launch",
-    desc: "We connect graduates to investors, employers, and markets — then continue supporting them as they grow, scale, and give back to the next cohort.",
-    accent: "bg-purple-600",
-    border: "border-purple-200",
-    textAccent: "text-purple-600",
-    bgLight: "bg-purple-50",
+    chip: "bg-teal-50 text-teal-700",
   },
 ];
 
 const Approach = () => {
   return (
     <section id="approach" className="relative section-padding overflow-hidden">
-      <div className="absolute inset-0 bg-white" />
+      <div className="absolute inset-0 bg-white/80" />
       <div className="container-custom relative z-10">
 
         {/* ── Header ─────────────────────────────────────────────── */}
@@ -70,111 +59,57 @@ const Approach = () => {
             <div className="w-12 h-1 bg-swahilipot-600 mt-4" />
           </div>
           <p className="text-gray-500 text-base leading-relaxed max-w-md md:text-right">
-            A four-step model that takes a young person from untapped potential to
-            confident contributor — and beyond.
+            Three strategic priorities connect our programs to stronger youth agency,
+            community participation, and lasting opportunity.
           </p>
         </div>
 
-        {/* ── Steps ──────────────────────────────────────────────── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {steps.map((step, i) => (
-            <div
-              key={step.num}
-              className={`relative rounded-2xl border ${step.border} ${step.bgLight} p-7 flex flex-col group hover:shadow-lg transition-all duration-300 reveal reveal-up`}
+        {/* ── Strategic priorities ───────────────────────────────── */}
+        <div className="space-y-3 mb-10">
+          {priorities.map((priority, index) => (
+            <article
+              key={priority.num}
+              className="grid lg:grid-cols-[150px_minmax(0,1.25fr)_minmax(280px,0.75fr)] border border-gray-200 bg-white/95 shadow-sm transition-shadow duration-300 hover:shadow-xl reveal reveal-up"
               data-reveal
-              style={{ transitionDelay: `${i * 80}ms` }}
+              style={{ transitionDelay: `${index * 90}ms` }}
             >
-              {/* Number badge */}
-              <span className={`absolute -top-3.5 left-6 inline-block ${step.accent} text-white text-xs font-black tracking-widest px-3 py-1 rounded-full shadow`}>
-                {step.num}
-              </span>
-
-              {/* Icon circle */}
-              <div className={`w-12 h-12 rounded-xl ${step.bgLight} border ${step.border} flex items-center justify-center mb-5 mt-3 group-hover:scale-110 transition-transform`}>
-                <FontAwesomeIcon icon={step.icon} className={`${step.textAccent} text-lg`} />
+              <div className={`${priority.accent} relative flex min-h-[160px] flex-col justify-between p-7 text-white`}>
+                <span className="text-xs font-black tracking-[0.25em] text-white/65">PRIORITY {priority.num}</span>
+                <FontAwesomeIcon icon={priority.icon} className="text-4xl" />
+                <span className="text-xs font-bold text-white/75">Strategic approach</span>
               </div>
-
-              {/* Title */}
-              <h3 className={`text-xl font-bold mb-3 ${step.textAccent}`}>{step.title}</h3>
-
-              {/* Description */}
-              <p className="text-gray-500 text-sm leading-relaxed flex-1">{step.desc}</p>
-
-              {/* Connector arrow for large screens */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white border border-gray-200 rounded-full items-center justify-center shadow-sm">
-                  <FontAwesomeIcon icon={faArrowRight} className="text-gray-400 text-xs" />
+              <div className="p-7 md:p-8">
+                <h3 className={`text-2xl font-bold leading-snug mb-4 ${priority.textAccent}`}>{priority.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{priority.outcome}</p>
+              </div>
+              <div className="border-t lg:border-t-0 lg:border-l border-gray-100 p-7">
+                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 mb-4">Key Focus</p>
+                <ul className="grid gap-2 mb-6">
+                  {priority.focus.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className={`w-1.5 h-1.5 rounded-full ${priority.accent}`} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 mb-3">Program Areas</p>
+                <div className="flex flex-wrap gap-2">
+                  {priority.areas.map((area) => (
+                    <span key={area} className={`px-2.5 py-1 rounded text-[11px] font-bold ${priority.chip}`}>{area}</span>
+                  ))}
                 </div>
-              )}
-            </div>
+              </div>
+            </article>
           ))}
         </div>
 
-        {/* ── Bottom row: quote + CTA ─────────────────────────────── */}
-        <div className="grid md:grid-cols-2 gap-8 items-stretch">
-
-          {/* Quote card */}
-          <div
-            className="relative rounded-2xl overflow-hidden text-white p-8 md:p-10 reveal reveal-left"
-            data-reveal
-            style={{
-              backgroundImage: "url('/images/theme-color/SPH Brand Pattern.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="absolute inset-0 bg-swahilipot-950/75" />
-            <div className="relative z-10">
-              <FontAwesomeIcon icon={faQuoteLeft} className="text-amber-400/40 text-4xl mb-4 block" />
-              <p className="text-white text-lg md:text-xl font-semibold leading-snug mb-6">
-                "The approach here is different. They don't just train you — they stay with you until you make it."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-swahilipot-600 flex items-center justify-center font-bold text-white text-sm">
-                  SK
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-sm">Salma Khamisi</p>
-                  <p className="text-white/45 text-xs">Scale Up alumni · Mombasa</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Why it works */}
-          <div className="bg-gray-50 rounded-2xl p-8 md:p-10 reveal reveal-right" data-reveal>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Why it works</h3>
-            <p className="text-gray-500 text-sm mb-6">
-              Our model is built on three convictions that guide every decision we make.
+        <div className="bg-swahilipot-950 px-6 py-7 md:px-10 reveal reveal-up" data-reveal>
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+            <span className="text-amber-400 text-xs font-black uppercase tracking-[0.25em] whitespace-nowrap">Impact Pathway</span>
+            <p className="text-white text-sm font-semibold leading-relaxed">
+              Strategic priorities connect program areas and activities to stronger youth outcomes and lasting community change.
             </p>
-            <ul className="space-y-5">
-              {[
-                { title: "Holistic support", body: "Skills training alone isn't enough. Mentorship, case management, and community are just as critical." },
-                { title: "Long-term relationships", body: "We don't hand off and move on. Alumni stay connected to the ecosystem and pay it forward." },
-                { title: "Local context", body: "Every programme is designed with and for the Coast — honouring its culture, languages, and economy." },
-              ].map((pt) => (
-                <li key={pt.title} className="flex gap-4">
-                  <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-swahilipot-600 flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 12 12">
-                      <path d="M10.28 2.28L4 8.56 1.72 6.28A1 1 0 0 0 .28 7.72l3 3a1 1 0 0 0 1.44 0l7-7a1 1 0 0 0-1.44-1.44z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{pt.title}</p>
-                    <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{pt.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 mt-8 text-swahilipot-600 font-semibold text-sm hover:text-swahilipot-800 transition-colors group"
-            >
-              Read more about us
-              <FontAwesomeIcon icon={faArrowRight} className="text-xs transition-transform group-hover:translate-x-1" />
-            </Link>
           </div>
-
         </div>
 
       </div>

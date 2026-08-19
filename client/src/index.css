@@ -76,7 +76,7 @@
   .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.85s ease, transform 0.85s ease;
+    transition: opacity 0.55s ease, transform 0.55s ease;
     will-change: opacity, transform;
   }
 
@@ -106,7 +106,7 @@
   .reveal-img {
     opacity: 0;
     transform: scale(0.96) translateY(20px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition: opacity 0.55s ease, transform 0.55s ease;
   }
 
   .reveal-img.show {

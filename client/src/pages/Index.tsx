@@ -33,7 +33,7 @@ const Index = () => {
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-white/95 backdrop-blur-sm" />
+              <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
             </div>
 
             <div className="relative z-10">
