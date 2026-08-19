@@ -110,7 +110,7 @@ const Programs = () => {
             Our Programs
           </h2>
           <div className="w-12 h-1 bg-swahilipot-600 mx-auto mb-5 reveal reveal-right" data-reveal></div>
-          <p className="text-gray-600 max-w-2xl mx-auto reveal reveal-right" data-reveal>
+          <p className="text-gray-800 max-w-2xl mx-auto rounded-md bg-white/80 px-5 py-3 shadow-sm backdrop-blur-sm reveal reveal-right" data-reveal>
             Discover how Swahilipot Hub is nurturing the next generation of innovators,
             artists, and entrepreneurs through our specialized programs.
           </p>

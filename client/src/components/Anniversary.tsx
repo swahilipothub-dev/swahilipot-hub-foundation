@@ -12,9 +12,9 @@ import {
   faArrowTrendUp,
   faGraduationCap,
   faCertificate,
+  faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { faUsers, faStar, faRocket, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import CountOnHover from "./CountOnHover";
 
@@ -392,6 +392,7 @@ const Anniversary = () => {
     "/img/general-people/image17.jpeg",
     "/img/general-people/image19.jpeg",
     "/img/general-people/image21.jpeg",
+  ];
 
   const timeline = [
     { year: "2016", title: "Founded",      desc: "Established to empower coastal youth" },
@@ -453,10 +454,7 @@ const Anniversary = () => {
   }, [launchFireworks, launchFalling]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-swahilipot-950"
-    >
+    <section ref={sectionRef} className="relative overflow-hidden bg-swahilipot-950">
       <style>{`
         @keyframes annvOrbitCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg); } }
         @keyframes annvOrbitCCW { from { transform: rotate(360deg); } to { transform: rotate(0deg);   } }
@@ -556,56 +554,11 @@ const Anniversary = () => {
       </div>
 
       <div className="container-custom relative py-16 md:py-24" style={{ zIndex: 3 }}>
-
-        {/* ── Hero: copy + motion graphic ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20 md:mb-28">
           <div className="reveal reveal-left" data-reveal>
             <span className="inline-flex items-center gap-2 bg-[#FFD700]/10 backdrop-blur-sm annv-gold-muted px-4 py-2 rounded-full text-[11px] font-bold border border-[#FFD700]/25 tracking-[0.2em] uppercase mb-6">
-              <FontAwesomeIcon icon={faTrophy} className="text-[#FFD700] text-[10px]" />
-              A Decade of Excellence
+              <FontAwesomeIcon icon={faTrophy} className="text-[#FFD700] text-[10px]" /> A Decade of Excellence
             </span>
-
-            {/* Sparkles spawned fresh on every hover/move, not just once */}
-            {hoverSparkles.map((s) => (
-              <span
-                key={s.id}
-                className="annv-hover-sparkle"
-                style={{ left: s.x, top: s.y }}
-              >
-                <FontAwesomeIcon icon={faStar} style={{ color: s.color, fontSize: "10px" }} />
-              </span>
-            ))}
-          </div>
-          <div className="text-white/70 text-2xl md:text-3xl font-bold tracking-[0.25em] uppercase -mt-4 mb-6">
-            Years of Impact
-          </div>
-          <p className="text-amber-200/80 text-base md:text-lg max-w-2xl mx-auto italic mb-5">
-            A decade of empowering coastal youth. Transforming lives. Building futures.
-          </p>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-            Over the past decade, Swahilipot Hub Foundation has connected thousands of young
-            people to opportunities, strengthened their skills and mindset, and supported them
-            to build better futures.
-          </p>
-        </div>
-
-        {/* Glassmorphism stat cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-5xl mx-auto">
-          {milestones.map((m, i) => (
-            <div
-              key={i}
-              className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 reveal reveal-up"
-              data-reveal
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-swahilipot-600/40 border border-swahilipot-400/30 mb-3 group-hover:bg-swahilipot-500/40 transition-colors">
-                <FontAwesomeIcon icon={m.icon} className="text-sm text-swahilipot-300" />
-              </div>
-              <div className="text-3xl font-black text-white mb-1 tabular-nums">
-                <CountOnHover target={m.target} suffix={m.suffix} className="annv-counter w-full" />
-              </div>
-              <div className="text-amber-300 font-bold text-sm mb-1">{m.label}</div>
-              <div className="text-white/40 text-xs leading-snug">{m.desc}</div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.4rem] font-black text-white leading-[1.05] mb-6">
               Celebrating{" "}
               <span className="annv-shimmer-text">10 Years</span>
@@ -732,6 +685,10 @@ const Anniversary = () => {
                 </div>
                 <div className="text-amber-300 font-bold text-xs mb-1">{item.label}</div>
                 <div className="text-white/40 text-[11px] leading-snug">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ── Impact stats ── */}
         <div className="mb-20 md:mb-28">
@@ -805,6 +762,10 @@ const Anniversary = () => {
                 </div>
                 <div className="text-amber-300 font-bold text-xs mb-1">{item.label}</div>
                 <div className="text-white/40 text-[11px] leading-snug">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
 
 
         {/* ── Quote banner ── */}
@@ -838,10 +799,9 @@ const Anniversary = () => {
                 <p className="text-white/65 text-sm leading-relaxed">
                   Our commitment to nurturing innovators, artists, and entrepreneurs across East Africa is stronger than ever.
                 </p>
-
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* From Room to Hub — milestone timeline */}
@@ -939,6 +899,12 @@ const Anniversary = () => {
                       />
                     </div>
                   ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* ── Journey timeline ── */}
         <div className="reveal reveal-up" data-reveal>
           <div className="text-center mb-12">
@@ -960,7 +926,6 @@ const Anniversary = () => {
                   </div>
                   <div className="text-white font-bold text-sm mb-1.5">{item.title}</div>
                   <div className="text-white/45 text-xs leading-relaxed">{item.desc}</div>
-
                 </div>
               ))}
             </div>

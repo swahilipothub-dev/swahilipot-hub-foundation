@@ -1,20 +1,18 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faHeart, faBullseye, faClock, faCircleCheck, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useAboutPageSEO } from "@/hooks/useSEO";
-import { MarqueeStrip, PageHero } from "@/components/PageAnimations";
 import {
   faUsers,
   faHeart,
   faBullseye,
   faClock,
   faCircleCheck,
+  faArrowRight,
   faLandmark,
   faHandshake,
   faPlay,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import { useAboutPageSEO } from "@/hooks/useSEO";
 import { PageHero, MarqueeStrip, usePageReveal, SplitHeading } from "@/components/PageAnimations";
 
@@ -82,38 +80,6 @@ const About = () => {
       <Navbar />
 
       <main className="theme-bg-pattern-1">
-        <PageHero
-          label="About Us"
-          title="A decade of empowering coastal youth."
-          subtitle="From a community hub in Mombasa to a nationally recognised NGO, Swahilipot Hub Foundation builds pathways through skills, mentorship, and youth-led innovation."
-          image="/img/general-people/image19.jpeg"
-          breadcrumb={[{ label: "Home", to: "/" }, { label: "About Us" }]}
-        />
-        <MarqueeStrip items={factStrip} />
-
-        {/* Our Story */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
-          <img src="/img/general-people/image22.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover blur-[2px] scale-105" />
-          <div className="absolute inset-0 bg-white/90" />
-          <div className="container-custom relative z-10">
-            <div className="grid md:grid-cols-2 gap-14 items-center">
-              <div>
-                <span className="inline-block text-swahilipot-600 font-semibold uppercase tracking-wider text-xs mb-3">Our Story</span>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Swahilipot Hub Foundation</h2>
-                <div className="w-12 h-1 bg-swahilipot-600 mb-6" />
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  Swahilipot Hub Foundation is a non-profit organisation that meaningfully engages and empowers youth
-                  aged 18 to 35. Based in Mombasa, Kenya, it is regulated by the NGO Coordination Board of Kenya.
-                </p>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  In 2016, Mahmoud Noor (alias Mentor001) founded Swahilipot Hub with support from National Museums
-                  of Kenya, SEACOM, ICT Authority, and Cisco.
-                </p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  What began as a community-based organisation focused on technology and innovation has grown into an
-                  NGO with diverse programme areas and reach across East Africa.
-
-      <main>
         <PageHero
           label="About Us"
           title="A decade of empowering coastal youth."
@@ -353,17 +319,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Core Values */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
-          <img src="/img/general-people/image16.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover blur-[5px] scale-110" />
-          <div className="absolute inset-0 bg-white/96" />
-          <div className="container-custom relative z-10">
-            <div className="text-center mb-14">
-              <span className="inline-block text-swahilipot-700 font-bold uppercase tracking-wider text-xs mb-3">What Guides Us</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-3">Our Core Values</h2>
-              <div className="w-12 h-1 bg-swahilipot-600 mx-auto mb-5" />
-              <p className="text-gray-800 font-medium max-w-2xl mx-auto">
-
         {/* S3 — Core Values */}
         <section className="bg-white border-t border-gray-200 py-24 md:py-32">
           <div className="container-custom">
@@ -431,14 +386,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Join Mission CTA */}
-        <section className="py-16 md:py-24 bg-swahilipot-600">
-          <div className="container-custom text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Mission</h2>
-            <p className="text-white/80 max-w-2xl mx-auto mb-8">
-              Whether you're a youth looking to develop your skills, a mentor wanting to share your expertise,
-              or a donor interested in supporting our cause, there are many ways to get involved with
-              Swahilipot Hub Foundation.
         {/* CTA */}
         <section className="bg-swahilipot-600 border-t border-swahilipot-700 py-24 md:py-32">
           <div className="container-custom text-center" data-ht>
@@ -449,7 +396,6 @@ const About = () => {
             <p className="text-white/75 max-w-2xl mx-auto mb-10 text-[15px] leading-relaxed">
               Whether you&apos;re a youth looking to develop your skills, a mentor wanting to share your expertise,
               or a donor interested in supporting our cause — there are many ways to get involved.
-
             </p>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSe8xVQEK2VP89CYE4166i6Vr6iriaA1x1D5ecVBCVY5MuqP3g/viewform?usp=dialog"

@@ -97,10 +97,10 @@ const successStories = [
 const STORIES_PER_PAGE = 3;
 
 const reportStats = [
-  { value: "87%", label: "of participants find employment within 6 months" },
-  { value: "90%", label: "of our startups survive beyond 2 years" },
-  { value: "65%", label: "of our members are from underserved communities" },
-  { value: "4.8/5", label: "average satisfaction rating from participants" },
+  { value: "67,000", label: "Youth connected to opportunities and networks" },
+  { value: "59,700", label: "Youth improved through skills and tools" },
+  { value: "25,400", label: "Youth transformed through meaningful outcomes" },
+  { value: "11,120", label: "Youth in decent, sustainable employment" },
 ];
 
 const Impact = () => {
@@ -122,7 +122,7 @@ const Impact = () => {
           image="/img/general-people/image11.jpeg"
           breadcrumb={[{ label: "Home", to: "/" }, { label: "Impact" }]}
         />
-        <MarqueeStrip items={["5,000+ Youth Reached", "87% Employment Rate", "Transparent Reporting", "Measurable Outcomes", "Partner With Us"]} />
+        <MarqueeStrip items={["67,000 Youth Connected", "59,700 Youth Improved", "25,400 Youth Transformed", "11,120 Youth Employed", "10 Years of Impact"]} />
 
         {/* S1 — Impact at a Glance */}
         <section className="bg-white py-24 md:py-32">
@@ -136,10 +136,10 @@ const Impact = () => {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { value: "5,000+", label: "Youth directly impacted since founding", color: "text-swahilipot-600" },
-                { value: "10+", label: "Community innovation hubs established", color: "text-amber-500" },
-                { value: "87%", label: "Of participants find employment within 6 months", color: "text-teal-600" },
-                { value: "90%", label: "Of supported startups survive beyond 2 years", color: "text-swahilipot-600" },
+                { value: "67,000", label: "Youth connected to opportunities and networks", color: "text-swahilipot-600" },
+                { value: "59,700", label: "Youth improved through skills, mindset, and tools", color: "text-amber-500" },
+                { value: "25,400", label: "Youth transformed through meaningful outcomes", color: "text-teal-600" },
+                { value: "11,120", label: "Youth in decent, sustainable employment", color: "text-swahilipot-600" },
               ].map((stat, i) => (
                 <div key={stat.label} className="flex flex-col items-center" data-ht-scale data-ht-d={String(i + 1)}>
                   <div className={`text-5xl md:text-6xl font-black tabular-nums mb-3 stat-pop ${stat.color}`}>{stat.value}</div>

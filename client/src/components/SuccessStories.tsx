@@ -89,7 +89,7 @@ const SuccessStories = () => {
             Stories of Impact
           </h2>
           <div className="w-12 h-1 bg-swahilipot-600 mx-auto mb-5" />
-          <p className="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-gray-800 max-w-2xl mx-auto rounded-md bg-white/80 px-5 py-3 shadow-sm backdrop-blur-sm text-base leading-relaxed">
             Behind every number in our reports is a young person whose life changed direction.
             Here are a few of their stories.
           </p>
@@ -106,7 +106,7 @@ const SuccessStories = () => {
               <img
                 src={featured.image}
                 alt={featured.name}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-[50%_20%]"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
                 }}
@@ -179,7 +179,7 @@ const SuccessStories = () => {
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Photo */}
-              <div className="relative h-52 overflow-hidden flex-shrink-0">
+              <div className="relative h-44 overflow-hidden flex-shrink-0">
                 <img
                   src={s.image}
                   alt={s.name}
@@ -233,7 +233,7 @@ const SuccessStories = () => {
 
         {/* ── Footer CTA ──────────────────────────────────────────── */}
         <div className="text-center mt-14 reveal reveal-up" data-reveal>
-          <p className="text-gray-500 text-sm mb-5">
+          <p className="inline-block rounded-md bg-white/80 px-5 py-3 text-gray-800 text-sm mb-5 shadow-sm backdrop-blur-sm">
             These are just three of the thousands of stories we carry with us every day.
           </p>
           <Link
