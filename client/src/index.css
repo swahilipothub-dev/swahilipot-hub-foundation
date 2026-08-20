@@ -14,20 +14,20 @@
 
 @layer base {
   :root {
-    --background: 210 50% 98%;
-    --foreground: 222 47% 11%;
+    --background: 200 100% 97%;
+    --foreground: 220 30% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 30% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 210 100% 50%;
+    --popover-foreground: 220 30% 20%;
+    --primary: 220 50% 35%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 212 80% 50%;
+    --secondary-foreground: 210 40% 98%;
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 90%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 0 0% 33%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
     --border: 214 32% 91%;
@@ -122,7 +122,7 @@
   .counter-hover:hover,
   .counter-hover:focus-visible {
     transform: scale(1.05);
-    color: #0e7490;
+    color: #29378a;
   }
 
   /* Gold counter treatment for the dark 10-years section */
@@ -130,7 +130,7 @@
   .counter-hover.annv-counter:focus-visible {
     transform: scale(1.12);
     color: #fcd34d;
-    text-shadow: 0 0 22px rgba(252, 211, 77, 0.55);
+    text-shadow: 0 0 22px rgba(41, 55, 138, 0.55);
     outline: none;
   }
   
@@ -158,8 +158,8 @@
 
   .documentary-frame {
     border: 12px solid transparent;
-    border-image: repeating-linear-gradient(45deg, #0d8dde 0 10px, #ffffff 10px 20px, #0d8dde 20px 30px, #ffffff 30px 40px) 20;
-    background: rgba(255,255,255,0.9);
+    border-image: repeating-linear-gradient(45deg, #29378a 0 10px, #f8f8ff 10px 20px, #29378a 20px 30px, #f8f8ff 30px 40px) 20;
+    background: rgba(248, 248, 255, 0.9);
   }
 
   .documentary-frame-inner {
@@ -171,8 +171,8 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at top left, rgba(13,141,222,0.12), transparent 35%),
-                radial-gradient(circle at bottom right, rgba(2,112,189,0.12), transparent 30%);
+    background: radial-gradient(circle at top left, rgba(41,55,138,0.12), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(15,76,204,0.12), transparent 30%);
   }
 
   .logo-rotate {

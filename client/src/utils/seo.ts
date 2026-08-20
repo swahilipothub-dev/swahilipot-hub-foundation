@@ -123,8 +123,8 @@ export const updateSEO = ({
   }
 
   // Additional SEO tags
-  updateMetaTag('theme-color', '#1e40af');
-  updateMetaTag('msapplication-TileColor', '#1e40af');
+  updateMetaTag('theme-color', '#29378a');
+  updateMetaTag('msapplication-TileColor', '#29378a');
   updateMetaTag('viewport', 'width=device-width, initial-scale=1.0');
 };
 

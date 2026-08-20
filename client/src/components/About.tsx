@@ -28,7 +28,7 @@ const About = () => {
               <svg width="100" height="30" viewBox="0 0 100 30" fill="none">
                 <path
                   d="M0 15 Q12 0 24 15 Q36 30 48 15 Q60 0 72 15 Q84 30 96 15"
-                  stroke="#025997"
+                  stroke="#29378a"
                   strokeWidth="2.5"
                   fill="none"
                   strokeLinecap="round"
@@ -46,7 +46,7 @@ const About = () => {
             {/* Dark green sidebar */}
             <div
               className="absolute left-0 z-20 flex items-center justify-center rounded-2xl"
-              style={{ top: "60px", bottom: "20px", width: "52px", background: "#025997" }}
+              style={{ top: "60px", bottom: "20px", width: "52px", background: "#29378a" }}
             >
               <p
                 className="text-white text-xs font-semibold uppercase tracking-widest whitespace-nowrap"
@@ -110,9 +110,9 @@ const About = () => {
                   transform: "translate(-50%, -50%)",
                   width: "64px",
                   height: "64px",
-                  background: "#025997",
-                  border: "3px dashed rgba(2,89,151,0.5)",
-                  boxShadow: "0 0 0 8px rgba(2,89,151,0.2)",
+                  background: "#29378a",
+                  border: "3px dashed rgba(41,55,138,0.5)",
+                  boxShadow: "0 0 0 8px rgba(41,55,138,0.2)",
                 }}
               >
                 <FontAwesomeIcon icon={faPlay} className="text-white text-lg ml-1" />
@@ -150,7 +150,7 @@ const About = () => {
                 left: "72px",
                 width: "140px",
                 height: "100px",
-                border: "3px solid #e5e7eb",
+                border: "3px solid #f8f8ff",
                 background: "white",
               }}
             />
@@ -216,7 +216,7 @@ const About = () => {
                 <li key={item} className="flex items-center gap-3 text-sm text-gray-700">
                   <span
                     className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                    style={{ background: "#025997" }}
+                    style={{ background: "#29378a" }}
                   >
                     <FontAwesomeIcon icon={faCircleCheck} className="text-white text-xs" />
                   </span>
@@ -236,7 +236,7 @@ const About = () => {
               <div className="flex items-center gap-3">
                 <div
                   className="w-11 h-11 rounded-full flex items-center justify-center"
-                  style={{ border: "2px solid #e5e7eb" }}
+                  style={{ border: "2px solid #f8f8ff" }}
                 >
                   <FontAwesomeIcon icon={faPhone} className="text-swahilipot-600" />
                 </div>

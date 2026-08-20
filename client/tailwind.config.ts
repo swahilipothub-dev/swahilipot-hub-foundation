@@ -53,19 +53,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Swahilipot theme colors
+				// Swahilipot brand colors
 				swahilipot: {
-					50: '#f0f7ff',
-					100: '#e0effe',
-					200: '#bae0fd',
-					300: '#7cc7fa',
-					400: '#36aaf4',
-					500: '#0d8dde',
-					600: '#0270bd',
-					700: '#025997',
-					800: '#074b7e',
-					900: '#0a3f69',
-					950: '#062844',
+					50: '#f8f8ff',
+					100: '#f0f0ff',
+					200: '#e8e8ff',
+					300: '#d4d4ff',
+					400: '#0f4ccc',
+					500: '#29378a',
+					600: '#29378a',
+					700: '#1f2960',
+					800: '#1a2250',
+					900: '#29378a',
+					950: '#1a2250',
 				},
 			},
 			borderRadius: {

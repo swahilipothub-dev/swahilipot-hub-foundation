@@ -68,14 +68,14 @@ const ImpactNewsletter = () => {
 
             <div className="relative z-10 flex flex-col h-full p-10">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/25 text-amber-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest self-start mb-8">
+              <div className="inline-flex items-center gap-2 bg-swahilipot-600/15 border border-swahilipot-600/25 text-swahilipot-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest self-start mb-8">
                 <FontAwesomeIcon icon={faChartLine} className="text-[10px]" />
                 Annual Impact Report 2024
               </div>
 
               <h3 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
                 A Decade of<br />
-                <span className="text-amber-300">Measurable Impact</span>
+                <span className="text-swahilipot-300">Measurable Impact</span>
               </h3>
 
               <p className="text-white/65 leading-relaxed mb-10 text-sm">
@@ -91,7 +91,7 @@ const ImpactNewsletter = () => {
                     key={h.label}
                     className="bg-white/8 hover:bg-white/12 border border-white/10 rounded-2xl p-4 text-center transition-colors"
                   >
-                    <div className="text-xl md:text-2xl font-black text-amber-300 tabular-nums mb-1">
+                    <div className="text-xl md:text-2xl font-black text-swahilipot-300 tabular-nums mb-1">
                       {h.value}
                     </div>
                     <div className="text-white/55 text-[11px] leading-tight">{h.label}</div>
@@ -103,7 +103,7 @@ const ImpactNewsletter = () => {
               <div className="mt-auto flex flex-wrap gap-3">
                 <a
                   href="/impact"
-                  className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-swahilipot-900 font-bold px-6 py-3 rounded-xl text-sm transition-colors"
+                  className="inline-flex items-center gap-2 bg-swahilipot-600 hover:bg-swahilipot-500 text-white font-bold px-6 py-3 rounded-xl text-sm transition-colors"
                 >
                   <FontAwesomeIcon icon={faChartLine} />
                   View Full Report

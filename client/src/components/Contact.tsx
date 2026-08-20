@@ -87,13 +87,13 @@ const Contact = () => {
 
             {/* Glow orbs */}
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-swahilipot-500 rounded-full opacity-15 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-amber-400 rounded-full opacity-8 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-swahilipot-600 rounded-full opacity-8 blur-3xl pointer-events-none" />
 
             <div className="relative z-10">
               {/* Heading */}
               <h3 className="text-2xl md:text-3xl font-extrabold leading-snug mb-3">
                 We'd love to hear<br />
-                <span className="text-amber-300">from you.</span>
+                <span className="text-swahilipot-300">from you.</span>
               </h3>
               <p className="text-white/55 text-sm leading-relaxed mb-10">
                 Reach us through any channel below, or fill in the form and we'll get back to you within one business day.
@@ -110,13 +110,13 @@ const Contact = () => {
                       className="flex items-start gap-4 group"
                     >
                       <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 group-hover:bg-swahilipot-600 flex items-center justify-center transition-colors">
-                        <FontAwesomeIcon icon={c.icon} className="text-amber-300 text-sm" />
+                        <FontAwesomeIcon icon={c.icon} className="text-swahilipot-300 text-sm" />
                       </span>
                       <div>
                         <p className="text-white/40 text-[11px] uppercase tracking-widest font-semibold mb-0.5">
                           {c.label}
                         </p>
-                        <p className="text-white text-sm font-medium group-hover:text-amber-300 transition-colors leading-snug">
+                        <p className="text-white text-sm font-medium group-hover:text-swahilipot-300 transition-colors leading-snug">
                           {c.value}
                         </p>
                       </div>
@@ -133,8 +133,8 @@ const Contact = () => {
             {sent ? (
               /* Success state */
               <div className="flex flex-col items-center justify-center text-center h-full py-12">
-                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-5">
-                  <FontAwesomeIcon icon={faCircleCheck} className="text-green-500 text-3xl" />
+                <div className="w-16 h-16 rounded-full bg-swahilipot-50 flex items-center justify-center mb-5">
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-swahilipot-600 text-3xl" />
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Message sent!</h4>
                 <p className="text-gray-500 text-sm max-w-xs">
