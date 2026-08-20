@@ -63,7 +63,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl reveal reveal-right" data-reveal>
-              Swahilipot Hub Foundation nurtures youth talent through technology, arts, and entrepreneurship in the heart of East Africa.
+              Swahilipot Hub Foundation nurtures youth talent through technology, heritage, arts, and entrepreneurship in the heart of Kenyan Coast.
             </p>
 
             <div className="flex flex-wrap gap-4 reveal reveal-up" data-reveal>

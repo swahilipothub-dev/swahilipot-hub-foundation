@@ -30,14 +30,14 @@ const Careers = () => {
                 max-width: 900px; 
                 margin: 40px auto; 
                 padding: 20px 30px;
-                background-color: #ffffff;
-                color: #333;
+                background-color: #f8f8ff;
+                color: #555555;
               }
               .header {
                 text-align: center;
                 margin-bottom: 40px;
                 padding: 30px;
-                background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+                background: linear-gradient(135deg, #29378a 0%, #29378a 100%);
                 color: white;
                 border-radius: 10px;
               }
@@ -58,7 +58,7 @@ const Careers = () => {
                 gap: 20px;
                 margin: 30px 0;
                 padding: 20px;
-                background-color: #f8f9fa;
+                background-color: #f8f8ff;
                 border-radius: 8px;
               }
               .program-info-item {
@@ -66,28 +66,28 @@ const Careers = () => {
               }
               .program-info-item strong {
                 display: block;
-                color: #2c3e50;
+                color: #555555;
                 margin-bottom: 5px;
                 font-size: 0.9em;
                 text-transform: uppercase;
                 letter-spacing: 1px;
               }
               h2 { 
-                color: #1e3a8a; 
+                color: #29378a; 
                 margin-top: 40px; 
                 margin-bottom: 20px; 
-                border-bottom: 2px solid #1e3a8a; 
+                border-bottom: 2px solid #29378a; 
                 padding-bottom: 10px;
                 font-size: 1.8em;
               }
               h3 { 
-                color: #2c5282; 
+                color: #29378a; 
                 margin-top: 30px; 
                 margin-bottom: 15px;
                 font-size: 1.4em;
               }
               h4 { 
-                color: #374151; 
+                color: #555555; 
                 margin-top: 25px; 
                 margin-bottom: 10px;
                 font-size: 1.2em;
@@ -101,12 +101,12 @@ const Careers = () => {
                 overflow: hidden;
               }
               th, td { 
-                border: 1px solid #e1e8ed; 
+                border: 1px solid #e8ecff; 
                 padding: 15px; 
                 text-align: left; 
               }
               th { 
-                background: linear-gradient(135deg, #1e3a8a, #2c5282); 
+                background: linear-gradient(135deg, #29378a, #29378a); 
                 color: white; 
                 font-weight: 600;
                 text-transform: uppercase;
@@ -114,18 +114,18 @@ const Careers = () => {
                 letter-spacing: 0.5px;
               }
               tr:nth-child(even) {
-                background-color: #f8f9fa;
+                background-color: #f8f8ff;
               }
               tr:hover {
-                background-color: #f0fdf4;
+                background-color: #f8f8ff;
               }
               .highlight { 
-                background: linear-gradient(135deg, #f0fdf4, #e0f2fe); 
+                background: linear-gradient(135deg, #f8f8ff, #e8ecff); 
                 padding: 20px; 
-                border-left: 5px solid #1e3a8a; 
+                border-left: 5px solid #29378a; 
                 margin: 25px 0; 
                 border-radius: 0 8px 8px 0;
-                box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+                box-shadow: 0 2px 8px rgba(41, 55, 138, 0.2);
               }
               ul, ol { 
                 margin: 15px 0; 
@@ -139,8 +139,8 @@ const Careers = () => {
                 padding: 25px; 
                 border-radius: 10px; 
                 margin-top: 40px;
-                box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
-                border: 2px solid #1e3a8a;
+                box-shadow: 0 4px 12px rgba(41, 55, 138, 0.1);
+                border: 2px solid #29378a;
               }
               .contact h3 {
                 margin-top: 0;
@@ -150,7 +150,7 @@ const Careers = () => {
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                background: linear-gradient(135deg, #1e3a8a, #2c5282);
+                background: linear-gradient(135deg, #29378a, #29378a);
                 color: white;
                 border: none;
                 padding: 12px 24px;
@@ -158,7 +158,7 @@ const Careers = () => {
                 cursor: pointer;
                 font-size: 16px;
                 font-weight: 600;
-                box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+                box-shadow: 0 4px 15px rgba(41, 55, 138, 0.3);
                 transition: all 0.3s ease;
                 z-index: 1000;
                 text-decoration: none;
@@ -168,8 +168,8 @@ const Careers = () => {
               }
               .back-button:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
-                background: linear-gradient(135deg, #1a252f, #374151);
+                box-shadow: 0 6px 20px rgba(41, 55, 138, 0.4);
+                background: linear-gradient(135deg, #29378a, #1f2960);
               }
               .back-button svg {
                 width: 20px;
@@ -185,7 +185,7 @@ const Careers = () => {
                 background: #f8f9fa;
                 padding: 20px;
                 border-radius: 8px;
-                border-left: 4px solid #3498db;
+                border-left: 4px solid #0f4ccc;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               }
               .objective-item strong {
@@ -200,15 +200,15 @@ const Careers = () => {
                 margin: 25px 0;
               }
               .qualification-box {
-                background: #f8f9fa;
+                background: #f8f8ff;
                 padding: 25px;
                 border-radius: 10px;
                 box-shadow: 0 3px 10px rgba(0,0,0,0.1);
               }
               .qualification-box h4 {
                 margin-top: 0;
-                color: #3498db;
-                border-bottom: 2px solid #3498db;
+                color: #0f4ccc;
+                border-bottom: 2px solid #0f4ccc;
                 padding-bottom: 10px;
                 margin-bottom: 20px;
               }
@@ -217,7 +217,7 @@ const Careers = () => {
                 justify-content: space-around;
                 margin: 25px 0;
                 padding: 20px;
-                background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+                background: linear-gradient(135deg, #e8ecff, #f0f4ff);
                 border-radius: 10px;
                 text-align: center;
               }
@@ -228,7 +228,7 @@ const Careers = () => {
               .target-item strong {
                 display: block;
                 font-size: 2em;
-                color: #e17055;
+                color: #29378a;
                 margin-bottom: 10px;
               }
               .methodology-grid {
@@ -238,10 +238,10 @@ const Careers = () => {
                 margin: 25px 0;
               }
               .method-item {
-                background: #e8f4fd;
+                background: #e8ecff;
                 padding: 20px;
                 border-radius: 8px;
-                border-top: 4px solid #3498db;
+                border-top: 4px solid #0f4ccc;
               }
               .method-item strong {
                 color: #2c3e50;

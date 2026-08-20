@@ -71,11 +71,11 @@ const programCategories = [
 
 const categoryStyles = {
   tech: { accent: "text-swahilipot-600", border: "border-swahilipot-600", icon: "bg-swahilipot-600", tint: "bg-swahilipot-50" },
-  arts: { accent: "text-orange-500", border: "border-orange-500", icon: "bg-orange-500", tint: "bg-orange-50" },
-  heritage: { accent: "text-amber-600", border: "border-amber-500", icon: "bg-amber-500", tint: "bg-amber-50" },
-  entrepreneurship: { accent: "text-purple-600", border: "border-purple-600", icon: "bg-purple-600", tint: "bg-purple-50" },
-  pathways: { accent: "text-teal-600", border: "border-teal-600", icon: "bg-teal-600", tint: "bg-teal-50" },
-  fm: { accent: "text-rose-600", border: "border-rose-600", icon: "bg-rose-600", tint: "bg-rose-50" },
+  arts: { accent: "text-swahilipot-600", border: "border-swahilipot-600", icon: "bg-swahilipot-600", tint: "bg-swahilipot-50" },
+  heritage: { accent: "text-swahilipot-600", border: "border-swahilipot-600", icon: "bg-swahilipot-600", tint: "bg-swahilipot-50" },
+  entrepreneurship: { accent: "text-swahilipot-600", border: "border-swahilipot-600", icon: "bg-swahilipot-600", tint: "bg-swahilipot-50" },
+  pathways: { accent: "text-swahilipot-600", border: "border-swahilipot-600", icon: "bg-swahilipot-600", tint: "bg-swahilipot-50" },
+  fm: { accent: "text-swahilipot-600", border: "border-swahilipot-600", icon: "bg-swahilipot-600", tint: "bg-swahilipot-50" },
 };
 
 const strategicPriorities = [
@@ -97,9 +97,9 @@ const strategicPriorities = [
     outcome: "Partnerships and collaboration strengthen ecosystems and institutions, increase youth opportunities, and catalyze systemic change.",
     focus: ["Strategic partnerships", "Stakeholder collaboration", "Stronger youth-serving ecosystems", "More youth opportunities"],
     areas: ["Entrepreneurship Support", "Opportunity Youth", "Technology & Innovation"],
-    accent: "text-amber-600",
-    iconBg: "bg-amber-500",
-    chip: "bg-amber-50 text-amber-700",
+    accent: "text-swahilipot-600",
+    iconBg: "bg-swahilipot-600",
+    chip: "bg-swahilipot-50 text-swahilipot-700",
   },
   {
     number: "03",
@@ -108,9 +108,9 @@ const strategicPriorities = [
     outcome: "Positive youth development programs build young people's capacity, agency, and assets.",
     focus: ["Capacity building", "Skills development", "Youth agency and leadership", "Individual and community assets"],
     areas: ["Technology & Innovation", "Entrepreneurship Support", "Creatives & Arts", "Opportunity Youth"],
-    accent: "text-teal-600",
-    iconBg: "bg-teal-600",
-    chip: "bg-teal-50 text-teal-700",
+    accent: "text-swahilipot-600",
+    iconBg: "bg-swahilipot-600",
+    chip: "bg-swahilipot-50 text-swahilipot-700",
   },
 ];
 
@@ -212,7 +212,7 @@ const Programs = () => {
         <section className="bg-gray-50 py-24 md:py-32">
           <div className="container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>
-              <span className="text-amber-600 text-xs font-black uppercase tracking-[0.35em]">02 — Our Approach</span>
+              <span className="text-swahilipot-600 text-xs font-black uppercase tracking-[0.35em]">02 — Our Approach</span>
               <div className="flex-1 h-px bg-gray-300 line-draw" />
             </div>
             <div className="grid lg:grid-cols-2 gap-12 items-end mb-16">
@@ -255,9 +255,9 @@ const Programs = () => {
 
             <div className="mt-16 bg-swahilipot-950 px-6 py-8 md:px-10 md:py-9" data-ht>
               <div className="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8">
-                <p className="text-amber-400 text-xs font-black uppercase tracking-[0.25em] whitespace-nowrap">Our Impact Pathway</p>
+                <p className="text-swahilipot-600 text-xs font-black uppercase tracking-[0.25em] whitespace-nowrap">Our Impact Pathway</p>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-bold text-white">
-                  <span>Approach</span><span className="text-amber-400">→</span><span>Strategic Priorities</span><span className="text-amber-400">→</span><span>Program Areas</span><span className="text-amber-400">→</span><span>Activities</span><span className="text-amber-400">→</span><span>Youth Outcomes</span>
+                  <span>Approach</span><span className="text-swahilipot-600">→</span><span>Strategic Priorities</span><span className="text-swahilipot-600">→</span><span>Program Areas</span><span className="text-swahilipot-600">→</span><span>Activities</span><span className="text-swahilipot-600">→</span><span>Youth Outcomes</span>
                 </div>
               </div>
             </div>
