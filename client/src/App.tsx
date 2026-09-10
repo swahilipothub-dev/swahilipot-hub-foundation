@@ -46,6 +46,7 @@ const V2T = lazy(() => import("./pages/V2T"));
 const YouthHubNetwork = lazy(() => import("./pages/YouthHubNetwork"));
 const DigitalLiteracy = lazy(() => import("./pages/DigitalLiteracy"));
 const ScaleUp = lazy(() => import("./pages/ScaleUp"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 
 const queryClient = new QueryClient();
 
@@ -113,6 +114,8 @@ const App = () => {
 
           {/* terms of reference */}
           <Route path="/terms-of-reference" element={<TermsOfReference />} />
+          {/* Privacy Policy */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route
             path="/placement-partners-tor"
             element={<PlacementPartnersTOR />}
