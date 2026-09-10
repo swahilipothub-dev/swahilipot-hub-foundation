@@ -120,12 +120,12 @@ export default function DataProtectionPolicy() {
   return (
     <div
       style={{
-        '--ink': '#241f14',
+        '--ink': '#2c3685',
         '--paper': '#faf7f0',
-        '--rule': '#dcd3bd',
-        '--gold': '#b08b3f',
+        '--rule': '#3744a6',
+        '--gold': '#2c3685',
         fontFamily: "'Source Serif 4', Georgia, serif",
-        background: 'var(--paper)',
+        background: 'white',
         color: 'var(--ink)',
         minHeight: '100%',
       }}
@@ -142,7 +142,8 @@ export default function DataProtectionPolicy() {
         style={{
           borderBottom: '1px solid var(--rule)',
           padding: '28px 32px 24px',
-          background: 'var(--paper)',
+          color: 'white',
+          background: 'var(--rule)',
         }}
       >
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
@@ -153,7 +154,7 @@ export default function DataProtectionPolicy() {
                   fontFamily: "'Space Mono', monospace",
                   fontSize: 11,
                   letterSpacing: '0.08em',
-                  color: '#8a7a52',
+                  color: 'white',
                   marginBottom: 10,
                 }}
               >
@@ -166,13 +167,13 @@ export default function DataProtectionPolicy() {
                   fontSize: 'clamp(28px, 4vw, 42px)',
                   lineHeight: 1.05,
                   margin: 0,
-                  color: 'var(--ink)',
+                  color: 'white',
                 }}
               >
                 Data Protection &amp; Privacy Policy
               </h1>
             </div>
-            <div style={{ textAlign: 'right', fontSize: 13, color: '#6b6248', lineHeight: 1.5 }}>
+            <div style={{ textAlign: 'right', fontSize: 13, color: 'white', lineHeight: 1.5 }}>
               <div>Kenya Data Protection Act, 2019</div>
               <div>Constitution of Kenya, Article 31</div>
             </div>
