@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import Index from "./pages/Index";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -49,6 +49,34 @@ const ScaleUp = lazy(() => import("./pages/ScaleUp"));
 
 const queryClient = new QueryClient();
 
+const LiveChatLoader = () => {
+  const loadedRef = useRef(false);
+
+  useEffect(() => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+
+    const scripts = [
+      "https://swahilipot.jengasol.co.ke/im_livechat/loader/1",
+      "https://swahilipot.jengasol.co.ke/im_livechat/assets_embed.js",
+    ];
+
+    scripts.forEach((src) => {
+      const existingScript = document.querySelector(`script[src="${src}"]`);
+      if (existingScript) return;
+
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      script.defer = true;
+      script.type = "text/javascript";
+      document.body.appendChild(script);
+    });
+  }, []);
+
+  return null;
+};
+
 const App = () => {
   useScrollReveal();
 
@@ -57,6 +85,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <LiveChatLoader />
         <BrowserRouter>
         <Suspense fallback={null}>
         <Routes>
