@@ -58,8 +58,8 @@ const LiveChatLoader = () => {
     loadedRef.current = true;
 
     const scriptUrls = [
-      "https://swahilipot.jengasol.co.ke/im_livechat/loader/1",
-      "https://swahilipot.jengasol.co.ke/im_livechat/assets_embed.js",
+      "https://erp.swahilipothub.co.ke/im_livechat/loader/1",
+      "https://erp.swahilipothub.co.ke/im_livechat/assets_embed.js",
     ];
 
     const hasLoaded = (window as Window & { __swahilipotLiveChatLoaded__?: boolean })
