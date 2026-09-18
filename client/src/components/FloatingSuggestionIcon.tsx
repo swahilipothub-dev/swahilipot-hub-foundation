@@ -4,14 +4,29 @@ const FloatingSuggestionIcon = () => {
   const handleOpenChat = () => {
     if (typeof window === "undefined") return;
 
-    const openChatWidget = (window as Window & { openLiveChatWidget?: () => void }).openLiveChatWidget;
-    if (typeof openChatWidget === "function") {
-      openChatWidget();
+    const widgetApi = (window as Window & {
+      openLiveChatWidget?: () => void;
+      launchLiveChat?: () => void;
+      LC_API?: { open?: () => void };
+    });
+
+    if (typeof widgetApi.openLiveChatWidget === "function") {
+      widgetApi.openLiveChatWidget();
+      return;
+    }
+
+    if (typeof widgetApi.launchLiveChat === "function") {
+      widgetApi.launchLiveChat();
+      return;
+    }
+
+    if (typeof widgetApi.LC_API?.open === "function") {
+      widgetApi.LC_API.open();
       return;
     }
 
     window.open(
-      "https://swahilipot.jengasol.co.ke/im_livechat/loader/1",
+      "https://erp.swahilipothub.co.ke/im_livechat/loader/1",
       "_blank",
       "noopener,noreferrer",
     );
