@@ -4,11 +4,11 @@ const FloatingSuggestionIcon = () => {
   const handleOpenChat = () => {
     if (typeof window === "undefined") return;
 
-    const widgetApi = (window as Window & {
+    const widgetApi = window as Window & {
       openLiveChatWidget?: () => void;
       launchLiveChat?: () => void;
       LC_API?: { open?: () => void };
-    });
+    };
 
     if (typeof widgetApi.openLiveChatWidget === "function") {
       widgetApi.openLiveChatWidget();
