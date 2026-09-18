@@ -57,12 +57,17 @@ const LiveChatLoader = () => {
     if (loadedRef.current) return;
     loadedRef.current = true;
 
-    const scripts = [
+    const scriptUrls = [
       "https://swahilipot.jengasol.co.ke/im_livechat/loader/1",
       "https://swahilipot.jengasol.co.ke/im_livechat/assets_embed.js",
     ];
 
-    scripts.forEach((src) => {
+    const hasLoaded = (window as Window & { __swahilipotLiveChatLoaded__?: boolean })
+      .__swahilipotLiveChatLoaded__;
+
+    if (hasLoaded) return;
+
+    scriptUrls.forEach((src) => {
       const existingScript = document.querySelector(`script[src="${src}"]`);
       if (existingScript) return;
 
@@ -73,6 +78,8 @@ const LiveChatLoader = () => {
       script.type = "text/javascript";
       document.body.appendChild(script);
     });
+
+    (window as Window & { __swahilipotLiveChatLoaded__?: boolean }).__swahilipotLiveChatLoaded__ = true;
   }, []);
 
   return null;
