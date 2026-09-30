@@ -6,6 +6,7 @@ const Partners = () => {
     { id: 4, name: "ICT Authority", logo: "/images/logos/ICT.png" },
     { id: 5, name: "Mastercard Foundation", logo: "/images/logos/MCF.png" },
     { id: 6, name: "", logo: "/images/logos/imf.png" },
+    { id: 7, name: "", logo: "/images/logos/conradhiltonfoundation.png" },
   ];
 
   // Repeat the list so a single "block" is always wider than the viewport,
@@ -56,7 +57,7 @@ const Partners = () => {
               <div className="text-center">
                 {partner.logo ? (
                   <>
-                    <div className="w-32 h-20 mx-auto mb-3 flex items-center justify-center">
+                    <div className={`${partner.id === 7 ? "w-40 h-24" : "w-32 h-20"} mx-auto mb-3 flex items-center justify-center`}>
                       <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
                     </div>
                   </>
@@ -83,7 +84,7 @@ const Partners = () => {
               <div className="text-center">
                 {partner.logo ? (
                   <>
-                    <div className="w-32 h-20 mx-auto mb-3 flex items-center justify-center">
+                    <div className={`${partner.id === 7 ? "w-40 h-24" : "w-32 h-20"} mx-auto mb-3 flex items-center justify-center`}>
                       <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
                     </div>
                   </>
