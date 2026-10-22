@@ -1,3 +1,4 @@
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Anniversary from "@/components/Anniversary";
@@ -15,6 +16,7 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-grow">
         <Hero />
