@@ -77,6 +77,16 @@ const Hero = () => {
                   <FontAwesomeIcon icon={faCirclePlay} /> Our Story
                 </Link>
               </Button>
+              <Button size="lg" className="bg-[rgb(232,123,53)] hover:bg-[rgb(232,100,30)] text-white px-8 h-12 text-base font-semibold rounded transition-all duration-300 shadow-lg shadow-swahilipot-900/40" asChild>
+                <Link to="/programs" className="flex items-center gap-2">
+                  Get your PGT Ticket <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </Button>
+              <Button size="lg" className="bg-[rgb(232,123,53)] hover:bg-[rgb(232,100,30)] text-white px-8 h-12 text-base font-semibold rounded transition-all duration-300 shadow-lg shadow-swahilipot-900/40" asChild>
+                <Link to="/programs" className="flex items-center gap-2">
+                  Get your PIW Ticket <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </Button>
             </div>
 
             {/* Mission & Vision */}
