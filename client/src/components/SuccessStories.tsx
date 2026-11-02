@@ -20,7 +20,7 @@ const featured = {
   story:
     "From Rabai Kisurutini, Kilifi County, John Washe Tsuma joined the V2T Mentorship Program after facing prolonged unemployment and uncertainty about his future. Through mentorship, he developed essential employability skills, including CV writing, interview preparation, professional communication, and confidence building, which empowered him to proactively pursue opportunities. Today, John is employed at Coca-Cola Coastal Bottlers, has achieved financial independence, supports his family, and actively mentors and mobilizes other young people in his community to embrace mentorship, build their skills, and believe in their potential.",
   outcome: "Employed at Coca-Cola Coastal Bottlers",
-  image: "/images/success-stories/JOHN%20WASHE.jpeg",
+  image: "/images/success-stories/JOHN%20WASHE.webp",
 };
 
 const stories = [
@@ -37,7 +37,7 @@ const stories = [
       "Edgar grew up carrying low self-esteem and deep uncertainty about his own worth. He joined the V2T mentorship program scared, but made one quiet, courageous decision — he kept showing up. Week after week, in group sessions and one-on-one meetings with his mentor Collins, he gave his first speech with a trembling voice, drew his life on paper, and heard others say they understood. Today he speaks with confidence, leads with purpose, and carries a clear sense of who he is.",
     stat: "V2T Mentorship Program Graduate",
     statBg: "bg-orange-50 text-orange-700",
-    image: "/images/success-stories/edgar.jpg",
+    image: "/images/success-stories/edgar.webp",
   },
   {
     name: "Rachael Katuku",
@@ -52,7 +52,7 @@ const stories = [
       "A single mother from Zimmerman, Nairobi, Rachael joined the V2T Mentorship Program while running a small barber shop that barely provided enough to support her family. Through mentorship, entrepreneurship training, and a business grant, she gained the skills, confidence, and resources to grow her enterprise. Today her barber shop provides a stable income and employs two young people.",
     stat: "Business grown \u00b7 2 young people employed",
     statBg: "bg-teal-50 text-teal-700",
-    image: "/images/success-stories/rachael%20katuku.jpeg",
+    image: "/images/success-stories/rachael%20katuku.webp",
   },
   {
     name: "Nahya Yahya Abdalla",
@@ -67,7 +67,7 @@ const stories = [
       "From Kilifi County, Nahya joined the V2T Mentorship Program after enduring emotional and physical abuse in her marriage. Through mentorship, she rebuilt her confidence, rediscovered her self-worth, and realized that everyone deserves to be treated with dignity and respect. Today she is pursuing her education, rebuilding her life with courage and independence, and inspiring other young women to choose safety, healing, and hope over silence and fear.",
     stat: "Pursuing education · Inspiring other young women",
     statBg: "bg-purple-50 text-purple-700",
-    image: "/images/success-stories/Nahiya%20Yahya%20.jpg.jpeg",
+    image: "/images/success-stories/Nahiya%20Yahya%20.jpg.webp",
     imagePosition: "50% 22%",
   },
 ];
@@ -108,7 +108,7 @@ const SuccessStories = () => {
                 alt={featured.name}
                 className="absolute inset-0 w-full h-full object-cover object-[50%_20%]"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
+                  (e.target as HTMLImageElement).src = "/img/communityspace.webp";
                 }}
               />
               {/* Gradient scrim for the quote overlay on mobile */}
@@ -186,7 +186,7 @@ const SuccessStories = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   style={{ objectPosition: s.imagePosition ?? "center" }}
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
+                    (e.target as HTMLImageElement).src = "/img/communityspace.webp";
                   }}
                 />
                 <div className="absolute inset-0 bg-gray-900/50" />

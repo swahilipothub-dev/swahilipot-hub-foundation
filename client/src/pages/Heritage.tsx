@@ -53,7 +53,7 @@ const Heritage = () => {
 
         {/* Quote */}
         <section className="relative border-t border-gray-200 py-24 overflow-hidden">
-          <img src="/img/general-people/image17.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image17.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/85" />
           <div className="relative container-custom">
             <div className="max-w-4xl mx-auto text-center" data-ht>
@@ -89,7 +89,7 @@ const Heritage = () => {
 
         {/* Image break */}
         <section className="relative border-t border-gray-200 h-72 md:h-[460px] overflow-hidden" data-ht>
-          <img src="/img/general-people/image18.jpeg" alt="Heritage youth workshop" className="w-full h-full object-cover" style={{ objectPosition: "center 40%" }} />
+          <img src="/img/general-people/image18.webp" alt="Heritage youth workshop" className="w-full h-full object-cover" style={{ objectPosition: "center 40%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/55 flex items-end">
             <div className="container-custom pb-10 md:pb-14">
               <p className="text-amber-400 text-xs font-black uppercase tracking-[0.35em] mb-3">Youth & Heritage</p>
@@ -100,7 +100,7 @@ const Heritage = () => {
 
         {/* S2 */}
         <section className="relative border-t border-gray-200 py-24 md:py-32 overflow-hidden">
-          <img src="/img/general-people/ornaments.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/ornaments.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-gray-50/70" />
           <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>

@@ -26,7 +26,7 @@ const successStories = [
     quote: "Small beginnings should never define your future. With the right support, skills, and determination, you can build a business that transforms your life and inspires others to dream bigger.",
     title: "From a Few Items to a Thriving Fashion Business",
     story: "Driven by a passion for business and financial independence, a young entrepreneur from Likoni Sub-county transformed her small ladies' fashion business through the Vijana2Thrive (V2T) program implemented by Swahilipot Hub Foundation. Before joining the program, limited capital and business management skills meant she could only stock a few items, making it difficult to meet customer demand and grow her income. Through V2T's entrepreneurship training, mentorship, and financial management sessions, she gained practical skills to strengthen her business and build confidence as an entrepreneur. A business grant enabled her to expand her stock, diversify her products, and improve the quality of her business, resulting in increased sales, a growing customer base, and more stable income. Today, she is able to support herself, contribute to her family, and save towards expanding her business while inspiring other young women in Likoni to pursue entrepreneurship with confidence and determination.",
-    image: "/img/success-stories/story-1.jpg",
+    image: "/img/success-stories/story-1.webp",
   },
   {
     name: "Zahra Stanley",
@@ -34,7 +34,7 @@ const successStories = [
     quote: "Never let a setback define your future. With the right support, skills, and determination, you can rebuild your business, regain your confidence, and create the life you deserve.",
     title: "Turning Setbacks into Stepping Stones",
     story: "At 32 years old, Zahra Stanley, a mentee under Fatma Yahya (Cohort 3), turned a period of uncertainty into a story of resilience and growth through the Vijana2Thrive (V2T) Mentorship Programme. After her beauty and fashion business struggled and she lost hope, V2T equipped her with practical skills in entrepreneurship, financial management, and marketing, alongside entrepreneurship support that helped her restock, diversify her products, and expand her customer base. Today, Zahra runs a thriving business with renewed confidence and is inspiring other young people to believe that setbacks can become stepping stones to success.",
-    image: "/img/success-stories/zahra-stanley.jpg",
+    image: "/img/success-stories/zahra-stanley.webp",
   },
   {
     name: "Faith Muthoni",
@@ -42,7 +42,7 @@ const successStories = [
     quote: "Mentorship helped me see that my story is not just about surviving it's about growing, believing in myself, and creating opportunities for others. Every small step I took became the foundation for a better future.",
     title: "From Surviving to Thriving — and Mentoring Others",
     story: "Faith Muthoni's journey is a testament to the power of resilience, mentorship, and determination. Faced with the challenges of single motherhood and financial hardship, she started a modest food vending business to provide for her children. Through the Case Management Mentorship Program, Faith gained confidence, strengthened her entrepreneurial skills, embraced a culture of saving, and steadily expanded her business from selling snacks to offering a wider range of products. Today, she is not only a thriving entrepreneur but also a community leader who mentors other young people and has helped several of them start their own businesses, proving that empowerment grows when it is shared.",
-    image: "/img/success-stories/story-3.jpg",
+    image: "/img/success-stories/story-3.webp",
   },
   {
     name: "Michael Safari",
@@ -50,7 +50,7 @@ const successStories = [
     quote: "Your current situation does not have to determine your future. Seek support, believe in your ability to change, and never give up on yourself.",
     title: "From Addiction to Advocacy",
     story: "From Vipingo, Kilifi County, Michael Safari transformed his life from battling Muguka addiction to becoming a respected peer educator and youth advocate. After participating in a drug and substance abuse awareness program under the Vipingo Youth Empowerment Initiative (VYEI), he overcame addiction, embraced recovery, and dedicated himself to helping other young people make informed choices. Today, Michael leads peer education initiatives, mentors youth across Vipingo and Junju, and uses his story to prove that with the right support, resilience, and opportunity, lasting transformation is possible.",
-    image: "/img/success-stories/story-4.jpg",
+    image: "/img/success-stories/story-4.webp",
   },
   {
     name: "Hidaya Dena",
@@ -58,7 +58,7 @@ const successStories = [
     quote: "I realized that my voice matters, my experiences have value, and confidence begins the moment you choose to believe in yourself.",
     title: "Finding Her Voice Through Mentorship",
     story: "From Rabai Sub-County, Kilifi County, Hidaya Dena joined the V2T Mentorship Program lacking confidence and unsure of her future. Through mentorship, storytelling, leadership activities, and critical thinking sessions, she found her voice, built self-confidence, and developed the courage to step into leadership. Today, she serves as a Youth Advisory Group (YAG) member under the V2T Program, representing youth voices, supporting community initiatives, and inspiring other young women to embrace opportunities, believe in themselves, and lead with confidence.",
-    image: "/img/success-stories/story-5.jpg",
+    image: "/img/success-stories/story-5.webp",
   },
   {
     name: "Dimples Owuor",
@@ -74,7 +74,7 @@ const successStories = [
     quote: "Put God first in everything you do. Women are capable of earning their own income and supporting their families. Don't be afraid to work hard and pursue opportunities that can change your life.",
     title: "Stepping Into Confidence, One Business at a Time",
     story: "At 32 years old, Martha Musungu from Westlands Sub-county has transformed her life from struggling to meet her family's basic needs to becoming a confident entrepreneur. Through the Vijana2Thrive (V2T) Mentorship Programme, she gained practical business skills, shifted her mindset about women's economic empowerment, and launched a successful Crocs footwear business that now enables her to provide regular meals, pay her children's school fees, and support her family with dignity. Today, Martha is an inspiration to other women, proving that with the right support, determination, and opportunity, lasting change is possible.",
-    image: "/img/success-stories/story-7.jpg",
+    image: "/img/success-stories/story-7.webp",
   },
   {
     name: "Charity Bosibori",
@@ -82,7 +82,7 @@ const successStories = [
     quote: "Your background does not disqualify you. No matter where you come from or what you've been through, you have the strength to rise, lead, and create a better future for yourself.",
     title: "Leading Through Adversity",
     story: "Charity Bosibori's story is one of resilience, courage, and unwavering determination. After losing her mother at a young age, she found herself caring for her grieving father and brother while taking on the responsibility of providing for her family through casual jobs. Seeking hope and direction, she joined the Vijana2Thrive (V2T) Mentorship Programme, where she developed leadership, communication, and life skills that transformed her confidence and outlook. Today, Charity is no longer defined by the hardships she has endured but by the strength with which she leads, inspiring others to believe that difficult circumstances do not determine their future.",
-    image: "/img/success-stories/story-8.jpg",
+    image: "/img/success-stories/story-8.webp",
   },
   {
     name: "Patricia Ngaira",
@@ -90,7 +90,7 @@ const successStories = [
     quote: "The mentorship sessions gave me the confidence to speak about my dreams. When I finally shared my desire to continue my studies with my husband, he fully supported me. Today, I am pursuing tailoring skills and looking forward to a brighter future for myself and my family.",
     title: "Speaking Her Dreams Into Reality",
     story: "Patricia Ngaira's journey is a powerful testament to the life-changing impact of mentorship. Having grown up in a challenging family environment, she struggled with self-confidence and kept her dream of furthering her education to herself, fearing she would not receive support. Through the Vijana2Thrive (V2T) Mentorship Programme, Patricia gained the confidence to believe in her aspirations and openly discuss them with her husband, who wholeheartedly encouraged her to pursue them. Today, she is undertaking a tailoring apprenticeship, equipping herself with practical skills that will help her achieve economic independence and create a better future for her family. Patricia's story inspires other women to believe in themselves, speak up for their dreams, and embrace opportunities for growth.",
-    image: "/img/success-stories/story-9.jpg",
+    image: "/img/success-stories/story-9.webp",
   },
 ];
 
@@ -119,7 +119,7 @@ const Impact = () => {
           label="Our Impact"
           title="Proof that investing in youth pays off."
           subtitle="Five years of measurable transformation across East Africa — and a model built to scale with the right partners."
-          image="/img/general-people/image11.jpeg"
+          image="/img/general-people/image11.webp"
           breadcrumb={[{ label: "Home", to: "/" }, { label: "Impact" }]}
         />
         <MarqueeStrip items={["67,000 Youth Connected", "59,700 Youth Improved", "25,400 Youth Transformed", "11,120 Youth Employed", "10 Years of Impact"]} />
@@ -152,7 +152,7 @@ const Impact = () => {
 
         {/* Quote */}
         <section className="relative py-24 overflow-hidden">
-          <img src="/img/general-people/image14.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image14.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/80" />
           <div className="relative container-custom">
             <div className="max-w-4xl mx-auto text-center" data-ht>
@@ -189,7 +189,7 @@ const Impact = () => {
                   title: "Opportunity Youth Connected",
                   subtitle: "Reached and Engaged",
                   description: "Opportunity Youth (OY) reached and engaged through outreach and awareness activities, including social media, community events, workshops, seminars, forums, and program registrations.",
-                  image: "/img/general-people/image22.jpeg",
+                  image: "/img/general-people/image22.webp",
                   overlay: "bg-swahilipot-900/75",
                 },
                 {
@@ -198,7 +198,7 @@ const Impact = () => {
                   title: "Opportunity Youth Improved",
                   subtitle: "Skills and Capacity",
                   description: "Opportunity Youth (OY) who actively participated in our programs, resulting in enhanced knowledge, skills, confidence, networks, or readiness for employment and entrepreneurship.",
-                  image: "/img/general-people/image20.jpeg",
+                  image: "/img/general-people/image20.webp",
                   overlay: "bg-swahilipot-900/75",
                 },
                 {
@@ -207,7 +207,7 @@ const Impact = () => {
                   title: "Opportunity Youth Transformed",
                   subtitle: "Sustainable Livelihoods",
                   description: "Opportunity Youth (OY) who achieved sustainable livelihood outcomes — paid internships, dignified employment, improved wages or working conditions, or income-generating businesses.",
-                  image: "/img/general-people/image7.jpeg",
+                  image: "/img/general-people/image7.webp",
                   overlay: "bg-swahilipot-900/75",
                 },
               ].map((card, i) => (
@@ -277,7 +277,7 @@ const Impact = () => {
                       alt={story.name}
                       className="absolute inset-0 w-full h-full object-cover"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
+                        (e.target as HTMLImageElement).src = "/img/communityspace.webp";
                       }}
                     />
                   </div>

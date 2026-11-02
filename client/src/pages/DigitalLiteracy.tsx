@@ -10,7 +10,7 @@ const DigitalLiteracy = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="Digital Literacy" subtitle="Equipping youth with practical computer, internet, data, and introductory AI skills aligned with real-world needs — bridging the digital divide." image="/img/general-people/image14.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Digital Literacy" }]} accentColor="bg-blue-600 text-white" />
+        <PageHero label="Program" title="Digital Literacy" subtitle="Equipping youth with practical computer, internet, data, and introductory AI skills aligned with real-world needs — bridging the digital divide." image="/img/general-people/image14.webp" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Digital Literacy" }]} accentColor="bg-blue-600 text-white" />
         <MarqueeStrip items={["Digital Skills", "Internet Literacy", "Data Basics", "AI Introduction", "Digital Boat", "DigiKen"]} bg="bg-blue-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">
@@ -48,7 +48,7 @@ const DigitalLiteracy = () => {
         </section>
 
         <section className="relative py-24 overflow-hidden">
-          <img src="/img/general-people/image13.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image13.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/80" />
           <div className="relative container-custom">
             <div className="max-w-4xl mx-auto text-center" data-ht>
@@ -81,7 +81,7 @@ const DigitalLiteracy = () => {
         </section>
 
         <section className="relative py-24 md:py-32 overflow-hidden">
-          <img src="/img/general-people/image5.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image5.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-gray-50/70" />
           <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>

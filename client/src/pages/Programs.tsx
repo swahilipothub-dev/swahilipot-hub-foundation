@@ -125,7 +125,7 @@ const Programs = () => {
           label="Our Programs"
           title="Skills, spaces, and pathways to thrive."
           subtitle="Six commitment areas connecting young people to skills, expression, heritage, enterprise, opportunity, and community voice."
-          image="/img/general-people/image9.jpeg"
+          image="/img/general-people/image9.webp"
           imagePosition="center 35%"
           breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs" }]}
         />

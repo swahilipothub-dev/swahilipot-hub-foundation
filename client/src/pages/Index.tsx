@@ -31,7 +31,7 @@ const Index = () => {
               aria-hidden
             >
               <img
-                src="/img/programs/image4.jpg"
+                src="/img/programs/image4.webp"
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover"
               />

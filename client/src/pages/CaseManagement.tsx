@@ -10,7 +10,7 @@ const CaseManagement = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="Case Management" subtitle="Personalized support that walks with youth through every challenge, every step of the way." image="/img/general-people/image20.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Case Management" }]} />
+        <PageHero label="Program" title="Case Management" subtitle="Personalized support that walks with youth through every challenge, every step of the way." image="/img/general-people/image20.webp" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Case Management" }]} />
         <MarqueeStrip items={["Personalized Support", "Youth Guidance", "Case Management", "Holistic Care", "Mentorship"]} />
 
         {/* S1 */}
@@ -31,7 +31,7 @@ const CaseManagement = () => {
                   <p>Case managers follow up regularly, adapt plans as circumstances change, and ensure every youth has a consistent, trusted point of contact throughout their journey with us.</p>
                 </div>
                 <div className="mt-10 relative rounded-2xl overflow-hidden heritage-card" data-ht-left data-ht-d="3">
-                  <img src="/img/general-people/image9.jpeg" alt="Case management session" className="w-full h-64 object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/img/communityspace.jpg"; }} />
+                  <img src="/img/general-people/image9.webp" alt="Case management session" className="w-full h-64 object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/img/communityspace.webp"; }} />
                   <div className="absolute inset-0 bg-swahilipot-900/40" />
                   <span className="absolute bottom-4 left-4 bg-swahilipot-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">One-on-one sessions</span>
                 </div>
@@ -55,7 +55,7 @@ const CaseManagement = () => {
 
         {/* Quote */}
         <section className="relative py-24 overflow-hidden">
-          <img src="/img/case-management/img00.jpg" alt="" onError={(e) => { (e.target as HTMLImageElement).src = "/img/communityspace.jpg"; }} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/case-management/img00.webp" alt="" onError={(e) => { (e.target as HTMLImageElement).src = "/img/communityspace.webp"; }} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/80" />
           <div className="relative container-custom">
             <div className="max-w-4xl mx-auto text-center" data-ht>
@@ -90,7 +90,7 @@ const CaseManagement = () => {
 
         {/* S2 */}
         <section className="relative py-24 md:py-32 overflow-hidden">
-          <img src="/img/general-people/image15.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image15.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-gray-50/70" />
           <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>

@@ -47,7 +47,7 @@ const Footer = () => {
             {/* Brand */}
             <div>
               <Link to="/" className="inline-block mb-5">
-                <img src="/sph-logo-inverted.png" alt="Swahilipot Hub Logo" width={160} />
+                <img src="/sph-logo-inverted.webp" alt="Swahilipot Hub Logo" width={160} />
               </Link>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
                 Empowering youth through technology, arts, and entrepreneurship across East Africa.

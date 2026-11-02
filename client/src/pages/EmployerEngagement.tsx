@@ -73,7 +73,7 @@ const EmployerEngagement = () => {
               <div className="relative reveal reveal-right" data-reveal>
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden reveal-img" data-reveal>
                   <LazyImage
-                    src="/img/capmus-ambassadors.jpg"
+                    src="/img/capmus-ambassadors.webp"
                     alt="Employer engagement session"
                     className="w-full h-full object-cover"
                   />

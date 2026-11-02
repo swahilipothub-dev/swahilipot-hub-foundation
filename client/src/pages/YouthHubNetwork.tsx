@@ -10,7 +10,7 @@ const YouthHubNetwork = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="Youth Hub Network" subtitle="Connecting youth across the region through a growing network of innovation hubs, community spaces, and shared opportunities." image="/img/communityspace.jpg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Youth Hub Network" }]} accentColor="bg-green-500 text-white" />
+        <PageHero label="Program" title="Youth Hub Network" subtitle="Connecting youth across the region through a growing network of innovation hubs, community spaces, and shared opportunities." image="/img/communityspace.webp" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Youth Hub Network" }]} accentColor="bg-green-500 text-white" />
         <MarqueeStrip items={["Community Spaces", "Regional Network", "Youth Connection", "Innovation Hubs", "Collaboration"]} bg="bg-green-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">

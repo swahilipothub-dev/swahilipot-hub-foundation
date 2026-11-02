@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faLinkedinIn, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const teamMembers = [
-  { id: 1, name: "Mahmoud Noor", role: "Chief Mentor", image: "/img/team/kpr.jpg", social: { twitter: "#", linkedin: "#", facebook: "#" } },
-  { id: 2, name: "Atrash Mohammed", role: "Chief Operating Officer", image: "/img/team/atrash.jpg", social: { twitter: "#", linkedin: "#", facebook: "#" } },
-  { id: 3, name: "Jacqueline Kiplangat", role: "Executive Associate", image: "/img/team/kiplangat.jpg", social: { twitter: "#", linkedin: "#", facebook: "#" } },
+  { id: 1, name: "Mahmoud Noor", role: "Chief Mentor", image: "/img/team/kpr.webp", social: { twitter: "#", linkedin: "#", facebook: "#" } },
+  { id: 2, name: "Atrash Mohammed", role: "Chief Operating Officer", image: "/img/team/atrash.webp", social: { twitter: "#", linkedin: "#", facebook: "#" } },
+  { id: 3, name: "Jacqueline Kiplangat", role: "Executive Associate", image: "/img/team/kiplangat.webp", social: { twitter: "#", linkedin: "#", facebook: "#" } },
 ];
 
 const Team = () => {
