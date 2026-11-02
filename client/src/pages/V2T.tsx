@@ -10,7 +10,7 @@ const V2T = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Program" title="V2T" subtitle="Vijana2Thrive — connecting youth with transformative opportunities through technology, mentorship, and enterprise development." image="/img/general-people/image12.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "V2T" }]} accentColor="bg-teal-500 text-white" />
+        <PageHero label="Program" title="V2T" subtitle="Vijana2Thrive — connecting youth with transformative opportunities through technology, mentorship, and enterprise development." image="/img/general-people/image12.webp" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "V2T" }]} accentColor="bg-teal-500 text-white" />
         <MarqueeStrip items={["Vijana", "Thrive", "Innovation", "Enterprise", "Mentorship", "Technology"]} bg="bg-teal-600" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">
@@ -80,7 +80,7 @@ const V2T = () => {
 
         {/* Image break */}
         <section className="relative h-72 md:h-[460px] overflow-hidden" data-ht>
-          <img src="/img/general-people/image12.jpeg" alt="V2T youth in action" className="w-full h-full object-cover" style={{ objectPosition: "center 35%" }} />
+          <img src="/img/general-people/image12.webp" alt="V2T youth in action" className="w-full h-full object-cover" style={{ objectPosition: "center 35%" }} />
           <div className="absolute inset-0 bg-swahilipot-950/55 flex items-end">
             <div className="container-custom pb-10 md:pb-14">
               <p className="text-teal-400 text-xs font-black uppercase tracking-[0.35em] mb-3">Vijana To Thrive</p>

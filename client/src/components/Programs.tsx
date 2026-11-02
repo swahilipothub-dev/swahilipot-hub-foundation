@@ -11,7 +11,7 @@ const programs = [
     status: "Open now",
     ages: "Ages 18–35",
     link: "/department/creatives",
-    image: "/img/general-people/image4.jpeg",
+    image: "/img/general-people/image4.webp",
     overlay: "bg-swahilipot-900/70",
     dotColor: "bg-swahilipot-600",
     categoryColor: "text-swahilipot-600",
@@ -26,7 +26,7 @@ const programs = [
     status: "Open enrollment",
     ages: "Ages 18–35",
     link: "/programs/case-management",
-    image: "/img/general-people/image5.jpeg",
+    image: "/img/general-people/image5.webp",
     overlay: "bg-swahilipot-900/70",
     dotColor: "bg-swahilipot-500",
     categoryColor: "text-swahilipot-600",
@@ -41,7 +41,7 @@ const programs = [
     status: "Open now",
     ages: "Ages 18–35",
     link: "/programs/v2t",
-    image: "/img/general-people/image6.jpeg",
+    image: "/img/general-people/image6.webp",
     overlay: "bg-swahilipot-900/70",
     dotColor: "bg-swahilipot-600",
     categoryColor: "text-swahilipot-600",
@@ -56,7 +56,7 @@ const programs = [
     status: "Open now",
     ages: "Ages 18–35",
     link: "/programs",
-    image: "/img/communityspace.jpg",
+    image: "/img/communityspace.webp",
     overlay: "from-swahilipot-900/80 to-swahilipot-700/50",
     dotColor: "bg-swahilipot-600",
     categoryColor: "text-swahilipot-600",
@@ -71,7 +71,7 @@ const programs = [
     status: "Open enrollment",
     ages: "Ages 18–35",
     link: "/programs",
-    image: "/img/team/atrash.jpg",
+    image: "/img/team/atrash.webp",
     overlay: "from-swahilipot-900/80 to-swahilipot-700/50",
     dotColor: "bg-swahilipot-600",
     categoryColor: "text-swahilipot-600",
@@ -137,7 +137,7 @@ const Programs = () => {
                   alt={program.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/img/communityspace.jpg";
+                    (e.target as HTMLImageElement).src = "/img/communityspace.webp";
                   }}
                 />
                 {/* Color overlay */}

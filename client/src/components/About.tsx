@@ -75,7 +75,7 @@ const About = () => {
                 alt="Youth at Swahilipot"
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/img/team-1.jpg";
+                  (e.target as HTMLImageElement).src = "/img/team-1.webp";
                 }}
               />
             </div>
@@ -92,7 +92,7 @@ const About = () => {
               }}
             >
               <img
-                src="/img/communityspace.jpg"
+                src="/img/communityspace.webp"
                 alt="Swahilipot community space"
                 className="w-full h-full object-cover"
                 style={{ filter: "grayscale(40%) brightness(0.85)" }}

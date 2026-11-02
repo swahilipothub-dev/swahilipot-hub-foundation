@@ -203,7 +203,7 @@ const Events = () => {
                   
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                     <img
-                      src="/images/logos/pgt2026.jpeg"
+                      src="/images/logos/pgt2026.webp"
                       alt="Pwani Gat Talent Event"
                       className="w-full h-96 md:h-full object-cover hover:scale-110 transition-transform duration-500"
                     />

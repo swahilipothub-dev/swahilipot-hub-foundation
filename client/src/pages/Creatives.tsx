@@ -10,7 +10,7 @@ const Creatives = () => {
     <>
       <Navbar />
       <main>
-        <PageHero label="Department" title="Creatives" subtitle="A vibrant collective of artists, musicians, filmmakers, and designers pushing the boundaries of creative expression in East Africa." image="/img/general-people/image6.jpeg" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Creatives" }]} accentColor="bg-orange-500 text-white" />
+        <PageHero label="Department" title="Creatives" subtitle="A vibrant collective of artists, musicians, filmmakers, and designers pushing the boundaries of creative expression in East Africa." image="/img/general-people/image6.webp" breadcrumb={[{ label: "Home", to: "/" }, { label: "Programs", to: "/programs" }, { label: "Creatives" }]} accentColor="bg-orange-500 text-white" />
         <MarqueeStrip items={["Visual Arts", "Music Production", "Film & Photography", "Performing Arts", "Creative Expression"]} bg="bg-orange-500" text="text-white" />
 
         <section className="bg-white py-24 md:py-32">
@@ -48,7 +48,7 @@ const Creatives = () => {
         </section>
 
         <section className="relative py-24 overflow-hidden">
-          <img src="/img/general-people/image7.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image7.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-gray-900/80" />
           <div className="relative container-custom">
             <div className="max-w-4xl mx-auto text-center" data-ht>
@@ -81,7 +81,7 @@ const Creatives = () => {
         </section>
 
         <section className="relative py-24 md:py-32 overflow-hidden">
-          <img src="/img/general-people/image8.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+          <img src="/img/general-people/image8.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute inset-0 bg-gray-50/70" />
           <div className="relative container-custom">
             <div className="flex items-center gap-5 mb-16" data-ht-right>

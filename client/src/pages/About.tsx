@@ -84,7 +84,7 @@ const About = () => {
           label="About Us"
           title="A decade of empowering coastal youth."
           subtitle="From a community hub in Mombasa to a nationally recognised NGO — our story is rooted in partnership, innovation, and youth potential."
-          image="/img/general-people/image2.jpeg"
+          image="/img/general-people/image2.webp"
           imagePosition="center 30%"
           breadcrumb={[{ label: "Home", to: "/" }, { label: "About Us" }]}
           sideLabel="Swahilipot Hub · About"
@@ -159,7 +159,7 @@ const About = () => {
               <div className="relative" data-ht-right>
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white p-2 md:p-3">
                   <img
-                    src="/images/logos/history.PNG"
+                    src="/images/logos/history.webp"
                     alt="Swahilipot Hub founding history — 2016 SEACOM and National Museums of Kenya partnership, community launch, and the Swahili Pot Hub entrance in Mombasa"
                     className="w-full h-auto rounded-xl"
                   />
@@ -178,7 +178,7 @@ const About = () => {
         {/* History image break */}
         <section className="relative border-t border-gray-200 h-64 md:h-80 overflow-hidden" data-ht>
           <img
-            src="/images/logos/history.PNG"
+            src="/images/logos/history.webp"
             alt=""
             aria-hidden
             className="w-full h-full object-cover object-[center_35%]"
@@ -265,7 +265,7 @@ const About = () => {
 
         {/* Timeline */}
         <section className="relative py-16 md:py-24 overflow-hidden">
-          <img src="/img/general-people/image14.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover blur-[2px] scale-105" style={{ objectPosition: "center 35%" }} />
+          <img src="/img/general-people/image14.webp" alt="" className="absolute inset-0 w-full h-full object-cover blur-[2px] scale-105" style={{ objectPosition: "center 35%" }} />
           <div className="absolute inset-0 bg-slate-50/92" />
           <div className="container-custom relative z-10">
             <div className="text-center mb-14">

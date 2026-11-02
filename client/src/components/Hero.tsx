@@ -5,11 +5,11 @@ import { faArrowRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const heroSlides = [
-  "/img/theatre.jpg",
-  "/img/general-people/image5.jpeg",
-  "/img/general-people/image7.jpeg",
-  "/img/general-people/image17.jpeg",
-  "/img/general-people/image19.jpeg",
+  "/img/theatre.webp",
+  "/img/general-people/image5.webp",
+  "/img/general-people/image7.webp",
+  "/img/general-people/image17.webp",
+  "/img/general-people/image19.webp",
 ];
 
 const SLIDE_DURATION = 6000;

@@ -82,7 +82,7 @@ const TourismInnovationLab = () => {
               <div className="relative order-1 md:order-2 reveal reveal-right" data-reveal>
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden reveal-img" data-reveal>
                   <img
-                    src="/img/tourism/Image1.jpeg"
+                    src="/img/tourism/Image1.webp"
                     alt="Mombasa Tourism Innovation"
                     className="w-full h-full object-cover"
                   />

@@ -382,16 +382,16 @@ const Anniversary = () => {
   ];
 
   const youthGallery = [
-    "/img/general-people/image2.jpeg",
-    "/img/general-people/image5.jpeg",
-    "/img/general-people/image7.jpeg",
-    "/img/general-people/image9.jpeg",
-    "/img/general-people/image11.jpeg",
-    "/img/general-people/image13.jpeg",
-    "/img/general-people/image16.jpeg",
-    "/img/general-people/image17.jpeg",
-    "/img/general-people/image19.jpeg",
-    "/img/general-people/image21.jpeg",
+    "/img/general-people/image2.webp",
+    "/img/general-people/image5.webp",
+    "/img/general-people/image7.webp",
+    "/img/general-people/image9.webp",
+    "/img/general-people/image11.webp",
+    "/img/general-people/image13.webp",
+    "/img/general-people/image16.webp",
+    "/img/general-people/image17.webp",
+    "/img/general-people/image19.webp",
+    "/img/general-people/image21.webp",
   ];
 
   const timeline = [

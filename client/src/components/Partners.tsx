@@ -1,12 +1,12 @@
 const Partners = () => {
   const partners = [
-    { id: 1, name: "National Museums of Kenya", logo: "/images/logos/NMK.png" },
-    { id: 2, name: "Seacom", logo: "/images/logos/seacom-logo.png" },
+    { id: 1, name: "National Museums of Kenya", logo: "/images/logos/NMK.webp" },
+    { id: 2, name: "Seacom", logo: "/images/logos/seacom-logo.webp" },
     { id: 3, name: "Konza Technopolis", logo: "/images/logos/Konza.png" },
-    { id: 4, name: "ICT Authority", logo: "/images/logos/ICT.png" },
-    { id: 5, name: "Mastercard Foundation", logo: "/images/logos/MCF.png" },
-    { id: 6, name: "", logo: "/images/logos/imf.png" },
-    { id: 7, name: "", logo: "/images/logos/conradhiltonfoundation.png" },
+    { id: 4, name: "ICT Authority", logo: "/images/logos/ICT.webp" },
+    { id: 5, name: "Mastercard Foundation", logo: "/images/logos/MCF.webp" },
+    { id: 6, name: "", logo: "/images/logos/imf.webp" },
+    { id: 7, name: "", logo: "/images/logos/conradhiltonfoundation.webp" },
   ];
 
   // Repeat the list so a single "block" is always wider than the viewport,
